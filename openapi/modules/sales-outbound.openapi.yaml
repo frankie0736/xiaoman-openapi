@@ -1,0 +1,2202 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 销售出库单 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 销售出库单.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 销售出库单
+  x-module-slug: sales-outbound
+paths:
+  /v1/invoices/outbound/list:
+    get:
+      summary: 销售出库单列表
+      deprecated: false
+      description: ''
+      tags:
+      - 销售出库单
+      - s7.1
+      parameters:
+      - name: start_time
+        in: query
+        description: 创建/更新开始时间
+        required: false
+        example: '2025-05-08 00:00:00'
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: 创建/更新截止时间
+        required: false
+        example: '2025-05-09 23:59:59'
+        schema:
+          type: string
+      - name: time_type
+        in: query
+        description: 默认值1， 1更新时间，2创建时间
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: 每页数量
+        required: false
+        example: 10
+        schema:
+          type: integer
+      - name: start_index
+        in: query
+        description: 页码
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: removed
+        in: query
+        description: '默认值: 0，设置=1时查询已删除的数据列表'
+        required: false
+        schema:
+          type: integer
+      - name: status
+        in: query
+        description: 销售出库单状态：1-待出库，2-已出库
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      count:
+                        description: 符合筛选条件的记录总数
+                        type: integer
+                        x-apifox-mock: 50
+                      list:
+                        description: 符合筛选条件的记录
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            '3162362610':
+                              description: 销售出库单自定义字段。字段名为 /v1/invoices/outbound/fields 获取到的自定义字段ID
+                              type: string
+                              x-apifox-mock: test content
+                            outbound_invoice_id:
+                              description: 销售出库单ID
+                              type: integer
+                              x-apifox-mock: 3267567129
+                            serial_id:
+                              description: 销售出库单编号
+                              type: string
+                              x-apifox-mock: XSCK2304120054
+                            warehouse_invoice_time:
+                              description: 回款日期
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-04-12 00:00:00'
+                            status:
+                              description: 销售出库单状态：1-待出库，2-已出库
+                              type: integer
+                              x-apifox-mock: 1
+                            remark:
+                              description: 备注
+                              type: string
+                              x-apifox-mock: Invoice remark
+                            create_time:
+                              description: 创建时间
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-01-11 11:53:03'
+                            update_time:
+                              description: 更新时间
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-01-11 11:53:03'
+                            discount:
+                              description: 整单折扣额
+                              type: number
+                              format: float
+                              x-apifox-mock: 21.52
+                            discount_rate:
+                              description: 整单折扣率（%）
+                              type: integer
+                              x-apifox-mock: 22
+                            product_total_amount:
+                              description: 产品总金额（单据币种）
+                              type: number
+                              format: float
+                              x-apifox-mock: 1447.68
+                            product_total_amount_rmb:
+                              description: 产品总金额（CNY）
+                              type: number
+                              format: float
+                              x-apifox-mock: 135.34
+                            product_total_amount_usd:
+                              description: 产品总金额（USD）
+                              type: number
+                              format: float
+                              x-apifox-mock: 20
+                            currency:
+                              description: 币种
+                              type: integer
+                              x-apifox-mock: USD
+                            exchange_rate:
+                              description: 汇率，100单位单据币种（兑CNY）
+                              type: number
+                              format: float
+                              x-apifox-mock: 676.72
+                            exchange_rate_usd:
+                              description: 汇率，100单位单据币种汇率（兑USD）
+                              type: number
+                              format: float
+                              x-apifox-mock: 100
+                            product_total_count:
+                              description: 产品总数量
+                              type: number
+                              format: float
+                              x-apifox-mock: 1447.68
+                            source_type:
+                              description: 出库来源：1-从采购中分配，2-从存货中分配
+                              type: integer
+                              x-apifox-mock: 1
+                            create_user_info:
+                              description: 创建人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 用户ID
+                                  type: integer
+                                  x-apifox-mock: '249518496'
+                                nickname:
+                                  description: 用户名称
+                                  type: string
+                                  x-apifox-mock: test
+                                email:
+                                  description: 邮箱
+                                  type: string
+                                  x-apifox-mock: account@test.test
+                                avatar:
+                                  description: 头像链接
+                                  type: string
+                                  x-apifox-mock: ''
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                              - email
+                              - avatar
+                            update_user_info:
+                              description: 更新人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 用户ID
+                                  type: integer
+                                  x-apifox-mock: '249518496'
+                                nickname:
+                                  description: 用户名称
+                                  type: string
+                                  x-apifox-mock: test
+                                email:
+                                  description: 邮箱
+                                  type: string
+                                  x-apifox-mock: account@test.test
+                                avatar:
+                                  description: 头像链接
+                                  type: string
+                                  x-apifox-mock: ''
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                              - email
+                              - avatar
+                            handler_info:
+                              description: 处理人信息
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  user_id:
+                                    description: 用户ID
+                                    type: integer
+                                    x-apifox-mock: '249518496'
+                                  nickname:
+                                    description: 用户名称
+                                    type: string
+                                    x-apifox-mock: test
+                                  email:
+                                    description: 邮箱
+                                    type: string
+                                    x-apifox-mock: account@test.test
+                                  avatar:
+                                    description: 头像链接
+                                    type: string
+                                    x-apifox-mock: ''
+                                x-apifox-orders:
+                                - user_id
+                                - nickname
+                                - email
+                                - avatar
+                            invoice_warehouse_info:
+                              description: 仓库
+                              type: object
+                              properties:
+                                id:
+                                  description: 对象ID
+                                  type: integer
+                                  x-apifox-mock: 3115125003
+                                name:
+                                  description: 对象名称
+                                  type: string
+                                  x-apifox-mock: 测试仓库1
+                              x-apifox-orders:
+                              - id
+                              - name
+                            company_info:
+                              description: 客户信息
+                              type: object
+                              properties:
+                                id:
+                                  description: 对象ID
+                                  type: integer
+                                  x-apifox-mock: 3179534246
+                                name:
+                                  description: 对象名称
+                                  type: string
+                                  x-apifox-mock: 测试公司7ef63e03-6
+                              x-apifox-orders:
+                              - id
+                              - name
+                          x-apifox-orders:
+                          - outbound_invoice_id
+                          - serial_id
+                          - warehouse_invoice_time
+                          - status
+                          - remark
+                          - create_time
+                          - update_time
+                          - discount
+                          - discount_rate
+                          - product_total_amount
+                          - product_total_amount_rmb
+                          - product_total_amount_usd
+                          - currency
+                          - exchange_rate
+                          - exchange_rate_usd
+                          - product_total_count
+                          - source_type
+                          - create_user_info
+                          - update_user_info
+                          - handler_info
+                          - invoice_warehouse_info
+                          - company_info
+                          - '3162362610'
+                    x-apifox-orders:
+                    - count
+                    - list
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+              example:
+                code: 200
+                now: '2022-01-01 00:00:00'
+                message: success
+                data:
+                  count: 50
+                  list:
+                  - '3162362610': test content
+                    outbound_invoice_id: 3267567129
+                    serial_id: XSCK2304120054
+                    warehouse_invoice_time: '2023-04-12 00:00:00'
+                    status: 1
+                    remark: Invoice remark
+                    create_time: '2023-01-11 11:53:03'
+                    update_time: '2023-01-11 11:53:03'
+                    discount: 21.52
+                    discount_rate: 22
+                    product_total_amount: 1447.68
+                    product_total_amount_rmb: 135.34
+                    product_total_amount_usd: 20
+                    currency: USD
+                    exchange_rate: 676.72
+                    exchange_rate_usd: 100
+                    product_total_count: 1447.68
+                    source_type: 1
+                    create_user_info:
+                      user_id: '249518496'
+                      nickname: test
+                      email: account@test.test
+                      avatar: ''
+                    update_user_info:
+                      user_id: '249518496'
+                      nickname: test
+                      email: account@test.test
+                      avatar: ''
+                    handler_info:
+                    - user_id: '249518496'
+                      nickname: test
+                      email: account@test.test
+                      avatar: ''
+                    invoice_warehouse_info:
+                      id: 3115125003
+                      name: 测试仓库1
+                    company_info:
+                      id: 3179534246
+                      name: 测试公司7ef63e03-6
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 销售出库单
+      x-apifox-status: released
+      operationId: get_v1_invoices_outbound_list
+      x-local-source-path: sources/pages/api-3484729.md
+      x-source-id: api-3484729
+      x-source-title: 销售出库单列表
+      x-source-module: 销售出库单
+  /v1/invoices/outbound/info:
+    get:
+      summary: 销售出库单详情
+      deprecated: false
+      description: '| 异常码 | 异常消息 |异常解决方案|
+
+        | --- | --- | --- |
+
+        | 400 | Invalid query | 检查outbound_invoice_id与serial_id是否同时为空 |'
+      tags:
+      - 销售出库单
+      - s7.1
+      parameters:
+      - name: outbound_invoice_id
+        in: query
+        description: 销售出库单ID，值可以来自/v1/invoices/outbound/list
+        required: false
+        schema:
+          type: integer
+      - name: serial_id
+        in: query
+        description: '销售出库单号，与ID必须选择一项
+
+          值可以来自/v1/invoices/outbound/list'
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      '3162362610':
+                        description: 销售出库单自定义字段。字段名为 /v1/invoices/outbound/fields 获取到的自定义字段ID
+                        type: string
+                        x-apifox-mock: test content
+                      outbound_invoice_id:
+                        description: 销售出库单ID
+                        type: integer
+                        x-apifox-mock: 3267567129
+                      serial_id:
+                        description: 销售出库单号
+                        type: string
+                        x-apifox-mock: XSCK2304120054
+                      warehouse_invoice_time:
+                        description: 出库日期
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-04-12 00:00:00'
+                      status:
+                        description: 销售出库单状态：1-待出库，2-已出库
+                        type: integer
+                        x-apifox-mock: 1
+                      remark:
+                        description: 出库备注
+                        type: string
+                        x-apifox-mock: Invoice remark
+                      create_time:
+                        description: 创建时间
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      update_time:
+                        description: 更新时间
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      discount:
+                        description: 整单折扣额
+                        type: number
+                        format: float
+                        x-apifox-mock: 21.52
+                      discount_rate:
+                        description: 整单折扣率（%）
+                        type: integer
+                        x-apifox-mock: 22
+                      product_total_amount:
+                        description: 产品总金额（单据币种）
+                        type: number
+                        format: float
+                        x-apifox-mock: 1447.68
+                      product_total_amount_rmb:
+                        description: 产品总金额（CNY）
+                        type: number
+                        format: float
+                        x-apifox-mock: 135.34
+                      product_total_amount_usd:
+                        description: 产品总金额（USD）
+                        type: number
+                        format: float
+                        x-apifox-mock: 20
+                      currency:
+                        description: 币种
+                        type: integer
+                        x-apifox-mock: USD
+                      exchange_rate:
+                        description: 汇率，100单位单据币种（兑CNY）
+                        type: number
+                        format: float
+                        x-apifox-mock: 676.72
+                      exchange_rate_usd:
+                        description: 汇率，100单位单据币种汇率（兑USD）
+                        type: number
+                        format: float
+                        x-apifox-mock: 100
+                      product_total_count:
+                        description: 产品总数量
+                        type: number
+                        format: float
+                        x-apifox-mock: 1447.68
+                      source_type:
+                        description: 出库来源：1-从采购中分配，2-从存货中分配
+                        type: integer
+                        x-apifox-mock: 1
+                      create_user_info:
+                        description: 创建人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 创建人ID
+                            type: integer
+                            x-apifox-mock: '249518496'
+                          nickname:
+                            description: 创建人名称
+                            type: string
+                            x-apifox-mock: test
+                          email:
+                            description: 创建人邮箱
+                            type: string
+                            x-apifox-mock: account@test.test
+                          avatar:
+                            description: 创建人头像
+                            type: string
+                            x-apifox-mock: ''
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                        - email
+                        - avatar
+                      update_user_info:
+                        description: 更新人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 更新人ID
+                            type: integer
+                            x-apifox-mock: '249518496'
+                          nickname:
+                            description: 更新人名称
+                            type: string
+                            x-apifox-mock: test
+                          email:
+                            description: 更新人邮箱
+                            type: string
+                            x-apifox-mock: account@test.test
+                          avatar:
+                            description: 更新人头像
+                            type: string
+                            x-apifox-mock: ''
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                        - email
+                        - avatar
+                      handler_info:
+                        description: 处理人信息
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            user_id:
+                              description: 处理人ID
+                              type: integer
+                              x-apifox-mock: '249518496'
+                            nickname:
+                              description: 处理人名称
+                              type: string
+                              x-apifox-mock: test
+                            email:
+                              description: 处理人邮箱
+                              type: string
+                              x-apifox-mock: account@test.test
+                            avatar:
+                              description: 处理人头像
+                              type: string
+                              x-apifox-mock: ''
+                          x-apifox-orders:
+                          - user_id
+                          - nickname
+                          - email
+                          - avatar
+                      invoice_warehouse_info:
+                        description: 仓库
+                        type: object
+                        properties:
+                          id:
+                            description: 仓库ID
+                            type: integer
+                            x-apifox-mock: 3115125003
+                          name:
+                            description: 仓库名称
+                            type: string
+                            x-apifox-mock: 测试仓库1
+                        x-apifox-orders:
+                        - id
+                        - name
+                      company_info:
+                        description: 客户信息
+                        type: object
+                        properties:
+                          id:
+                            description: 客户ID
+                            type: integer
+                            x-apifox-mock: 3179534246
+                          name:
+                            description: 客户名称
+                            type: string
+                            x-apifox-mock: 测试公司7ef63e03-6
+                        x-apifox-orders:
+                        - id
+                        - name
+                      record_list:
+                        description: 销售出库单明细
+                        type: object
+                        properties:
+                          '3405725756':
+                            description: 销售出库单产品自定义字段。字段名为 /v1/invoices/outbound/fields 获取到的自定义字段ID
+                            type: string
+                            x-apifox-mock: test content
+                          outbound_record_id:
+                            description: 销售出库单明细ID
+                            type: integer
+                            x-apifox-mock: 3402138809
+                          outbound_invoice_id:
+                            description: 销售出库单ID
+                            type: integer
+                            x-apifox-mock: 3402138808
+                          sku_id:
+                            description: 产品SKU ID
+                            type: integer
+                            x-apifox-mock: 3400548662
+                          product_id:
+                            description: 产品ID
+                            type: integer
+                            x-apifox-mock: 3400548661
+                          outbound_count:
+                            description: 出库数量
+                            type: number
+                            format: float
+                            x-apifox-mock: 22
+                          sale_count:
+                            description: 销售数量
+                            type: number
+                            format: float
+                            x-apifox-mock: 25
+                          sale_price:
+                            description: 销售单价
+                            type: number
+                            format: float
+                            x-apifox-mock: 22
+                          product_amount:
+                            description: 产品金额
+                            type: number
+                            format: float
+                            x-apifox-mock: 88
+                          moment_enable_count:
+                            description: 即时可用库存
+                            type: number
+                            format: float
+                            x-apifox-mock: 100
+                          order_id:
+                            description: 关联销售订单ID
+                            type: integer
+                            x-apifox-mock: 3400548661
+                          order_no:
+                            description: 关联销售订单编号
+                            type: string
+                            x-apifox-mock: ORDER_22035478
+                          order_record_id:
+                            description: 关联销售订单明细ID，即订单明细的 unique_id
+                            type: integer
+                            x-apifox-mock: 3400548661
+                          cost_unit_price_rmb:
+                            description: 成本单价（CNY）
+                            type: number
+                            format: float
+                            x-apifox-mock: 22
+                          sku_code:
+                            description: 产品SKU编号
+                            type: string
+                            x-apifox-mock: XH-NM-01
+                          product_no:
+                            description: 产品编号
+                            type: string
+                            x-apifox-mock: '22'
+                          product_name:
+                            description: 产品名称
+                            type: string
+                            x-apifox-mock: '2'
+                          product_cn_name:
+                            description: 产品中文名称
+                            type: string
+                            x-apifox-mock: NM-01
+                          product_model:
+                            description: 产品型号
+                            type: string
+                            x-apifox-mock: 中文NM-01
+                          product_unit:
+                            description: 产品单位
+                            type: string
+                            x-apifox-mock: Chain
+                          product_type:
+                            description: 产品类型：1-无规格、2-多规格、3-组合
+                            type: integer
+                            x-apifox-mock: 1
+                          product_disable_flag:
+                            description: 产品是否停售：0-否，1-是
+                            type: integer
+                            x-apifox-mock: 1
+                        x-apifox-orders:
+                        - outbound_record_id
+                        - outbound_invoice_id
+                        - sku_id
+                        - product_id
+                        - outbound_count
+                        - sale_count
+                        - sale_price
+                        - product_amount
+                        - moment_enable_count
+                        - order_id
+                        - order_no
+                        - order_record_id
+                        - cost_unit_price_rmb
+                        - sku_code
+                        - product_no
+                        - product_name
+                        - product_cn_name
+                        - product_model
+                        - product_unit
+                        - product_type
+                        - product_disable_flag
+                        - '3405725756'
+                    x-apifox-orders:
+                    - outbound_invoice_id
+                    - serial_id
+                    - warehouse_invoice_time
+                    - status
+                    - remark
+                    - create_time
+                    - update_time
+                    - discount
+                    - discount_rate
+                    - product_total_amount
+                    - product_total_amount_rmb
+                    - product_total_amount_usd
+                    - currency
+                    - exchange_rate
+                    - exchange_rate_usd
+                    - product_total_count
+                    - source_type
+                    - create_user_info
+                    - update_user_info
+                    - handler_info
+                    - invoice_warehouse_info
+                    - company_info
+                    - record_list
+                    - '3162362610'
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 销售出库单
+      x-apifox-status: released
+      operationId: get_v1_invoices_outbound_info
+      x-local-source-path: sources/pages/api-3483515.md
+      x-source-id: api-3483515
+      x-source-title: 销售出库单详情
+      x-source-module: 销售出库单
+  /v1/invoices/outbound/fields:
+    get:
+      summary: 销售出库单字段
+      deprecated: false
+      description: '# 字段类型有哪些
+
+        | field_type |  |
+
+        | --- | --- |
+
+        | 1 | 单行文本 |
+
+        | 2 | 多行文本 |
+
+        | 3 | 单选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |
+
+        | 4 | 日期，YYYY-MM-DD |
+
+        | 5 | 数字 |
+
+        | 6 | 图片 |
+
+        | 7 | 多选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |
+
+        | 8 | 附件 |
+
+        | 9 | 关联字段 |
+
+        | 10 | 日期时间，YYYY-MM-DD HH:mm:ss |
+
+        | 11 | 公式 |
+
+        | 12 | 汇总 |
+
+        | 13 | 布尔 |
+
+        | 17 | 状态 |
+
+        | 18 | 阶段 |
+
+        | 21 | 时间范围 |
+
+        | 22 | 富文本 |
+
+        | 23 | 引用 |
+
+
+        若发现没有的字段类型可以咨询对接群，或者提客户工单。
+
+        '
+      tags:
+      - 销售出库单
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E5%93%8D%E5%BA%94'
+              example:
+                code: 200
+                message: success
+                now: '2025-03-11 16:25:23'
+                data:
+                - id: cost_total_rmb
+                  name: 成本总计(CNY)
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: product_model
+                  name: 产品型号
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: product_amount
+                  name: 产品金额
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: sale_price
+                  name: 销售单价
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: moment_enable_count
+                  name: 可用库存
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: sku_attributes
+                  name: 规格
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: cost_subtotal_rmb
+                  name: 成本小计(CNY)
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: have_outbound_count
+                  name: 已出库数量
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: cost_unit_price
+                  name: 成本单价
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: product_cn_name
+                  name: 中文产品名称
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: shipping_count
+                  name: 出运数量
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: transfer_invoice_serial_id
+                  name: 关联出库任务
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: outbound_count
+                  name: 出库数量
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: refer_shipping_invoice_id
+                  name: 关联出运单号
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: order_no
+                  name: 关联销售订单号
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: for_outbound_count
+                  name: 待出库数量
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: sale_count
+                  name: 销售数量
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: product_unit
+                  name: 单位
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: product_name
+                  name: 产品名称
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: sku_code
+                  name: 产品编号
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: product_image
+                  name: 产品图片
+                  base: 1
+                  field_type: 6
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: master_id
+                  name: 归属产品id
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: master_group_id
+                  name: 主配产品分组id
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: parts_total_count
+                  name: 配件产品总数量
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: is_master_product
+                  name: 是否主产品
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: product_total_count
+                  name: 产品总数量
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: product_total_count_no_parts
+                  name: 产品总数量（不含配件）
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: refer_shipping_record_id
+                  name: 关联出运明细
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: product_disable_flag
+                  name: 产品是否停售
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: handler
+                  name: 处理人
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: product_total_amount
+                  name: 产品总金额
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: discount
+                  name: 整单折扣额
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: discount_rate
+                  name: 整单折扣率
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: source_type
+                  name: 出库来源
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: currency
+                  name: 币种
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: exchange_rate
+                  name: 汇率
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: invoice_warehouse_id
+                  name: 仓库
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: remark
+                  name: 出库备注
+                  base: 1
+                  field_type: 2
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: company_id
+                  name: 客户
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: status
+                  name: 出库状态
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: warehouse_invoice_time
+                  name: 出库日期
+                  base: 1
+                  field_type: 4
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: serial_id
+                  name: 销售出库单号
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: order_record_id
+                  name: 销售订单明细id
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: sku_id
+                  name: sku
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: product_id
+                  name: 产品id
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: warehouse_id
+                  name: 出入库明细-仓库
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: order_id
+                  name: 关联销售订单ID
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: transfer_invoice_record_id
+                  name: 产品流转明细ID
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: transfer_invoice_id
+                  name: 产品流转ID
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: refer_shipping_invoice_no
+                  name: 关联出运单编号
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 1
+                - id: update_user
+                  name: 修改人
+                  base: 1
+                  field_type: 0
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: update_time
+                  name: 修改时间
+                  base: 1
+                  field_type: 10
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: create_user
+                  name: 创建人
+                  base: 1
+                  field_type: 0
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: create_time
+                  name: 创建时间
+                  base: 1
+                  field_type: 10
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: attachment
+                  name: 附件
+                  base: 1
+                  field_type: 8
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: 3580648656
+                  name: 文本11
+                  base: 0
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3475768334'
+                  name: 测试修改单选
+                  base: 0
+                  field_type: 3
+                  ext_info:
+                  - Ca
+                  - bi
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3468709094'
+                  name: 销售出库0103文本
+                  base: 0
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: '987'
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3444866003'
+                  name: 审批流测试字段
+                  base: 0
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3444866001'
+                  name: 自定义多选qiao3
+                  base: 0
+                  field_type: 7
+                  ext_info:
+                  - a
+                  - b
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: 3580648658
+                  name: '2323'
+                  base: 0
+                  field_type: 4
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3114674791'
+                  name: 图片-2
+                  base: 0
+                  field_type: 6
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: 3468717552
+                  name: 0103自定义图片
+                  base: 0
+                  field_type: 6
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3114674790'
+                  name: 图片-必填
+                  base: 0
+                  field_type: 6
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3393928274'
+                  name: 出库-附件
+                  base: 0
+                  field_type: 8
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3114674789'
+                  name: 附件-2
+                  base: 0
+                  field_type: 8
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3159960138'
+                  name: 出库-图片
+                  base: 0
+                  field_type: 6
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3114674772'
+                  name: 附件-必填-1
+                  base: 0
+                  field_type: 8
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3159960136'
+                  name: 出库-数值
+                  base: 0
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3114674759'
+                  name: 数字-2
+                  base: 0
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3159960129'
+                  name: 出库-日期
+                  base: 0
+                  field_type: 4
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3114674756'
+                  name: 数字-4位小数-必填-默认值-1
+                  base: 0
+                  field_type: 5
+                  ext_info:
+                  - 4
+                  require: 0
+                  default: '111.2222'
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3159960127'
+                  name: 出库-多行文本
+                  base: 0
+                  field_type: 2
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3114674751'
+                  name: 日期-2
+                  base: 0
+                  field_type: 4
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3159960125'
+                  name: 出库多选
+                  base: 0
+                  field_type: 7
+                  ext_info:
+                  - 出库1
+                  - 出库2
+                  - 出库3
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3159960114'
+                  name: 出库单选
+                  base: 0
+                  field_type: 3
+                  ext_info:
+                  - 出库
+                  - 入库
+                  - 等待
+                  require: 0
+                  default: 出库
+                  disable_flag: 0
+                  is_list: 1
+                - id: '3114674747'
+                  name: 多行-2
+                  base: 0
+                  field_type: 2
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3114674735'
+                  name: 多选-2
+                  base: 0
+                  field_type: 7
+                  ext_info:
+                  - '1'
+                  - '2'
+                  - '3'
+                  - '4'
+                  - '5'
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3114674728'
+                  name: 多选-1
+                  base: 0
+                  field_type: 7
+                  ext_info:
+                  - 多-1
+                  - 多-2
+                  - 多-3
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3114674723'
+                  name: 下拉单选-默认2
+                  base: 0
+                  field_type: 3
+                  ext_info:
+                  - '1'
+                  - 2--2
+                  - '3'
+                  require: 0
+                  default: 2--2
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3114674696'
+                  name: 下拉单选
+                  base: 0
+                  field_type: 3
+                  ext_info:
+                  - 选项-1
+                  - '2'
+                  - 选-3
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: '3114674694'
+                  name: 文本-非必填-无提示
+                  base: 0
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 1
+                  is_list: 0
+                - id: '3114674688'
+                  name: 文本
+                  base: 0
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: 文本默认
+                  disable_flag: 1
+                  is_list: 0
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+                x-apifox-ignore-properties: []
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 销售出库单
+      x-apifox-status: released
+      operationId: get_v1_invoices_outbound_fields
+      x-local-source-path: sources/pages/api-3484728.md
+      x-source-id: api-3484728
+      x-source-title: 销售出库单字段
+      x-source-module: 销售出库单
+  /v1/invoices/outbound/remove:
+    post:
+      summary: 销售出库单删除
+      deprecated: false
+      description: '| 异常码 | 异常消息 |异常解决方案|
+
+        | --- | --- | --- |
+
+        | 404 | Not Found Resource. | 销售出库单不存在或者已删除 |
+
+        | 404 | 单据被锁定，无法操作 | 销售出库单被锁定 |
+
+        | 400 | Invalid query | 销售出库单ID与销售出库单号 同时为空 |'
+      tags:
+      - 销售出库单
+      - s7.1
+      parameters:
+      - name: outbound_invoice_id
+        in: query
+        description: 销售出库单ID 值来自/v1/invoices/outbound/list
+        required: false
+        example: 5263024713
+        schema:
+          type: integer
+      - name: serial_id
+        in: query
+        description: '销售出库单号 与销售出库单ID  必须传递其中一个
+
+          值来自/v1/invoices/outbound/list'
+        required: false
+        example: XSCK2504290195
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  now:
+                    type: string
+                  message:
+                    type: string
+                required:
+                - code
+                - now
+                - message
+                x-apifox-orders:
+                - code
+                - now
+                - message
+              example:
+                code: 200
+                now: '2022-01-01 00:00:00'
+                message: success
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 销售出库单
+      x-apifox-status: released
+      operationId: post_v1_invoices_outbound_remove
+      x-local-source-path: sources/pages/api-3484730.md
+      x-source-id: api-3484730
+      x-source-title: 销售出库单删除
+      x-source-module: 销售出库单
+  /v1/invoices/outbound/push:
+    post:
+      summary: 新增/编辑销售出库单
+      deprecated: false
+      description: '| 异常码 | 异常消息 |异常解决方案|
+
+        | --- | --- | --- |
+
+        | 404 | ‘xxx’ cannot be empty |  查看字段说明为“如果传入不能为空”，是否有字段传入了并且是空值|
+
+        '
+      tags:
+      - 销售出库单
+      - s7.1
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  title: 销售出库单状态：1-待出库，2-已出库
+                discount_rate:
+                  type: integer
+                  title: 整单折扣率（%）
+                currency:
+                  type: string
+                  title: 币种
+                exchange_rate:
+                  type: number
+                  title: 汇率，100单位单据币种（兑CNY）
+                exchange_rate_usd:
+                  type: number
+                  title: 汇率，100单位单据币种汇率（兑USD）
+                source_type:
+                  type: integer
+                  title: 出库来源：1-从采购中分配，2-从存货中分配
+                invoice_warehouse_id:
+                  type: integer
+                  title: 仓库ID
+                  description: 值来自于/v1/warehouse/list
+                company_id:
+                  type: integer
+                  title: 关联客户ID
+                  description: 值来自于/v1/company/list
+                handler:
+                  type: array
+                  items:
+                    type: string
+                  title: 处理人
+                  description: 值来自于/v1/user/list
+                record_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      '3405725756':
+                        type: string
+                        title: 自定义字段
+                      sku_id:
+                        type: integer
+                        title: 产品SKU ID
+                      product_id:
+                        type: integer
+                        title: 产品ID
+                      outbound_count:
+                        type: integer
+                        title: 出库数量
+                      sale_price:
+                        type: number
+                        title: 销售单价（单据币种）
+                      order_id:
+                        type: integer
+                        description: 选传，一个销售出库单中至少有一个产品有关联订单信息
+                        title: 关联销售订单ID
+                      order_record_id:
+                        type: integer
+                        description: 选传，一个销售出库单中至少有一个产品有关联订单信息，编辑辑是不传入则会更新为0
+                        title: 关联销售订单明细ID，即订单明细的 unique_id
+                      outbound_record_id:
+                        type: integer
+                        description: 编辑指定明细时必填，否则认为是新的明细
+                        title: 销售出库单明细ID
+                      cost_unit_price_rmb:
+                        type: number
+                        title: 成本单价（CNY）
+                      moment_enable_count:
+                        type: number
+                        title: 即时可用库存
+                      remove:
+                        type: integer
+                        title: 是否删除该记录
+                        description: 最简单的实现删除时传入值为1和outbound_record_id即可
+                      product_name:
+                        type: string
+                        title: 产品名称
+                      product_model:
+                        type: string
+                        title: 产品型号
+                      product_cn_name:
+                        type: string
+                        title: 中文产品名称
+                      product_unit:
+                        type: string
+                        title: 产品单位
+                    x-apifox-orders:
+                    - outbound_record_id
+                    - sku_id
+                    - product_id
+                    - outbound_count
+                    - sale_price
+                    - order_id
+                    - order_record_id
+                    - cost_unit_price_rmb
+                    - moment_enable_count
+                    - '3405725756'
+                    - remove
+                    - product_name
+                    - product_model
+                    - product_cn_name
+                    - product_unit
+                    required:
+                    - sale_price
+                    - outbound_count
+                    - product_id
+                    - sku_id
+                    - product_unit
+                outbound_invoice_id:
+                  type: integer
+                  title: 销售出库单id
+                  description: 编辑时必传 值来自/v1/invoices/outbound/list
+                serial_id:
+                  type: string
+                  title: 销售出库单号
+                  description: 销售出库单号
+              required:
+              - handler
+              - record_list
+              x-apifox-orders:
+              - status
+              - outbound_invoice_id
+              - discount_rate
+              - currency
+              - exchange_rate
+              - exchange_rate_usd
+              - source_type
+              - invoice_warehouse_id
+              - company_id
+              - handler
+              - record_list
+              - serial_id
+            example: "{\n    \"status\": 2,\n    \"discount_rate\": 22,\n    \"currency\": \"CNY\",\n    \"exchange_rate\"\
+              : 100,\n    \"exchange_rate_usd\": 14.00000,\n    \"source_type\": 1,\n    \"invoice_warehouse_id\": 831160953591,\n\
+              \    \"warehouse_invoice_time\": \"2023-04-12 00:00:00\",\n    \"company_id\": 10142656515495,\n    \"handler\"\
+              : [\n        \"55938259\"\n    ],\n    \"record_list\": [\n        {\n            \"sku_id\": 400568893973,\n\
+              \            \"product_id\": 16457955610,\n            \"outbound_count\": 1,\n            \"sale_price\": 0,\n\
+              \            \"order_id\": 10156012890355,\n            \"order_record_id\": 10156012890350,\n            \"\
+              product_name\": \"产品名称\",\n            \"product_model\": \"产品型号\",\n            \"product_cn_name\": \"产品中文名称\"\
+              ,\n        }\n    ]\n}"
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      outbound_invoice_id:
+                        type: integer
+                        title: 销售出库单id
+                        description: 销售出库单唯一id
+                      serial_id:
+                        type: string
+                        title: 销售出库单编号
+                      record_list:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            outbound_record_id:
+                              type: integer
+                              title: 销售出库单明细id
+                              description: 销售出库单明细唯一id，在编辑时传入，可对该条销售出库单id进行编辑
+                            product_id:
+                              type: integer
+                              title: 产品id
+                            sku_id:
+                              type: integer
+                              title: 产品sku_id
+                            outbound_count:
+                              type: string
+                              title: 出库数量
+                            sale_price:
+                              type: string
+                              title: 销售单价
+                            warehouse_id:
+                              type: integer
+                              title: 仓库id
+                            order_id:
+                              type: integer
+                              title: 订单id
+                            order_record_id:
+                              type: integer
+                              title: 订单明细id
+                          x-apifox-orders:
+                          - outbound_record_id
+                          - product_id
+                          - sku_id
+                          - outbound_count
+                          - sale_price
+                          - warehouse_id
+                          - order_id
+                          - order_record_id
+                    required:
+                    - outbound_invoice_id
+                    - serial_id
+                    - record_list
+                    x-apifox-orders:
+                    - outbound_invoice_id
+                    - serial_id
+                    - record_list
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-04-29 10:52:40'
+                data:
+                  outbound_invoice_id: 45704320657171
+                  serial_id: XSCK2504290429
+                  record_list:
+                  - outbound_record_id: 45704320657283
+                    product_id: 17223257988
+                    sku_id: 488389862593
+                    outbound_count: '12.0000000000'
+                    sale_price: '0.0000'
+                    warehouse_id: 5910974587910
+                    order_id: 43533982576405
+                    order_record_id: 43534215764206
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 销售出库单
+      x-apifox-status: released
+      operationId: post_v1_invoices_outbound_push
+      x-local-source-path: sources/pages/api-3478296.md
+      x-source-id: api-3478296
+      x-source-title: 新增/编辑销售出库单
+      x-source-module: 销售出库单
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

@@ -1,0 +1,533 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - devops相关 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: devops相关.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: devops相关
+  x-module-slug: devops
+paths:
+  /v1/dingtalk/webhook:
+    post:
+      summary: 钉钉回调
+      deprecated: false
+      description: ''
+      tags:
+      - devops相关
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: devops相关
+      x-apifox-status: released
+      operationId: post_v1_dingtalk_webhook
+      x-local-source-path: sources/pages/api-3496683.md
+      x-source-id: api-3496683
+      x-source-title: 钉钉回调
+      x-source-module: devops相关
+  /v1/tapd/webhook:
+    get:
+      summary: tapd回调接口
+      deprecated: false
+      description: ''
+      tags:
+      - devops相关
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: devops相关
+      x-apifox-status: released
+      operationId: get_v1_tapd_webhook
+      x-local-source-path: sources/pages/api-3496684.md
+      x-source-id: api-3496684
+      x-source-title: tapd回调接口
+      x-source-module: devops相关
+  /api/internal/sobot/getsobottoken:
+    get:
+      summary: 获取智齿token
+      deprecated: false
+      description: ''
+      tags:
+      - devops相关
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: devops相关
+      x-apifox-status: released
+      operationId: get_api_internal_sobot_getsobottoken
+      x-local-source-path: sources/pages/api-3496685.md
+      x-source-id: api-3496685
+      x-source-title: 获取智齿token
+      x-source-module: devops相关
+  /api/internal/sobot/refreshsobottoken:
+    get:
+      summary: 智齿刷新接口
+      deprecated: false
+      description: ''
+      tags:
+      - devops相关
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: devops相关
+      x-apifox-status: released
+      operationId: get_api_internal_sobot_refreshsobottoken
+      x-local-source-path: sources/pages/api-3496686.md
+      x-source-id: api-3496686
+      x-source-title: 智齿刷新接口
+      x-source-module: devops相关
+  /api/internal/prometheus/cisaveappversion:
+    post:
+      summary: app版本发布
+      deprecated: false
+      description: ''
+      tags:
+      - devops相关
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                app_key:
+                  example: ''
+                  type: string
+                version:
+                  example: ''
+                  type: string
+                app_name:
+                  example: okki
+                  type: string
+                app_platform:
+                  example: android
+                  type: string
+                version_description:
+                  example: ''
+                  type: string
+                secret_key:
+                  example: ''
+                  type: string
+                min_version:
+                  type: integer
+                  example: 1
+                file_name:
+                  example: ''
+                  type: string
+                file_size:
+                  example: ''
+                  type: string
+                file_url:
+                  example: ''
+                  type: string
+                file_md5:
+                  example: ''
+                  type: string
+                content:
+                  example: ''
+                  type: string
+                extension_data:
+                  example: ''
+                  type: string
+                is_diff:
+                  type: integer
+                  example: 0
+                is_ABTest:
+                  type: integer
+                  example: 0
+                status:
+                  type: integer
+                  example: 0
+                project_id:
+                  type: integer
+                  example: 0
+                branch:
+                  example: ''
+                  type: string
+                pipeline_tag:
+                  example: ''
+                  type: string
+                pipeline_id:
+                  type: integer
+                  example: 0
+              required:
+              - app_key
+              - version
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: devops相关
+      x-apifox-status: released
+      operationId: post_api_internal_prometheus_cisaveappversion
+      x-local-source-path: sources/pages/api-3496687.md
+      x-source-id: api-3496687
+      x-source-title: app版本发布
+      x-source-module: devops相关
+  /api/dingtalkwrite/deletedingtalkmember:
+    post:
+      summary: 钉钉管理-删除账号
+      deprecated: false
+      description: ''
+      tags:
+      - devops相关
+      parameters:
+      - name: dingtalk_user_id
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: integer
+      - name: crm_user_id
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: devops相关
+      x-apifox-status: released
+      operationId: post_api_dingtalkwrite_deletedingtalkmember
+      x-local-source-path: sources/pages/api-3496688.md
+      x-source-id: api-3496688
+      x-source-title: 钉钉管理-删除账号
+      x-source-module: devops相关
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

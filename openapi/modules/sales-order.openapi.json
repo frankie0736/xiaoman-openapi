@@ -1,0 +1,5163 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Xiaoman OpenAPI - 销售订单 (unofficial)",
+    "version": "2026-05-09",
+    "description": "Unofficial module spec generated from public Xiaoman Open API documentation: 销售订单."
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.xiaoman.cn",
+      "description": "official documented server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "销售订单",
+      "x-module-slug": "sales-order"
+    }
+  ],
+  "paths": {
+    "/v1/invoices/order/orderEnums": {
+      "get": {
+        "summary": "销售订单枚举:货币，付款方式，国家/地区，订单类型，订单状态，订单创建方式",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "销售订单"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "错误码",
+                      "type": "integer",
+                      "x-apifox-mock": 0
+                    },
+                    "message": {
+                      "description": "错误信息",
+                      "type": "string",
+                      "x-apifox-mock": "success"
+                    },
+                    "now": {
+                      "description": "当前时间",
+                      "type": "string",
+                      "x-apifox-mock": "2022-01-01 00:00:00"
+                    },
+                    "data": {
+                      "description": "响应数据",
+                      "type": "object",
+                      "properties": {
+                        "currency_list": {
+                          "description": "货币",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "description": "编码",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "名称",
+                                "type": "string"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "code",
+                              "name"
+                            ]
+                          }
+                        },
+                        "pay_list": {
+                          "description": "付款方式",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "description": "编码",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "名称",
+                                "type": "string"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "code",
+                              "name"
+                            ]
+                          }
+                        },
+                        "country_area_list": {
+                          "description": "国家/地区",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "description": "编码",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "名称",
+                                "type": "string"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "code",
+                              "name"
+                            ]
+                          }
+                        },
+                        "source_type_list": {
+                          "description": "订单类型",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "description": "编码",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "名称",
+                                "type": "string"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "code",
+                              "name"
+                            ]
+                          }
+                        },
+                        "order_status_list": {
+                          "description": "订单状态",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "description": "编码",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "名称",
+                                "type": "string"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "code",
+                              "name"
+                            ]
+                          }
+                        },
+                        "archive_type_list": {
+                          "description": "订单创建方式",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "description": "编码",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "名称",
+                                "type": "string"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "code",
+                              "name"
+                            ]
+                          }
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "currency_list",
+                        "pay_list",
+                        "country_area_list",
+                        "source_type_list",
+                        "order_status_list",
+                        "archive_type_list"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-03-06 17:30:48",
+                  "data": {
+                    "currency_list": [
+                      {
+                        "code": "AED",
+                        "name": "阿联酋迪拉姆"
+                      },
+                      {
+                        "code": "ALL",
+                        "name": "阿尔巴尼亚列克"
+                      },
+                      {
+                        "code": "AMD",
+                        "name": "亚美尼亚德拉姆"
+                      },
+                      {
+                        "code": "ANG",
+                        "name": "荷属安的列斯盾"
+                      },
+                      {
+                        "code": "AOA",
+                        "name": "安哥拉宽扎"
+                      },
+                      {
+                        "code": "ARS",
+                        "name": "阿根廷比索"
+                      },
+                      {
+                        "code": "AUD",
+                        "name": "澳大利亚元"
+                      },
+                      {
+                        "code": "AWG",
+                        "name": "阿鲁巴弗罗林"
+                      },
+                      {
+                        "code": "AZN",
+                        "name": "阿塞拜疆马纳特"
+                      },
+                      {
+                        "code": "BAM",
+                        "name": "波黑可兑换马克"
+                      },
+                      {
+                        "code": "BBD",
+                        "name": "巴巴多斯元"
+                      },
+                      {
+                        "code": "BDT",
+                        "name": "孟加拉塔卡"
+                      },
+                      {
+                        "code": "BGN",
+                        "name": "保加利亚列弗"
+                      },
+                      {
+                        "code": "BHD",
+                        "name": "巴林第纳尔"
+                      },
+                      {
+                        "code": "BIF",
+                        "name": "布隆迪法郎"
+                      },
+                      {
+                        "code": "BMD",
+                        "name": "百慕大元"
+                      },
+                      {
+                        "code": "BND",
+                        "name": "文莱元"
+                      },
+                      {
+                        "code": "BOB",
+                        "name": "玻利维亚诺"
+                      },
+                      {
+                        "code": "BOV",
+                        "name": "玻利维亚Mvdol"
+                      },
+                      {
+                        "code": "BRL",
+                        "name": "巴西雷亚尔"
+                      },
+                      {
+                        "code": "BSD",
+                        "name": "巴哈马元"
+                      },
+                      {
+                        "code": "BTN",
+                        "name": "不丹努尔特鲁姆"
+                      },
+                      {
+                        "code": "BWP",
+                        "name": "博茨瓦纳普拉"
+                      },
+                      {
+                        "code": "BYN",
+                        "name": "白俄罗斯卢布"
+                      },
+                      {
+                        "code": "BZD",
+                        "name": "伯利兹元"
+                      },
+                      {
+                        "code": "CAD",
+                        "name": "加拿大元"
+                      },
+                      {
+                        "code": "CDF",
+                        "name": "刚果法郎"
+                      },
+                      {
+                        "code": "CHE",
+                        "name": "WIR欧元"
+                      },
+                      {
+                        "code": "CHF",
+                        "name": "瑞士法郎"
+                      },
+                      {
+                        "code": "CHW",
+                        "name": "WIR法郎"
+                      },
+                      {
+                        "code": "CLF",
+                        "name": "智利发展单位"
+                      },
+                      {
+                        "code": "CLP",
+                        "name": "智利比索"
+                      },
+                      {
+                        "code": "COP",
+                        "name": "哥伦比亚比索"
+                      },
+                      {
+                        "code": "COU",
+                        "name": "哥伦比亚实际单位"
+                      },
+                      {
+                        "code": "CRC",
+                        "name": "哥斯达黎加科朗"
+                      },
+                      {
+                        "code": "CUC",
+                        "name": "古巴可兑换比索"
+                      },
+                      {
+                        "code": "CUP",
+                        "name": "古巴比索"
+                      },
+                      {
+                        "code": "CVE",
+                        "name": "佛得角埃斯库多"
+                      },
+                      {
+                        "code": "CZK",
+                        "name": "捷克克朗"
+                      },
+                      {
+                        "code": "DJF",
+                        "name": "吉布提法郎"
+                      },
+                      {
+                        "code": "DKK",
+                        "name": "丹麦克朗"
+                      },
+                      {
+                        "code": "DOP",
+                        "name": "多米尼加比索"
+                      },
+                      {
+                        "code": "DZD",
+                        "name": "阿尔及利亚第纳尔"
+                      },
+                      {
+                        "code": "EGP",
+                        "name": "埃及镑"
+                      },
+                      {
+                        "code": "ERN",
+                        "name": "厄立特里亚纳克法"
+                      },
+                      {
+                        "code": "ETB",
+                        "name": "埃塞俄比亚比尔"
+                      },
+                      {
+                        "code": "EUR",
+                        "name": "欧元"
+                      },
+                      {
+                        "code": "FJD",
+                        "name": "斐济元"
+                      },
+                      {
+                        "code": "FKP",
+                        "name": "福克兰群岛镑"
+                      },
+                      {
+                        "code": "GBP",
+                        "name": "英镑"
+                      },
+                      {
+                        "code": "GEL",
+                        "name": "格鲁吉亚拉里"
+                      },
+                      {
+                        "code": "GHS",
+                        "name": "加纳塞地"
+                      },
+                      {
+                        "code": "GIP",
+                        "name": "直布罗陀镑"
+                      },
+                      {
+                        "code": "GMD",
+                        "name": "冈比亚达拉西"
+                      },
+                      {
+                        "code": "GNF",
+                        "name": "几内亚法郎"
+                      },
+                      {
+                        "code": "GTQ",
+                        "name": "危地马拉格查尔"
+                      },
+                      {
+                        "code": "GYD",
+                        "name": "圭亚那元"
+                      },
+                      {
+                        "code": "HKD",
+                        "name": "港币"
+                      },
+                      {
+                        "code": "HNL",
+                        "name": "洪都拉斯伦皮拉"
+                      },
+                      {
+                        "code": "HTG",
+                        "name": "海地古德"
+                      },
+                      {
+                        "code": "HUF",
+                        "name": "匈牙利福林"
+                      },
+                      {
+                        "code": "IDR",
+                        "name": "印尼盾"
+                      },
+                      {
+                        "code": "ILS",
+                        "name": "以色列新谢克尔"
+                      },
+                      {
+                        "code": "INR",
+                        "name": "印度卢比"
+                      },
+                      {
+                        "code": "IQD",
+                        "name": "伊拉克第纳尔"
+                      },
+                      {
+                        "code": "IRR",
+                        "name": "伊朗里亚尔"
+                      },
+                      {
+                        "code": "ISK",
+                        "name": "冰岛克朗"
+                      },
+                      {
+                        "code": "JMD",
+                        "name": "牙买加元"
+                      },
+                      {
+                        "code": "JOD",
+                        "name": "约旦第纳尔"
+                      },
+                      {
+                        "code": "JPY",
+                        "name": "日元"
+                      },
+                      {
+                        "code": "KES",
+                        "name": "肯尼亚先令"
+                      },
+                      {
+                        "code": "KGS",
+                        "name": "吉尔吉斯斯坦索姆"
+                      },
+                      {
+                        "code": "KHR",
+                        "name": "柬埔寨瑞尔"
+                      },
+                      {
+                        "code": "KMF",
+                        "name": "科摩罗法郎"
+                      },
+                      {
+                        "code": "KPW",
+                        "name": "朝鲜圆"
+                      },
+                      {
+                        "code": "KRW",
+                        "name": "韩国元"
+                      },
+                      {
+                        "code": "KWD",
+                        "name": "科威特第纳尔"
+                      },
+                      {
+                        "code": "KYD",
+                        "name": "开曼群岛元"
+                      },
+                      {
+                        "code": "KZT",
+                        "name": "哈萨克斯坦坚戈"
+                      },
+                      {
+                        "code": "LAK",
+                        "name": "老挝基普"
+                      },
+                      {
+                        "code": "LBP",
+                        "name": "黎巴嫩镑"
+                      },
+                      {
+                        "code": "LKR",
+                        "name": "斯里兰卡卢比"
+                      },
+                      {
+                        "code": "LRD",
+                        "name": "利比里亚元"
+                      },
+                      {
+                        "code": "LSL",
+                        "name": "莱索托洛蒂"
+                      },
+                      {
+                        "code": "LYD",
+                        "name": "利比亚第纳尔"
+                      },
+                      {
+                        "code": "MAD",
+                        "name": "摩洛哥迪尔汗"
+                      },
+                      {
+                        "code": "MDL",
+                        "name": "摩尔多瓦列伊"
+                      },
+                      {
+                        "code": "MGA",
+                        "name": "马达加斯加阿里亚里"
+                      },
+                      {
+                        "code": "MKD",
+                        "name": "马其顿代纳尔"
+                      },
+                      {
+                        "code": "MMK",
+                        "name": "缅元"
+                      },
+                      {
+                        "code": "MNT",
+                        "name": "蒙古图格里克"
+                      },
+                      {
+                        "code": "MOP",
+                        "name": "澳门元"
+                      },
+                      {
+                        "code": "MRU",
+                        "name": "毛里塔尼亚乌吉亚"
+                      },
+                      {
+                        "code": "MUR",
+                        "name": "毛里求斯卢比"
+                      },
+                      {
+                        "code": "MVR",
+                        "name": "马尔代夫拉菲亚"
+                      },
+                      {
+                        "code": "MWK",
+                        "name": "马拉维克瓦查"
+                      },
+                      {
+                        "code": "MXN",
+                        "name": "墨西哥元"
+                      },
+                      {
+                        "code": "MXV",
+                        "name": "墨西哥发展单位"
+                      },
+                      {
+                        "code": "MYR",
+                        "name": "林吉特"
+                      },
+                      {
+                        "code": "MZN",
+                        "name": "莫桑比克梅蒂卡尔"
+                      },
+                      {
+                        "code": "NAD",
+                        "name": "纳米比亚元"
+                      },
+                      {
+                        "code": "NGN",
+                        "name": "尼日利亚奈拉"
+                      },
+                      {
+                        "code": "NIO",
+                        "name": "尼加拉瓜科多巴"
+                      },
+                      {
+                        "code": "NOK",
+                        "name": "挪威克朗"
+                      },
+                      {
+                        "code": "NPR",
+                        "name": "尼泊尔卢比"
+                      },
+                      {
+                        "code": "NTD",
+                        "name": "新台币"
+                      },
+                      {
+                        "code": "NZD",
+                        "name": "新西兰元"
+                      },
+                      {
+                        "code": "OMR",
+                        "name": "阿曼里亚尔"
+                      },
+                      {
+                        "code": "PAB",
+                        "name": "巴拿马巴波亚"
+                      },
+                      {
+                        "code": "PEN",
+                        "name": "秘鲁索尔"
+                      },
+                      {
+                        "code": "PGK",
+                        "name": "巴布亚新几内亚基那"
+                      },
+                      {
+                        "code": "PHP",
+                        "name": "菲律宾比索"
+                      },
+                      {
+                        "code": "PKR",
+                        "name": "巴基斯坦卢比"
+                      },
+                      {
+                        "code": "PLN",
+                        "name": "波兰兹罗提"
+                      },
+                      {
+                        "code": "PYG",
+                        "name": "巴拉圭瓜拉尼"
+                      },
+                      {
+                        "code": "QAR",
+                        "name": "卡塔尔里亚尔"
+                      },
+                      {
+                        "code": "RON",
+                        "name": "罗马尼亚列伊"
+                      },
+                      {
+                        "code": "RSD",
+                        "name": "塞尔维亚第纳尔"
+                      },
+                      {
+                        "code": "RUB",
+                        "name": "卢布"
+                      },
+                      {
+                        "code": "RWF",
+                        "name": "卢旺达法郎"
+                      },
+                      {
+                        "code": "SAR",
+                        "name": "沙特里亚尔"
+                      },
+                      {
+                        "code": "SBD",
+                        "name": "所罗门群岛元"
+                      },
+                      {
+                        "code": "SCR",
+                        "name": "塞舌尔卢比"
+                      },
+                      {
+                        "code": "SDG",
+                        "name": "苏丹镑"
+                      },
+                      {
+                        "code": "SEK",
+                        "name": "瑞典克朗"
+                      },
+                      {
+                        "code": "SGD",
+                        "name": "新加坡元"
+                      },
+                      {
+                        "code": "SHP",
+                        "name": "圣赫勒拿镑"
+                      },
+                      {
+                        "code": "SLE",
+                        "name": "塞拉利昂利昂"
+                      },
+                      {
+                        "code": "SLL",
+                        "name": "塞拉利昂利昂"
+                      },
+                      {
+                        "code": "SOS",
+                        "name": "索马里先令"
+                      },
+                      {
+                        "code": "SRD",
+                        "name": "苏里南元"
+                      },
+                      {
+                        "code": "SSP",
+                        "name": "南苏丹镑"
+                      },
+                      {
+                        "code": "STN",
+                        "name": "圣多美和普林西比多布拉"
+                      },
+                      {
+                        "code": "SVC",
+                        "name": "萨尔瓦多科朗"
+                      },
+                      {
+                        "code": "SYP",
+                        "name": "叙利亚镑"
+                      },
+                      {
+                        "code": "SZL",
+                        "name": "斯威士兰里兰吉尼"
+                      },
+                      {
+                        "code": "THB",
+                        "name": "泰国铢"
+                      },
+                      {
+                        "code": "TJS",
+                        "name": "塔吉克斯坦索莫尼"
+                      },
+                      {
+                        "code": "TMT",
+                        "name": "土库曼斯坦马纳特"
+                      },
+                      {
+                        "code": "TND",
+                        "name": "突尼斯第纳尔"
+                      },
+                      {
+                        "code": "TOP",
+                        "name": "汤加潘加"
+                      },
+                      {
+                        "code": "TRY",
+                        "name": "土耳其里拉"
+                      },
+                      {
+                        "code": "TTD",
+                        "name": "特立尼达和多巴哥元"
+                      },
+                      {
+                        "code": "TWD",
+                        "name": "新台币"
+                      },
+                      {
+                        "code": "TZS",
+                        "name": "坦桑尼亚先令"
+                      },
+                      {
+                        "code": "UAH",
+                        "name": "乌克兰格里夫纳"
+                      },
+                      {
+                        "code": "UGX",
+                        "name": "乌干达先令"
+                      },
+                      {
+                        "code": "USD",
+                        "name": "美元"
+                      },
+                      {
+                        "code": "USN",
+                        "name": "美元（次日）"
+                      },
+                      {
+                        "code": "UYU",
+                        "name": "乌拉圭比索"
+                      },
+                      {
+                        "code": "UZS",
+                        "name": "乌兹别克斯坦索姆"
+                      },
+                      {
+                        "code": "VED",
+                        "name": "委内瑞拉玻利瓦尔"
+                      },
+                      {
+                        "code": "VES",
+                        "name": "委内瑞拉玻利瓦尔"
+                      },
+                      {
+                        "code": "VND",
+                        "name": "越南盾"
+                      },
+                      {
+                        "code": "VUV",
+                        "name": "瓦努阿图瓦图"
+                      },
+                      {
+                        "code": "WST",
+                        "name": "萨摩亚塔拉"
+                      },
+                      {
+                        "code": "XAF",
+                        "name": "中非法郎"
+                      },
+                      {
+                        "code": "XCD",
+                        "name": "东加勒比元"
+                      },
+                      {
+                        "code": "XOF",
+                        "name": "西非法郎"
+                      },
+                      {
+                        "code": "XPF",
+                        "name": "太平洋法郎"
+                      },
+                      {
+                        "code": "YER",
+                        "name": "也门里亚尔"
+                      },
+                      {
+                        "code": "ZAR",
+                        "name": "南非兰特"
+                      },
+                      {
+                        "code": "ZMW",
+                        "name": "赞比亚克瓦查"
+                      },
+                      {
+                        "code": "ZWL",
+                        "name": "津巴布韦元"
+                      },
+                      {
+                        "name": "CNY",
+                        "cn_name": "人民币"
+                      },
+                      {
+                        "code": "CNY",
+                        "name": "人民币"
+                      }
+                    ],
+                    "pay_list": [
+                      {
+                        "code": "L/C",
+                        "name": "L/C"
+                      },
+                      {
+                        "code": "T/T",
+                        "name": "T/T"
+                      },
+                      {
+                        "code": "D/P",
+                        "name": "D/P"
+                      },
+                      {
+                        "code": "D/A",
+                        "name": "D/A"
+                      },
+                      {
+                        "code": "Western Union",
+                        "name": "Western Union"
+                      },
+                      {
+                        "code": "PayPal",
+                        "name": "PayPal"
+                      },
+                      {
+                        "code": "M/T",
+                        "name": "M/T"
+                      },
+                      {
+                        "code": "D/D",
+                        "name": "D/D"
+                      },
+                      {
+                        "code": "Other",
+                        "name": "Other"
+                      },
+                      {
+                        "code": "Credit Card",
+                        "name": "Credit Card"
+                      },
+                      {
+                        "code": "e-Checking",
+                        "name": "e-Checking"
+                      },
+                      {
+                        "code": "Boleto",
+                        "name": "Boleto"
+                      },
+                      {
+                        "code": "T/T in advance",
+                        "name": "T/T in advance"
+                      },
+                      {
+                        "code": "Alipay",
+                        "name": "Alipay"
+                      },
+                      {
+                        "code": "Wechat",
+                        "name": "Wechat"
+                      },
+                      {
+                        "code": "O/A",
+                        "name": "O/A"
+                      }
+                    ],
+                    "country_area_list": [
+                      {
+                        "code": "AD",
+                        "name": "安道尔"
+                      },
+                      {
+                        "code": "AE",
+                        "name": "阿联酋"
+                      },
+                      {
+                        "code": "AF",
+                        "name": "阿富汗"
+                      },
+                      {
+                        "code": "AG",
+                        "name": "安提瓜和巴布达"
+                      },
+                      {
+                        "code": "AI",
+                        "name": "安圭拉"
+                      },
+                      {
+                        "code": "AL",
+                        "name": "阿尔巴尼亚"
+                      },
+                      {
+                        "code": "AM",
+                        "name": "亚美尼亚"
+                      },
+                      {
+                        "code": "AO",
+                        "name": "安哥拉"
+                      },
+                      {
+                        "code": "AQ",
+                        "name": "南极洲"
+                      },
+                      {
+                        "code": "AR",
+                        "name": "阿根廷"
+                      },
+                      {
+                        "code": "AS",
+                        "name": "美属萨摩亚"
+                      },
+                      {
+                        "code": "AT",
+                        "name": "奥地利"
+                      },
+                      {
+                        "code": "AU",
+                        "name": "澳大利亚"
+                      },
+                      {
+                        "code": "AW",
+                        "name": "阿鲁巴"
+                      },
+                      {
+                        "code": "AX",
+                        "name": "奥兰群岛"
+                      },
+                      {
+                        "code": "AZ",
+                        "name": "阿塞拜疆"
+                      },
+                      {
+                        "code": "BA",
+                        "name": "波黑"
+                      },
+                      {
+                        "code": "BB",
+                        "name": "巴巴多斯"
+                      },
+                      {
+                        "code": "BD",
+                        "name": "孟加拉"
+                      },
+                      {
+                        "code": "BE",
+                        "name": "比利时"
+                      },
+                      {
+                        "code": "BF",
+                        "name": "布基纳法索"
+                      },
+                      {
+                        "code": "BG",
+                        "name": "保加利亚"
+                      },
+                      {
+                        "code": "BH",
+                        "name": "巴林"
+                      },
+                      {
+                        "code": "BI",
+                        "name": "布隆迪"
+                      },
+                      {
+                        "code": "BJ",
+                        "name": "贝宁"
+                      },
+                      {
+                        "code": "BL",
+                        "name": "圣巴泰勒米岛"
+                      },
+                      {
+                        "code": "BM",
+                        "name": "百慕大"
+                      },
+                      {
+                        "code": "BN",
+                        "name": "文莱"
+                      },
+                      {
+                        "code": "BO",
+                        "name": "玻利维亚"
+                      },
+                      {
+                        "code": "BQ",
+                        "name": "荷兰加勒比区"
+                      },
+                      {
+                        "code": "BR",
+                        "name": "巴西"
+                      },
+                      {
+                        "code": "BS",
+                        "name": "巴哈马"
+                      },
+                      {
+                        "code": "BT",
+                        "name": "不丹"
+                      },
+                      {
+                        "code": "BV",
+                        "name": "布韦岛"
+                      },
+                      {
+                        "code": "BW",
+                        "name": "博茨瓦纳"
+                      },
+                      {
+                        "code": "BY",
+                        "name": "白俄罗斯"
+                      },
+                      {
+                        "code": "BZ",
+                        "name": "伯利兹"
+                      },
+                      {
+                        "code": "CA",
+                        "name": "加拿大"
+                      },
+                      {
+                        "code": "CC",
+                        "name": "科科斯群岛"
+                      },
+                      {
+                        "code": "CD",
+                        "name": "刚果（金）"
+                      },
+                      {
+                        "code": "CF",
+                        "name": "中非"
+                      },
+                      {
+                        "code": "CG",
+                        "name": "刚果（布）"
+                      },
+                      {
+                        "code": "CH",
+                        "name": "瑞士"
+                      },
+                      {
+                        "code": "CI",
+                        "name": "科特迪瓦"
+                      },
+                      {
+                        "code": "CK",
+                        "name": "库克群岛"
+                      },
+                      {
+                        "code": "CL",
+                        "name": "智利"
+                      },
+                      {
+                        "code": "CM",
+                        "name": "喀麦隆"
+                      },
+                      {
+                        "code": "CN",
+                        "name": "中国"
+                      },
+                      {
+                        "code": "CO",
+                        "name": "哥伦比亚"
+                      },
+                      {
+                        "code": "CR",
+                        "name": "哥斯达黎加"
+                      },
+                      {
+                        "code": "CU",
+                        "name": "古巴"
+                      },
+                      {
+                        "code": "CV",
+                        "name": "佛得角"
+                      },
+                      {
+                        "code": "CW",
+                        "name": "库拉索"
+                      },
+                      {
+                        "code": "CX",
+                        "name": "圣诞岛"
+                      },
+                      {
+                        "code": "CY",
+                        "name": "塞浦路斯"
+                      },
+                      {
+                        "code": "CZ",
+                        "name": "捷克"
+                      },
+                      {
+                        "code": "DE",
+                        "name": "德国"
+                      },
+                      {
+                        "code": "DJ",
+                        "name": "吉布提"
+                      },
+                      {
+                        "code": "DK",
+                        "name": "丹麦"
+                      },
+                      {
+                        "code": "DM",
+                        "name": "多米尼克"
+                      },
+                      {
+                        "code": "DZ",
+                        "name": "阿尔及利亚"
+                      },
+                      {
+                        "code": "EC",
+                        "name": "厄瓜多尔"
+                      },
+                      {
+                        "code": "EE",
+                        "name": "爱沙尼亚"
+                      },
+                      {
+                        "code": "EG",
+                        "name": "埃及"
+                      },
+                      {
+                        "code": "EH",
+                        "name": "西撒哈拉"
+                      },
+                      {
+                        "code": "ER",
+                        "name": "厄立特里亚"
+                      },
+                      {
+                        "code": "ES",
+                        "name": "西班牙"
+                      },
+                      {
+                        "code": "ET",
+                        "name": "埃塞俄比亚"
+                      },
+                      {
+                        "code": "FI",
+                        "name": "芬兰"
+                      },
+                      {
+                        "code": "FJ",
+                        "name": "斐济群岛"
+                      },
+                      {
+                        "code": "FK",
+                        "name": "马尔维纳斯群岛（福克兰）"
+                      },
+                      {
+                        "code": "FM",
+                        "name": "密克罗尼西亚联邦"
+                      },
+                      {
+                        "code": "FO",
+                        "name": "法罗群岛"
+                      },
+                      {
+                        "code": "FR",
+                        "name": "法国"
+                      },
+                      {
+                        "code": "GA",
+                        "name": "加蓬"
+                      },
+                      {
+                        "code": "GB",
+                        "name": "英国"
+                      },
+                      {
+                        "code": "GD",
+                        "name": "格林纳达"
+                      },
+                      {
+                        "code": "GE",
+                        "name": "格鲁吉亚"
+                      },
+                      {
+                        "code": "GF",
+                        "name": "法属圭亚那"
+                      },
+                      {
+                        "code": "GG",
+                        "name": "根西岛"
+                      },
+                      {
+                        "code": "GH",
+                        "name": "加纳"
+                      },
+                      {
+                        "code": "GI",
+                        "name": "直布罗陀"
+                      },
+                      {
+                        "code": "GL",
+                        "name": "格陵兰"
+                      },
+                      {
+                        "code": "GM",
+                        "name": "冈比亚"
+                      },
+                      {
+                        "code": "GN",
+                        "name": "几内亚"
+                      },
+                      {
+                        "code": "GP",
+                        "name": "瓜德罗普"
+                      },
+                      {
+                        "code": "GQ",
+                        "name": "赤道几内亚"
+                      },
+                      {
+                        "code": "GR",
+                        "name": "希腊"
+                      },
+                      {
+                        "code": "GS",
+                        "name": "南乔治亚岛和南桑威奇群岛"
+                      },
+                      {
+                        "code": "GT",
+                        "name": "危地马拉"
+                      },
+                      {
+                        "code": "GU",
+                        "name": "关岛"
+                      },
+                      {
+                        "code": "GW",
+                        "name": "几内亚比绍"
+                      },
+                      {
+                        "code": "GY",
+                        "name": "圭亚那"
+                      },
+                      {
+                        "code": "HK",
+                        "name": "中国香港"
+                      },
+                      {
+                        "code": "HM",
+                        "name": "赫德岛和麦克唐纳群岛"
+                      },
+                      {
+                        "code": "HN",
+                        "name": "洪都拉斯"
+                      },
+                      {
+                        "code": "HR",
+                        "name": "克罗地亚"
+                      },
+                      {
+                        "code": "HT",
+                        "name": "海地"
+                      },
+                      {
+                        "code": "HU",
+                        "name": "匈牙利"
+                      },
+                      {
+                        "code": "ID",
+                        "name": "印尼"
+                      },
+                      {
+                        "code": "IE",
+                        "name": "爱尔兰"
+                      },
+                      {
+                        "code": "IL",
+                        "name": "以色列"
+                      },
+                      {
+                        "code": "IM",
+                        "name": "马恩岛"
+                      },
+                      {
+                        "code": "IN",
+                        "name": "印度"
+                      },
+                      {
+                        "code": "IO",
+                        "name": "英属印度洋领地"
+                      },
+                      {
+                        "code": "IQ",
+                        "name": "伊拉克"
+                      },
+                      {
+                        "code": "IR",
+                        "name": "伊朗"
+                      },
+                      {
+                        "code": "IS",
+                        "name": "冰岛"
+                      },
+                      {
+                        "code": "IT",
+                        "name": "意大利"
+                      },
+                      {
+                        "code": "JE",
+                        "name": "泽西岛"
+                      },
+                      {
+                        "code": "JM",
+                        "name": "牙买加"
+                      },
+                      {
+                        "code": "JO",
+                        "name": "约旦"
+                      },
+                      {
+                        "code": "JP",
+                        "name": "日本"
+                      },
+                      {
+                        "code": "KE",
+                        "name": "肯尼亚"
+                      },
+                      {
+                        "code": "KG",
+                        "name": "吉尔吉斯斯坦"
+                      },
+                      {
+                        "code": "KH",
+                        "name": "柬埔寨"
+                      },
+                      {
+                        "code": "KI",
+                        "name": "基里巴斯"
+                      },
+                      {
+                        "code": "KM",
+                        "name": "科摩罗"
+                      },
+                      {
+                        "code": "KN",
+                        "name": "圣基茨和尼维斯"
+                      },
+                      {
+                        "code": "KP",
+                        "name": "朝鲜"
+                      },
+                      {
+                        "code": "KR",
+                        "name": "韩国"
+                      },
+                      {
+                        "code": "KW",
+                        "name": "科威特"
+                      },
+                      {
+                        "code": "KY",
+                        "name": "开曼群岛"
+                      },
+                      {
+                        "code": "KZ",
+                        "name": "哈萨克斯坦"
+                      },
+                      {
+                        "code": "LA",
+                        "name": "老挝"
+                      },
+                      {
+                        "code": "LB",
+                        "name": "黎巴嫩"
+                      },
+                      {
+                        "code": "LC",
+                        "name": "圣卢西亚"
+                      },
+                      {
+                        "code": "LI",
+                        "name": "列支敦士登"
+                      },
+                      {
+                        "code": "LK",
+                        "name": "斯里兰卡"
+                      },
+                      {
+                        "code": "LR",
+                        "name": "利比里亚"
+                      },
+                      {
+                        "code": "LS",
+                        "name": "莱索托"
+                      },
+                      {
+                        "code": "LT",
+                        "name": "立陶宛"
+                      },
+                      {
+                        "code": "LU",
+                        "name": "卢森堡"
+                      },
+                      {
+                        "code": "LV",
+                        "name": "拉脱维亚"
+                      },
+                      {
+                        "code": "LY",
+                        "name": "利比亚"
+                      },
+                      {
+                        "code": "MA",
+                        "name": "摩洛哥"
+                      },
+                      {
+                        "code": "MC",
+                        "name": "摩纳哥"
+                      },
+                      {
+                        "code": "MD",
+                        "name": "摩尔多瓦"
+                      },
+                      {
+                        "code": "ME",
+                        "name": "黑山"
+                      },
+                      {
+                        "code": "MF",
+                        "name": "法属圣马丁"
+                      },
+                      {
+                        "code": "MG",
+                        "name": "马达加斯加"
+                      },
+                      {
+                        "code": "MH",
+                        "name": "马绍尔群岛"
+                      },
+                      {
+                        "code": "MK",
+                        "name": "马其顿"
+                      },
+                      {
+                        "code": "ML",
+                        "name": "马里"
+                      },
+                      {
+                        "code": "MM",
+                        "name": "缅甸"
+                      },
+                      {
+                        "code": "MN",
+                        "name": "蒙古国"
+                      },
+                      {
+                        "code": "MO",
+                        "name": "中国澳门"
+                      },
+                      {
+                        "code": "MP",
+                        "name": "北马里亚纳群岛"
+                      },
+                      {
+                        "code": "MQ",
+                        "name": "马提尼克"
+                      },
+                      {
+                        "code": "MR",
+                        "name": "毛里塔尼亚"
+                      },
+                      {
+                        "code": "MS",
+                        "name": "蒙塞拉特岛"
+                      },
+                      {
+                        "code": "MT",
+                        "name": "马耳他"
+                      },
+                      {
+                        "code": "MU",
+                        "name": "毛里求斯"
+                      },
+                      {
+                        "code": "MV",
+                        "name": "马尔代夫"
+                      },
+                      {
+                        "code": "MW",
+                        "name": "马拉维"
+                      },
+                      {
+                        "code": "MX",
+                        "name": "墨西哥"
+                      },
+                      {
+                        "code": "MY",
+                        "name": "马来西亚"
+                      },
+                      {
+                        "code": "MZ",
+                        "name": "莫桑比克"
+                      },
+                      {
+                        "code": "NA",
+                        "name": "纳米比亚"
+                      },
+                      {
+                        "code": "NC",
+                        "name": "新喀里多尼亚"
+                      },
+                      {
+                        "code": "NE",
+                        "name": "尼日尔"
+                      },
+                      {
+                        "code": "NF",
+                        "name": "诺福克岛"
+                      },
+                      {
+                        "code": "NG",
+                        "name": "尼日利亚"
+                      },
+                      {
+                        "code": "NI",
+                        "name": "尼加拉瓜"
+                      },
+                      {
+                        "code": "NL",
+                        "name": "荷兰"
+                      },
+                      {
+                        "code": "NO",
+                        "name": "挪威"
+                      },
+                      {
+                        "code": "NP",
+                        "name": "尼泊尔"
+                      },
+                      {
+                        "code": "NR",
+                        "name": "瑙鲁"
+                      },
+                      {
+                        "code": "NU",
+                        "name": "纽埃"
+                      },
+                      {
+                        "code": "NZ",
+                        "name": "新西兰"
+                      },
+                      {
+                        "code": "OM",
+                        "name": "阿曼"
+                      },
+                      {
+                        "code": "PA",
+                        "name": "巴拿马"
+                      },
+                      {
+                        "code": "PE",
+                        "name": "秘鲁"
+                      },
+                      {
+                        "code": "PF",
+                        "name": "法属波利尼西亚"
+                      },
+                      {
+                        "code": "PG",
+                        "name": "巴布亚新几内亚"
+                      },
+                      {
+                        "code": "PH",
+                        "name": "菲律宾"
+                      },
+                      {
+                        "code": "PK",
+                        "name": "巴基斯坦"
+                      },
+                      {
+                        "code": "PL",
+                        "name": "波兰"
+                      },
+                      {
+                        "code": "PM",
+                        "name": "圣皮埃尔和密克隆"
+                      },
+                      {
+                        "code": "PN",
+                        "name": "皮特凯恩群岛"
+                      },
+                      {
+                        "code": "PR",
+                        "name": "波多黎各"
+                      },
+                      {
+                        "code": "PS",
+                        "name": "巴勒斯坦"
+                      },
+                      {
+                        "code": "PT",
+                        "name": "葡萄牙"
+                      },
+                      {
+                        "code": "PW",
+                        "name": "帕劳"
+                      },
+                      {
+                        "code": "PY",
+                        "name": "巴拉圭"
+                      },
+                      {
+                        "code": "QA",
+                        "name": "卡塔尔"
+                      },
+                      {
+                        "code": "RE",
+                        "name": "留尼汪"
+                      },
+                      {
+                        "code": "RO",
+                        "name": "罗马尼亚"
+                      },
+                      {
+                        "code": "RS",
+                        "name": "塞尔维亚"
+                      },
+                      {
+                        "code": "RU",
+                        "name": "俄罗斯"
+                      },
+                      {
+                        "code": "RW",
+                        "name": "卢旺达"
+                      },
+                      {
+                        "code": "SA",
+                        "name": "沙特阿拉伯"
+                      },
+                      {
+                        "code": "SB",
+                        "name": "所罗门群岛"
+                      },
+                      {
+                        "code": "SC",
+                        "name": "塞舌尔"
+                      },
+                      {
+                        "code": "SD",
+                        "name": "苏丹"
+                      },
+                      {
+                        "code": "SE",
+                        "name": "瑞典"
+                      },
+                      {
+                        "code": "SG",
+                        "name": "新加坡"
+                      },
+                      {
+                        "code": "SH",
+                        "name": "圣赫勒拿"
+                      },
+                      {
+                        "code": "SI",
+                        "name": "斯洛文尼亚"
+                      },
+                      {
+                        "code": "SJ",
+                        "name": "斯瓦尔巴群岛和扬马延岛"
+                      },
+                      {
+                        "code": "SK",
+                        "name": "斯洛伐克"
+                      },
+                      {
+                        "code": "SL",
+                        "name": "塞拉利昂"
+                      },
+                      {
+                        "code": "SM",
+                        "name": "圣马力诺"
+                      },
+                      {
+                        "code": "SN",
+                        "name": "塞内加尔"
+                      },
+                      {
+                        "code": "SO",
+                        "name": "索马里"
+                      },
+                      {
+                        "code": "SR",
+                        "name": "苏里南"
+                      },
+                      {
+                        "code": "SS",
+                        "name": "南苏丹"
+                      },
+                      {
+                        "code": "ST",
+                        "name": "圣多美和普林西比"
+                      },
+                      {
+                        "code": "SV",
+                        "name": "萨尔瓦多"
+                      },
+                      {
+                        "code": "SX",
+                        "name": "荷属圣马丁"
+                      },
+                      {
+                        "code": "SY",
+                        "name": "叙利亚"
+                      },
+                      {
+                        "code": "SZ",
+                        "name": "斯威士兰"
+                      },
+                      {
+                        "code": "TC",
+                        "name": "特克斯和凯科斯群岛"
+                      },
+                      {
+                        "code": "TD",
+                        "name": "乍得"
+                      },
+                      {
+                        "code": "TF",
+                        "name": "法属南部领地"
+                      },
+                      {
+                        "code": "TG",
+                        "name": "多哥"
+                      },
+                      {
+                        "code": "TH",
+                        "name": "泰国"
+                      },
+                      {
+                        "code": "TJ",
+                        "name": "塔吉克斯坦"
+                      },
+                      {
+                        "code": "TK",
+                        "name": "托克劳"
+                      },
+                      {
+                        "code": "TL",
+                        "name": "东帝汶"
+                      },
+                      {
+                        "code": "TM",
+                        "name": "土库曼斯坦"
+                      },
+                      {
+                        "code": "TN",
+                        "name": "突尼斯"
+                      },
+                      {
+                        "code": "TO",
+                        "name": "汤加"
+                      },
+                      {
+                        "code": "TR",
+                        "name": "土耳其"
+                      },
+                      {
+                        "code": "TT",
+                        "name": "特立尼达和多巴哥"
+                      },
+                      {
+                        "code": "TV",
+                        "name": "图瓦卢"
+                      },
+                      {
+                        "code": "TW",
+                        "name": "中国台湾"
+                      },
+                      {
+                        "code": "TZ",
+                        "name": "坦桑尼亚"
+                      },
+                      {
+                        "code": "UA",
+                        "name": "乌克兰"
+                      },
+                      {
+                        "code": "UG",
+                        "name": "乌干达"
+                      },
+                      {
+                        "code": "UM",
+                        "name": "美国本土外小岛屿"
+                      },
+                      {
+                        "code": "US",
+                        "name": "美国"
+                      },
+                      {
+                        "code": "UY",
+                        "name": "乌拉圭"
+                      },
+                      {
+                        "code": "UZ",
+                        "name": "乌兹别克斯坦"
+                      },
+                      {
+                        "code": "VA",
+                        "name": "梵蒂冈"
+                      },
+                      {
+                        "code": "VC",
+                        "name": "圣文森特和格林纳丁斯"
+                      },
+                      {
+                        "code": "VE",
+                        "name": "委内瑞拉"
+                      },
+                      {
+                        "code": "VG",
+                        "name": "英属维尔京群岛"
+                      },
+                      {
+                        "code": "VI",
+                        "name": "美属维尔京群岛"
+                      },
+                      {
+                        "code": "VN",
+                        "name": "越南"
+                      },
+                      {
+                        "code": "VU",
+                        "name": "瓦努阿图"
+                      },
+                      {
+                        "code": "WF",
+                        "name": "瓦利斯和富图纳"
+                      },
+                      {
+                        "code": "WS",
+                        "name": "萨摩亚"
+                      },
+                      {
+                        "code": "YE",
+                        "name": "也门"
+                      },
+                      {
+                        "code": "YT",
+                        "name": "马约特"
+                      },
+                      {
+                        "code": "ZA",
+                        "name": "南非"
+                      },
+                      {
+                        "code": "ZM",
+                        "name": "赞比亚"
+                      },
+                      {
+                        "code": "ZW",
+                        "name": "津巴布韦"
+                      },
+                      {
+                        "code": "DO",
+                        "name": "多米尼加共和国"
+                      },
+                      {
+                        "code": "XK",
+                        "name": "科索沃"
+                      }
+                    ],
+                    "source_type_list": [
+                      {
+                        "code": 1,
+                        "name": "CRM订单"
+                      },
+                      {
+                        "code": 2,
+                        "name": "信保订单"
+                      },
+                      {
+                        "code": 3,
+                        "name": "e收汇订单"
+                      },
+                      {
+                        "code": 4,
+                        "name": "ERP订单"
+                      }
+                    ],
+                    "order_status_list": [
+                      {
+                        "code": "1101043688",
+                        "name": "草稿"
+                      },
+                      {
+                        "code": "1101043691",
+                        "name": "已下单"
+                      },
+                      {
+                        "code": "1101043692",
+                        "name": "待采购"
+                      },
+                      {
+                        "code": "1101043693",
+                        "name": "采购中"
+                      },
+                      {
+                        "code": "1101043694",
+                        "name": "采购完成"
+                      },
+                      {
+                        "code": "1101043695",
+                        "name": "待生产"
+                      },
+                      {
+                        "code": "1101043696",
+                        "name": "生产中"
+                      },
+                      {
+                        "code": "1101043697",
+                        "name": "生产完成"
+                      },
+                      {
+                        "code": "1101043699",
+                        "name": "出运完成"
+                      },
+                      {
+                        "code": "1101043698",
+                        "name": "库存调货完成"
+                      },
+                      {
+                        "code": "1101043700",
+                        "name": "待收款"
+                      },
+                      {
+                        "code": "1101043701",
+                        "name": "部分收款"
+                      },
+                      {
+                        "code": "1101043702",
+                        "name": "收款完成"
+                      },
+                      {
+                        "code": "3237166516",
+                        "name": "售后"
+                      },
+                      {
+                        "code": "1101043689",
+                        "name": "已完成"
+                      }
+                    ],
+                    "archive_type_list": [
+                      {
+                        "code": 1,
+                        "name": "手动创建"
+                      },
+                      {
+                        "code": 2,
+                        "name": "AI创建"
+                      },
+                      {
+                        "code": 3,
+                        "name": "智能导入"
+                      },
+                      {
+                        "code": 4,
+                        "name": "open api同步"
+                      },
+                      {
+                        "code": 5,
+                        "name": "阿里巴巴同步"
+                      },
+                      {
+                        "code": 6,
+                        "name": "金蝶同步"
+                      },
+                      {
+                        "code": 9,
+                        "name": "畅捷通同步"
+                      },
+                      {
+                        "code": 10,
+                        "name": "金蝶云星空同步"
+                      },
+                      {
+                        "code": 8,
+                        "name": "批量导入"
+                      },
+                      {
+                        "code": 7,
+                        "name": "粘贴录入"
+                      },
+                      {
+                        "code": 11,
+                        "name": "商机关联创建"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          },
+          "x-200:请求成功": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg"
+                  ]
+                },
+                "example": {
+                  "msg": "success",
+                  "code": 0
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "请求成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "销售订单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_order_orderenums",
+        "x-local-source-path": "sources/pages/api-3485287.md",
+        "x-source-id": "api-3485287",
+        "x-source-title": "销售订单枚举:货币，付款方式，国家/地区，订单类型，订单状态，订单创建方式",
+        "x-source-module": "销售订单"
+      }
+    },
+    "/v1/invoices/order/fields": {
+      "get": {
+        "summary": "销售订单字段",
+        "deprecated": false,
+        "description": "# 字段类型有哪些\n| field_type |  |\n| --- | --- |\n| 1 | 单行文本 |\n| 2 | 多行文本 |\n| 3 | 单选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |\n| 4 | 日期，YYYY-MM-DD |\n| 5 | 数字 |\n| 6 | 图片 |\n| 7 | 多选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |\n| 8 | 附件 |\n| 9 | 关联字段 |\n| 10 | 日期时间，YYYY-MM-DD HH:mm:ss |\n| 11 | 公式 |\n| 12 | 汇总 |\n| 13 | 布尔 |\n| 17 | 状态 |\n| 18 | 阶段 |\n| 21 | 时间范围 |\n| 22 | 富文本 |\n| 23 | 引用 |\n\n若发现没有的字段类型可以咨询对接群，或者提客户工单。\n",
+        "tags": [
+          "销售订单"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "字段ID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "字段名称"
+                          },
+                          "base": {
+                            "type": "integer",
+                            "description": "是否系统字段1是，0否"
+                          },
+                          "field_type": {
+                            "type": "integer",
+                            "description": "字段类型"
+                          },
+                          "ext_info": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "字段额外信息，比如选项等枚举值"
+                          },
+                          "require": {
+                            "type": "integer",
+                            "description": "是否必填"
+                          },
+                          "default": {
+                            "type": "string",
+                            "description": "默认值"
+                          },
+                          "disable_flag": {
+                            "type": "integer"
+                          },
+                          "is_list": {
+                            "type": "integer",
+                            "description": "是否明细字段"
+                          },
+                          "group_id": {
+                            "type": "integer",
+                            "description": "字段分组ID"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "base",
+                          "field_type",
+                          "ext_info",
+                          "require",
+                          "default",
+                          "disable_flag",
+                          "is_list",
+                          "group_id"
+                        ],
+                        "x-apifox-orders": [
+                          "id",
+                          "name",
+                          "base",
+                          "field_type",
+                          "ext_info",
+                          "require",
+                          "default",
+                          "disable_flag",
+                          "is_list",
+                          "group_id"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-03-06 15:05:58",
+                  "data": [
+                    {
+                      "id": "update_user",
+                      "name": "修改人",
+                      "base": 1,
+                      "field_type": 0,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0,
+                      "group_id": 1
+                    },
+                    {
+                      "id": "12343453543",
+                      "name": "自定义多选字段",
+                      "base": 0,
+                      "field_type": 7,
+                      "ext_info": [
+                        "多选值1",
+                        "多选值2"
+                      ],
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0,
+                      "group_id": 1
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "销售订单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_order_fields",
+        "x-local-source-path": "sources/pages/api-3478253.md",
+        "x-source-id": "api-3478253",
+        "x-source-title": "销售订单字段",
+        "x-source-module": "销售订单"
+      }
+    },
+    "/v1/invoices/order/remove": {
+      "post": {
+        "summary": "销售订单删除",
+        "deprecated": false,
+        "description": "注意：\n1、订单若是已经确认态，则不允许删除。\n2、订单若是有下游关联单据，则不允许删除。\n3、审批中的订单，则不允许删除。\n4、删除的账号若非主账号，需要有该订单的操作权限和用户角色要有删除操作权限才可以删除。（这种情况只有修改了主账号情况下才会出现）",
+        "tags": [
+          "销售订单"
+        ],
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "query",
+            "description": "销售订单ID，销售订单ID或销售订单编号必须传其中一个",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order_no",
+            "in": "query",
+            "description": "销售订单编号，销售订单ID或销售订单编号必须传其中一个",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-03-06 17:07:47",
+                  "data": "success"
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "销售订单",
+        "x-apifox-status": "released",
+        "operationId": "post_v1_invoices_order_remove",
+        "x-local-source-path": "sources/pages/api-3478257.md",
+        "x-source-id": "api-3478257",
+        "x-source-title": "销售订单删除",
+        "x-source-module": "销售订单"
+      }
+    },
+    "/v1/invoices/order/push": {
+      "post": {
+        "summary": "销售订单新建/编辑",
+        "deprecated": false,
+        "description": "## 错误码解释\n| 异常码 | 异常消息 |异常解决方案|\n| --- | --- | --- |\n| 404 | Not Found Resource没有权限编辑XXX| 若传入user_id字段，则会根据该用户ID校验用户是否有操作订单相关字段权限，若出现该错误可以到【角色权限中新增权限】或者【更改传入有订单权限的用户ID】 |\n## 价格条款\n\n需要对接 price_contract 价格条款 字段的同学，临时参考下面价格条款传入对应的CODE，后面会维护在销售订单枚举接口中，目前小满CRM只下面几种：\n传入例子：\n\n```\n{\n     \"price_contract\": \"EXW\"\n}\n```\n\n| 价格条款CODE | 价格条款名称 |\n| --- | --- |\n|EXW|卖方工厂交货|\n|FOB|指定装运港船上交货|\n|CFR|成本加运费|\n|CIF|成本加运费保险费|\n|DDU|未完税交货|\n|DDP|完税后交货|\n|FCA|货交承运人|\n|CPT|运费付至|\n|FAS|指定装运港船边交货|\n|CIP|运费、保险费付至|\n|DPU|卸货地交货|\n|DEQ|目的港码头交货|\n|DAP|目的地交货|\n|DAF|边境交货|\n|DE|目的港船上交货|\n\n产品单位枚举unit：\n\n| 单位枚举 |\n| --- |\n| Bag |\n| Short Ton |\n| Pound |\n| Piece |\n| Pair |\n| Ounce |\n| Metric Ton |\n| Meter |\n| Long Ton |\n| Kilometer |\n| Ton |\n| Square Meter |\n| Cubic Meter |\n| Dozen |\n| Gallon |\n| Kilogram |\n| Gram |\n| Bushel |\n| Barrel |\n| Set |\n| Pack |\n| Liter |\n| Yard |\n| Milligram |\n| Unit |\n| Acre |\n| Ampere |\n| Box |\n| Carton |\n| Case |\n| Centimeter |\n| Chain |\n| Cubic Centimeter |\n| Cubic Foot |\n| Cubic Inch |\n| Cubic Yard |\n| Degrees Celsius |\n| Degrees Fahrenheit |\n| Dram |\n| Fluid Ounce |\n| Foot |\n| Furlong |\n| Gill |\n| Grain |\n| Hectare |\n| Hertz |\n| Inch |\n| Kiloampere |\n| Kilohertz |\n| Kiloohm |\n| Kilovolt |\n| Kilowatt |\n| Megahertz |\n| Mile |\n| Milliampere |\n| Millihertz |\n| Milliliter |\n| Millimeter |\n| Milliohm |\n| Millivolt |\n| Milliwatt |\n| Nautical Mile |\n| Ohm |\n| Parcel |\n| Perch |\n| Pint |\n| Pole |\n| Quart |\n| Quarter |\n| Rod |\n| Roll |\n| Square Centimeter |\n| Square Foot |\n| Square Inch |\n| Square Mile |\n| Square Yard |\n| Stone |\n| Tonne |\n| Tray |\n| Volt |\n| Watt |\n| Wp |\n| Twenty-Foot Container |\n| Strand |\n| Plant |\n| Pallet |\n| Gross |\n| Forty-Foot Container |\n| Sheet |\n| Carat |\n| Blade |\n| Combo |\n| Bottle |\n| LB |\n\n\n## 订单特殊对接\n注意！注意！\n\n1、订单产品明细(product_list)不是必要的，并且接口不会自动创建非产品库中的产品。也不接受乱传入。若需要产品明细至少传入产品库的product_id和sku_id，否则乱传入非小满产品库id或者没有上述两个字段，则会忽略该明细。\n\n2、若订单中存在多条产品明细，明细有相同的规格产品时，比如A，B记录都是相同的规格产品，可能在单价上存在差异，那么在新建订单后，获取返回值中的product_list的unique_id自行保留起来做好映射。下次编辑时需要带入，否则编辑时接口将会根据product_id、sku_id进行去重保留一条记录。（ 实际上小满使用unique_id作为唯一区别。删除明细的时候需要带入至少有unique_id，remove字段，举例：unique_id=123，remove=1，product_id=321，sku_id=456）。\n\n3、订单中产品明细的金额小计(cost_amount)，与在小满web端不同的是，open接口不会主动计算，需要用户自己计算后传入，否则当成0重新保存。\n\n4、处理人(handler)，新建时不传入则默认使用当前操作人(user_id)，而user_id不传入则使用获取token时的账号作为默认值。订单中用户和部门相关字段传入值是小满内的用户ID和部门ID。\n\n5、订单状态(status)，状态值不通用也不是固定，每个企业有自己的状态ID，该字段的值必须来自/v1/invoices/order/orderEnums中的order_status_list的code，传入不是自己企业的订单状态或者乱传入可能订单变更失败，但不会有什么提示，即会忽略本次变更。\n\n6、订单汇率（exchange_rate，exchange_rate_usd）和币种(currency)传入时，若只传入currency字段，没有exchange_rate字段时，系统会主动补充exchange_rate，exchange_rate_usd汇率的值，但是若传入exchange_rate字段，不管该字段有没有值都不会自动补充。我们只看有没有exchange_rate字段去取默认值。小满系统内记录的实际汇率都是乘了100的，比如订单是USD币种，那么exchange_rate_usd=100，则订单兑换人民币的应该是exchange_rate=710。乘100的逻辑需要用户自己计算后传入，系统不会自主处理。\n",
+        "tags": [
+          "销售订单"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "access_token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "12345677": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "12345677为例子，自定义字段可以从【销售订单字段】接口中查到字段ID，若自定义多选字段，数组传入，值来自/v1/invoices/order/fields中对应字段的ext_info中的一个或多个"
+                  },
+                  "12345678": {
+                    "type": "string",
+                    "description": "12345678为例子，自定义字段可以从【销售订单字段】接口中查到字段ID，若自定义单选字段，值来自/v1/invoices/order/fields中对应字段的ext_info中的一个"
+                  },
+                  "order_id": {
+                    "type": "integer",
+                    "description": "订单ID，编辑时可以传入订单ID或者订单编号",
+                    "x-apifox-mock": 1
+                  },
+                  "order_no": {
+                    "type": "string",
+                    "description": "订单编号，编辑时可以传入订单ID或者订单编号",
+                    "x-apifox-mock": "xx1"
+                  },
+                  "account_date": {
+                    "type": "string",
+                    "description": "订单日期，YYYY-mm-dd",
+                    "x-apifox-mock": "2022-09-21"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "订单名称",
+                    "x-apifox-mock": "订单名称"
+                  },
+                  "exchange_rate": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "折现人民币汇率，exchange_rate不传入时默认取当前系统设置的汇率，这里有传币种，不传exchange_rate的话就会exchange_rate和exhange_rate_usd都取系统实时",
+                    "x-apifox-mock": 7
+                  },
+                  "exchange_rate_usd": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "折现美元汇率，exchange_rate不传入时默认取当前系统实时的汇率",
+                    "x-apifox-mock": 1
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "币种，传入值来自/v1/invoices/order/orderEnums返回值中currency_list的code",
+                    "x-apifox-mock": "CNY"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "订单金额",
+                    "x-apifox-mock": 100
+                  },
+                  "amount_rmb": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "订单金额（人民币）",
+                    "x-apifox-mock": 100
+                  },
+                  "amount_usd": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "订单金额（美元）",
+                    "x-apifox-mock": 15
+                  },
+                  "addition_cost_amount": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "附加费用总金额",
+                    "x-apifox-mock": 0
+                  },
+                  "product_total_amount": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "产品总金额",
+                    "x-apifox-mock": 80
+                  },
+                  "product_total_count": {
+                    "type": "integer",
+                    "description": "产品总数量",
+                    "x-apifox-mock": 10
+                  },
+                  "price_contract": {
+                    "type": "string",
+                    "description": "价格条款,参考说明中的价格条款枚举值",
+                    "x-apifox-mock": "价格条款说明"
+                  },
+                  "receive_remittance_way": {
+                    "type": "string",
+                    "description": "付款方式，传入值来自/v1/invoices/order/orderEnums返回值中pay_list的code",
+                    "x-apifox-mock": "收汇方式说明"
+                  },
+                  "price_contract_remark": {
+                    "type": "string",
+                    "description": "价格条款说明",
+                    "x-apifox-mock": "价格条款详细说明"
+                  },
+                  "receive_remittance_remark": {
+                    "type": "string",
+                    "description": "收汇方式说明",
+                    "x-apifox-mock": "收汇方式详细说明"
+                  },
+                  "insurance_remark": {
+                    "type": "string",
+                    "description": "保险说明",
+                    "x-apifox-mock": "保险详细说明"
+                  },
+                  "order_contract": {
+                    "type": "string",
+                    "description": "订单条款",
+                    "x-apifox-mock": "订单条款详细说明"
+                  },
+                  "company_id": {
+                    "type": "integer",
+                    "description": "客户ID，请从客户列表中获取客户ID传入",
+                    "x-apifox-mock": 100
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "description": "客户名称",
+                    "x-apifox-mock": "客户名称"
+                  },
+                  "company_phone": {
+                    "type": "string",
+                    "description": "客户电话",
+                    "x-apifox-mock": "13800138000"
+                  },
+                  "company_fax": {
+                    "type": "string",
+                    "description": "客户传真",
+                    "x-apifox-mock": "010-12345678"
+                  },
+                  "company_address": {
+                    "type": "string",
+                    "description": "客户地址",
+                    "x-apifox-mock": "客户详细地址"
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "国家/地区:ISO两位编码",
+                    "x-apifox-mock": "CN"
+                  },
+                  "opportunity_id": {
+                    "type": "integer",
+                    "description": "商机id，请从商机列表等中拿到商机ID传入",
+                    "x-apifox-mock": 200
+                  },
+                  "shipment_deadline_remark": {
+                    "type": "string",
+                    "description": "交货期",
+                    "x-apifox-mock": "2022-10-01"
+                  },
+                  "users": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "user_id": {
+                          "type": "integer",
+                          "description": "业绩归属人id，传入值来自/v1/user/list中的user_id",
+                          "x-apifox-mock": 300
+                        },
+                        "rate": {
+                          "type": "number",
+                          "description": "业绩占比，传入的所有占比累加最多等于100"
+                        }
+                      },
+                      "required": [
+                        "user_id",
+                        "rate"
+                      ],
+                      "x-apifox-orders": [
+                        "user_id",
+                        "rate"
+                      ]
+                    },
+                    "description": "业绩归属人"
+                  },
+                  "product_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "product_id": {
+                          "type": "integer",
+                          "description": "产品ID，请从产品列表或者产品明细中获取产品ID传入",
+                          "x-apifox-mock": 500
+                        },
+                        "sku_id": {
+                          "type": "integer",
+                          "description": "产品SKU ID，请从产品列表或者产品明细中获取产品SKUID传入",
+                          "x-apifox-mock": 501
+                        },
+                        "count": {
+                          "type": "number",
+                          "description": "数量"
+                        },
+                        "unit_price": {
+                          "type": "number",
+                          "format": "float",
+                          "description": "单价",
+                          "x-apifox-mock": 10
+                        },
+                        "cost_amount": {
+                          "type": "number",
+                          "format": "float",
+                          "description": "金额小计，一般为认为是数量*单价+其他费用，但每次传入如果想保留值，都需要传入，否则以默认值0重新保存，系统不会主动计算（为了兼容部分企业有自定义公式情况）",
+                          "x-apifox-mock": 50
+                        },
+                        "other_cost": {
+                          "type": "number",
+                          "format": "float",
+                          "description": "其他费用，每次传入如果想保留值，都需要传入，否则以默认值0重新保存",
+                          "x-apifox-mock": 50
+                        },
+                        "unique_id": {
+                          "type": "integer",
+                          "description": "该明细ID是小满订单明细真实唯一ID，存在相同记录的明细，需要自行新建订单后，保存返回的unique_id，再次编辑时可以传入，否则明细会根据product_id只保存一条明细"
+                        },
+                        "remove": {
+                          "type": "integer",
+                          "description": "若要删除明细，则要明确传入该标志，为1时会删除"
+                        },
+                        "product_name": {
+                          "type": "string",
+                          "x-apifox-mock": "订单产品名称",
+                          "description": "订单产品名称，想与产品库不一样时维护"
+                        },
+                        "product_model": {
+                          "type": "string",
+                          "x-apifox-mock": "订单产品型号",
+                          "description": "订单产品型号，想与产品库不一样时维护"
+                        },
+                        "unit": {
+                          "type": "string",
+                          "x-apifox-mock": "订单产品单位",
+                          "description": "订单产品单位（需要传入OMS的单位枚举值），想与产品库不一样时维护"
+                        }
+                      },
+                      "required": [
+                        "product_id",
+                        "sku_id",
+                        "count",
+                        "unit_price"
+                      ],
+                      "x-apifox-orders": [
+                        "product_id",
+                        "sku_id",
+                        "count",
+                        "unit_price",
+                        "other_cost",
+                        "cost_amount",
+                        "unique_id",
+                        "remove",
+                        "product_name",
+                        "product_model",
+                        "unit"
+                      ]
+                    },
+                    "description": "产品子列表"
+                  },
+                  "customer_name": {
+                    "type": "string",
+                    "description": "联系人名称",
+                    "x-apifox-mock": "联系人名称"
+                  },
+                  "customer_phone": {
+                    "type": "string",
+                    "description": "联系人电话",
+                    "x-apifox-mock": "13900139000"
+                  },
+                  "customer_email": {
+                    "type": "string",
+                    "description": "联系人邮箱",
+                    "x-apifox-mock": "contact@example.com"
+                  },
+                  "customer_address": {
+                    "type": "string",
+                    "description": "联系人地址",
+                    "x-apifox-mock": "联系人详细地址"
+                  },
+                  "transport_mode": {
+                    "type": "string",
+                    "description": "运输方式，值为 空运、海运、陆运、邮政、快递、其他",
+                    "x-apifox-mock": "海运"
+                  },
+                  "shipment_deadline": {
+                    "type": "string",
+                    "description": "装运期限",
+                    "x-apifox-mock": "2022-10-10"
+                  },
+                  "shipment_port": {
+                    "type": "string",
+                    "description": "装运港口",
+                    "x-apifox-mock": "上海港"
+                  },
+                  "target_port": {
+                    "type": "string",
+                    "description": "目的港口",
+                    "x-apifox-mock": "纽约港"
+                  },
+                  "more_or_less": {
+                    "type": "string",
+                    "description": "溢短装",
+                    "x-apifox-mock": "±5%"
+                  },
+                  "package_remark": {
+                    "type": "string",
+                    "description": "包装说明",
+                    "x-apifox-mock": "纸箱包装"
+                  },
+                  "marked": {
+                    "type": "string",
+                    "description": "唛头",
+                    "x-apifox-mock": "唛头信息"
+                  },
+                  "create_user": {
+                    "type": "integer",
+                    "description": "创建人，传入值来自/v1/user/list中的user_id",
+                    "x-apifox-mock": 600
+                  },
+                  "create_time": {
+                    "type": "string",
+                    "description": "创建时间",
+                    "x-apifox-mock": "2022-09-25 10:00:00"
+                  },
+                  "remark": {
+                    "type": "integer",
+                    "description": "备注",
+                    "x-apifox-mock": 0
+                  },
+                  "source_type": {
+                    "type": "integer",
+                    "description": "订单类型：1 CRM订单，默认1，传入值来自/v1/invoices/order/orderEnums返回值中source_type_list的code",
+                    "x-apifox-mock": 1
+                  },
+                  "status": {
+                    "type": "integer",
+                    "x-apifox-mock": "1234356",
+                    "description": "订单状态，传入值来自/v1/invoices/order/orderEnums返回值中order_status_list中的code"
+                  },
+                  "tax_refund_type": {
+                    "type": "integer",
+                    "description": "是否退税，1不退税，2退税，默认0"
+                  },
+                  "customer_id": {
+                    "type": "integer",
+                    "description": "联系人ID，请从客户列表或者客户联系人列表中获取联系人ID传入"
+                  },
+                  "cost_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "cost_name": {
+                          "type": "string",
+                          "description": "费用名称"
+                        },
+                        "percent_type": {
+                          "type": "integer",
+                          "description": "枚举值，计算规则 0：（加（+）绝对值、1：加（+）占产品总金额百分比、2：减（-）绝对值、3：减（-）占产品总金额百分比）"
+                        },
+                        "percent_amount": {
+                          "type": "number",
+                          "description": "计算金额值，比如1%，那就是产品金额*1%"
+                        },
+                        "cost": {
+                          "type": "number",
+                          "description": "最终费用金额，根据计算金额值计算出来后的费用"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "cost_name",
+                        "percent_type",
+                        "percent_amount",
+                        "cost"
+                      ],
+                      "required": [
+                        "cost_name",
+                        "percent_type",
+                        "percent_amount",
+                        "cost"
+                      ]
+                    },
+                    "description": "费用"
+                  },
+                  "file_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "附件，数组传入，完整可以访问的文件链接"
+                  },
+                  "capital_account_id": {
+                    "type": "integer",
+                    "description": "资金账号ID，值来自/v1/capitalAccount/list的capital_account_id"
+                  },
+                  "departments": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "department_id": {
+                          "type": "integer",
+                          "description": "业绩归属部门id，传入值来自/v1/user/departmentList中的id"
+                        },
+                        "rate": {
+                          "type": "number",
+                          "description": "业绩占比，传入的所有占比累加最多等于100"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "department_id",
+                        "rate"
+                      ],
+                      "required": [
+                        "department_id",
+                        "rate"
+                      ]
+                    },
+                    "description": "业绩归属部门"
+                  },
+                  "handler": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "处理人，数组传入，传入值来自/v1/user/list中的user_id"
+                  },
+                  "user_id": {
+                    "type": "integer",
+                    "description": "当前操作用户"
+                  }
+                },
+                "x-apifox-orders": [
+                  "order_id",
+                  "order_no",
+                  "account_date",
+                  "name",
+                  "exchange_rate",
+                  "exchange_rate_usd",
+                  "currency",
+                  "amount",
+                  "amount_rmb",
+                  "amount_usd",
+                  "addition_cost_amount",
+                  "product_total_amount",
+                  "product_total_count",
+                  "price_contract",
+                  "receive_remittance_way",
+                  "price_contract_remark",
+                  "receive_remittance_remark",
+                  "insurance_remark",
+                  "order_contract",
+                  "company_id",
+                  "company_name",
+                  "company_phone",
+                  "company_fax",
+                  "company_address",
+                  "country",
+                  "opportunity_id",
+                  "shipment_deadline_remark",
+                  "departments",
+                  "users",
+                  "product_list",
+                  "customer_id",
+                  "customer_name",
+                  "customer_phone",
+                  "customer_email",
+                  "customer_address",
+                  "transport_mode",
+                  "shipment_deadline",
+                  "shipment_port",
+                  "target_port",
+                  "more_or_less",
+                  "package_remark",
+                  "marked",
+                  "handler",
+                  "create_user",
+                  "create_time",
+                  "remark",
+                  "source_type",
+                  "status",
+                  "tax_refund_type",
+                  "12345678",
+                  "12345677",
+                  "cost_list",
+                  "file_list",
+                  "capital_account_id",
+                  "user_id"
+                ],
+                "required": [
+                  "currency"
+                ]
+              },
+              "example": {
+                "12345677": "单选1",
+                "12345678": [
+                  "多选1",
+                  "多选2"
+                ],
+                "order_id": "",
+                "order_no": "",
+                "account_date": "2024-01-29",
+                "name": "erp同步订单",
+                "company_id": "3448551934",
+                "customer_id": "3448551921",
+                "currency": "USD",
+                "users": [
+                  {
+                    "user_id": "11858712",
+                    "rate": 100
+                  }
+                ],
+                "departments": [
+                  {
+                    "rate": 100,
+                    "department_id": "148"
+                  }
+                ],
+                "product_list": [
+                  {
+                    "product_id": "3495743811",
+                    "sku_id": "3495743812",
+                    "count": "10",
+                    "unit_price": "10",
+                    "cost_amount": "100"
+                  }
+                ],
+                "price_contract": "",
+                "price_contract_remark": "",
+                "receive_remittance_way": "",
+                "receive_remittance_remark": "",
+                "insurance_remark": "",
+                "bank_info": "",
+                "order_contract": "",
+                "company_name": "中国宝安科技",
+                "company_phone": "",
+                "company_fax": "",
+                "country": "",
+                "company_address": "erp的公司地址",
+                "opportunity_id": "",
+                "shipment_deadline_remark": "",
+                "customer_name": "阿嫲",
+                "customer_phone": "1829383944",
+                "customer_email": "am@am.com",
+                "customer_address": "联系人地址",
+                "transport_mode": "",
+                "shipment_deadline": "",
+                "shipment_port": "",
+                "target_port": "",
+                "more_or_less": "",
+                "package_remark": "",
+                "marked": "",
+                "collection_date": "",
+                "status_name": "",
+                "collect_amount_rmb": "",
+                "collect_amount_usd": "",
+                "not_collect_amount_rmb": "",
+                "not_collect_amount_usd": "",
+                "percentage_rmb": "",
+                "percentage_usd": "",
+                "create_user": 11858712,
+                "remark": "",
+                "source_type": "",
+                "tax_refund_type": "",
+                "capital_account_id": "122",
+                "status": 12343455,
+                "cost_list": [
+                  {
+                    "cost_name": "erp费用名称",
+                    "percent_type": "0",
+                    "percent_amount": "200",
+                    "cost_remark": "erp费用备注",
+                    "cost": 200
+                  }
+                ],
+                "file_list": [
+                  ""
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "order_id": {
+                          "type": "integer",
+                          "description": "销售订单ID"
+                        },
+                        "product_list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "unique_id": {
+                                "type": "integer",
+                                "description": "销售订单产品明细唯一ID"
+                              },
+                              "product_name": {
+                                "type": "string",
+                                "description": "产品名称"
+                              },
+                              "product_no": {
+                                "type": "string",
+                                "description": "产品编号"
+                              },
+                              "product_model": {
+                                "type": "string",
+                                "description": "产品型号"
+                              },
+                              "product_id": {
+                                "type": "string",
+                                "description": "产品ID"
+                              },
+                              "sku_id": {
+                                "type": "string",
+                                "description": "产品SKU ID"
+                              },
+                              "count": {
+                                "type": "number",
+                                "description": "数量"
+                              },
+                              "unit_price": {
+                                "type": "number",
+                                "description": "单价"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "unique_id",
+                              "product_name",
+                              "product_no",
+                              "product_model",
+                              "product_id",
+                              "sku_id",
+                              "count",
+                              "unit_price"
+                            ]
+                          },
+                          "description": "销售订单产品明细"
+                        }
+                      },
+                      "required": [
+                        "order_id"
+                      ],
+                      "x-apifox-orders": [
+                        "order_id",
+                        "product_list"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-04-19 15:45:47",
+                  "data": {
+                    "order_id": 5223975283,
+                    "product_list": [
+                      {
+                        "unique_id": 5223975284,
+                        "product_name": "这是一个名称1",
+                        "product_no": "1",
+                        "product_model": "sky",
+                        "product_id": 3563404548,
+                        "sku_id": 3563404549,
+                        "count": 3,
+                        "unit_price": 10
+                      },
+                      {
+                        "unique_id": 5223975285,
+                        "product_name": "这是一个名称2",
+                        "product_no": "1",
+                        "product_model": "sky",
+                        "product_id": 3563404548,
+                        "sku_id": 3563404549,
+                        "count": 2,
+                        "unit_price": 7
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "销售订单",
+        "x-apifox-status": "released",
+        "operationId": "post_v1_invoices_order_push",
+        "x-local-source-path": "sources/pages/api-3478252.md",
+        "x-source-id": "api-3478252",
+        "x-source-title": "销售订单新建/编辑",
+        "x-source-module": "销售订单"
+      }
+    },
+    "/v1/invoices/order/list": {
+      "get": {
+        "summary": "销售订单列表",
+        "deprecated": false,
+        "description": "参数说明：\n1、time_type 参数用于对start_time，end_time查询CRM中某字段，比如若time_type=1，则查询订单更新时间字段。若time_type=4，则查询订单的删除时间，其他time_type类比。\n\n更新日志：\n1、增加time_type=4 ，该参数枚举于2026年2月6日之后生效。\n\n",
+        "tags": [
+          "销售订单"
+        ],
+        "parameters": [
+          {
+            "name": "start_time",
+            "in": "query",
+            "description": "开始时间，YYYY-MM-DD",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "description": "结束时间，YYYY-MM-DD",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "time_type",
+            "in": "query",
+            "description": "控制start_time，end_time查询什么时间字段，默认值=1，1 更新时间 , 2 创建时间，3 订单日期，4 删除时间",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "每页数量，默认10",
+            "required": false,
+            "example": 10,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "start_index",
+            "in": "query",
+            "description": "页码，默认1",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "removed",
+            "in": "query",
+            "description": "是否返回已经删除订单，1是返回已经删除订单",
+            "required": false,
+            "example": 0,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "approval",
+            "in": "query",
+            "description": "审核状态，1是有审批",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "approval_with_draft",
+            "in": "query",
+            "description": "查询的已审核单据是否包含草稿：1-是，0-否。默认值为 0",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "订单状态，传入值来自/v1/invoices/order/orderEnums返回值中order_status_list中的code",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "description": "错误码"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "错误信息"
+                    },
+                    "now": {
+                      "type": "string",
+                      "description": "当前时间"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "description": "订单列表总数"
+                        },
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "order_id": {
+                                "type": "integer",
+                                "description": "订单ID，编辑时必填"
+                              },
+                              "order_no": {
+                                "type": "string",
+                                "description": "订单号 （可选字段，不设置自动生成）"
+                              },
+                              "account_date": {
+                                "type": "string",
+                                "description": "订单日期，YYYY-mm-dd"
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "订单名称"
+                              },
+                              "exchange_rate": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "折现人民币汇率"
+                              },
+                              "exchange_rate_usd": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "折现美元汇率"
+                              },
+                              "currency": {
+                                "type": "string",
+                                "description": "币种"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "订单金额"
+                              },
+                              "amount_rmb": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "订单金额（人民币）"
+                              },
+                              "amount_usd": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "订单金额（美元）"
+                              },
+                              "addition_cost_amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "附加费用总金额"
+                              },
+                              "product_total_amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "产品总金额"
+                              },
+                              "product_total_count": {
+                                "type": "integer",
+                                "description": "产品总数量"
+                              },
+                              "price_contract": {
+                                "type": "string",
+                                "description": "价格条款"
+                              },
+                              "receive_remittance_way": {
+                                "type": "string",
+                                "description": "付款方式"
+                              },
+                              "price_contract_remark": {
+                                "type": "string",
+                                "description": "价格条款说明"
+                              },
+                              "receive_remittance_remark": {
+                                "type": "string",
+                                "description": "收汇方式说明"
+                              },
+                              "insurance_remark": {
+                                "type": "string",
+                                "description": "保险说明"
+                              },
+                              "order_contract": {
+                                "type": "string",
+                                "description": "订单条款"
+                              },
+                              "company_name": {
+                                "type": "string",
+                                "description": "客户名称"
+                              },
+                              "company_phone": {
+                                "type": "string",
+                                "description": "客户电话"
+                              },
+                              "company_fax": {
+                                "type": "string",
+                                "description": "客户传真"
+                              },
+                              "company_address": {
+                                "type": "string",
+                                "description": "客户地址"
+                              },
+                              "country": {
+                                "type": "string",
+                                "description": "国家/地区:ISO两位编码"
+                              },
+                              "opportunity_id": {
+                                "type": "integer",
+                                "description": "商机id"
+                              },
+                              "shipment_deadline_remark": {
+                                "type": "string",
+                                "description": "交货期"
+                              },
+                              "users": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "user_id": {
+                                      "type": "integer",
+                                      "description": "业绩归属人id"
+                                    },
+                                    "rate": {
+                                      "type": "string",
+                                      "description": "业绩占比"
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "user_id",
+                                    "rate"
+                                  ]
+                                },
+                                "description": "业绩归属人列表"
+                              },
+                              "users_info": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "user_id": {
+                                      "type": "integer",
+                                      "description": "业绩归属人id"
+                                    },
+                                    "rate": {
+                                      "type": "string",
+                                      "description": "业绩占比"
+                                    },
+                                    "nickname": {
+                                      "type": "string",
+                                      "description": "业绩归属人昵称"
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "user_id",
+                                    "rate",
+                                    "nickname"
+                                  ]
+                                },
+                                "description": "业绩归属人信息列表"
+                              },
+                              "departments_info": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "department_id": {
+                                      "type": "integer",
+                                      "description": "业绩归属部门id"
+                                    },
+                                    "rate": {
+                                      "type": "string",
+                                      "description": "业绩占比"
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "description": "业绩归属部门名称"
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "department_id",
+                                    "rate",
+                                    "name"
+                                  ]
+                                },
+                                "description": "业绩归属部门信息列表"
+                              },
+                              "handler_info": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "user_id": {
+                                      "type": "integer",
+                                      "description": "订单跟进人id"
+                                    },
+                                    "nickname": {
+                                      "type": "string",
+                                      "description": "订单跟进人昵称"
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "user_id",
+                                    "nickname"
+                                  ]
+                                },
+                                "description": "订单跟进人信息列表"
+                              },
+                              "company": {
+                                "type": "object",
+                                "properties": {
+                                  "company_id": {
+                                    "type": "integer",
+                                    "description": "公司id"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "公司名称"
+                                  },
+                                  "serial_id": {
+                                    "type": "string",
+                                    "description": "公司编号（客户编号）"
+                                  }
+                                },
+                                "description": "客户公司信息",
+                                "x-apifox-orders": [
+                                  "company_id",
+                                  "name",
+                                  "serial_id"
+                                ]
+                              },
+                              "customer_name": {
+                                "type": "string",
+                                "description": "联系人名称"
+                              },
+                              "customer_phone": {
+                                "type": "string",
+                                "description": "联系人电话"
+                              },
+                              "customer_email": {
+                                "type": "string",
+                                "description": "联系人邮箱"
+                              },
+                              "customer_address": {
+                                "type": "string",
+                                "description": "联系人地址"
+                              },
+                              "transport_mode": {
+                                "type": "string",
+                                "description": "运输方式"
+                              },
+                              "shipment_deadline": {
+                                "type": "string",
+                                "description": "装运期限"
+                              },
+                              "shipment_port": {
+                                "type": "string",
+                                "description": "装运港口"
+                              },
+                              "target_port": {
+                                "type": "string",
+                                "description": "目的港口"
+                              },
+                              "more_or_less": {
+                                "type": "string",
+                                "description": "溢短装"
+                              },
+                              "package_remark": {
+                                "type": "string",
+                                "description": "包装说明"
+                              },
+                              "marked": {
+                                "type": "string",
+                                "description": "唛头"
+                              },
+                              "stock_up_status": {
+                                "type": "object",
+                                "properties": {
+                                  "title": {
+                                    "type": "string",
+                                    "description": "备货状态名称"
+                                  },
+                                  "link_status": {
+                                    "type": "integer",
+                                    "description": "备货状态ID"
+                                  }
+                                },
+                                "description": "备货状态",
+                                "x-apifox-orders": [
+                                  "title",
+                                  "link_status"
+                                ]
+                              },
+                              "shipping_status": {
+                                "type": "object",
+                                "properties": {
+                                  "title": {
+                                    "type": "string",
+                                    "description": "出库状态名称"
+                                  },
+                                  "link_status": {
+                                    "type": "integer",
+                                    "description": "出库状态ID"
+                                  }
+                                },
+                                "description": "出库状态",
+                                "x-apifox-orders": [
+                                  "title",
+                                  "link_status"
+                                ]
+                              },
+                              "end_status": {
+                                "type": "object",
+                                "properties": {
+                                  "title": {
+                                    "type": "string",
+                                    "description": "完成状态名称"
+                                  },
+                                  "link_status": {
+                                    "type": "integer",
+                                    "description": "完成状态ID"
+                                  }
+                                },
+                                "description": "完成状态",
+                                "x-apifox-orders": [
+                                  "title",
+                                  "link_status"
+                                ]
+                              },
+                              "create_user": {
+                                "type": "integer",
+                                "description": "创建人"
+                              },
+                              "create_time": {
+                                "type": "string",
+                                "description": "创建时间，是订单在小满落库的时间，如果有业务需求，可以用订单日期字段"
+                              },
+                              "update_user": {
+                                "type": "integer",
+                                "description": "更新人"
+                              },
+                              "update_time": {
+                                "type": "string",
+                                "description": "更新时间，除了正常接口或者业务更新外，可能我们系统一些操作（比如工作流等自动协助程序）也会改到这个更新时间，也有部分系统操作不会改。如果你们要用到这个更新时间的话，注意留意自己业务是否适合"
+                              },
+                              "archive_type": {
+                                "type": "integer",
+                                "description": "创建方式，1手动创建，2AI创建，3智能导入，4ERP同步，5阿里巴巴同步"
+                              },
+                              "remark": {
+                                "type": "integer",
+                                "description": "备注，非必填"
+                              },
+                              "source_type": {
+                                "type": "integer",
+                                "description": "订单类型：1 CRM订单、2 信保订单、3 e收汇订单"
+                              },
+                              "ali_status_info": {
+                                "type": "object",
+                                "properties": {
+                                  "status_name": {
+                                    "type": "string",
+                                    "description": "信保订单状态名称"
+                                  },
+                                  "ali_status_name": {
+                                    "type": "string",
+                                    "description": "信保订单状态code"
+                                  },
+                                  "ali_status_id": {
+                                    "type": "integer",
+                                    "description": "信保订单状态ID"
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "status_name",
+                                  "ali_status_name",
+                                  "ali_status_id"
+                                ],
+                                "description": "信保订单信息"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "order_id",
+                              "order_no",
+                              "account_date",
+                              "name",
+                              "exchange_rate",
+                              "exchange_rate_usd",
+                              "currency",
+                              "amount",
+                              "amount_rmb",
+                              "amount_usd",
+                              "addition_cost_amount",
+                              "product_total_amount",
+                              "product_total_count",
+                              "price_contract",
+                              "receive_remittance_way",
+                              "price_contract_remark",
+                              "receive_remittance_remark",
+                              "insurance_remark",
+                              "order_contract",
+                              "company_name",
+                              "company_phone",
+                              "company_fax",
+                              "company_address",
+                              "country",
+                              "opportunity_id",
+                              "shipment_deadline_remark",
+                              "users",
+                              "users_info",
+                              "departments_info",
+                              "handler_info",
+                              "company",
+                              "customer_name",
+                              "customer_phone",
+                              "customer_email",
+                              "customer_address",
+                              "transport_mode",
+                              "shipment_deadline",
+                              "shipment_port",
+                              "target_port",
+                              "more_or_less",
+                              "package_remark",
+                              "marked",
+                              "stock_up_status",
+                              "shipping_status",
+                              "end_status",
+                              "create_user",
+                              "create_time",
+                              "update_user",
+                              "update_time",
+                              "archive_type",
+                              "remark",
+                              "source_type",
+                              "ali_status_info"
+                            ]
+                          },
+                          "description": "订单信息列表"
+                        }
+                      },
+                      "required": [
+                        "count",
+                        "list"
+                      ],
+                      "x-apifox-orders": [
+                        "count",
+                        "list"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "销售订单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_order_list",
+        "x-local-source-path": "sources/pages/api-3478254.md",
+        "x-source-id": "api-3478254",
+        "x-source-title": "销售订单列表",
+        "x-source-module": "销售订单"
+      }
+    },
+    "/v1/invoices/order/info": {
+      "get": {
+        "summary": "销售订单详情",
+        "deprecated": false,
+        "description": "## 错误码解释\n| 异常码 | 异常消息 |异常解决方案|\n| --- | --- | --- |\n| 404 | Not Found Resource（未知异常） | 请先排查单据是否在小满是否真实存在，再联系对接群，并提供相关请求参数与请求时间 |",
+        "tags": [
+          "销售订单"
+        ],
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "query",
+            "description": "销售订单ID或销售订单编号必须传其中一个",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order_no",
+            "in": "query",
+            "description": "销售订单ID或销售订单编号必须传其中一个",
+            "required": false,
+            "example": "O1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "错误码",
+                      "type": "integer",
+                      "x-apifox-mock": 0
+                    },
+                    "message": {
+                      "description": "错误信息",
+                      "type": "string",
+                      "x-apifox-mock": "success"
+                    },
+                    "now": {
+                      "description": "当前时间",
+                      "type": "string",
+                      "x-apifox-mock": "2022-01-01 00:00:00"
+                    },
+                    "data": {
+                      "description": "响应数据",
+                      "type": "object",
+                      "properties": {
+                        "order_id": {
+                          "description": "订单ID，编辑时必填",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "order_no": {
+                          "description": "订单号 （可选字段，不设置自动生成）",
+                          "type": "string",
+                          "x-apifox-mock": "xx1"
+                        },
+                        "account_date": {
+                          "description": "订单日期，YYYY-mm-dd",
+                          "type": "string",
+                          "x-apifox-mock": "2022-01-01"
+                        },
+                        "name": {
+                          "description": "订单名称",
+                          "type": "string",
+                          "x-apifox-mock": "示例订单名称"
+                        },
+                        "exchange_rate": {
+                          "description": "折现人民币汇率",
+                          "type": "number",
+                          "format": "float",
+                          "x-apifox-mock": 7
+                        },
+                        "exchange_rate_usd": {
+                          "description": "折现美元汇率",
+                          "type": "number",
+                          "format": "float",
+                          "x-apifox-mock": 1
+                        },
+                        "currency": {
+                          "description": "货币",
+                          "type": "string",
+                          "x-apifox-mock": "CNY"
+                        },
+                        "amount": {
+                          "description": "订单金额",
+                          "type": "number",
+                          "format": "float",
+                          "x-apifox-mock": 100
+                        },
+                        "amount_rmb": {
+                          "description": "订单金额（RMB）",
+                          "type": "number",
+                          "format": "float",
+                          "x-apifox-mock": 700
+                        },
+                        "amount_usd": {
+                          "description": "订单金额（美元）",
+                          "type": "number",
+                          "format": "float",
+                          "x-apifox-mock": 100
+                        },
+                        "cost_with_tax_total": {
+                          "description": "含税成本价总金额（美元）",
+                          "type": "number",
+                          "format": "float",
+                          "x-apifox-mock": 80
+                        },
+                        "addition_cost_amount": {
+                          "description": "附加费用总金额",
+                          "type": "number",
+                          "format": "float",
+                          "x-apifox-mock": 10
+                        },
+                        "product_total_amount": {
+                          "description": "产品总金额",
+                          "type": "number",
+                          "format": "float",
+                          "x-apifox-mock": 90
+                        },
+                        "product_total_count": {
+                          "type": "number",
+                          "description": "产品总数量"
+                        },
+                        "price_contract": {
+                          "description": "价格条款",
+                          "type": "string",
+                          "x-apifox-mock": "示例价格条款"
+                        },
+                        "receive_remittance_way": {
+                          "description": "收汇方式",
+                          "type": "string",
+                          "x-apifox-mock": "示例收汇方式"
+                        },
+                        "price_contract_remark": {
+                          "description": "价格条款说明",
+                          "type": "string",
+                          "x-apifox-mock": "示例价格条款说明"
+                        },
+                        "receive_remittance_remark": {
+                          "description": "收汇方式说明",
+                          "type": "string",
+                          "x-apifox-mock": "示例收汇方式说明"
+                        },
+                        "insurance_remark": {
+                          "description": "保险说明",
+                          "type": "string",
+                          "x-apifox-mock": "示例保险说明"
+                        },
+                        "bank_info": {
+                          "description": "银行信息",
+                          "type": "string",
+                          "x-apifox-mock": "示例银行信息"
+                        },
+                        "order_contract": {
+                          "description": "订单条款",
+                          "type": "string",
+                          "x-apifox-mock": "示例订单条款"
+                        },
+                        "company_id": {
+                          "description": "客户ID",
+                          "type": "string",
+                          "x-apifox-mock": "123"
+                        },
+                        "company_name": {
+                          "description": "客户名称",
+                          "type": "string",
+                          "x-apifox-mock": "示例客户名称"
+                        },
+                        "company_phone": {
+                          "description": "客户电话",
+                          "type": "string",
+                          "x-apifox-mock": "123456789"
+                        },
+                        "company_fax": {
+                          "description": "客户传真",
+                          "type": "string",
+                          "x-apifox-mock": "987654321"
+                        },
+                        "company_address": {
+                          "description": "客户地址",
+                          "type": "string",
+                          "x-apifox-mock": "示例客户地址"
+                        },
+                        "country": {
+                          "description": "国家/地区:ISO两位编码",
+                          "type": "string",
+                          "x-apifox-mock": "CN"
+                        },
+                        "opportunity_id": {
+                          "description": "商机id",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "shipment_deadline_remark": {
+                          "description": "交货期",
+                          "type": "string",
+                          "x-apifox-mock": "示例交货期"
+                        },
+                        "status": {
+                          "description": "订单状态ID",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "status_name": {
+                          "description": "回款状态",
+                          "type": "string",
+                          "x-apifox-mock": "回款状态"
+                        },
+                        "collection_date": {
+                          "description": "回款日期",
+                          "type": "string",
+                          "x-apifox-mock": "2022-01-01"
+                        },
+                        "collect_amount_rmb": {
+                          "description": "已回款（RMB）",
+                          "type": "string",
+                          "x-apifox-mock": "500"
+                        },
+                        "collect_amount_usd": {
+                          "description": "已回款（美元）",
+                          "type": "string",
+                          "x-apifox-mock": "70"
+                        },
+                        "not_collect_amount_rmb": {
+                          "description": "待回款（RMB）",
+                          "type": "string",
+                          "x-apifox-mock": "200"
+                        },
+                        "not_collect_amount_usd": {
+                          "description": "待回款（美元）",
+                          "type": "string",
+                          "x-apifox-mock": "30"
+                        },
+                        "percentage_rmb": {
+                          "description": "回款百分比（RMB）",
+                          "type": "string",
+                          "x-apifox-mock": "70%"
+                        },
+                        "percentage_usd": {
+                          "description": "回款百分比（美元）",
+                          "type": "string",
+                          "x-apifox-mock": "70%"
+                        },
+                        "users": {
+                          "description": "业绩归属人列表",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "user_id": {
+                                "description": "业绩归属人id",
+                                "type": "integer",
+                                "x-apifox-mock": 1
+                              },
+                              "rate": {
+                                "description": "业绩占比",
+                                "type": "string",
+                                "x-apifox-mock": "100%"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "user_id",
+                              "rate"
+                            ]
+                          },
+                          "x-apifox-mock": [
+                            {
+                              "user_id": 1,
+                              "rate": "100%"
+                            }
+                          ]
+                        },
+                        "departments": {
+                          "description": "业绩归属部门信息列表",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "department_id": {
+                                "description": "业绩归属部门id",
+                                "type": "integer",
+                                "x-apifox-mock": 1
+                              },
+                              "rate": {
+                                "description": "业绩占比",
+                                "type": "string",
+                                "x-apifox-mock": "100%"
+                              },
+                              "name": {
+                                "description": "业绩归属部门名称",
+                                "type": "string",
+                                "x-apifox-mock": "示例部门名称"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "department_id",
+                              "rate",
+                              "name"
+                            ]
+                          },
+                          "x-apifox-mock": [
+                            {
+                              "department_id": 1,
+                              "rate": "100%",
+                              "name": "示例部门名称"
+                            }
+                          ]
+                        },
+                        "handler": {
+                          "description": "订单当前处理人信息列表（待发布）",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "user_id": {
+                                "description": "订单跟进人id",
+                                "type": "integer",
+                                "x-apifox-mock": 1
+                              },
+                              "nickname": {
+                                "description": "订单跟进人昵称",
+                                "type": "string",
+                                "x-apifox-mock": "示例昵称"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "user_id",
+                              "nickname"
+                            ]
+                          },
+                          "x-apifox-mock": [
+                            {
+                              "user_id": 1,
+                              "nickname": "示例昵称"
+                            }
+                          ]
+                        },
+                        "product_list": {
+                          "description": "产品子列表",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "product_id": {
+                                "description": "产品ID",
+                                "type": "integer",
+                                "x-apifox-mock": 1
+                              },
+                              "sku_id": {
+                                "description": "产品SKU ID",
+                                "type": "integer",
+                                "x-apifox-mock": 1
+                              },
+                              "count": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "数量"
+                              },
+                              "unit_price": {
+                                "description": "单价",
+                                "type": "number",
+                                "format": "float",
+                                "x-apifox-mock": 10
+                              },
+                              "cost_amount": {
+                                "description": "金额小计",
+                                "type": "number",
+                                "format": "float",
+                                "x-apifox-mock": 100
+                              },
+                              "other_cost": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "其他费用"
+                              },
+                              "unique_id": {
+                                "type": "string",
+                                "description": "订单明细唯一ID"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "product_id",
+                              "sku_id",
+                              "count",
+                              "unit_price",
+                              "other_cost",
+                              "cost_amount",
+                              "unique_id"
+                            ]
+                          },
+                          "x-apifox-mock": [
+                            {
+                              "product_id": 1,
+                              "sku_id": 1,
+                              "count": 10,
+                              "unit_price": 10,
+                              "cost_amount": 100
+                            }
+                          ]
+                        },
+                        "customer_id": {
+                          "description": "客户联系人ID",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "customer_name": {
+                          "description": "联系人名称",
+                          "type": "string",
+                          "x-apifox-mock": "示例联系人名称"
+                        },
+                        "customer_phone": {
+                          "description": "联系人电话",
+                          "type": "string",
+                          "x-apifox-mock": "123456789"
+                        },
+                        "customer_email": {
+                          "description": "联系人邮箱",
+                          "type": "string",
+                          "x-apifox-mock": "example@example.com"
+                        },
+                        "customer_address": {
+                          "description": "联系人地址",
+                          "type": "string",
+                          "x-apifox-mock": "示例联系人地址"
+                        },
+                        "transport_mode": {
+                          "description": "运输方式",
+                          "type": "string",
+                          "x-apifox-mock": "示例运输方式"
+                        },
+                        "shipment_deadline": {
+                          "description": "装运期限",
+                          "type": "string",
+                          "x-apifox-mock": "2022-01-01"
+                        },
+                        "shipment_port": {
+                          "description": "装运港口",
+                          "type": "string",
+                          "x-apifox-mock": "示例装运港口"
+                        },
+                        "target_port": {
+                          "description": "目的港口",
+                          "type": "string",
+                          "x-apifox-mock": "示例目的港口"
+                        },
+                        "more_or_less": {
+                          "description": "溢短装",
+                          "type": "string",
+                          "x-apifox-mock": "示例溢短装"
+                        },
+                        "package_remark": {
+                          "description": "包装说明",
+                          "type": "string",
+                          "x-apifox-mock": "示例包装说明"
+                        },
+                        "marked": {
+                          "description": "唛头",
+                          "type": "string",
+                          "x-apifox-mock": "示例唛头"
+                        },
+                        "cost_list": {
+                          "description": "费用列表",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "cost_name": {
+                                "description": "费用名称",
+                                "type": "string",
+                                "x-apifox-mock": "示例费用名称"
+                              },
+                              "percent_type": {
+                                "description": "计算规则0（加（+）绝对值、1加（+）占产品总金额百分比、2减（-）绝对值、3减（-）占产品总金额百分比）",
+                                "type": "integer",
+                                "x-apifox-mock": 0
+                              },
+                              "percent_amount": {
+                                "description": "计算金额值，比如1%，那就是产品金额*1%",
+                                "type": "integer",
+                                "x-apifox-mock": 1
+                              },
+                              "cost": {
+                                "description": "金额，根据计算金额计算出来后的费用",
+                                "type": "integer",
+                                "x-apifox-mock": 10
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "cost_name",
+                              "percent_type",
+                              "percent_amount",
+                              "cost"
+                            ]
+                          },
+                          "x-apifox-mock": [
+                            {
+                              "cost_name": "示例费用名称",
+                              "percent_type": 0,
+                              "percent_amount": 1,
+                              "cost": 10
+                            }
+                          ]
+                        },
+                        "stock_up_status": {
+                          "description": "备货状态",
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "description": "备货状态名称",
+                              "type": "string",
+                              "x-apifox-mock": "示例备货状态名称"
+                            },
+                            "link_status": {
+                              "description": "备货状态ID",
+                              "type": "integer",
+                              "x-apifox-mock": 1
+                            }
+                          },
+                          "x-apifox-mock": {
+                            "title": "示例备货状态名称",
+                            "link_status": 1
+                          },
+                          "x-apifox-orders": [
+                            "title",
+                            "link_status"
+                          ]
+                        },
+                        "shipping_status": {
+                          "description": "出库状态",
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "description": "出库状态名称",
+                              "type": "string",
+                              "x-apifox-mock": "示例出库状态名称"
+                            },
+                            "link_status": {
+                              "description": "出库状态ID",
+                              "type": "integer",
+                              "x-apifox-mock": 1
+                            }
+                          },
+                          "x-apifox-mock": {
+                            "title": "示例出库状态名称",
+                            "link_status": 1
+                          },
+                          "x-apifox-orders": [
+                            "title",
+                            "link_status"
+                          ]
+                        },
+                        "end_status": {
+                          "description": "完成状态",
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "description": "完成状态名称",
+                              "type": "string",
+                              "x-apifox-mock": "示例完成状态名称"
+                            },
+                            "link_status": {
+                              "description": "完成状态ID",
+                              "type": "integer",
+                              "x-apifox-mock": 1
+                            }
+                          },
+                          "x-apifox-mock": {
+                            "title": "示例完成状态名称",
+                            "link_status": 1
+                          },
+                          "x-apifox-orders": [
+                            "title",
+                            "link_status"
+                          ]
+                        },
+                        "capital_account_id": {
+                          "description": "资金账户ID",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "capital_account_name": {
+                          "description": "资金账户",
+                          "type": "string",
+                          "x-apifox-mock": "示例资金账户"
+                        },
+                        "capital_name": {
+                          "description": "开户名",
+                          "type": "string",
+                          "x-apifox-mock": "示例开户名"
+                        },
+                        "capital_bank": {
+                          "description": "开户行",
+                          "type": "string",
+                          "x-apifox-mock": "示例开户行"
+                        },
+                        "bank_account": {
+                          "description": "银行账号",
+                          "type": "string",
+                          "x-apifox-mock": "123456789"
+                        },
+                        "capital_account_address": {
+                          "description": "开户行地址",
+                          "type": "string",
+                          "x-apifox-mock": "示例开户行地址"
+                        },
+                        "capital_account_remark": {
+                          "description": "更多信息",
+                          "type": "string",
+                          "x-apifox-mock": "示例更多信息"
+                        },
+                        "create_user": {
+                          "description": "创建人",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "create_time": {
+                          "description": "创建时间",
+                          "type": "string",
+                          "x-apifox-mock": "2022-01-01 00:00:00"
+                        },
+                        "update_user": {
+                          "description": "更新人",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "update_time": {
+                          "description": "更新时间",
+                          "type": "string",
+                          "x-apifox-mock": "2022-01-01 00:00:00"
+                        },
+                        "archive_type": {
+                          "description": "创建方式，1手动创建，2AI创建，3智能导入，4ERP同步，5阿里巴巴同步",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "remark": {
+                          "description": "备注，非必填",
+                          "type": "integer",
+                          "x-apifox-mock": 0
+                        },
+                        "source_type": {
+                          "description": "订单类型：1 CRM订单、2 信保订单、3 e收汇订单",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "file_list": {
+                          "description": "附件",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "file_name": {
+                                "description": "文件名称",
+                                "type": "string",
+                                "x-apifox-mock": "示例文件名称"
+                              },
+                              "file_url": {
+                                "description": "文件url",
+                                "type": "string",
+                                "x-apifox-mock": "http://example.com/example.pdf"
+                              },
+                              "create_time": {
+                                "description": "创建时间",
+                                "type": "string",
+                                "x-apifox-mock": "2022-01-01 00:00:00"
+                              },
+                              "user_id": {
+                                "description": "创建人ID",
+                                "type": "integer",
+                                "x-apifox-mock": 1
+                              },
+                              "create_user": {
+                                "type": "object",
+                                "properties": {
+                                  "user_id": {
+                                    "description": "创建人ID",
+                                    "type": "integer",
+                                    "x-apifox-mock": 1
+                                  },
+                                  "nickname": {
+                                    "description": "创建人",
+                                    "type": "string",
+                                    "x-apifox-mock": "示例创建人"
+                                  }
+                                },
+                                "x-apifox-mock": {
+                                  "user_id": 1,
+                                  "nickname": "示例创建人"
+                                },
+                                "x-apifox-orders": [
+                                  "user_id",
+                                  "nickname"
+                                ]
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "file_name",
+                              "file_url",
+                              "create_time",
+                              "user_id",
+                              "create_user"
+                            ]
+                          },
+                          "x-apifox-mock": [
+                            {
+                              "file_name": "示例文件名称",
+                              "file_url": "http://example.com/example.pdf",
+                              "create_time": "2022-01-01 00:00:00",
+                              "user_id": 1,
+                              "create_user": {
+                                "user_id": 1,
+                                "nickname": "示例创建人"
+                              }
+                            }
+                          ]
+                        },
+                        "quotation_id": {
+                          "type": "integer",
+                          "description": "报价单ID，默认值0"
+                        },
+                        "quotation_info": {
+                          "type": "object",
+                          "properties": {
+                            "quotation_id": {
+                              "type": "string",
+                              "description": "报价单ID"
+                            },
+                            "quotation_no": {
+                              "type": "string",
+                              "description": "报价单编号"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "报价单名称"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "quotation_id",
+                            "quotation_no",
+                            "name"
+                          ],
+                          "description": "报价单信息，默认值空数组"
+                        },
+                        "company": {
+                          "type": "object",
+                          "properties": {
+                            "company_id": {
+                              "type": "string",
+                              "description": "客户ID"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "客户名称"
+                            },
+                            "serial_id": {
+                              "type": "string",
+                              "description": "客户编号"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "company_id",
+                            "serial_id",
+                            "name"
+                          ],
+                          "description": "关联客户信息"
+                        },
+                        "ali_status_info": {
+                          "type": "object",
+                          "properties": {
+                            "status_name": {
+                              "type": "string",
+                              "description": "信保订单状态名称"
+                            },
+                            "ali_status_name": {
+                              "type": "string",
+                              "description": "信保订单状态code"
+                            },
+                            "ali_status_id": {
+                              "type": "integer",
+                              "description": "信保订单状态ID"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "status_name",
+                            "ali_status_name",
+                            "ali_status_id"
+                          ],
+                          "description": "信保订单状态信息"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "order_id",
+                        "order_no",
+                        "account_date",
+                        "name",
+                        "exchange_rate",
+                        "exchange_rate_usd",
+                        "currency",
+                        "amount",
+                        "amount_rmb",
+                        "amount_usd",
+                        "cost_with_tax_total",
+                        "addition_cost_amount",
+                        "product_total_amount",
+                        "product_total_count",
+                        "price_contract",
+                        "receive_remittance_way",
+                        "price_contract_remark",
+                        "receive_remittance_remark",
+                        "insurance_remark",
+                        "bank_info",
+                        "order_contract",
+                        "company",
+                        "company_id",
+                        "company_name",
+                        "company_phone",
+                        "company_fax",
+                        "company_address",
+                        "country",
+                        "opportunity_id",
+                        "shipment_deadline_remark",
+                        "status",
+                        "status_name",
+                        "collection_date",
+                        "collect_amount_rmb",
+                        "collect_amount_usd",
+                        "not_collect_amount_rmb",
+                        "not_collect_amount_usd",
+                        "percentage_rmb",
+                        "percentage_usd",
+                        "users",
+                        "departments",
+                        "handler",
+                        "product_list",
+                        "customer_id",
+                        "customer_name",
+                        "customer_phone",
+                        "customer_email",
+                        "customer_address",
+                        "transport_mode",
+                        "shipment_deadline",
+                        "shipment_port",
+                        "target_port",
+                        "more_or_less",
+                        "package_remark",
+                        "marked",
+                        "cost_list",
+                        "stock_up_status",
+                        "shipping_status",
+                        "end_status",
+                        "capital_account_id",
+                        "capital_account_name",
+                        "capital_name",
+                        "capital_bank",
+                        "bank_account",
+                        "capital_account_address",
+                        "capital_account_remark",
+                        "create_user",
+                        "create_time",
+                        "update_user",
+                        "update_time",
+                        "archive_type",
+                        "remark",
+                        "source_type",
+                        "file_list",
+                        "quotation_id",
+                        "quotation_info",
+                        "ali_status_info"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-03-06 16:55:25",
+                  "data": {
+                    "1101060384": "腾讯",
+                    "1101060387": "",
+                    "1101060390": "多行文本默认值",
+                    "1101060392": 0,
+                    "1101060395": "",
+                    "1101171288": 0,
+                    "1105112312": "",
+                    "1105748394": "",
+                    "1106123086": 10,
+                    "3118802410": "",
+                    "3160063335": "",
+                    "3163668035": 0,
+                    "3163748900": 0,
+                    "3449238368": "",
+                    "3449778077": "",
+                    "3449778080": "",
+                    "3477298105": "",
+                    "3477358481": "",
+                    "3583958644": "",
+                    "3584000435": 0,
+                    "4026081820": "",
+                    "4026081826": "",
+                    "4256034965": "",
+                    "4256034970": "",
+                    "4256034975": "",
+                    "4256034980": "",
+                    "order_id": 5203556502,
+                    "order_no": "qiao250306000259",
+                    "shipment_port": "",
+                    "company_address": "erp的公司地址",
+                    "target_port": "",
+                    "shipment_deadline": "",
+                    "transport_mode": "",
+                    "name": "erp同步订单new",
+                    "user_id": [
+                      11858712,
+                      11858711
+                    ],
+                    "users": [
+                      {
+                        "rate": 100,
+                        "user_id": "11858712",
+                        "nickname": "qiao"
+                      }
+                    ],
+                    "quotation_id": 12333,
+                    "quotation_info": {
+                      "quotation_no": "报价单编号",
+                      "quotation_id": 12333,
+                      "name": "报价单名称"
+                    },
+                    "create_user": 11858712,
+                    "status": 1101043688,
+                    "approval_status": -1,
+                    "company_id": 3448551934,
+                    "opportunity_id": 0,
+                    "customer_id": 3448551921,
+                    "create_time": "2025-03-06 16:47:03",
+                    "update_time": "2025-03-06 16:48:40",
+                    "remark": "",
+                    "account_date": "2024-01-29 00:00:00",
+                    "price_contract": "",
+                    "currency": "USD",
+                    "exchange_rate": 725,
+                    "amount": 300,
+                    "amount_rmb": 2175,
+                    "product_list": [
+                      {
+                        "1102748156": "",
+                        "1106224145": "",
+                        "3162345910": "",
+                        "3162359671": "",
+                        "3162469705": 0,
+                        "3163352408": "",
+                        "3163727403": "",
+                        "3410827449": "",
+                        "3410827451": "",
+                        "3410827454": "",
+                        "3410827459": "",
+                        "3413022306": "",
+                        "3442113436": 0,
+                        "3447805973": "",
+                        "3447805975": "",
+                        "3449279514": "",
+                        "3449443402": "",
+                        "3449443407": "",
+                        "3449443409": "",
+                        "3449443411": "",
+                        "3449443414": "",
+                        "3449443418": "",
+                        "3450286195": "",
+                        "3450308119": "",
+                        "3450308121": "",
+                        "3450308176": "",
+                        "3450308178": "",
+                        "3450308180": "",
+                        "3450308183": "",
+                        "3451819597": "",
+                        "3451819793": "",
+                        "3454274429": "",
+                        "3457250300": "",
+                        "3457250309": "",
+                        "3457280622": "",
+                        "3457977854": "",
+                        "3457977856": "",
+                        "3457977858": "",
+                        "3457977890": "",
+                        "3457977893": "",
+                        "3457977895": "",
+                        "3457977898": "",
+                        "3457977903": "",
+                        "3457977910": "",
+                        "3457977914": "",
+                        "3457977917": "",
+                        "3457977920": "",
+                        "3457977923": "",
+                        "3457977925": "",
+                        "3457977964": "",
+                        "3457977972": "",
+                        "3457977974": "",
+                        "3457977978": "",
+                        "3457977980": "",
+                        "3457977989": "",
+                        "3457977993": "",
+                        "3457977996": "",
+                        "3457978000": "",
+                        "3457978004": "",
+                        "3457978009": "",
+                        "3457978011": "",
+                        "3457978200": "",
+                        "3457978202": "",
+                        "3457978205": "",
+                        "3457978216": "",
+                        "3457978221": "",
+                        "3457978223": "",
+                        "3457978232": "",
+                        "3460471814": "",
+                        "3483655566": "",
+                        "unit": "",
+                        "count": 10,
+                        "ratio": 0,
+                        "sku_id": 3495743812,
+                        "hs_code": "",
+                        "vat_rate": 0,
+                        "master_id": 0,
+                        "unique_id": 5203556547,
+                        "offer_data": "",
+                        "other_cost": 0,
+                        "product_id": "3495743811",
+                        "product_no": "2024031221684",
+                        "unit_price": 10,
+                        "cost_amount": 100,
+                        "description": "",
+                        "enable_count": 0,
+                        "gross_margin": 10,
+                        "package_unit": "",
+                        "product_name": "Yellow Paper Bag With White Kraft         白牛带印刷",
+                        "product_type": 1,
+                        "cost_with_tax": 0,
+                        "package_count": 0,
+                        "product_image": "",
+                        "product_model": "",
+                        "is_sub_product": 0,
+                        "package_volume": 0,
+                        "product_remark": "",
+                        "refer_order_no": "qiao250306000259",
+                        "sku_attributes": "",
+                        "master_group_id": 0,
+                        "product_cn_name": "",
+                        "tax_refund_rate": 15,
+                        "count_per_package": 0,
+                        "is_master_product": 0,
+                        "to_outbound_count": 0,
+                        "to_purchase_count": 0,
+                        "combine_product_id": 0,
+                        "combine_product_no": "",
+                        "inquiry_product_id": "",
+                        "gross_profit_margin": 100,
+                        "product_enable_flag": 1,
+                        "task_outbound_count": 0,
+                        "task_purchase_count": 0,
+                        "todo_shipping_count": 0,
+                        "package_gross_weight": 0,
+                        "product_disable_flag": 0,
+                        "quotation_product_id": "",
+                        "platform_product_info": "",
+                        "product_package_remark": "",
+                        "purchase_cost_unit_rmb": 0,
+                        "package_volume_subtotal": 0,
+                        "package_gross_weight_subtotal": 0,
+                        "sku_code": "2024031221684",
+                        "5133738273": "",
+                        "4327254221": "",
+                        "4331053034": 0,
+                        "4331472448": "",
+                        "4333475924": "",
+                        "4334682049": "",
+                        "4335644130": "",
+                        "4335644196": "",
+                        "4335647171": "",
+                        "4336763643": "",
+                        "4337990078": "",
+                        "4340253637": "",
+                        "4345267108": "",
+                        "5200416596": 0,
+                        "quotation_id": "",
+                        "cost_remark": "",
+                        "cost_item_relation_id": 0,
+                        "percent_amount": 0,
+                        "percent_type": 0,
+                        "cost_name": "",
+                        "cost": 0
+                      }
+                    ],
+                    "product_total_amount": 100,
+                    "product_total_count": 10,
+                    "cost_list": [
+                      {
+                        "cost": 200,
+                        "cost_name": "erp费用名称",
+                        "cost_remark": "erp费用备注",
+                        "percent_type": "0",
+                        "percent_amount": "200",
+                        "cost_description": ""
+                      }
+                    ],
+                    "addition_cost_amount": 200,
+                    "order_contract": "",
+                    "bank_info": "",
+                    "receive_remittance_remark": "",
+                    "insurance_remark": "",
+                    "customer_phone": "1829383944",
+                    "customer_email": "22sxx@qq.com",
+                    "customer_address": "联系人地址",
+                    "customer_name": "ysq",
+                    "company_name": "中国宝安科技",
+                    "company_phone": "19999999999, 21318888888888",
+                    "company_fax": "",
+                    "shipment_deadline_remark": "",
+                    "marked": "",
+                    "more_or_less": "",
+                    "file_list": [],
+                    "price_contract_remark": "",
+                    "package_remark": "",
+                    "receive_remittance_way": "",
+                    "package_gross_weight_amount": 0,
+                    "package_volume_amount": 0,
+                    "amount_usd": 300,
+                    "exchange_rate_usd": 100,
+                    "departments": [
+                      {
+                        "rate": 100,
+                        "department_id": "148",
+                        "name": "外贸部跟单组"
+                      }
+                    ],
+                    "archive_type": 4,
+                    "update_user": 11858711,
+                    "country": "",
+                    "source_type": 0,
+                    "link_status": [
+                      20,
+                      30,
+                      40,
+                      60,
+                      50,
+                      10
+                    ],
+                    "cost_with_tax_total": 0,
+                    "capital_account_id": 122,
+                    "tax_refund_type": 0,
+                    "collect_amount_rmb": 0,
+                    "collect_amount_usd": 0,
+                    "not_collect_amount_rmb": 2175,
+                    "not_collect_amount_usd": 300,
+                    "company": {
+                      "company_id": 3448551934,
+                      "name": "高通--编辑",
+                      "is_archive": 1,
+                      "serial_id": "2023670"
+                    },
+                    "alibaba_order_info": [],
+                    "capital_account_name": "",
+                    "capital_name": "",
+                    "capital_bank": "",
+                    "bank_account": "",
+                    "capital_account_address": "",
+                    "capital_account_remark": "",
+                    "collection_date": "",
+                    "status_name": "待回款",
+                    "percentage_rmb": 0,
+                    "percentage_usd": 0,
+                    "4329999255": 10,
+                    "4330687445": 0,
+                    "4330687483": "",
+                    "4333438332": "",
+                    "4334677588": "",
+                    "4335624132": 0,
+                    "4335641902": "",
+                    "4335643949": "",
+                    "4335644061": "",
+                    "4335647754": 10,
+                    "4340028778": 0,
+                    "4340096769": "",
+                    "4340252279": 0,
+                    "4345267067": "",
+                    "4346852441": "",
+                    "4346854345": "",
+                    "4346854358": "",
+                    "4347197714": 100,
+                    "4347892551": "",
+                    "4347897774": "",
+                    "4349404922": 0,
+                    "5005485355": "",
+                    "5131181302": "",
+                    "5131181306": "",
+                    "5131181323": "",
+                    "5131181329": "",
+                    "5131181335": "",
+                    "5131193365": "",
+                    "5131196926": "",
+                    "5131196936": "",
+                    "5165546714": 0,
+                    "5149456386": "4星"
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "销售订单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_order_info",
+        "x-local-source-path": "sources/pages/api-3478251.md",
+        "x-source-id": "api-3478251",
+        "x-source-title": "销售订单详情",
+        "x-source-module": "销售订单"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "新增客户联系人": {
+        "type": "object",
+        "properties": {
+          "company_id": {
+            "type": "integer",
+            "x-apifox-mock": "1",
+            "description": "客户ID"
+          },
+          "serial_id": {
+            "type": "string",
+            "description": "客户编号",
+            "x-apifox-mock": "1"
+          },
+          "name": {
+            "type": "string",
+            "description": "联系人名称"
+          },
+          "tel_area_code": {
+            "type": "string",
+            "description": "联系人电话区号"
+          },
+          "tel": {
+            "type": "string",
+            "description": "联系人电话号码"
+          }
+        },
+        "x-apifox-orders": [
+          "company_id",
+          "serial_id",
+          "name",
+          "tel_area_code",
+          "tel"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "数据字典响应": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "now": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "字段ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "字段名称"
+                },
+                "base": {
+                  "type": "integer",
+                  "description": "是否系统字段，1=系统字段，0=自定义字段"
+                },
+                "field_type": {
+                  "type": "integer",
+                  "description": "字段类型"
+                },
+                "ext_info": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "选字段额外信息，比如选项等枚举值",
+                  "nullable": true
+                },
+                "require": {
+                  "type": "integer",
+                  "description": "是否必填，1=必填，0=非必填"
+                },
+                "default": {
+                  "type": "string",
+                  "description": "默认值"
+                },
+                "disable_flag": {
+                  "type": "integer"
+                },
+                "is_list": {
+                  "type": "integer",
+                  "description": "是否明细字段"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-orders": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-ignore-properties": []
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-orders": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header parameter."
+      }
+    }
+  },
+  "x-generated-at": "2026-05-09T04:02:32+00:00",
+  "x-source": {
+    "catalog": "sources/catalog.json",
+    "snapshot": "sources/pages"
+  }
+}

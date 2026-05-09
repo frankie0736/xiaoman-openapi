@@ -1,0 +1,1712 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 费用单 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 费用单.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 费用单
+  x-module-slug: cost-invoice
+paths:
+  /v1/costInvoice/info:
+    get:
+      summary: 费用单-详情
+      deprecated: false
+      description: ''
+      tags:
+      - 费用单
+      parameters:
+      - name: cost_invoice_no
+        in: query
+        description: 费用单编号 编号和ID必须填写一项
+        required: false
+        example: FY0002
+        schema:
+          type: string
+      - name: cost_invoice_id
+        in: query
+        description: 费用单ID
+        required: false
+        example: 5001110926
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      cost_invoice_id:
+                        description: 费用单ID
+                        type: integer
+                        x-apifox-mock: 3179534607
+                      cost_invoice_no:
+                        description: 费用单编号
+                        type: string
+                        x-apifox-mock: HKD118
+                      refer_id:
+                        description: 关联单据id
+                        type: integer
+                        x-apifox-mock: 3179534604
+                      refer_type:
+                        description: 关联单据类型 1-销售订单，22-采购订单 57-出运单
+                        type: integer
+                        x-apifox-mock: Credit
+                      currency:
+                        description: 币种
+                        type: integer
+                        x-apifox-mock: USD
+                      exchange_rate:
+                        description: 汇率，100单位单据币种（兑CNY）
+                        type: number
+                        x-apifox-mock: 676.72
+                      exchange_rate_usd:
+                        description: 汇率，100单位单据币种汇率（兑USD）
+                        type: number
+                        x-apifox-mock: 100
+                      amount:
+                        description: 费用金额
+                        type: number
+                        x-apifox-mock: 21
+                      amount_rmb:
+                        description: 费用金额（CNY）
+                        type: number
+                        x-apifox-mock: 142.11
+                      amount_usd:
+                        description: 费用金额（USD）
+                        type: number
+                        x-apifox-mock: 21
+                      cost_time:
+                        description: 费用日期
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      expect_time:
+                        description: 预计付款日期
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      remark:
+                        description: 备注
+                        type: string
+                        x-apifox-mock: Invoice remark
+                      status:
+                        description: 状态:1-待审批、2-待付款、3-部分付款、4-已结清
+                        type: integer
+                        x-apifox-mock: 1
+                      approval_status:
+                        description: 审批状态 0-草稿,1-同意,2-拒绝,3-审批中,4-申请人撤销,5-系统撤回
+                        type: integer
+                        x-apifox-mock: 1
+                      create_type:
+                        description: 创建方式 1-手动创建，2-文件导入
+                        type: integer
+                        x-apifox-mock: 1
+                      create_time:
+                        description: 创建时间
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      update_time:
+                        description: 更新时间
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      order_id:
+                        description: 销售订单ID
+                        type: integer
+                        x-apifox-mock: 3400548662
+                      order_info:
+                        description: 销售订单信息
+                        type: object
+                        properties:
+                          order_id:
+                            description: 销售订单ID
+                            type: integer
+                            x-apifox-mock: 3179534246
+                          order_no:
+                            description: 销售订单编号
+                            type: string
+                            x-apifox-mock: Order20240101-01
+                        x-apifox-orders:
+                        - order_id
+                        - order_no
+                      partner_account_info:
+                        description: 收款信息
+                        type: object
+                        properties:
+                          partner_account_id:
+                            description: 收款账户id
+                            type: integer
+                            x-apifox-mock: 1
+                          partner_account_name:
+                            description: ' 收款账户名'
+                            type: string
+                            x-apifox-mock: XX供应商
+                          bank_account:
+                            description: 收款账户
+                            type: string
+                            x-apifox-mock: XX收款公司
+                          bank_name:
+                            description: 收款银行
+                            type: string
+                            x-apifox-mock: XX银行
+                          account_name:
+                            description: 收款户名
+                            type: string
+                            x-apifox-mock: 李四
+                          account_image:
+                            description: 账户图片头像链接
+                            type: string
+                            x-apifox-mock: ''
+                        x-apifox-orders:
+                        - partner_account_id
+                        - partner_account_name
+                        - bank_account
+                        - bank_name
+                        - account_name
+                        - account_image
+                      cost_item_info:
+                        description: 费用信息
+                        type: object
+                        properties:
+                          cost_item_id:
+                            description: 费用项目id
+                            type: integer
+                            x-apifox-mock: 3179534246
+                          item_name:
+                            description: 费用项目名称
+                            type: string
+                            x-apifox-mock: xxx费用单
+                          description:
+                            description: 费用项目说明
+                            type: string
+                            x-apifox-mock: XX支付费用
+                        x-apifox-orders:
+                        - cost_item_id
+                        - item_name
+                        - description
+                      payment_info:
+                        description: 付款明细
+                        type: object
+                        properties:
+                          payment_invoice_id:
+                            description: 付款单ID
+                            type: integer
+                            x-apifox-mock: 3179534246
+                          payment_invoice_no:
+                            description: 付款单编号
+                            type: string
+                            x-apifox-mock: xxx333
+                          amount:
+                            description: 付款金额
+                            type: number
+                            x-apifox-mock: 50
+                          currency:
+                            description: 付款单币种
+                            type: string
+                            x-apifox-mock: USD
+                          exchange_rate:
+                            description: 付款单汇率(CNY)
+                            type: number
+                            x-apifox-mock: 705.32
+                          exchange_rate_usd:
+                            description: 付款单汇率(USD)
+                            type: number
+                            x-apifox-mock: 100
+                          bank_charge:
+                            description: 付款手续费
+                            type: number
+                            x-apifox-mock: 2
+                          real_amount:
+                            description: 实际付款金额
+                            type: number
+                            x-apifox-mock: 48
+                          expect_time:
+                            description: 预计付款日期
+                            type: string
+                            x-apifox-mock: '2023-01-11 11:53:03'
+                          payment_time:
+                            description: 付款日期
+                            type: string
+                            x-apifox-mock: '2023-01-11 11:53:03'
+                          status:
+                            description: 付款单状态:1-待审核、2-待付款、3-已付款、4-已作废
+                            type: string
+                            x-apifox-mock: 1
+                          create_time:
+                            description: 创建日期
+                            type: string
+                            x-apifox-mock: '2023-01-11 11:53:03'
+                        x-apifox-orders:
+                        - payment_invoice_id
+                        - payment_invoice_no
+                        - amount
+                        - currency
+                        - exchange_rate
+                        - exchange_rate_usd
+                        - bank_charge
+                        - real_amount
+                        - expect_time
+                        - payment_time
+                        - status
+                        - create_time
+                      handler_info:
+                        description: 认领业务员信息
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            user_id:
+                              description: 认领业务员ID
+                              type: integer
+                              x-apifox-mock: '249518496'
+                            nickname:
+                              description: 认领业务员名称
+                              type: string
+                              x-apifox-mock: test
+                            email:
+                              description: 认领业务员邮箱
+                              type: string
+                              x-apifox-mock: account@test.test
+                            avatar:
+                              description: 认领业务员头像链接
+                              type: string
+                              x-apifox-mock: ''
+                          x-apifox-orders:
+                          - user_id
+                          - nickname
+                          - email
+                          - avatar
+                      create_user_info:
+                        description: 创建人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 创建人ID
+                            type: integer
+                            x-apifox-mock: 3179534246
+                          nickname:
+                            description: 创建人名称
+                            type: string
+                            x-apifox-mock: 张三
+                          avatar:
+                            description: 创建人头像
+                            type: integer
+                            x-apifox-mock: 100
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                        - avatar
+                      receive_refer_info:
+                        type: object
+                        properties:
+                          receive_refer_id:
+                            type: integer
+                            description: 收款方ID，小满生成的ID，若receive_refer_type=23，那么receive_refer_id就是供应商ID
+                          receive_refer_no:
+                            type: string
+                            description: 收款方编号或者名称，若receive_refer_type=23，那么receive_refer_no就是供应商编号
+                          receive_refer_name:
+                            type: string
+                            description: 收款方名称，若receive_refer_type=23，那么receive_refer_name就是供应商名称
+                          receive_refer_type:
+                            type: integer
+                            description: 收款方类型，23-供应商，58-货代，4-客户
+                        x-apifox-orders:
+                        - receive_refer_type
+                        - receive_refer_id
+                        - receive_refer_no
+                        - receive_refer_name
+                        description: 收款方（待发布）
+                    x-apifox-orders:
+                    - cost_invoice_id
+                    - cost_invoice_no
+                    - refer_id
+                    - refer_type
+                    - currency
+                    - exchange_rate
+                    - exchange_rate_usd
+                    - amount
+                    - amount_rmb
+                    - amount_usd
+                    - cost_time
+                    - expect_time
+                    - remark
+                    - status
+                    - approval_status
+                    - create_type
+                    - create_time
+                    - update_time
+                    - order_id
+                    - order_info
+                    - partner_account_info
+                    - cost_item_info
+                    - payment_info
+                    - handler_info
+                    - create_user_info
+                    - receive_refer_info
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2024-12-05 17:28:37'
+                data:
+                  cost_invoice_id: 5001110926
+                  cost_invoice_no: FY0002
+                  refer_type: 57
+                  currency: USD
+                  exchange_rate: '725.92000'
+                  exchange_rate_usd: '100.00000'
+                  amount: '600.00'
+                  amount_rmb: '4355.52'
+                  amount_usd: '600.00'
+                  cost_time: '2024-12-02 00:00:00'
+                  expect_time: '2024-12-02 00:00:00'
+                  remark: 测试费用单数据
+                  create_type: 1
+                  status: 1
+                  create_time: '2024-12-02 18:29:22'
+                  update_time: '2024-12-02 18:29:22'
+                  order_id: 3659273803
+                  partner_account_info:
+                    bank_name: 招商
+                    account_name: OKKI
+                    bank_account: '621499999999'
+                    account_image:
+                    - file_id: 3564914026
+                      user_id: 249521384
+                      create_time: '2024-06-13 14:25:42'
+                    partner_account_id: 3564914112
+                    partner_account_name: roberthuang
+                  create_user_info:
+                    user_id: '249521384'
+                    email: roberthuang@xiaomancrm.com
+                    nickname: roberthuang
+                    avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg
+                  handler_info:
+                  - user_id: '249521384'
+                    email: roberthuang@xiaomancrm.com
+                    nickname: roberthuang
+                    avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg
+                  '4355486992': '2024-12-18'
+                  refer_info:
+                    refer_id: 3659274086
+                    refer_no: SA20240914013
+                    refer_type: 57
+                  cost_item_info:
+                    item_id: '3579628941'
+                    item_name: robert
+                    description: '111'
+                  order_info:
+                    order_id: 3659273803
+                    order_no: '173'
+                  approval_status: '3'
+                  payment_info: []
+                  attachment:
+                  - file_url: https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/5d233560acb9f4e0418068fb66204bce6b4c907d3fec918b42a720fc1be2df43.jpg
+                    file_name: 16pic_4737106_s.jpg
+                    file_size: '37436'
+                    create_time: '2024-12-02 18:29:22'
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 费用单
+      x-apifox-status: released
+      operationId: get_v1_costinvoice_info
+      x-local-source-path: sources/pages/api-3483958.md
+      x-source-id: api-3483958
+      x-source-title: 费用单-详情
+      x-source-module: 费用单
+  /v1/costInvoice/fields:
+    get:
+      summary: 费用单字段
+      deprecated: false
+      description: '# 字段类型有哪些
+
+        | field_type |  |
+
+        | --- | --- |
+
+        | 1 | 单行文本 |
+
+        | 2 | 多行文本 |
+
+        | 3 | 单选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |
+
+        | 4 | 日期，YYYY-MM-DD |
+
+        | 5 | 数字 |
+
+        | 6 | 图片 |
+
+        | 7 | 多选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |
+
+        | 8 | 附件 |
+
+        | 9 | 关联字段 |
+
+        | 10 | 日期时间，YYYY-MM-DD HH:mm:ss |
+
+        | 11 | 公式 |
+
+        | 12 | 汇总 |
+
+        | 13 | 布尔 |
+
+        | 17 | 状态 |
+
+        | 18 | 阶段 |
+
+        | 21 | 时间范围 |
+
+        | 22 | 富文本 |
+
+        | 23 | 引用 |
+
+
+        若发现没有的字段类型可以咨询对接群，或者提客户工单。
+
+        '
+      tags:
+      - 费用单
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: 字段ID
+                        name:
+                          type: string
+                          description: 字段名称
+                        base:
+                          type: integer
+                          description: 是否系统字段，1=系统字段，0=自定义字段
+                        field_type:
+                          type: integer
+                          description: 字段类型
+                        ext_info:
+                          type: array
+                          items:
+                            type: integer
+                          description: 选字段额外信息，比如选项等枚举值
+                          nullable: true
+                        require:
+                          type: integer
+                          description: 是否必填，1=必填，0=非必填
+                        default:
+                          type: string
+                          description: 默认值
+                        disable_flag:
+                          type: integer
+                        is_list:
+                          type: integer
+                          description: 是否明细字段
+                      required:
+                      - id
+                      - name
+                      - base
+                      - field_type
+                      - ext_info
+                      - require
+                      - default
+                      - disable_flag
+                      - is_list
+                      x-apifox-orders:
+                      - id
+                      - name
+                      - base
+                      - field_type
+                      - ext_info
+                      - require
+                      - default
+                      - disable_flag
+                      - is_list
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2024-12-05 17:55:18'
+                data:
+                - id: create_type
+                  name: 创建方式
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: update_time
+                  name: 修改时间
+                  base: 1
+                  field_type: 10
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: update_user
+                  name: 修改人
+                  base: 1
+                  field_type: 0
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: create_time
+                  name: 创建时间
+                  base: 1
+                  field_type: 10
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: create_user
+                  name: 创建人
+                  base: 1
+                  field_type: 0
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: attachment
+                  name: 附件
+                  base: 1
+                  field_type: 8
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: payment_wait_amount
+                  name: 待付款金额
+                  base: 1
+                  field_type: 5
+                  ext_info:
+                  - 2
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: payment_wait_amount_rmb
+                  name: 待付款金额(CNY)
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: payment_wait_amount_usd
+                  name: 待付款金额(USD)
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: payment_amount
+                  name: 已付款金额
+                  base: 1
+                  field_type: 5
+                  ext_info:
+                  - 2
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: payment_amount_rmb
+                  name: 已付款金额(CNY)
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: payment_amount_usd
+                  name: 已付款金额(USD)
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: status
+                  name: 状态
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: handler
+                  name: 处理人
+                  base: 1
+                  field_type: 0
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: remark
+                  name: 备注
+                  base: 1
+                  field_type: 2
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: account_image
+                  name: 账户图片
+                  base: 1
+                  field_type: 6
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: bank_name
+                  name: 收款银行
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: account_name
+                  name: 收款户名
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: bank_account
+                  name: 收款账户
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: partner_account_name
+                  name: 收款账户名
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: partner_account_id
+                  name: 收款账户id
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: expect_time
+                  name: 预计付款日期
+                  base: 1
+                  field_type: 4
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: cost_time
+                  name: 费用日期
+                  base: 1
+                  field_type: 4
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: amount
+                  name: 费用金额
+                  base: 1
+                  field_type: 5
+                  ext_info:
+                  - 2
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: amount_rmb
+                  name: 费用金额(CNY)
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: amount_usd
+                  name: 费用金额(USD)
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: exchange_rate_usd
+                  name: 汇率（兑USD）
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: exchange_rate
+                  name: 汇率（兑CNY）
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: currency
+                  name: 币种
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: receive_refer_type
+                  name: 费用单-关联收款方类型
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 1
+                  is_list: 0
+                - id: receive_refer_id
+                  name: 收款方
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: cost_item_id
+                  name: 费用项目
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: refer_type
+                  name: 费用单-关联类型
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 1
+                  is_list: 0
+                - id: order_id
+                  name: 关联销售订单
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: refer_id
+                  name: 关联单据
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: cost_invoice_no
+                  name: 费用单编号
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                - id: 4355486992
+                  name: 自定义字段01
+                  base: 0
+                  field_type: 4
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 费用单
+      x-apifox-status: released
+      operationId: get_v1_costinvoice_fields
+      x-local-source-path: sources/pages/api-3483961.md
+      x-source-id: api-3483961
+      x-source-title: 费用单字段
+      x-source-module: 费用单
+  /v1/costInvoice/items:
+    get:
+      summary: 费用项目列表
+      deprecated: false
+      description: ''
+      tags:
+      - 费用单
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      cost_invoice_item_id:
+                        description: 费用项目ID
+                        type: integer
+                        x-apifox-mock: 3179534607
+                      name:
+                        description: 费用项目名称
+                        type: string
+                        x-apifox-mock: XXX尾款
+                      description:
+                        description: 费用项目说明
+                        type: string
+                        x-apifox-mock: 张三采购尾款结算
+                      receive_refer_type:
+                        description: 收款方类型 4-客户 23-供应商 58-货代
+                        type: array
+                        x-apifox-mock:
+                        - 23
+                        - 58
+                        items:
+                          type: string
+                      receive_refer_type_name:
+                        description: 收款方名称
+                        type: array
+                        x-apifox-mock:
+                        - 李四供应商
+                        - 张三货代
+                        items:
+                          type: string
+                      disable_flag:
+                        description: 状态 0-已启用 1-已禁用
+                        type: integer
+                        x-apifox-mock: 0
+                      create_time:
+                        description: 创建时间
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      update_time:
+                        description: 更新时间
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      create_user_info:
+                        description: 创建人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 用户ID
+                            type: integer
+                            x-apifox-mock: 3179534246
+                          nickname:
+                            description: 用户名称
+                            type: string
+                            x-apifox-mock: 张三
+                          avatar:
+                            description: 头像
+                            type: integer
+                            x-apifox-mock: 100
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                        - avatar
+                    x-apifox-orders:
+                    - cost_invoice_item_id
+                    - name
+                    - description
+                    - receive_refer_type
+                    - receive_refer_type_name
+                    - disable_flag
+                    - create_time
+                    - update_time
+                    - create_user_info
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2024-12-09 09:52:27'
+                data:
+                  list:
+                  - receive_refer_type:
+                    - 4
+                    - 23
+                    - 58
+                    cost_invoice_item_id: 3579628941
+                    name: robert
+                    description: '111'
+                    create_user: 249521384
+                    disable_flag: 0
+                    create_time: '2024-07-03 14:13:51'
+                    update_time: '2024-07-03 14:13:51'
+                    receive_refer_type_name:
+                    - 客户
+                    - 供应商
+                    - 货代
+                  - receive_refer_type:
+                    - 4
+                    cost_invoice_item_id: 3569731279
+                    name: '001'
+                    description: '1'
+                    create_user: 249521384
+                    disable_flag: 0
+                    create_time: '2024-06-25 09:48:12'
+                    update_time: '2024-06-25 09:48:12'
+                    receive_refer_type_name:
+                    - 客户
+                  count: 2
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 费用单
+      x-apifox-status: released
+      operationId: get_v1_costinvoice_items
+      x-local-source-path: sources/pages/api-3484020.md
+      x-source-id: api-3484020
+      x-source-title: 费用项目列表
+      x-source-module: 费用单
+  /v1/costInvoice/list:
+    get:
+      summary: 费用单列表
+      deprecated: false
+      description: ''
+      tags:
+      - 费用单
+      parameters:
+      - name: time_type
+        in: query
+        description: 时间筛选 1-按更新时间，2-按创建时间
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: start_time
+        in: query
+        description: 开始时间
+        required: false
+        example: '2022-09-21'
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: 截止时间
+        required: false
+        example: '2022-09-22'
+        schema:
+          type: string
+      - name: start_index
+        in: query
+        description: 页码
+        required: false
+        example: 0
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: 每页数量
+        required: false
+        example: 0
+        schema:
+          type: integer
+      - name: removed
+        in: query
+        description: '默认值: 0，设置=1时查询已删除的数据列表'
+        required: false
+        example: 0
+        schema:
+          type: integer
+      - name: status
+        in: query
+        description: 费用单状态:1-待审批、2-待付款、3-部分付款、4-已结清
+        required: false
+        example: 0
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      count:
+                        description: 符合筛选条件的记录总数
+                        type: integer
+                        x-apifox-mock: 50
+                      list:
+                        description: 符合筛选条件的记录
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            cost_invoice_id:
+                              description: 费用单ID
+                              type: integer
+                              x-apifox-mock: 3179534607
+                            cost_invoice_no:
+                              description: 费用单编号
+                              type: string
+                              x-apifox-mock: HKD118
+                            refer_id:
+                              description: 关联单据id
+                              type: integer
+                              x-apifox-mock: 3179534604
+                            refer_type:
+                              description: 关联单据类型 1-销售订单，22-采购订单 57-出运单
+                              type: integer
+                              x-apifox-mock: Credit
+                            currency:
+                              description: 币种
+                              type: integer
+                              x-apifox-mock: USD
+                            exchange_rate:
+                              description: 汇率，100单位单据币种（兑CNY）
+                              type: number
+                              x-apifox-mock: 676.72
+                            exchange_rate_usd:
+                              description: 汇率，100单位单据币种汇率（兑USD）
+                              type: number
+                              x-apifox-mock: 100
+                            amount:
+                              description: 费用金额
+                              type: number
+                              x-apifox-mock: 21
+                            amount_rmb:
+                              description: 费用金额（CNY）
+                              type: number
+                              x-apifox-mock: 142.11
+                            amount_usd:
+                              description: 费用金额（USD）
+                              type: number
+                              x-apifox-mock: 21
+                            cost_time:
+                              description: 费用日期
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-01-11 11:53:03'
+                            expect_time:
+                              description: 预计付款日期
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-01-11 11:53:03'
+                            remark:
+                              description: 备注
+                              type: string
+                              x-apifox-mock: Invoice remark
+                            status:
+                              description: 状态:1-待审批、2-待付款、3-部分付款、4-已结清
+                              type: integer
+                              x-apifox-mock: 1
+                            payment_amount:
+                              description: 已付款金额
+                              type: number
+                              x-apifox-mock: 135.34
+                            payment_amount_rmb:
+                              description: 已付款金额（CNY）
+                              type: number
+                              x-apifox-mock: 20
+                            payment_amount_usd:
+                              description: 已付款金额（USD）
+                              type: number
+                              x-apifox-mock: 1
+                            payment_wait_amount:
+                              description: 待付款金额
+                              type: number
+                              x-apifox-mock: 6.77
+                            payment_wait_amount_rmb:
+                              description: 待付款金额（CNY）
+                              type: number
+                              x-apifox-mock: 1
+                            payment_wait_amount_usd:
+                              description: 待付款金额（USD）
+                              type: number
+                              x-apifox-mock: 1
+                            approval_status:
+                              description: 审批状态 0-草稿,1-同意,2-拒绝,3-审批中,4-申请人撤销,5-系统撤回
+                              type: integer
+                              x-apifox-mock: 1
+                            create_type:
+                              description: 创建方式 1-手动创建，2-文件导入
+                              type: integer
+                              x-apifox-mock: 1
+                            create_time:
+                              description: 创建时间
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-01-11 11:53:03'
+                            update_time:
+                              description: 更新时间
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-01-11 11:53:03'
+                            order_id:
+                              description: 销售订单ID
+                              type: integer
+                              x-apifox-mock: 3400548662
+                            order_info:
+                              description: 销售订单信息
+                              type: object
+                              properties:
+                                order_id:
+                                  description: 销售订单ID
+                                  type: integer
+                                  x-apifox-mock: 3179534246
+                                order_no:
+                                  description: 销售订单编号
+                                  type: string
+                                  x-apifox-mock: Order20240101-01
+                              x-apifox-orders:
+                              - order_id
+                              - order_no
+                            receive_refer_info:
+                              description: 收款方
+                              type: object
+                              properties:
+                                receive_refer_type:
+                                  description: 收款方类型 23-供应商 58-货代 4-客户
+                                  type: integer
+                                  x-apifox-mock: 58
+                                receive_refer_id:
+                                  description: 收款方ID
+                                  type: string
+                                  x-apifox-mock: 测试公司7ef63e03-6
+                                receive_refer_name:
+                                  description: 收款方名称
+                                  type: string
+                                  x-apifox-mock: XX收款公司
+                              x-apifox-orders:
+                              - receive_refer_type
+                              - receive_refer_id
+                              - receive_refer_name
+                            partner_account_info:
+                              description: 收款信息
+                              type: object
+                              properties:
+                                partner_account_id:
+                                  description: 收款账户id
+                                  type: integer
+                                  x-apifox-mock: 1
+                                partner_account_name:
+                                  description: ' 收款账户名'
+                                  type: string
+                                  x-apifox-mock: XX供应商
+                                bank_account:
+                                  description: 收款账户
+                                  type: string
+                                  x-apifox-mock: XX收款公司
+                                bank_name:
+                                  description: 收款银行
+                                  type: string
+                                  x-apifox-mock: XX银行
+                                account_name:
+                                  description: 收款户名
+                                  type: string
+                                  x-apifox-mock: 李四
+                                account_image:
+                                  description: 账户图片头像链接
+                                  type: string
+                                  x-apifox-mock: ''
+                              x-apifox-orders:
+                              - partner_account_id
+                              - partner_account_name
+                              - bank_account
+                              - bank_name
+                              - account_name
+                              - account_image
+                            cost_item_info:
+                              description: 费用信息
+                              type: object
+                              properties:
+                                cost_item_id:
+                                  description: 费用项目id
+                                  type: integer
+                                  x-apifox-mock: 3179534246
+                                item_name:
+                                  description: 费用项目名称
+                                  type: string
+                                  x-apifox-mock: xxx费用单
+                                description:
+                                  description: 费用项目说明
+                                  type: string
+                                  x-apifox-mock: XX支付费用
+                              x-apifox-orders:
+                              - cost_item_id
+                              - item_name
+                              - description
+                            handler_info:
+                              description: 认领业务员信息
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  user_id:
+                                    description: 认领业务员ID
+                                    type: integer
+                                    x-apifox-mock: '249518496'
+                                  nickname:
+                                    description: 认领业务员名称
+                                    type: string
+                                    x-apifox-mock: test
+                                  email:
+                                    description: 认领业务员邮箱
+                                    type: string
+                                    x-apifox-mock: account@test.test
+                                  avatar:
+                                    description: 认领业务员头像链接
+                                    type: string
+                                    x-apifox-mock: ''
+                                x-apifox-orders:
+                                - user_id
+                                - nickname
+                                - email
+                                - avatar
+                            create_user_info:
+                              description: 创建人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 创建人ID
+                                  type: integer
+                                  x-apifox-mock: 3179534246
+                                nickname:
+                                  description: 创建人名称
+                                  type: string
+                                  x-apifox-mock: 张三
+                                avatar:
+                                  description: 创建人头像
+                                  type: integer
+                                  x-apifox-mock: 100
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                              - avatar
+                            update_info:
+                              description: 更新人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 更新人ID
+                                  type: integer
+                                  x-apifox-mock: 3179534246
+                                nickname:
+                                  description: 更新人名称
+                                  type: string
+                                  x-apifox-mock: 张三
+                                avatar:
+                                  description: 更新人头像
+                                  type: integer
+                                  x-apifox-mock: 100
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                              - avatar
+                          x-apifox-orders:
+                          - cost_invoice_id
+                          - cost_invoice_no
+                          - refer_id
+                          - refer_type
+                          - currency
+                          - exchange_rate
+                          - exchange_rate_usd
+                          - amount
+                          - amount_rmb
+                          - amount_usd
+                          - cost_time
+                          - expect_time
+                          - remark
+                          - status
+                          - payment_amount
+                          - payment_amount_rmb
+                          - payment_amount_usd
+                          - payment_wait_amount
+                          - payment_wait_amount_rmb
+                          - payment_wait_amount_usd
+                          - approval_status
+                          - create_type
+                          - create_time
+                          - update_time
+                          - order_id
+                          - order_info
+                          - receive_refer_info
+                          - partner_account_info
+                          - cost_item_info
+                          - handler_info
+                          - create_user_info
+                          - update_info
+                    x-apifox-orders:
+                    - count
+                    - list
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+              example:
+                code: 200
+                now: '2022-01-01 00:00:00'
+                message: success
+                data:
+                  count: 50
+                  list:
+                  - cost_invoice_id: 3179534607
+                    cost_invoice_no: HKD118
+                    refer_id: 3179534604
+                    refer_type: Credit
+                    currency: USD
+                    exchange_rate: 676.72
+                    exchange_rate_usd: 100
+                    amount: 21
+                    amount_rmb: 142.11
+                    amount_usd: 21
+                    cost_time: '2023-01-11 11:53:03'
+                    expect_time: '2023-01-11 11:53:03'
+                    remark: Invoice remark
+                    status: 1
+                    payment_amount: 135.34
+                    payment_amount_rmb: 20
+                    payment_amount_usd: 1
+                    payment_wait_amount: 6.77
+                    payment_wait_amount_rmb: 1
+                    payment_wait_amount_usd: 1
+                    approval_status: 1
+                    create_type: 1
+                    create_time: '2023-01-11 11:53:03'
+                    update_time: '2023-01-11 11:53:03'
+                    order_id: 3400548662
+                    order_info:
+                      order_id: 3179534246
+                      order_no: Order20240101-01
+                    receive_refer_info:
+                      receive_refer_type: 58
+                      receive_refer_id: 测试公司7ef63e03-6
+                      receive_refer_name: XX收款公司
+                    partner_account_info:
+                      partner_account_id: 1
+                      partner_account_name: XX供应商
+                      bank_account: XX收款公司
+                      bank_name: XX银行
+                      account_name: 李四
+                      account_image: ''
+                    cost_item_info:
+                      cost_item_id: 3179534246
+                      item_name: xxx费用单
+                      description: XX支付费用
+                    handler_info:
+                    - user_id: '249518496'
+                      nickname: test
+                      email: account@test.test
+                      avatar: ''
+                    create_user_info:
+                      user_id: 3179534246
+                      nickname: 张三
+                      avatar: 100
+                    update_info:
+                      user_id: 3179534246
+                      nickname: 张三
+                      avatar: 100
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 费用单
+      x-apifox-status: released
+      operationId: get_v1_costinvoice_list
+      x-local-source-path: sources/pages/api-3484720.md
+      x-source-id: api-3484720
+      x-source-title: 费用单列表
+      x-source-module: 费用单
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

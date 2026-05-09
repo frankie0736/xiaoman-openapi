@@ -1,0 +1,40 @@
+# xiaoman-openapi
+
+> Unofficial AI-readable OpenAPI and Markdown bundle for Xiaoman Open API.
+
+## OpenAPI
+- [Full OpenAPI YAML](openapi/xiaoman.openapi.yaml)
+- [Full OpenAPI JSON](openapi/xiaoman.openapi.json)
+
+## Agent Index
+- [Endpoint index](docs/api-index.md)
+- [Endpoint JSONL](docs/agent/endpoints.jsonl)
+- [Guide index](docs/guides-index.md)
+- [Source snapshot index](docs/source-index.md)
+- [Linked Yuque guide snapshots](docs/external/yuque.md)
+
+## Modules
+- [统计分析](docs/modules/analytics.md): 1 endpoints; OpenAPI `openapi/modules/analytics.openapi.yaml`
+- [授权登录](docs/modules/auth.md): 2 endpoints; OpenAPI `openapi/modules/auth.openapi.yaml`
+- [资金](docs/modules/capital-account.md): 1 endpoints; OpenAPI `openapi/modules/capital-account.openapi.yaml`
+- [客户](docs/modules/company.md): 17 endpoints; OpenAPI `openapi/modules/company.openapi.yaml`
+- [费用单](docs/modules/cost-invoice.md): 4 endpoints; OpenAPI `openapi/modules/cost-invoice.openapi.yaml`
+- [devops相关](docs/modules/devops.md): 6 endpoints; OpenAPI `openapi/modules/devops.openapi.yaml`
+- [示例接口（勿用）](docs/modules/example-do-not-use.md): 2 endpoints; OpenAPI `openapi/modules/example-do-not-use.openapi.yaml`
+- [线索](docs/modules/lead.md): 4 endpoints; OpenAPI `openapi/modules/lead.openapi.yaml`
+- [商机](docs/modules/opportunity.md): 6 endpoints; OpenAPI `openapi/modules/opportunity.openapi.yaml`
+- [付款单](docs/modules/payment.md): 3 endpoints; OpenAPI `openapi/modules/payment.openapi.yaml`
+- [产品](docs/modules/product.md): 15 endpoints; OpenAPI `openapi/modules/product.openapi.yaml`
+- [采购入库单](docs/modules/purchase-inbound.md): 5 endpoints; OpenAPI `openapi/modules/purchase-inbound.openapi.yaml`
+- [采购订单](docs/modules/purchase-order.md): 5 endpoints; OpenAPI `openapi/modules/purchase-order.openapi.yaml`
+- [采购退货单](docs/modules/purchase-return.md): 5 endpoints; OpenAPI `openapi/modules/purchase-return.openapi.yaml`
+- [报价单](docs/modules/quotation.md): 6 endpoints; OpenAPI `openapi/modules/quotation.openapi.yaml`
+- [回款单](docs/modules/receipt.md): 5 endpoints; OpenAPI `openapi/modules/receipt.openapi.yaml`
+- [回款登记](docs/modules/receipt-registration.md): 5 endpoints; OpenAPI `openapi/modules/receipt-registration.openapi.yaml`
+- [销售订单](docs/modules/sales-order.md): 6 endpoints; OpenAPI `openapi/modules/sales-order.openapi.yaml`
+- [销售出库单](docs/modules/sales-outbound.md): 5 endpoints; OpenAPI `openapi/modules/sales-outbound.openapi.yaml`
+- [供应商](docs/modules/supplier.md): 6 endpoints; OpenAPI `openapi/modules/supplier.openapi.yaml`
+- [用户](docs/modules/user.md): 4 endpoints; OpenAPI `openapi/modules/user.openapi.yaml`
+- [库存](docs/modules/warehouse.md): 2 endpoints; OpenAPI `openapi/modules/warehouse.openapi.yaml`
+- [消息推送](docs/modules/webhook.md): 11 endpoints; OpenAPI `openapi/modules/webhook.openapi.yaml`
+- [WhatsApp](docs/modules/whatsapp.md): 1 endpoints; OpenAPI `openapi/modules/whatsapp.openapi.yaml`

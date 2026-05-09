@@ -1,0 +1,3823 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 产品 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 产品.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 产品
+  x-module-slug: product
+paths:
+  /v1/product/productEnums:
+    get:
+      summary: '产品枚举:产品类型，离岸价设置类型，创建方式，产品计量单位 '
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: field
+        in: query
+        description: unit_list :返回计量单位 product_type_ist:返回产品类型 fob_type_ist:返回离岸价类型 source_type_ist:返回创建方式
+        required: true
+        example: unit_list
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      unit_list:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: name
+                            code:
+                              type: string
+                              description: code
+                          x-apifox-orders:
+                          - name
+                          - code
+                    required:
+                    - unit_list
+                    x-apifox-orders:
+                    - unit_list
+                required:
+                - code
+                - msg
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - msg
+                - now
+                - data
+              example:
+                code: 0
+                msg: success
+                now: '2022-04-11 16:33:40'
+                data:
+                  unit_list:
+                  - name: xx
+                    code: xx1
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: get_v1_product_productenums
+      x-local-source-path: sources/pages/api-3484723.md
+      x-source-id: api-3484723
+      x-source-title: 产品枚举:产品类型，离岸价设置类型，创建方式，产品计量单位
+      x-source-module: 产品
+  /v1/product/remove-groups:
+    post:
+      summary: 产品分组删除
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                group_id:
+                  type: integer
+                  description: 产品分组ID，可以从查询产品分组接口[/v1/product/groups]获得
+                  example: 444
+              required:
+              - group_id
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      group_id:
+                        type: string
+                        title: 产品分组ID
+                    required:
+                    - group_id
+                    x-apifox-orders:
+                    - group_id
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-03-06 14:11:52'
+                data:
+                  group_id: '5203320130'
+          headers: {}
+          x-apifox-name: 成功
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              example:
+                code: 404
+                message: System group cannot be deleted
+                now: '2025-04-17 09:13:51'
+          headers: {}
+          x-apifox-name: 系统分组不允许删除
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: post_v1_product_remove_groups
+      x-local-source-path: sources/pages/api-3485272.md
+      x-source-id: api-3485272
+      x-source-title: 产品分组删除
+      x-source-module: 产品
+  /v1/product/inventory-list:
+    get:
+      summary: 库存查询(通过skuId) 
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: sku_id
+        in: query
+        description: SKU ID 多个之间使用逗号隔开
+        required: false
+        example: '3604006368'
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      list:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            sku_code:
+                              type: string
+                              title: 产品编号(sku产品编号)
+                              description: '无规格的情况下，产品编号与sku产品编号是相同的。
+
+                                多规格的情况下，不同的规格会有不同的编号'
+                            sku_id:
+                              type: integer
+                              title: sku_id
+                              description: 产品唯一sku_id
+                            product_id:
+                              type: integer
+                              title: product_id
+                              description: 产品唯一product_id
+                            enable_count:
+                              type: string
+                              title: 可用库存
+                            real_count:
+                              type: string
+                              title: 实际库存
+                            warehouse_id:
+                              type: integer
+                              title: 仓库id
+                              description: 仓库唯一id，可用于查询/v1/warehouse/list
+                            product_no:
+                              type: string
+                              title: 产品编号(spu产品编号)
+                            unit:
+                              type: string
+                              description: 产品spu单位
+                            disable_flag:
+                              type: integer
+                              description: 是否禁售0:非禁售 1:禁售
+                          required:
+                          - sku_code
+                          - sku_id
+                          - product_id
+                          - enable_count
+                          - real_count
+                          - warehouse_id
+                          - product_no
+                          - unit
+                          - disable_flag
+                          x-apifox-orders:
+                          - sku_code
+                          - sku_id
+                          - product_id
+                          - enable_count
+                          - real_count
+                          - warehouse_id
+                          - product_no
+                          - unit
+                          - disable_flag
+                    required:
+                    - count
+                    - list
+                    x-apifox-orders:
+                    - count
+                    - list
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-04-29 15:21:43'
+                data:
+                  count: 29
+                  list:
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3514223335
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3563402288
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3563244974
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3563245047
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3563245045
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560431056
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560437203
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560437194
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560437204
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560437196
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560437201
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560430962
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560430960
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560430961
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560430930
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3560430929
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3514223328
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3511784561
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3511784564
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+                  - sku_code: '2024080527522'
+                    sku_id: 3604006368
+                    product_id: 3604006367
+                    enable_count: '711.0000000000'
+                    real_count: '711.0000000000'
+                    warehouse_id: 3511522876
+                    product_no: '2024080527522'
+                    unit: ''
+                    disable_flag: 0
+                    scope_user_ids: []
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: get_v1_product_inventory_list
+      x-local-source-path: sources/pages/api-3485273.md
+      x-source-id: api-3485273
+      x-source-title: 库存查询(通过skuId)
+      x-source-module: 产品
+  /v1/product/list:
+    get:
+      summary: 查询产品库列表
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: time_type
+        in: query
+        description: 时间筛选 1-按更新时间，2-按创建时间
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: start_time
+        in: query
+        description: 开始时间
+        required: false
+        example: '2024-01-21'
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: 截止时间
+        required: false
+        example: '2025-01-11'
+        schema:
+          type: string
+      - name: start_index
+        in: query
+        description: 页码
+        required: false
+        example: 10
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: 每页数量
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: product_type
+        in: query
+        description: 产品类型 1:无规格 2:多规格 3:组合
+        required: false
+        example: 0
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    title: 错误码
+                    examples:
+                    - 0
+                  message:
+                    type: string
+                    title: 错误信息
+                    examples:
+                    - success
+                  now:
+                    type: string
+                    title: 当前时间
+                    examples:
+                    - '2022-01-01 00:00:00'
+                  data:
+                    type: object
+                    title: 响应数据
+                    properties:
+                      count:
+                        type: integer
+                        title: 总数
+                      list:
+                        type: array
+                        title: 列表数据
+                        items:
+                          type: object
+                          properties:
+                            product_id:
+                              type: integer
+                              title: 产品ID
+                              description: 产品唯一id，可用于各处查询/新建
+                            product_no:
+                              type: string
+                              title: 产品编号(产品编码)
+                            name:
+                              type: string
+                              title: 产品名称
+                            group_id:
+                              type: integer
+                              title: 产品分组ID
+                            group_name:
+                              type: string
+                              title: 产品分组名称
+                            image:
+                              type: string
+                              title: 产品图片地址
+                            cost_with_tax:
+                              type: number
+                              format: float
+                              title: 含税成本价
+                            cost_currency:
+                              type: string
+                              title: 币种
+                            cost:
+                              type: number
+                              format: float
+                              title: 成本价
+                            cost_unit:
+                              type: string
+                              title: 单位
+                            enable_flag:
+                              type: integer
+                              enum:
+                              - 0
+                              - 1
+                              title: 是否删除
+                              description: 0:删除,1:未删除
+                            disable_flag:
+                              type: integer
+                              enum:
+                              - 0
+                              - 1
+                              title: 是否停售
+                              description: 0:停售,1:未停售
+                            fob:
+                              type: object
+                              title: 离岸价
+                              properties:
+                                price_currency:
+                                  type: string
+                                  title: 币种
+                                price_min:
+                                  type: number
+                                  format: float
+                                  title: 最小价格
+                                price_max:
+                                  type: number
+                                  format: float
+                                  title: 最大价格
+                                price_unit:
+                                  type: string
+                                  title: 单位
+                              x-apifox-orders:
+                              - price_currency
+                              - price_min
+                              - price_max
+                              - price_unit
+                            minimum_order_quantity:
+                              type: integer
+                              title: 最小起订量
+                            quantity:
+                              type: integer
+                              title: 货量
+                            quantity_unit:
+                              type: string
+                              title: 单位
+                            model:
+                              type: string
+                              title: 产品型号
+                            category_ids:
+                              type: array
+                              items:
+                                type: integer
+                                description: 产品类目id
+                              title: 产品类目
+                            from_url:
+                              type: string
+                              title: 产品链接
+                            description:
+                              type: string
+                              title: 产品描述
+                            product_remark:
+                              type: string
+                              title: 产品备注
+                            unit:
+                              type: string
+                              title: 产品单位
+                            package_volume:
+                              type: integer
+                              title: 产品体积
+                            count_per_package:
+                              type: integer
+                              title: 每包装产品数
+                            package_gross_weight:
+                              type: integer
+                              title: 包装毛重
+                            package_remark:
+                              type: integer
+                              title: 包装备注
+                            package_unit:
+                              type: integer
+                              title: 包装单位
+                            info_json:
+                              type: object
+                              properties: {}
+                              x-apifox-orders: []
+                              title: 产品属性
+                            hs_code:
+                              type: integer
+                              title: 海关编码
+                            source_type:
+                              type: integer
+                              description: '0:手动创建,1:阿里巴巴同步,2:环球资源同步,3:自动创建,4: 文件导入,5:ERP导入,6:cms的产品从crm导入'
+                              title: 来源
+                            pin_flag:
+                              type: integer
+                              title: 是否关注
+                              description: 1:关注 0:不关注
+                            package_size:
+                              type: object
+                              properties:
+                                package_size_length:
+                                  type: string
+                                  title: 包装尺寸长
+                                package_size_weight:
+                                  type: string
+                                  title: 包装尺寸宽
+                                package_size_height:
+                                  type: string
+                                  title: 包装尺寸高
+                              x-apifox-orders:
+                              - package_size_length
+                              - package_size_weight
+                              - package_size_height
+                          x-apifox-orders:
+                          - product_id
+                          - product_no
+                          - name
+                          - group_id
+                          - group_name
+                          - image
+                          - cost_with_tax
+                          - cost_currency
+                          - cost
+                          - cost_unit
+                          - enable_flag
+                          - disable_flag
+                          - fob
+                          - minimum_order_quantity
+                          - quantity
+                          - quantity_unit
+                          - model
+                          - category_ids
+                          - from_url
+                          - description
+                          - product_remark
+                          - unit
+                          - package_volume
+                          - count_per_package
+                          - package_gross_weight
+                          - package_remark
+                          - package_unit
+                          - info_json
+                          - hs_code
+                          - source_type
+                          - pin_flag
+                          - package_size
+                    x-apifox-orders:
+                    - count
+                    - list
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 0
+                msg: success
+                now: '2022-04-11 16:33:40'
+                data:
+                  list:
+                  - product_id: 3159646860
+                    group_id: 3117294431
+                    name: 组合产品测试20220923212523
+                    model: ZH20220923212523
+                    product_no: '20220923212523'
+                    category_ids:
+                    - 10
+                    - 122
+                    from_url: https://v4client.oss-cn-hangzhou.aliyuncs.com/11855392/8638e4e536bca4ea8b4e44d3654a442547ece13dee8835981a9d66217aad3943.jpeg
+                    description: This is product description in test-870
+                    product_remark: 产品备注
+                    unit: Bag
+                    package_volume: '0.001'
+                    count_per_package: '1'
+                    package_gross_weight: '12'
+                    package_remark: ''
+                    package_unit: ''
+                    info_json:
+                    - name: Ash997
+                      value: 340
+                    hs_code: hs20220919147
+                    source_type: 5
+                    external_field_data: []
+                    create_time: '2022-09-23 21:25:40'
+                    update_time: '2022-09-23 21:25:40'
+                    create_user_info:
+                      nickname: kk
+                      email: kk@xiaomancrm.com
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/765/e141d71193c10a427f3efcb53e49b7d78a494f24b92d7b55eb75cd5c24e59eb2.png
+                      user_id: '765'
+                      ames_email: ''
+                    update_user_info:
+                      nickname: kk
+                      email: kk@xiaomancrm.com
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/765/e141d71193c10a427f3efcb53e49b7d78a494f24b92d7b55eb75cd5c24e59eb2.png
+                      user_id: '765'
+                      ames_email: ''
+                    group_name: juliejulie
+                    store_info: []
+                    pin_flag: 0
+                    cost_with_tax:
+                      cost_currency: CNY
+                      cost: '200.0000'
+                      associate_cost_flag: 0
+                    fob:
+                      price_currency: EUR
+                      price_min: '1.0000'
+                      price_max: '50.0000'
+                      quantity: '10'
+                      fob_type: 1
+                      gradient_price: []
+                    package_size:
+                      package_size_length: '10.00'
+                      package_size_weight: '10.00'
+                      package_size_height: '10.00'
+                    image: ''
+                    image_info:
+                      file_url: ''
+                    images: []
+                  count: 49333
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: get_v1_product_list
+      x-local-source-path: sources/pages/api-3478259.md
+      x-source-id: api-3478259
+      x-source-title: 查询产品库列表
+      x-source-module: 产品
+  /v1/product/push:
+    post:
+      summary: 产品新建/编辑
+      deprecated: false
+      description: "**如何创建一个无规格产品**\n\n<details>\n  <summary>新建无规格产品</summary>\n  \n```\n{\n  \"images\": [],\n  \"name\"\
+        : \"testname\",\n  \"product_no\": \"testno\",\n  \"product_type\": 1,\n  \"package_remark\": \"remark\"\n  }\n```\n\
+        </details>\n参数列表中有罗列可传入参数以及数据类型\n\n**如何编辑一个无规格产品**\n\n<details>\n  <summary>编辑无规格产品</summary>\n```\n{\n  \"product_id\"\
+        :xxxxxx,\n  \"images\": [],\n  \"name\": \"testname\",\n  \"product_no\": \"test\",\n  \"product_type\": 1,\n  \"\
+        package_remark\": \"remark\"\n  }\n```\n</details>\n编辑无规格产品，需要获取info接口中的product_id传入，参数列表中有罗列可传入参数以及数据类型。\n\n\n===========================================================================================\n\
+        \n**如何创建一个多规格产品**\n\n<details>\n  <summary>新建多规格产品</summary>\n  \n```\n{\n\t\"images\": [],\n\t\"name\": \"测试23\"\
+        ,\n\t\"product_no\": \"编号12\",\n\t\"product_type\": 2,\n\t\"sku_items\": [{\n\t\t\"sku_code\": \"测试11\",\n\t\t\"attributes\"\
+        : [{\n\t\t\t\"item_id\": 2056386462650, --规格类型id\n\t\t\t\"value\": {\n\t\t\t\t\"item_id\": 2268631617468  --规格值id\n\
+        \t\t\t}\n\t\t}],\n\t\t\"fob_price\": 123,\n\t\t\"disable_flag\": 0\n\t}, {\n\t\t\"sku_code\": \"测试21\",\n\t\t\"attributes\"\
+        : [{\n\t\t\t\"item_id\": 2056386462650, --规格类型id\n\t\t\t\"value\": {\n\t\t\t\t\"item_id\": 2268631617469 --规格值id\n\
+        \t\t\t}\n\t\t}],\n\t\t\"fob_price\": 123,\n\t\t\"disable_flag\": 0\n\t}],\n\t\"package_remark\": \"备注\",\n\t\"sku_attributes\"\
+        : [{\n    --需要包含sku_items使用的规格值与类型，如item_id规格类型 2056386462650有使用规格值2268631617469/2268631617468，则都需要填写进来\n\t\t\"item_id\"\
+        : 2056386462650,\n\t\t\"value\": [{\n\t\t\t\"item_id\": 2268631617469\n\t\t}, {\n\t\t\t\"item_id\": 2268631617468\n\
+        \t\t}]\n\t}]\n}\n    \n```\n</details>\n创建多规格需要通过https://api-sandbox.xiaoman.cn/v1/product/push-sku-attribute ，创建规格后，item_id是由https://api-sandbox.xiaoman.cn/v1/product/sku-attribute-list\
+        \ 获得，用于创建多规格产品。多规格sku_attributes与sku_items必填，\n参数列表中有罗列可传入参数以及数据类型。\n\n**如何编辑一个多规格产品**\n<details>\n  <summary>编辑多规格产品</summary>\n\
+        \  \n```\n    {\n  \"images\": [],\n  \"name\": \"测试2\",\n  \"product_no\": \"编号1\",\n  \"product_type\": 2,\n   \
+        \ \"product_id\":xxxxxx,\n  \"sku_items\": [\n    {\n      \"sku_id\":xxxxxx,\n      \"sku_code\": \"测试1\",\n    \
+        \  \"attributes\": [\n        {\n          \"item_id\": 2056386462650, --规格类型id\n          \"value\": {\n        \
+        \    \"item_id\": 2268631617468 --规格值id\n          }\n        }\n      ],\n      \"fob_price\": 123,\n      \"disable_flag\"\
+        : 0\n    }\n  ],\n  \"package_remark\": \"备注\",\n  \"sku_attributes\": [\n    {\n      \"item_id\": 2056386462650,\
+        \   --规格类型id\n      \"value\": [\n        {\n          \"item_id\": 2268631617468 --规格值id\n        }\n      ]\n  \
+        \  }\n  ]\n}\n    \n```\n</details>\n编辑多规格产品，需要获取info接口中的product_id与sku_id传入，参数列表中有罗列可传入参数以及数据类型。\n\n\n\n\n"
+      tags:
+      - 产品
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                  title: 产品ID
+                  description: 编辑时必填
+                product_no:
+                  type: string
+                  title: 产品编码(产品SPU编号)
+                  description: 最长256个字符
+                name:
+                  type: string
+                  title: 产品名称
+                  description: 最长256个字符
+                cn_name:
+                  type: string
+                  title: 产品中文名称
+                  description: 最长256个字符
+                create_user:
+                  type: integer
+                  title: 创建人
+                product_type:
+                  type: integer
+                  title: 产品类型
+                  description: 1无规格、2多规格、3组合
+                  enum:
+                  - 1
+                  - 2
+                  - 3
+                model:
+                  type: string
+                  title: 产品型号
+                  description: 最长256个字符
+                description:
+                  type: string
+                  title: 产品描述
+                intro:
+                  type: string
+                  title: 产品介绍
+                product_remark:
+                  type: string
+                  title: 产品备注
+                images:
+                  type: array
+                  items:
+                    type: string
+                    description: 支持传base64,图片url
+                  title: 产品主图片(url)
+                from_url:
+                  type: string
+                  title: 产品链接
+                hs_code:
+                  type: string
+                  title: 海关编码
+                place:
+                  type: string
+                  title: 产地
+                info_json:
+                  type: array
+                  title: 产品属性
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        title: 属性名称
+                      value:
+                        type: string
+                        title: 属性值
+                    x-apifox-orders:
+                    - name
+                    - value
+                quantity:
+                  type: string
+                  title: 最小起订数量
+                quantity_unit:
+                  type: string
+                  title: 最小起订量单位
+                price_currency:
+                  type: string
+                  title: 离岸价货币币种
+                price_min:
+                  type: number
+                  format: float
+                  title: 离岸价最小价格
+                price_max:
+                  type: number
+                  format: float
+                  title: 离岸价最大价格
+                price_unit:
+                  type: string
+                  title: 离岸价单位
+                package_gross_weight:
+                  type: string
+                  title: 包装毛重
+                package_unit:
+                  type: string
+                  title: 包装单位
+                package_size_length:
+                  type: number
+                  format: float
+                  title: 包装长
+                  description: 单位cm
+                package_size_weight:
+                  type: number
+                  format: float
+                  title: 包装宽
+                  description: 单位cm
+                package_size_height:
+                  type: number
+                  format: float
+                  title: 包装高
+                  description: 单位cm
+                package_volume:
+                  type: number
+                  format: float
+                  title: 包装体积
+                  description: 单位m³
+                product_size_length:
+                  type: number
+                  format: float
+                  title: 产品长
+                  description: 单位cm
+                product_size_weight:
+                  type: number
+                  format: float
+                  title: 产品宽
+                  description: 单位cm
+                product_size_height:
+                  type: number
+                  format: float
+                  title: 产品高
+                  description: 单位cm
+                product_volume:
+                  type: number
+                  format: float
+                  title: 产品体积
+                  description: 单位m³
+                group_id:
+                  type: integer
+                  title: 产品分组
+                disable_flag:
+                  type: integer
+                  enum:
+                  - 0
+                  - 1
+                  title: 是否停售
+                  description: 1-是，0-否
+                fob_type:
+                  type: integer
+                  enum:
+                  - 1
+                  - 2
+                  - 3
+                  title: 离岸价设置类型
+                  description: 1单一区间定价,2阶梯定价,3规格定价
+                gradient_price:
+                  type: array
+                  title: 阶梯定价
+                  items:
+                    type: object
+                    properties:
+                      quantity:
+                        type: integer
+                        title: 区间数量
+                      price:
+                        type: number
+                        format: float
+                        title: 区间价格
+                    x-apifox-orders:
+                    - quantity
+                    - price
+                sku_items:
+                  type: array
+                  title: 产品SKU明细
+                  items:
+                    type: object
+                    properties:
+                      sku_id:
+                        type: integer
+                        title: SKU ID
+                      sku_code:
+                        type: string
+                        title: SKU编号
+                        description: 不能与SPU编号重复
+                      sku_image_url:
+                        type: string
+                        title: SKU图片URL
+                      fob_price:
+                        type: number
+                        format: float
+                        title: SKU规格定价
+                        description: 多规格必填
+                      disable_flag:
+                        type: integer
+                        enum:
+                        - 0
+                        - 1
+                        title: SKU是否停售
+                        description: 0:否 1:停售
+                      attributes:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            item_id:
+                              type: integer
+                              title: 规格类型ID
+                              description: 可以从/v1/product/sku-attribute-list获取
+                            value:
+                              type: object
+                              properties:
+                                item_id:
+                                  type: integer
+                                  title: 规格属性值ID
+                                  description: 可以从/v1/product/sku-attribute-list获取
+                              x-apifox-orders:
+                              - item_id
+                              required:
+                              - item_id
+                          x-apifox-orders:
+                          - item_id
+                          - value
+                          required:
+                          - item_id
+                          - value
+                        title: 产品规格
+                    x-apifox-orders:
+                    - sku_id
+                    - sku_code
+                    - sku_image_url
+                    - fob_price
+                    - disable_flag
+                    - attributes
+                    required:
+                    - attributes
+                    description: 多规格产品则必填
+                sub_product_sku_items:
+                  type: array
+                  title: 组合产品子产品列表
+                  items:
+                    type: object
+                    properties:
+                      sub_sku_id:
+                        type: integer
+                        title: 子产品SKU ID
+                      sub_product_id:
+                        type: integer
+                        title: 子产品ID
+                      count:
+                        type: integer
+                        title: 子产品数量
+                    x-apifox-orders:
+                    - sub_sku_id
+                    - sub_product_id
+                    - count
+                images_base64:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      file_name:
+                        type: string
+                        title: 图片名称
+                      data:
+                        type: string
+                        title: base64编码的图片数据
+                    x-apifox-orders:
+                    - file_name
+                    - data
+                    required:
+                    - file_name
+                    - data
+                sku_attributes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      item_id:
+                        type: string
+                        title: 规格类型id
+                        description: 规格类型id 可以从规格接口获取 /v1/product/sku-attribute-list
+                      value:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              item_id:
+                                type: string
+                                title: 规格类型值id
+                                description: 规格类型值id 可以从规格接口获取 /v1/product/sku-attribute-list
+                            x-apifox-orders:
+                            - item_id
+                            required:
+                            - item_id
+                    x-apifox-orders:
+                    - item_id
+                    - value
+                    required:
+                    - item_id
+                    - value
+                  description: 多规格产品则必填
+                count_per_carton:
+                  type: number
+                  title: 每箱产品数
+                count_per_package:
+                  type: number
+                  title: 每包装产品数
+                product_net_weight:
+                  type: number
+                  title: 产品净重
+                carton_volume:
+                  type: number
+                  title: 单箱体积
+                carton_net_weight:
+                  type: number
+                  title: 单箱净重
+                carton_gross_weight:
+                  type: number
+                  title: 单箱毛重
+                package_type:
+                  type: number
+                  title: 包装方式
+                cost:
+                  type: number
+                  title: 含税成本价
+                cost_currency:
+                  type: string
+                  title: 含税成本价币种
+                cost_unit:
+                  type: string
+                  title: 含税成本价单位
+                unit:
+                  type: string
+                  title: 计量单位
+                  description: 可以通过产品枚举接口获取计量单位值
+                is_parts:
+                  type: integer
+                  title: 是否允许为配件
+                  description: 1是，0否
+              x-apifox-orders:
+              - product_id
+              - product_no
+              - name
+              - cn_name
+              - create_user
+              - product_type
+              - model
+              - description
+              - intro
+              - product_remark
+              - unit
+              - images
+              - from_url
+              - hs_code
+              - place
+              - info_json
+              - quantity
+              - quantity_unit
+              - price_currency
+              - price_min
+              - price_max
+              - price_unit
+              - package_gross_weight
+              - package_unit
+              - package_size_length
+              - package_size_weight
+              - package_size_height
+              - package_volume
+              - product_size_length
+              - product_size_weight
+              - product_size_height
+              - product_volume
+              - group_id
+              - disable_flag
+              - fob_type
+              - gradient_price
+              - sku_items
+              - sub_product_sku_items
+              - images_base64
+              - sku_attributes
+              - count_per_carton
+              - count_per_package
+              - product_net_weight
+              - carton_volume
+              - carton_net_weight
+              - carton_gross_weight
+              - package_type
+              - cost
+              - cost_currency
+              - cost_unit
+              - is_parts
+              required:
+              - product_type
+            example:
+              product_id: 0
+              product_no: string
+              name: string
+              cn_name: string
+              create_user: 0
+              product_type: 1
+              model: string
+              description: string
+              intro: string
+              product_remark: string
+              images: string
+              from_url: string
+              hs_code: string
+              place: string
+              info_json:
+              - name: string
+                value: string
+              quantity: string
+              quantity_unit: string
+              price_currency: string
+              price_min: 0
+              price_max: 0
+              price_unit: string
+              package_gross_weight: string
+              package_unit: string
+              package_size_length: 0
+              package_size_weight: 0
+              package_size_height: 0
+              package_volume: 0
+              product_size_length: 0
+              product_size_weight: 0
+              product_size_height: 0
+              product_volume: 0
+              product_net_weight: 0
+              customs_name: 0
+              customs_cn_name: 0
+              package_remark: string
+              count_per_package: string
+              cost_currency: string
+              cost: 0
+              cost_unit: string
+              unit: string
+              group_id: 0
+              disable_flag: 0
+              fob_type: 1
+              gradient_price:
+              - quantity: 0
+                price: 0
+              category_ids: null
+              sku_attributes:
+              - item_id: 0
+                value:
+                - item_id: 0
+              sku_items:
+              - sku_id: 0
+                sku_code: string
+                sku_image_url: string
+                fob_price: 0
+                disable_flag: 0
+                attributes:
+                - item_id: 0
+                  value:
+                    item_id: 0
+              sub_product_sku_items:
+              - sub_sku_id: 0
+                sub_product_id: 0
+                count: 0
+              images_base64:
+              - file_name: string
+                data: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      product_id:
+                        type: integer
+                        description: 产品spu唯一id
+                      product_no:
+                        type: string
+                        description: 产品spu编号
+                      sku_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            sku_id:
+                              type: integer
+                              description: 产品sku唯一id
+                            sku_code:
+                              type: string
+                              description: 产品sku编号
+                          x-apifox-orders:
+                          - sku_id
+                          - sku_code
+                    required:
+                    - product_id
+                    - product_no
+                    - sku_items
+                    x-apifox-orders:
+                    - product_id
+                    - product_no
+                    - sku_items
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: post_v1_product_push
+      x-local-source-path: sources/pages/api-3478260.md
+      x-source-id: api-3478260
+      x-source-title: 产品新建/编辑
+      x-source-module: 产品
+  /v1/product/fields:
+    get:
+      summary: 产品库的数据字典
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    title: 错误码
+                    examples:
+                    - 200
+                  now:
+                    type: string
+                    title: 当前时间
+                    examples:
+                    - '2022-01-01 00:00:00'
+                  message:
+                    type: string
+                    title: 错误信息
+                    examples:
+                    - success
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        title: 字段ID
+                      name:
+                        type: string
+                        title: 字段名
+                      base:
+                        type: integer
+                        title: 是否为系统字段
+                        description: 1-是，0-否，即自定义字段
+                      field_type:
+                        type: integer
+                        title: 字段类型
+                        description: 0=特殊，1=短文本，2=长文本，3=下拉单选，4=日期，5=数字，6=图片，7=下拉多选，8=附件，9=引用字段，10=日期时间
+                      ext_info:
+                        type: string
+                        title: 额外信息
+                      require:
+                        type: integer
+                        title: 是否必填
+                        description: 1-是，0-否
+                      default:
+                        type: string
+                        title: 默认值
+                      disable_flag:
+                        type: integer
+                        title: 是否禁用
+                        description: 1-是，0-否
+                      is_list:
+                        type: integer
+                        title: 是否为明细字段
+                        description: 1-是，0-否
+                    title: 响应数据
+                    x-apifox-orders:
+                    - id
+                    - name
+                    - base
+                    - field_type
+                    - ext_info
+                    - require
+                    - default
+                    - disable_flag
+                    - is_list
+                required:
+                - code
+                - now
+                - message
+                - data
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: get_v1_product_fields
+      x-local-source-path: sources/pages/api-3478262.md
+      x-source-id: api-3478262
+      x-source-title: 产品库的数据字典
+      x-source-module: 产品
+  /v1/product/info:
+    get:
+      summary: 产品详情
+      deprecated: false
+      description: 'product_no  与 product_id 选择其中一个传入
+
+        选择product_no会根据编号找到对应的产品展示详情
+
+        选择product_id会根据product_id找到对应的产品展示详情
+
+        '
+      tags:
+      - 产品
+      parameters:
+      - name: product_no
+        in: query
+        description: 产品编码，最长256个字符
+        required: false
+        schema:
+          type: string
+      - name: product_id
+        in: query
+        description: 产品ID，与上product_no参数二选一
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: 错误码
+                    examples:
+                    - 0
+                  message:
+                    type: string
+                    description: 错误信息
+                    examples:
+                    - success
+                  now:
+                    type: string
+                    description: 当前时间
+                    examples:
+                    - '2022-01-01 00:00:00'
+                  data:
+                    type: object
+                    properties:
+                      create_time:
+                        type: string
+                        description: 创建时间
+                      create_user:
+                        type: object
+                        properties:
+                          user_id:
+                            type: string
+                            description: 创建人ID
+                          nickname:
+                            type: string
+                            description: 创建人昵称
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                      update_time:
+                        type: string
+                        description: 更新时间
+                      update_user:
+                        type: object
+                        properties:
+                          user_id:
+                            type: string
+                            description: 更新人ID
+                          nickname:
+                            type: string
+                            description: 更新人昵称
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                      source_type:
+                        type: integer
+                        description: 创建方式, 0手动创建，1阿里巴巴同步，2环球资源同步，3自动创建，4文件导入，5ERP导入，6cms的产品从crm导入，7平台生成
+                        enum:
+                        - 0
+                        - 1
+                        - 2
+                        - 3
+                        - 4
+                        - 5
+                        - 6
+                        - 7
+                      ali_product_id:
+                        type: integer
+                        description: 阿里商品ID
+                      ali_store_id:
+                        type: integer
+                        description: 来源店铺ID
+                      product_id:
+                        type: integer
+                        description: 产品ID，编辑时必填
+                      product_no:
+                        type: string
+                        description: 产品编码，最长256个字符
+                      name:
+                        type: string
+                        description: 产品名称，最长256个字符
+                      cn_name:
+                        type: string
+                        description: 产品中文名称
+                      enable_flag:
+                        type: integer
+                        description: 是否删除：0-是，1-否
+                        enum:
+                        - 0
+                        - 1
+                      disable_flag:
+                        type: integer
+                        description: 是否停售：1-是，0-否
+                        enum:
+                        - 0
+                        - 1
+                      group_id:
+                        type: integer
+                        description: 产品分类ID
+                      product_type:
+                        type: integer
+                        description: 产品类型，1无规格、2多规格、3组合
+                        enum:
+                        - 1
+                        - 2
+                        - 3
+                      model:
+                        type: string
+                        description: 产品型号，最长64个字符
+                      brand:
+                        type: string
+                        description: 产品品牌
+                      hs_code:
+                        type: string
+                        description: 海关编码
+                      place:
+                        type: string
+                        description: 产地
+                      unit:
+                        type: string
+                        description: 计量单位
+                      quantity:
+                        type: string
+                        description: 最小起订数量
+                      quantity_unit:
+                        type: string
+                        description: 最小起订量单位
+                      price_currency:
+                        type: string
+                        description: 离岸价货币币种
+                      price_min:
+                        type: number
+                        format: float
+                        description: 离岸价最小价格，保留两位小数
+                      price_max:
+                        type: number
+                        format: float
+                        description: 离岸价最大价格，保留两位小数
+                      price_unit:
+                        type: string
+                        description: 离岸价单位
+                      package_gross_weight:
+                        type: string
+                        description: 包装毛重
+                      package_unit:
+                        type: string
+                        description: 包装单位
+                      package_size_length:
+                        type: number
+                        format: float
+                        description: 包装长，单位cm
+                      package_size_weight:
+                        type: number
+                        format: float
+                        description: 包装宽，单位cm
+                      package_size_height:
+                        type: number
+                        format: float
+                        description: 包装高，单位cm
+                      package_volume:
+                        type: number
+                        format: float
+                        description: 包装体积，单位m3
+                      package_remark:
+                        type: string
+                        description: 包装说明
+                      count_per_package:
+                        type: string
+                        description: 每包装产品数量
+                      cost_currency:
+                        type: string
+                        description: 含税成本价货币币种
+                      cost:
+                        type: number
+                        format: float
+                        description: 含税成本价价格，保留两位小数
+                      cost_unit:
+                        type: string
+                        description: 含税成本价单位
+                      intro:
+                        type: string
+                        description: 产品介绍
+                      description:
+                        type: string
+                        description: 产品描述
+                      product_remark:
+                        type: string
+                        description: 产品备注
+                      external_field_data:
+                        type: object
+                        description: 自定义字段
+                        x-apifox-orders: []
+                        properties: {}
+                      images:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            src:
+                              type: string
+                              description: 图片地址
+                            file_name:
+                              type: string
+                              description: 图片名称
+                            file_path:
+                              type: string
+                              description: 图片地址
+                            file_size:
+                              type: integer
+                              description: 图片大小
+                            file_preview_url:
+                              type: string
+                              description: 图片在线预览地址
+                          x-apifox-orders:
+                          - src
+                          - file_name
+                          - file_path
+                          - file_size
+                          - file_preview_url
+                        description: 产品图片列表
+                      info_json:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: 属性名称
+                            value:
+                              type: string
+                              description: 属性值
+                          x-apifox-orders:
+                          - name
+                          - value
+                        description: 产品属性列表
+                      gradient_price:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            quantity:
+                              type: string
+                              description: 区间数量
+                            price:
+                              type: number
+                              format: float
+                              description: 区间价格
+                          x-apifox-orders:
+                          - quantity
+                          - price
+                        description: 阶梯定价
+                      category_ids:
+                        type: array
+                        items:
+                          type: integer
+                        description: '产品分类父子ID, example: [1,2,3]'
+                      sku_attributes:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            item_id:
+                              type: integer
+                              description: 规格属性ID
+                            item_name:
+                              type: string
+                              description: 规格属性名称
+                            value:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  item_id:
+                                    type: integer
+                                    description: 规格属性值ID
+                                  item_name:
+                                    type: string
+                                    description: 规格属性值
+                                x-apifox-orders:
+                                - item_id
+                                - item_name
+                              description: 规格值列表
+                          x-apifox-orders:
+                          - item_id
+                          - item_name
+                          - value
+                        description: 产品规格
+                      sku_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            sku_id:
+                              type: integer
+                              description: sku_id
+                            sku_code:
+                              type: string
+                              description: sku编号
+                            fob_price:
+                              type: number
+                              format: float
+                              description: sku规格定价，保留两位小数
+                            enable_flag:
+                              type: integer
+                              description: sku启用状态,是否禁用： 0 否 1是
+                              enum:
+                              - 0
+                              - 1
+                            attributes_info:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  item_id:
+                                    type: integer
+                                    description: 属性ID
+                                  item_name:
+                                    type: string
+                                    description: 属性名称
+                                  value:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        item_id:
+                                          type: integer
+                                          description: 属性值ID
+                                        item_name:
+                                          type: string
+                                          description: 属性值
+                                      x-apifox-orders:
+                                      - item_id
+                                      - item_name
+                                    description: 属性值列表
+                                x-apifox-orders:
+                                - item_id
+                                - item_name
+                                - value
+                              description: sku属性列表
+                          x-apifox-orders:
+                          - sku_id
+                          - sku_code
+                          - fob_price
+                          - enable_flag
+                          - attributes_info
+                        description: 产品根据规格产生的SKU明细
+                      sub_product_sku_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            sub_sku_id:
+                              type: integer
+                              description: 子产品sku_id
+                            sub_product_id:
+                              type: integer
+                              description: 子产品ID
+                            count:
+                              type: integer
+                              description: 子产品数量
+                          x-apifox-orders:
+                          - sub_sku_id
+                          - sub_product_id
+                          - count
+                        description: 组合产品，子产品列表
+                    x-apifox-orders:
+                    - create_time
+                    - create_user
+                    - update_time
+                    - update_user
+                    - source_type
+                    - ali_product_id
+                    - ali_store_id
+                    - product_id
+                    - product_no
+                    - name
+                    - cn_name
+                    - enable_flag
+                    - disable_flag
+                    - group_id
+                    - product_type
+                    - model
+                    - brand
+                    - hs_code
+                    - place
+                    - unit
+                    - quantity
+                    - quantity_unit
+                    - price_currency
+                    - price_min
+                    - price_max
+                    - price_unit
+                    - package_gross_weight
+                    - package_unit
+                    - package_size_length
+                    - package_size_weight
+                    - package_size_height
+                    - package_volume
+                    - package_remark
+                    - count_per_package
+                    - cost_currency
+                    - cost
+                    - cost_unit
+                    - intro
+                    - description
+                    - product_remark
+                    - external_field_data
+                    - images
+                    - info_json
+                    - gradient_price
+                    - category_ids
+                    - sku_attributes
+                    - sku_items
+                    - sub_product_sku_items
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              examples:
+                '1':
+                  summary: 成功示例
+                  value:
+                    code: 200
+                    message: success
+                    now: '2025-03-05 20:08:53'
+                    data:
+                      product_id: 5203230032
+                      product_no: '1'
+                      name: kevinTest产品
+                      enable_flag: 1
+                      disable_flag: 0
+                      product_type: 1
+                      cn_name: ''
+                      create_user_info:
+                        nickname: dt_013
+                        email: dt_013@163.com
+                        avatar: ''
+                        user_id: '249525942'
+                        ames_email: ''
+                      update_user_info:
+                        nickname: dt_013
+                        email: dt_013@163.com
+                        avatar: ''
+                        user_id: '249525942'
+                        ames_email: ''
+                      sku_num: 0
+                      sku_id: 5203230033
+                      sku_code: '1'
+                      cost_with_tax:
+                        cost_currency: CNY
+                        cost: ''
+                        cost_type: ''
+                        associate_cost_flag: 0
+                      fob:
+                        price_currency: ''
+                        fob_price: ''
+                        price_min: ''
+                        price_max: ''
+                        quantity: ''
+                        fob_type: 3
+                        gradient_price:
+                        - price: ''
+                          quantity: ''
+                      package_unit: ''
+                      package_size:
+                        package_size_length: ''
+                        package_size_weight: ''
+                        package_size_height: ''
+                      package_volume: ''
+                      package_gross_weight: ''
+                      count_per_package: ''
+                      package_remark: ''
+                      product_size:
+                        product_size_length: ''
+                        product_size_weight: ''
+                        product_size_height: ''
+                      product_volume: ''
+                      product_net_weight: ''
+                      sku_remark: ''
+                      sku_description: ''
+                      carton_size:
+                        carton_size_length: ''
+                        carton_size_weight: ''
+                        carton_size_height: ''
+                      carton_gross_weight: ''
+                      carton_net_weight: ''
+                      carton_volume: ''
+                      count_per_carton: ''
+                      package_type: ''
+                      sku_items:
+                      - sku_id: 5203230033
+                        sku_code: '1'
+                        product_id: 5203230032
+                        fob_price: null
+                        cost: null
+                        enable_flag: 1
+                        disable_flag: 0
+                        display_order: 0
+                        package_unit: ''
+                        package_volume: ''
+                        count_per_package: ''
+                        package_gross_weight: ''
+                        package_remark: ''
+                        product_volume: ''
+                        product_net_weight: null
+                        sku_remark: ''
+                        sku_description: ''
+                        carton_volume: ''
+                        carton_net_weight: null
+                        carton_gross_weight: null
+                        count_per_carton: null
+                        package_type: ''
+                        image_info:
+                          file_id: ''
+                          file_name: ''
+                          file_size: ''
+                          file_path: ''
+                          file_preview_url: ''
+                        fob:
+                          price_currency: ''
+                          fob_price: ''
+                          price_min: ''
+                          price_max: ''
+                          quantity: ''
+                          fob_type: 3
+                          gradient_price:
+                          - price: ''
+                            quantity: ''
+                        cost_with_tax: {}
+                '2':
+                  summary: 成功示例(含注释版本)
+                  value: "{\n    \"code\": 200,\n    \"message\": \"success\",\n    \"now\": \"2025-03-05 20:08:53\",\n  \
+                    \  \"data\": {\n        \"product_id\": 5203230032,    // 产品spu唯一id\n        \"product_no\": \"1\",  \
+                    \         // 产品编号\n        \"name\": \"kevinTest产品\",      // 产品名称\n        \"enable_flag\": 1,      \
+                    \      // 产品是否删除 0删除 1未删除\n        \"disable_flag\": 0,           // 产品是否停售\n        \"product_type\"\
+                    : 1,           // 产品类型 1:无规格 2:多规格 3:组合产品\n        \"cn_name\": \"\",               // 产品中文名称\n      \
+                    \  \"create_user_info\": {        // 创建人信息\n            \"nickname\": \"dt_013\",    // 创建人名称\n      \
+                    \      \"email\": \"dt_013@163.com\",// 创建人邮箱\n            \"avatar\": \"\",               // 创建人头像\n\
+                    \            \"user_id\": \"249525942\",  // 创建人user_id\n            \"ames_email\": \"\"\n        },\n\
+                    \        \"update_user_info\": {          // 更新人信息\n            \"nickname\": \"dt_013\",      // 更新人名称\n\
+                    \            \"email\": \"dt_013@163.com\", // 更新人邮箱\n            \"avatar\": \"\",             // 更新人头像\n\
+                    \            \"user_id\": \"249525942\",  // 更新人user_id\n            \"ames_email\": \"\"\n        },\n\
+                    \        \"sku_num\": 0,               //sku总数量\n        \"sku_id\": 5203230033,      //sku唯一id\n    \
+                    \    \"sku_code\": \"1\",           //sku编号\n        \"cost_with_tax\": {\n            \"cost_currency\"\
+                    : \"CNY\", //含税成本价币种\n            \"cost\": \"\",              //含税成本价金额\n            \"cost_type\": \"\
+                    \",         //含税成本价币种1:spu定价,2:sku定价\n            \"associate_cost_flag\": 0//产品是否关联配件成本\n        },\n\
+                    \        \"fob\": {\n            \"price_currency\": \"\",   //离岸价币种\n            \"fob_price\": \"\"\
+                    ,        //离岸价价格\n            \"price_min\": \"\",        //离岸价最小值\n            \"price_max\": \"\", \
+                    \       //离岸价最大值\n            \"quantity\": \"\",         //离岸价最小起订量\n            \"fob_type\": 3,   \
+                    \       //离岸价类型 1:单一区间定价,2:阶梯定价,3:固定单价\n            \"gradient_price\": [     //离岸价 阶梯价格\n           \
+                    \     {\n                    \"price\": \"\",\n                    \"quantity\": \"\"\n              \
+                    \  }\n            ]\n        },\n        \"package_unit\": \"\",         //包装单位\n        \"package_size\"\
+                    : {\n            \"package_size_length\": \"\",//包装尺寸长\n            \"package_size_weight\": \"\",//包装尺寸宽\n\
+                    \            \"package_size_height\": \"\" //包装尺寸高\n        },\n        \"package_volume\": \"\",    \
+                    \   //包装体积\n        \"package_gross_weight\": \"\", //包装毛重\n        \"count_per_package\": \"\",    //每包装产品数\n\
+                    \        \"package_remark\": \"\",       //包装备注\n        \"product_size\": {\n            \"product_size_length\"\
+                    : \"\",//产品尺寸长\n            \"product_size_weight\": \"\",//产品尺寸宽\n            \"product_size_height\"\
+                    : \"\" //产品尺寸高\n        },\n        \"product_volume\": \"\",       //产品体积\n        \"product_net_weight\"\
+                    : \"\",  //产品净重\n        \"sku_remark\": \"\",         //sku备注\n        \"sku_description\": \"\",   //sku描述\n\
+                    \        \"carton_size\": {\n            \"carton_size_length\": \"\", //单箱尺寸长\n            \"carton_size_weight\"\
+                    : \"\", //单箱尺寸宽\n            \"carton_size_height\": \"\"  //单箱尺寸高\n        },\n        \"carton_gross_weight\"\
+                    : \"\",  //单箱毛重\n        \"carton_net_weight\": \"\",    //单箱净重\n        \"carton_volume\": \"\",    \
+                    \    //单箱体积\n        \"count_per_carton\": \"\",     //每箱产品数\n        \"package_type\": \"\",        \
+                    \ //包装方式\n        \"sku_items\": [\n            {\n                \"sku_id\": 5203230033,  //sku唯一id\n\
+                    \                \"sku_code\": \"1\",         //sku编号\n                \"product_id\": 5203230032, //spu产品唯一id\n\
+                    \                \"fob_price\": null,       //离岸价\n                \"cost\": null,           //含税成本价\n\
+                    \                \"enable_flag\": 1,       //是否删除\n                \"disable_flag\": 0,      //是否停售\n\
+                    \                \"display_order\": 0,     //排序\n                \"package_unit\": \"\",     //包装单位\n\
+                    \                \"package_volume\": \"\",   //包装体积\n                \"count_per_package\": \"\",//每包装产品数\n\
+                    \                \"package_gross_weight\": \"\",//包装毛重\n                \"package_remark\": \"\",   //包装备注\n\
+                    \                \"product_volume\": \"\",   //包装体积\n                \"product_net_weight\": null, //产品净重\n\
+                    \                \"sku_remark\": \"\",       //sku备注\n                \"sku_description\": \"\",  //sku描述\n\
+                    \                \"carton_volume\": \"\",    //单箱体积\n                \"carton_net_weight\": null,//单箱净重\n\
+                    \                \"carton_gross_weight\": null,//单箱毛重\n                \"count_per_carton\": null,//每箱产品数\n\
+                    \                \"package_type\": \"\",     //包装方式\n                \"image_info\": {\n             \
+                    \       \"file_id\": \"\",      //图片id\n                    \"file_name\": \"\",    //图片名称\n         \
+                    \           \"file_size\": \"\",    //图片大小\n                    \"file_path\": \"\",    //图片url\n    \
+                    \                \"file_preview_url\": \"\"\n                },\n                \"fob\": {\n        \
+                    \            \"price_currency\": \"\",   //离岸价币种\n                    \"fob_price\": \"\",        //离岸价价格\n\
+                    \                    \"price_min\": \"\",        //离岸价最小值\n                    \"price_max\": \"\",  \
+                    \      //离岸价最大值\n                    \"quantity\": \"\",         //离岸价最小起订量\n                    \"fob_type\"\
+                    : 3,          //离岸价类型 1:单一区间定价,2:阶梯定价,3:固定单价\n                    \"gradient_price\": [     //离岸价 阶梯价格\n\
+                    \                        {\n                            \"price\": \"\",\n                           \
+                    \ \"quantity\": \"\"\n                        }\n                    ]\n                },\n         \
+                    \       \"cost_with_tax\": {\n                    \"cost_currency\": \"CNY\", //含税成本价币种\n            \
+                    \        \"cost\": \"\",              //含税成本价金额\n                    \"cost_type\": \"\",         //含税成本价币种1:spu定价,2:sku定价\n\
+                    \                    \"associate_cost_flag\": 0//产品是否关联配件成本\n                },\n                \"package_size\"\
+                    : {\n                    \"package_size_length\": \"\",//包装尺寸长\n                    \"package_size_weight\"\
+                    : \"\",//包装尺寸宽\n                    \"package_size_height\": \"\" //包装尺寸高\n                },\n      \
+                    \          \"product_size\": {\n                    \"product_size_length\": \"\",//产品尺寸长\n          \
+                    \          \"product_size_weight\": \"\",//产品尺寸宽\n                    \"product_size_height\": \"\" //产品尺寸高\n\
+                    \                },\n                \"carton_size\": {\n                    \"carton_size_length\": \"\
+                    \", //单箱尺寸长\n                    \"carton_size_weight\": \"\", //单箱尺寸宽\n                    \"carton_size_height\"\
+                    : \"\"  //单箱尺寸高\n                },\n                \"attributes_info\": []\n            }\n        ],\n\
+                    \        \"sku_total_count\": 1,\n        \"create_time\": \"2025-03-05 19:08:00\",\n        \"create_user\"\
+                    : {\n            \"nickname\": \"dt_013\",      // 更新人名称\n            \"email\": \"dt_013@163.com\", //\
+                    \ 更新人邮箱\n            \"avatar\": \"\",             // 更新人头像\n            \"user_id\": \"249525942\", \
+                    \ // 更新人user_id\n            \"ames_email\": \"\"\n        },\n        \"source_type\": \"手动创建\",\n  \
+                    \      \"update_user\": {\n            \"nickname\": \"dt_013\",      // 更新人名称\n            \"email\"\
+                    : \"dt_013@163.com\", // 更新人邮箱\n            \"avatar\": \"\",             // 更新人头像\n            \"user_id\"\
+                    : \"249525942\",  // 更新人user_id\n            \"ames_email\": \"\"\n        },\n        \"update_time\"\
+                    : \"2025-03-05 19:08:00\",\n        \"ali_product_id\": \"\",   //阿里产品id\n        \"ali_store_id\": \"\
+                    \",     //阿里国际站id\n        \"images\": [],           //产品图片\n        \"model\": \"\",            //产品型号\n\
+                    \        \"group_id\": \"未分组\",    //产品分组\n        \"unit\": \"\",             //产品单位\n        \"description\"\
+                    : \"\",      //产品描述\n        \"product_remark\": \"\",   //产品备注\n        \"from_url\": \"\",     \n  \
+                    \      \"combine_info\": {\n            \"combine_product_count\": \"\",//组合产品数量\n            \"sub_product_count\"\
+                    : \"\" //子产品数量\n        },\n        \"info_json\": [],        //产品属性\n        \"sku_attributes\": [],\
+                    \  //sku规格\n        \"category_ids\": [],     //产品类目\n        \"vat_rate\": \"\",     //增值税率\n       \
+                    \ \"tax_refund_rate\": \"\",     //退税率\n        \"hs_code\": \"\",          //海关编码\n        \"customs_cn_name\"\
+                    : \"\",   //报关中文名称\n        \"customs_name\": \"\",    //报关名称\n        \"gradient_price\": [    //阶梯定价\n\
+                    \            {\n                \"price\": \"\",\n                \"quantity\": \"\"\n            }\n\
+                    \        ]\n    }\n}"
+          headers: {}
+          x-apifox-name: 成功
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              example:
+                code: 404
+                message: Not Found Resource
+                now: '2025-04-17 09:31:54'
+          headers: {}
+          x-apifox-name: 记录不存在
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: get_v1_product_info
+      x-local-source-path: sources/pages/api-3478263.md
+      x-source-id: api-3478263
+      x-source-title: 产品详情
+      x-source-module: 产品
+  /v1/product/push-groups:
+    post:
+      summary: 产品分组新增/编辑
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                group_id:
+                  type: integer
+                  description: 编辑时必填，产品分组ID，与上级产品id不允许相同，可以从查询产品分组接口[/v1/product/groups]获得
+                  title: 产品分组ID
+                parent_id:
+                  type: integer
+                  title: 上级产品分组ID
+                name:
+                  type: string
+                  title: 产品分组名称
+              x-apifox-orders:
+              - group_id
+              - name
+              - parent_id
+              required:
+              - name
+            example:
+              name: 测试接口同步分组
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      client_id:
+                        type: string
+                      user_id:
+                        type: string
+                      name:
+                        type: string
+                        title: 产品分组名称
+                      name_info:
+                        type: object
+                        properties:
+                          info_label:
+                            type: string
+                          info_value:
+                            type: string
+                        required:
+                        - info_label
+                        - info_value
+                        x-apifox-orders:
+                        - info_label
+                        - info_value
+                        title: 产品名称信息
+                      prefix:
+                        type: string
+                      parent_id:
+                        type: integer
+                        title: 产品分组父节点ID
+                      layer:
+                        type: integer
+                        title: 产品分组层级
+                      description:
+                        type: string
+                      version:
+                        type: string
+                      create_user:
+                        type: string
+                      order_rank:
+                        type: string
+                      create_time:
+                        type: string
+                      update_time:
+                        type: string
+                      relate_id:
+                        type: string
+                      system_flag:
+                        type: string
+                      is_sys:
+                        type: string
+                      rank:
+                        type: string
+                    required:
+                    - id
+                    - client_id
+                    - user_id
+                    - name
+                    - name_info
+                    - prefix
+                    - parent_id
+                    - layer
+                    - description
+                    - version
+                    - create_user
+                    - order_rank
+                    - create_time
+                    - update_time
+                    - relate_id
+                    - system_flag
+                    - is_sys
+                    - rank
+                    x-apifox-orders:
+                    - id
+                    - client_id
+                    - user_id
+                    - name
+                    - name_info
+                    - prefix
+                    - parent_id
+                    - layer
+                    - description
+                    - version
+                    - create_user
+                    - order_rank
+                    - create_time
+                    - update_time
+                    - relate_id
+                    - system_flag
+                    - is_sys
+                    - rank
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              examples:
+                '1':
+                  summary: 成功示例 新增产品分组成功
+                  value: "{\n    \"code\": 200,\n    \"message\": \"success\",\n    \"now\": \"2025-03-06 14:05:55\",\n  \
+                    \  \"data\": {\n        \"id\": 5203320130,    //分组id\n        \"client_id\": \"365249\",\n        \"\
+                    user_id\": \"0\",\n        \"name\": \"测试接口新增产品分组\", //分组名称\n        \"name_info\": {\n            \"\
+                    info_label\": \"测试接口新增产品分组\",\n            \"info_value\": \"测试接口新增产品分组\"\n        },\n        \"prefix\"\
+                    : \"0-\", //分组关系\n        \"parent_id\": 0,  //父节点分组 0为未分组\n        \"layer\": 1,      //分组层级\n      \
+                    \  \"description\": \"\",  //描述\n        \"version\": \"1\",\n        \"create_user\": \"249525942\",\n\
+                    \        \"order_rank\": \"0\",\n        \"create_time\": \"2025-03-06 14:05:55\",\n        \"update_time\"\
+                    : \"2025-03-06 14:05:55\",\n        \"relate_id\": \"0\",\n        \"system_flag\": \"0\",\n        \"\
+                    is_sys\": \"0\",\n        \"rank\": \"0\"\n    }\n}"
+                '2':
+                  summary: 异常示例 产品分组父节点不存在
+                  value:
+                    code: 500
+                    message: 父级节点不存在
+                    now: '2025-03-06 14:04:23'
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: post_v1_product_push_groups
+      x-local-source-path: sources/pages/api-3478264.md
+      x-source-id: api-3478264
+      x-source-title: 产品分组新增/编辑
+      x-source-module: 产品
+  /v1/product/remove-sku-attribute:
+    post:
+      summary: 删除产品规格
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_id:
+                  type: integer
+                  title: 产品规格ID
+                  description: 可以从产品规格列表获取[/v1/product/sku-attribute-list]
+                item_name:
+                  type: integer
+                node:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      item_id:
+                        type: integer
+                      item_name:
+                        type: string
+                    x-apifox-orders:
+                    - item_id
+                    - item_name
+                    required:
+                    - item_id
+                    - item_name
+              required:
+              - item_id
+              - item_name
+              - node
+              x-apifox-orders:
+              - item_id
+              - item_name
+              - node
+            example:
+              item_id: 0
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      item_id:
+                        type: string
+                        title: 产品规格ID
+                        description: 可以从产品规格列表查询[/v1/product/sku-attribute-list]
+                    required:
+                    - item_id
+                    x-apifox-orders:
+                    - item_id
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              examples:
+                '1':
+                  summary: 成功示例
+                  value:
+                    code: 200
+                    message: success
+                    now: '2025-03-06 13:56:36'
+                    data:
+                      item_id: '5203318881'
+                '2':
+                  summary: 产品规格不存在
+                  value:
+                    code: 404
+                    message: The specifications don't exist
+                    now: '2025-03-06 13:55:33'
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: post_v1_product_remove_sku_attribute
+      x-local-source-path: sources/pages/api-3478265.md
+      x-source-id: api-3478265
+      x-source-title: 删除产品规格
+      x-source-module: 产品
+  /v1/product/groups:
+    get:
+      summary: 查询产品分组
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: group_id
+        in: query
+        description: 产品分组ID 不传则查询所有产品分组
+        required: false
+        schema:
+          type: string
+      - name: group_name
+        in: query
+        description: 产品分组名称
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          title: 产品分组id
+                        client_id:
+                          type: string
+                          title: client_id
+                        user_id:
+                          type: string
+                        name:
+                          type: string
+                          title: 产品分组名称
+                        name_info:
+                          type: object
+                          properties:
+                            info_label:
+                              type: string
+                            info_value:
+                              type: string
+                          required:
+                          - info_label
+                          - info_value
+                          x-apifox-orders:
+                          - info_label
+                          - info_value
+                        prefix:
+                          type: string
+                        parent_id:
+                          type: integer
+                          title: 父产品分组id
+                        layer:
+                          type: integer
+                          title: 层级
+                        description:
+                          type: string
+                          title: 分组描述
+                        create_user:
+                          type: string
+                          title: 创建人
+                        order_rank:
+                          type: string
+                        create_time:
+                          type: string
+                          title: 创建时间
+                        update_time:
+                          type: string
+                          title: 更新时间
+                        relate_id:
+                          type: string
+                        system_flag:
+                          type: string
+                        is_sys:
+                          type: string
+                        rank:
+                          type: string
+                      required:
+                      - id
+                      - client_id
+                      - user_id
+                      - name
+                      - name_info
+                      - prefix
+                      - parent_id
+                      - layer
+                      - description
+                      - create_user
+                      - order_rank
+                      - create_time
+                      - update_time
+                      - relate_id
+                      - system_flag
+                      - is_sys
+                      - rank
+                      x-apifox-orders:
+                      - id
+                      - client_id
+                      - user_id
+                      - name
+                      - name_info
+                      - prefix
+                      - parent_id
+                      - layer
+                      - description
+                      - create_user
+                      - order_rank
+                      - create_time
+                      - update_time
+                      - relate_id
+                      - system_flag
+                      - is_sys
+                      - rank
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: get_v1_product_groups
+      x-local-source-path: sources/pages/api-3478266.md
+      x-source-id: api-3478266
+      x-source-title: 查询产品分组
+      x-source-module: 产品
+  /v1/product/push-sku-attribute:
+    post:
+      summary: 新增/编辑规格
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_id:
+                  type: integer
+                  title: 产品规格ID
+                  description: 产品规格ID，编辑时必填
+                item_name:
+                  type: integer
+                  title: 产品规格名称
+                node:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      item_id:
+                        type: integer
+                        title: 规格ID
+                        description: 产品规格ID，编辑时必填
+                      item_name:
+                        type: string
+                        title: 规格值
+                        description: 产品规格名称，新增必填，编辑时不设置不变为原来值，设置为变更
+                      node:
+                        type: object
+                        properties:
+                          item_id:
+                            type: string
+                          item_name:
+                            type: string
+                        x-apifox-orders:
+                        - item_id
+                        - item_name
+                        required:
+                        - item_id
+                        - item_name
+                        description: 规格值列表，编辑时不带原来的值item_id，【则会删除，相当于覆盖更新】
+                    x-apifox-orders:
+                    - item_id
+                    - item_name
+                    - node
+                    required:
+                    - node
+                  description: 规格值列表
+              required:
+              - item_name
+              - node
+              x-apifox-orders:
+              - item_id
+              - item_name
+              - node
+            example:
+              item_id: 0
+              item_name: 0
+              node:
+              - item_id: 0
+                item_name: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      item_id:
+                        type: string
+                        title: 产品规格ID
+                      item_name:
+                        type: string
+                        title: 产品规格名称
+                      system_flag:
+                        type: string
+                      order_rank:
+                        type: string
+                      field_type:
+                        type: string
+                      relate_id:
+                        type: string
+                      create_user:
+                        type: string
+                      create_time:
+                        type: string
+                      update_time:
+                        type: string
+                      parent_id:
+                        type: string
+                      layer:
+                        type: string
+                      prefix:
+                        type: string
+                      usage_status:
+                        type: integer
+                      node:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            item_id:
+                              type: string
+                              title: 规格ID
+                            item_name:
+                              type: string
+                              title: 规格值
+                            system_flag:
+                              type: string
+                            order_rank:
+                              type: string
+                            field_type:
+                              type: string
+                            relate_id:
+                              type: string
+                            create_user:
+                              type: string
+                            create_time:
+                              type: string
+                            update_time:
+                              type: string
+                            parent_id:
+                              type: string
+                            layer:
+                              type: string
+                            prefix:
+                              type: string
+                            usage_status:
+                              type: integer
+                          x-apifox-orders:
+                          - item_id
+                          - item_name
+                          - system_flag
+                          - order_rank
+                          - field_type
+                          - relate_id
+                          - create_user
+                          - create_time
+                          - update_time
+                          - parent_id
+                          - layer
+                          - prefix
+                          - usage_status
+                    required:
+                    - item_id
+                    - item_name
+                    - system_flag
+                    - order_rank
+                    - field_type
+                    - relate_id
+                    - create_user
+                    - create_time
+                    - update_time
+                    - parent_id
+                    - layer
+                    - prefix
+                    - usage_status
+                    - node
+                    x-apifox-orders:
+                    - item_id
+                    - item_name
+                    - system_flag
+                    - order_rank
+                    - field_type
+                    - relate_id
+                    - create_user
+                    - create_time
+                    - update_time
+                    - parent_id
+                    - layer
+                    - prefix
+                    - usage_status
+                    - node
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-03-06 13:34:30'
+                data:
+                  item_id: '5203318881'
+                  item_name: 电视颜色
+                  system_flag: '0'
+                  order_rank: '0'
+                  field_type: '0'
+                  relate_id: '0'
+                  create_user: '249525942'
+                  create_time: '2025-03-06 13:34:30'
+                  update_time: '2025-03-06 13:34:30'
+                  parent_id: '0'
+                  layer: '1'
+                  prefix: 0-
+                  usage_status: 0
+                  node:
+                  - item_id: '5203318882'
+                    item_name: 黄
+                    system_flag: '0'
+                    order_rank: '0'
+                    field_type: '0'
+                    relate_id: '0'
+                    create_user: '249525942'
+                    create_time: '2025-03-06 13:34:30'
+                    update_time: '2025-03-06 13:34:30'
+                    parent_id: '5203318881'
+                    layer: '2'
+                    prefix: 0-5203318881-
+                    usage_status: 0
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: post_v1_product_push_sku_attribute
+      x-local-source-path: sources/pages/api-3478267.md
+      x-source-id: api-3478267
+      x-source-title: 新增/编辑规格
+      x-source-module: 产品
+  /v1/product/sku-attribute-list:
+    get:
+      summary: 查询产品规格列表
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        item_id:
+                          type: string
+                          description: 产品规格类型ID
+                        item_name:
+                          type: string
+                          description: 产品规格类型名称
+                        system_flag:
+                          type: string
+                        order_rank:
+                          type: string
+                        field_type:
+                          type: string
+                        relate_id:
+                          type: string
+                        create_user:
+                          type: string
+                        create_time:
+                          type: string
+                        update_time:
+                          type: string
+                        parent_id:
+                          type: string
+                        layer:
+                          type: string
+                        prefix:
+                          type: string
+                        node:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              item_id:
+                                type: string
+                                description: 产品规格值名称
+                              item_name:
+                                type: string
+                              system_flag:
+                                type: string
+                              order_rank:
+                                type: string
+                              field_type:
+                                type: string
+                              relate_id:
+                                type: string
+                              create_user:
+                                type: string
+                              create_time:
+                                type: string
+                              update_time:
+                                type: string
+                              parent_id:
+                                type: string
+                              layer:
+                                type: string
+                              prefix:
+                                type: string
+                            required:
+                            - item_id
+                            - item_name
+                            - system_flag
+                            - order_rank
+                            - field_type
+                            - relate_id
+                            - create_user
+                            - create_time
+                            - update_time
+                            - parent_id
+                            - layer
+                            - prefix
+                            x-apifox-orders:
+                            - item_id
+                            - item_name
+                            - system_flag
+                            - order_rank
+                            - field_type
+                            - relate_id
+                            - create_user
+                            - create_time
+                            - update_time
+                            - parent_id
+                            - layer
+                            - prefix
+                            description: 产品规格值ID
+                          description: 产品规格值列表
+                      required:
+                      - item_id
+                      - item_name
+                      - system_flag
+                      - order_rank
+                      - field_type
+                      - relate_id
+                      - create_user
+                      - create_time
+                      - update_time
+                      - parent_id
+                      - layer
+                      - prefix
+                      - node
+                      x-apifox-orders:
+                      - item_id
+                      - item_name
+                      - system_flag
+                      - order_rank
+                      - field_type
+                      - relate_id
+                      - create_user
+                      - create_time
+                      - update_time
+                      - parent_id
+                      - layer
+                      - prefix
+                      - node
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-03-06 10:50:07'
+                data:
+                - item_id: '5203300076'
+                  item_name: 电脑颜色
+                  system_flag: '0'
+                  order_rank: '0'
+                  field_type: '0'
+                  relate_id: '5203300059'
+                  create_user: '249525942'
+                  create_time: '2025-03-06 10:49:59'
+                  update_time: '2025-03-06 10:49:59'
+                  parent_id: '0'
+                  layer: '1'
+                  prefix: 0-
+                  node:
+                  - item_id: '5203300077'
+                    item_name: 银
+                    system_flag: '0'
+                    order_rank: '0'
+                    field_type: '0'
+                    relate_id: '5203300059'
+                    create_user: '249525942'
+                    create_time: '2025-03-06 10:49:59'
+                    update_time: '2025-03-06 10:49:59'
+                    parent_id: '5203300076'
+                    layer: '2'
+                    prefix: 0-5203300076-
+                - item_id: '5203300065'
+                  item_name: 手机颜色
+                  system_flag: '0'
+                  order_rank: '0'
+                  field_type: '0'
+                  relate_id: '5203300059'
+                  create_user: '249525942'
+                  create_time: '2025-03-06 10:49:16'
+                  update_time: '2025-03-06 10:49:16'
+                  parent_id: '0'
+                  layer: '1'
+                  prefix: 0-
+                  node:
+                  - item_id: '5203300066'
+                    item_name: 红
+                    system_flag: '0'
+                    order_rank: '0'
+                    field_type: '0'
+                    relate_id: '5203300059'
+                    create_user: '249525942'
+                    create_time: '2025-03-06 10:49:16'
+                    update_time: '2025-03-06 10:49:16'
+                    parent_id: '5203300065'
+                    layer: '2'
+                    prefix: 0-5203300065-
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: get_v1_product_sku_attribute_list
+      x-local-source-path: sources/pages/api-3478269.md
+      x-source-id: api-3478269
+      x-source-title: 查询产品规格列表
+      x-source-module: 产品
+  /v1/product/append-sku-attributes-value:
+    post:
+      summary: 增量更新产品规格值
+      deprecated: false
+      description: '| 异常码 | 异常消息 |异常解决方案|
+
+        | --- | --- | --- |
+
+        | 404 | The specifications don''t exist | 检查传入的item_id是否存在 |'
+      tags:
+      - 产品
+      - s7.1
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_id:
+                  type: integer
+                  title: 产品规格ID
+                  description: 值来自接口/v1/product/sku-attribute-list
+                attributes:
+                  type: array
+                  items:
+                    type: string
+                    description: 规格值
+              x-apifox-orders:
+              - item_id
+              - attributes
+              required:
+              - item_id
+              - attributes
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      item_id:
+                        type: string
+                        title: 产品规格ID
+                      item_name:
+                        type: string
+                        title: 产品规格名称
+                      system_flag:
+                        type: string
+                      order_rank:
+                        type: string
+                      field_type:
+                        type: string
+                      relate_id:
+                        type: string
+                      create_user:
+                        type: string
+                        title: 创建人
+                      create_time:
+                        type: string
+                        title: 创建时间
+                      update_time:
+                        type: string
+                        title: 修改时间
+                      parent_id:
+                        type: string
+                        title: 父级ID
+                      layer:
+                        type: string
+                      prefix:
+                        type: string
+                      usage_status:
+                        type: integer
+                      node:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            item_id:
+                              type: string
+                              title: 规格值ID
+                            item_name:
+                              type: string
+                              title: 规格值名称
+                            system_flag:
+                              type: string
+                            order_rank:
+                              type: string
+                            field_type:
+                              type: string
+                            relate_id:
+                              type: string
+                            create_user:
+                              type: string
+                              title: 创建人
+                            create_time:
+                              type: string
+                              title: 创建时间
+                            update_time:
+                              type: string
+                              title: 修改时间
+                            parent_id:
+                              type: string
+                              title: 父级ID
+                            layer:
+                              type: string
+                            prefix:
+                              type: string
+                            usage_status:
+                              type: integer
+                          required:
+                          - item_id
+                          - item_name
+                          - system_flag
+                          - order_rank
+                          - field_type
+                          - relate_id
+                          - create_user
+                          - create_time
+                          - update_time
+                          - parent_id
+                          - layer
+                          - prefix
+                          - usage_status
+                          x-apifox-orders:
+                          - item_id
+                          - item_name
+                          - system_flag
+                          - order_rank
+                          - field_type
+                          - relate_id
+                          - create_user
+                          - create_time
+                          - update_time
+                          - parent_id
+                          - layer
+                          - prefix
+                          - usage_status
+                        title: 规格值列表
+                    required:
+                    - item_id
+                    - item_name
+                    - system_flag
+                    - order_rank
+                    - field_type
+                    - relate_id
+                    - create_user
+                    - create_time
+                    - update_time
+                    - parent_id
+                    - layer
+                    - prefix
+                    - usage_status
+                    - node
+                    x-apifox-orders:
+                    - item_id
+                    - item_name
+                    - system_flag
+                    - order_rank
+                    - field_type
+                    - relate_id
+                    - create_user
+                    - create_time
+                    - update_time
+                    - parent_id
+                    - layer
+                    - prefix
+                    - usage_status
+                    - node
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-04-25 17:48:05'
+                data:
+                  item_id: '39121718736580'
+                  item_name: 颜色
+                  system_flag: '0'
+                  order_rank: '0'
+                  field_type: '0'
+                  relate_id: '0'
+                  create_user: '56650488'
+                  create_time: '2025-03-03 10:59:29'
+                  update_time: '2025-03-03 10:59:29'
+                  parent_id: '0'
+                  layer: '1'
+                  prefix: 0-
+                  usage_status: 0
+                  node:
+                  - item_id: '45278916443478'
+                    item_name: 白色
+                    system_flag: '0'
+                    order_rank: '-2'
+                    field_type: '0'
+                    relate_id: '0'
+                    create_user: '56650488'
+                    create_time: '2025-04-25 17:48:05'
+                    update_time: '2025-04-25 17:48:05'
+                    parent_id: '39121718736580'
+                    layer: '2'
+                    prefix: 0-39121718736580-
+                    usage_status: 0
+                  - item_id: '45278916443482'
+                    item_name: 紫色
+                    system_flag: '0'
+                    order_rank: '-1'
+                    field_type: '0'
+                    relate_id: '0'
+                    create_user: '56650488'
+                    create_time: '2025-04-25 17:48:05'
+                    update_time: '2025-04-25 17:48:05'
+                    parent_id: '39121718736580'
+                    layer: '2'
+                    prefix: 0-39121718736580-
+                    usage_status: 0
+                  - item_id: '39121718736698'
+                    item_name: 红
+                    system_flag: '0'
+                    order_rank: '0'
+                    field_type: '0'
+                    relate_id: '0'
+                    create_user: '56650488'
+                    create_time: '2025-03-03 10:59:29'
+                    update_time: '2025-03-03 10:59:29'
+                    parent_id: '39121718736580'
+                    layer: '2'
+                    prefix: 0-39121718736580-
+                    usage_status: 0
+                  - item_id: '39121718736700'
+                    item_name: 黄
+                    system_flag: '0'
+                    order_rank: '1'
+                    field_type: '0'
+                    relate_id: '0'
+                    create_user: '56650488'
+                    create_time: '2025-03-03 10:59:29'
+                    update_time: '2025-03-03 10:59:29'
+                    parent_id: '39121718736580'
+                    layer: '2'
+                    prefix: 0-39121718736580-
+                    usage_status: 0
+                  - item_id: '39121718736703'
+                    item_name: 蓝
+                    system_flag: '0'
+                    order_rank: '2'
+                    field_type: '0'
+                    relate_id: '0'
+                    create_user: '56650488'
+                    create_time: '2025-03-03 10:59:29'
+                    update_time: '2025-03-03 10:59:29'
+                    parent_id: '39121718736580'
+                    layer: '2'
+                    prefix: 0-39121718736580-
+                    usage_status: 0
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: released
+      operationId: post_v1_product_append_sku_attributes_value
+      x-local-source-path: sources/pages/api-3489012.md
+      x-source-id: api-3489012
+      x-source-title: 增量更新产品规格值
+      x-source-module: 产品
+  /v1/product/remove:
+    get:
+      summary: 产品删除接口
+      deprecated: false
+      description: '**注意：**
+
+
+        **一般不建议删除产品，但慎用该接口，该接口实现与CRM web端实现不一样，会宽松很多，所以调用前请确认真的要删除某产品。**'
+      tags:
+      - 产品
+      parameters:
+      - name: product_id
+        in: query
+        description: 要删除的CRM产品ID
+        required: false
+        example: '314773666'
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      product_id:
+                        type: string
+                    required:
+                    - product_id
+                    x-apifox-orders:
+                    - product_id
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: developing
+      operationId: get_v1_product_remove
+      x-local-source-path: sources/pages/api-3501017.md
+      x-source-id: api-3501017
+      x-source-title: 产品删除接口
+      x-source-module: 产品
+  /v1/product/edit-parts-list:
+    post:
+      summary: 产品配件新建/编辑
+      deprecated: false
+      description: ''
+      tags:
+      - 产品
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sku_id:
+                  type: integer
+                  description: 需要添加配件的主产品的sku_id
+                parts_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      parts_sku_id:
+                        type: integer
+                        description: 配件产品的sku_id
+                      ratio:
+                        type: number
+                        description: 配件产品配比
+                      parts_product_remark:
+                        type: string
+                        description: 配件产品备注
+                    x-apifox-orders:
+                    - parts_sku_id
+                    - ratio
+                    - parts_product_remark
+                  description: 配件列表
+              required:
+              - sku_id
+              - parts_list
+              x-apifox-orders:
+              - sku_id
+              - parts_list
+            example:
+              sku_id: 93566756394490
+              parts_list:
+              - parts_sku_id: 93566262258661
+                ratio: 1.45
+                parts_product_remark: 正式环境配件测试
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              example:
+                code: 200
+                message: success
+                now: '2026-04-29 10:34:27'
+                data: 1
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 产品
+      x-apifox-status: developing
+      operationId: post_v1_product_edit_parts_list
+      x-local-source-path: sources/pages/api-3501059.md
+      x-source-id: api-3501059
+      x-source-title: 产品配件新建/编辑
+      x-source-module: 产品
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

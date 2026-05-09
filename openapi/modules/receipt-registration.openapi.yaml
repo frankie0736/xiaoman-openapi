@@ -1,0 +1,1648 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 回款登记 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 回款登记.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 回款登记
+  x-module-slug: receipt-registration
+paths:
+  /v1/invoices/receiptRegistration/info:
+    get:
+      summary: 回款登记详情
+      deprecated: false
+      description: ''
+      tags:
+      - 回款登记
+      parameters:
+      - name: cash_collection_invoice_id
+        in: query
+        description: 回款登记ID
+        required: false
+        schema:
+          type: integer
+      - name: cash_collection_invoice_no
+        in: query
+        description: 回款登记编号
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      '3574900793':
+                        type: string
+                        description: 自定义字段
+                      cash_collection_invoice_id:
+                        description: 回款登记ID
+                        type: integer
+                        x-apifox-mock: 3179534607
+                      cash_collection_invoice_no:
+                        description: 回款登记编号
+                        type: string
+                        x-apifox-mock: HKDJ118
+                      status:
+                        description: 回款登记状态：1-草稿, 2-待认领, 3-未核销, 4-部分核销, 5-已核销
+                        type: integer
+                        x-apifox-mock: 1
+                      collection_date:
+                        description: 回款日期
+                        type: string
+                        format: date
+                        x-apifox-mock: '2023-01-12'
+                      type:
+                        description: 回款方式，值为 /v1/invoices/receipt/types 接口返回列表中的值
+                        type: string
+                        x-apifox-mock: Credit
+                      trade_no:
+                        description: 交易号/票据号
+                        type: string
+                        x-apifox-mock: No.1001
+                      account_name:
+                        description: 来款方
+                        type: string
+                        x-apifox-mock: Test Account
+                      bank_name:
+                        description: 来款银行
+                        type: string
+                        x-apifox-mock: Test Bank
+                      bank_account:
+                        description: 来款账户
+                        type: string
+                        x-apifox-mock: TB16511351123
+                      remark:
+                        description: 备注
+                        type: string
+                        x-apifox-mock: Invoice remark
+                      create_time:
+                        description: 创建时间
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      update_time:
+                        description: 更新时间
+                        type: string
+                        format: date-time
+                        x-apifox-mock: '2023-01-11 11:53:03'
+                      create_type:
+                        description: 创建类型：1-手动创建，2-文件导入
+                        type: integer
+                        x-apifox-mock: 1
+                      currency:
+                        description: 币种
+                        type: string
+                        x-apifox-mock: USD
+                      exchange_rate:
+                        description: 汇率，100单位单据币种（兑CNY）
+                        type: number
+                        x-apifox-mock: 676.72
+                      exchange_rate_usd:
+                        description: 汇率，100单位单据币种汇率（兑USD）
+                        type: number
+                        x-apifox-mock: 100
+                      amount:
+                        description: 回款金额/客户打款金额（单据币种）
+                        type: number
+                        x-apifox-mock: 21
+                      amount_rmb:
+                        description: 回款金额（打款金额）（CNY）
+                        type: number
+                        x-apifox-mock: 142.11
+                      amount_usd:
+                        description: 回款金额（打款金额）（USD）
+                        type: number
+                        x-apifox-mock: 21
+                      real_amount:
+                        description: 实到账金额（单据币种）
+                        type: number
+                        x-apifox-mock: 1447.68
+                      real_amount_rmb:
+                        description: 实到账金额（CNY）
+                        type: number
+                        x-apifox-mock: 135.34
+                      real_amount_usd:
+                        description: 实到账金额（USD）
+                        type: number
+                        x-apifox-mock: 20
+                      bank_charge:
+                        description: 回款手续费（单据币种）
+                        type: number
+                        x-apifox-mock: 1
+                      bank_charge_rmb:
+                        description: 回款手续费（CNY）
+                        type: number
+                        x-apifox-mock: 6.77
+                      bank_charge_usd:
+                        description: 回款手续费（USD）
+                        type: number
+                        x-apifox-mock: 1
+                      allocated_amount:
+                        description: 已核销金额（单据币种）
+                        type: number
+                        x-apifox-mock: 20
+                      allocated_amount_rmb:
+                        description: 已核销金额（CNY）
+                        type: number
+                        x-apifox-mock: 135.34
+                      allocated_amount_usd:
+                        description: 已核销金额（USD）
+                        type: number
+                        x-apifox-mock: 20
+                      current_amount:
+                        description: 待核销金额（单据币种）
+                        type: number
+                        x-apifox-mock: 1
+                      current_amount_rmb:
+                        description: 待核销金额（CNY）
+                        type: number
+                        x-apifox-mock: 6.77
+                      current_amount_usd:
+                        description: 待核销金额（USD）
+                        type: number
+                        x-apifox-mock: 1
+                      allocated_bank_charge:
+                        description: 已核销回款手续费（单据币种）
+                        type: number
+                        x-apifox-mock: 0.94
+                      current_bank_charge:
+                        description: 待核销回款手续费（单据币种）
+                        type: number
+                        x-apifox-mock: 0.06
+                      record_list:
+                        description: 核销明细
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            cash_collection_id:
+                              description: 回款单ID
+                              type: integer
+                              x-apifox-mock: 3402138809
+                            cash_collection_no:
+                              description: 回款单编号
+                              type: string
+                              x-apifox-mock: '65'
+                            cash_collection_currency:
+                              description: 回款单币种
+                              type: string
+                              x-apifox-mock: USD
+                            cash_collection_exchange_rate:
+                              description: 100单位单据币种汇率（兑CNY）
+                              type: number
+                              x-apifox-mock: '722.29000'
+                            cash_collection_exchange_rate_usd:
+                              description: 100单位单据币种汇率（兑USD）
+                              type: number
+                              x-apifox-mock: '100.00000'
+                            cash_collection_amount:
+                              description: 回款单金额
+                              type: number
+                              x-apifox-mock: '10.00'
+                            cash_collection_bank_charge:
+                              description: 回款单手续费
+                              type: number
+                              x-apifox-mock: '0.47'
+                            cash_collection_invoice_amount:
+                              description: 核销金额
+                              type: number
+                              x-apifox-mock: '10.00'
+                            cash_collection_invoice_bank_charge:
+                              description: 核销手续费
+                              type: number
+                              x-apifox-mock: '0.47'
+                            cash_collection_comment:
+                              description: 回款单备注
+                              type: string
+                              x-apifox-mock: ''
+                            refer_id:
+                              description: 源单ID：销售订单 order_id / 商机 opportunity_id
+                              type: integer
+                              x-apifox-mock: 3400548662
+                            refer_type:
+                              description: 源单类型：1-销售订单，2-商机
+                              type: integer
+                              x-apifox-mock: 1
+                            refer_no:
+                              description: 源单编号
+                              type: string
+                              x-apifox-mock: TD20230701
+                            refer_amount:
+                              description: 源单金额
+                              type: number
+                              x-apifox-mock: 22
+                            cash_collection_collect_amount:
+                              description: 已回款金额
+                              type: number
+                              x-apifox-mock: 10
+                            cash_collection_not_collect_amount:
+                              description: 待回款金额
+                              type: number
+                              x-apifox-mock: 12
+                            exchange_loss_amount:
+                              description: 汇兑损益（CNY）
+                              type: number
+                              x-apifox-mock: -4.56
+                            exchange_loss_amount_usd:
+                              description: 汇兑损益（USD）
+                              type: number
+                              x-apifox-mock: 0
+                          x-apifox-orders:
+                          - cash_collection_id
+                          - cash_collection_no
+                          - cash_collection_currency
+                          - cash_collection_exchange_rate
+                          - cash_collection_exchange_rate_usd
+                          - cash_collection_amount
+                          - cash_collection_bank_charge
+                          - cash_collection_invoice_amount
+                          - cash_collection_invoice_bank_charge
+                          - cash_collection_comment
+                          - refer_id
+                          - refer_type
+                          - refer_no
+                          - refer_amount
+                          - cash_collection_collect_amount
+                          - cash_collection_not_collect_amount
+                          - exchange_loss_amount
+                          - exchange_loss_amount_usd
+                      handler_info:
+                        description: 认领业务员信息
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            user_id:
+                              description: 认领业务员ID
+                              type: integer
+                              x-apifox-mock: '249518496'
+                            nickname:
+                              description: 认领业务员名称
+                              type: string
+                              x-apifox-mock: test
+                            email:
+                              description: 认领业务员邮箱
+                              type: string
+                              x-apifox-mock: account@test.test
+                            avatar:
+                              description: 认领业务员头像链接
+                              type: string
+                              x-apifox-mock: ''
+                          x-apifox-orders:
+                          - user_id
+                          - nickname
+                          - email
+                          - avatar
+                      create_user_info:
+                        description: 创建人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 创建人ID
+                            type: integer
+                            x-apifox-mock: '249518496'
+                          nickname:
+                            description: 创建人名称
+                            type: string
+                            x-apifox-mock: test
+                          email:
+                            description: 创建人邮箱
+                            type: string
+                            x-apifox-mock: account@test.test
+                          avatar:
+                            description: 创建人头像链接
+                            type: string
+                            x-apifox-mock: ''
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                        - email
+                        - avatar
+                      company_info:
+                        description: 回款客户信息
+                        type: object
+                        properties:
+                          id:
+                            description: 客户ID
+                            type: integer
+                            x-apifox-mock: 3179534246
+                          name:
+                            description: 客户名称
+                            type: string
+                            x-apifox-mock: 测试公司7ef63e03-6
+                          serial_id:
+                            type: string
+                            description: 客户编号
+                        x-apifox-orders:
+                        - id
+                        - name
+                        - serial_id
+                      capital_account_info:
+                        description: 资金账户信息
+                        type: object
+                        properties:
+                          id:
+                            description: 资金账户小满ID
+                            type: integer
+                            x-apifox-mock: 3115125003
+                          name:
+                            description: 资金账户名称
+                            type: string
+                            x-apifox-mock: 资金账号551eb564-469b-46
+                          capital_name:
+                            description: 开户银行名称
+                            type: string
+                            x-apifox-mock: 中国银行
+                          capital_bank:
+                            description: 开户银行账号
+                            type: string
+                            x-apifox-mock: '8823923923'
+                          capital_account_address:
+                            description: 开户银行地址
+                            type: string
+                            x-apifox-mock: 深圳某银行
+                          capital_account_remark:
+                            description: 备注
+                            type: string
+                            x-apifox-mock: 备注说明下
+                        x-apifox-orders:
+                        - id
+                        - name
+                        - capital_name
+                        - capital_bank
+                        - capital_account_address
+                        - capital_account_remark
+                      attachment:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            file_url:
+                              type: string
+                              description: 附件url
+                            file_name:
+                              type: string
+                              description: 附件名称
+                            file_size:
+                              type: integer
+                              description: 附件大小
+                            create_time:
+                              type: string
+                              description: 创建时间
+                          x-apifox-orders:
+                          - file_name
+                          - file_url
+                          - file_size
+                          - create_time
+                        description: 附件
+                    x-apifox-orders:
+                    - cash_collection_invoice_id
+                    - cash_collection_invoice_no
+                    - status
+                    - collection_date
+                    - type
+                    - trade_no
+                    - account_name
+                    - bank_name
+                    - bank_account
+                    - remark
+                    - create_time
+                    - update_time
+                    - create_type
+                    - currency
+                    - exchange_rate
+                    - exchange_rate_usd
+                    - amount
+                    - amount_rmb
+                    - amount_usd
+                    - real_amount
+                    - real_amount_rmb
+                    - real_amount_usd
+                    - bank_charge
+                    - bank_charge_rmb
+                    - bank_charge_usd
+                    - allocated_amount
+                    - allocated_amount_rmb
+                    - allocated_amount_usd
+                    - current_amount
+                    - current_amount_rmb
+                    - current_amount_usd
+                    - allocated_bank_charge
+                    - current_bank_charge
+                    - record_list
+                    - handler_info
+                    - create_user_info
+                    - company_info
+                    - capital_account_info
+                    - attachment
+                    - '3574900793'
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+              example:
+                code: 200
+                now: '2022-01-01 00:00:00'
+                message: success
+                data:
+                  '3162362610': test content
+                  cash_collection_invoice_id: 3179534607
+                  cash_collection_invoice_no: HKDJ118
+                  status: 1
+                  collection_date: '2023-01-12'
+                  type: Credit
+                  trade_no: No.1001
+                  account_name: Test Account
+                  bank_name: Test Bank
+                  bank_account: TB16511351123
+                  remark: Invoice remark
+                  create_time: '2023-01-11 11:53:03'
+                  update_time: '2023-01-11 11:53:03'
+                  create_type: 1
+                  currency: USD
+                  exchange_rate: 676.72
+                  exchange_rate_usd: 100
+                  amount: 21
+                  amount_rmb: 142.11
+                  amount_usd: 21
+                  real_amount: 1447.68
+                  real_amount_rmb: 135.34
+                  real_amount_usd: 20
+                  bank_charge: 1
+                  bank_charge_rmb: 6.77
+                  bank_charge_usd: 1
+                  allocated_amount: 20
+                  allocated_amount_rmb: 135.34
+                  allocated_amount_usd: 20
+                  current_amount: 1
+                  current_amount_rmb: 6.77
+                  current_amount_usd: 1
+                  allocated_bank_charge: 0.94
+                  current_bank_charge: 0.06
+                  record_list:
+                  - cash_collection_id: 3402138809
+                    cash_collection_no: '65'
+                    cash_collection_currency: USD
+                    cash_collection_exchange_rate: '722.29000'
+                    cash_collection_exchange_rate_usd: '100.00000'
+                    cash_collection_amount: '10.00'
+                    cash_collection_bank_charge: '0.47'
+                    cash_collection_invoice_amount: '10.00'
+                    cash_collection_invoice_bank_charge: '0.47'
+                    cash_collection_comment: ''
+                    refer_id: 3400548662
+                    refer_type: 1
+                    refer_no: TD20230701
+                    refer_amount: 22
+                    cash_collection_collect_amount: 10
+                    cash_collection_not_collect_amount: 12
+                    exchange_loss_amount: -4.56
+                    exchange_loss_amount_usd: 0
+                  handler_info:
+                  - user_id: '249518496'
+                    nickname: test
+                    email: account@test.test
+                    avatar: ''
+                  create_user_info:
+                    user_id: '249518496'
+                    nickname: test
+                    email: account@test.test
+                    avatar: ''
+                  company_info:
+                    id: 3179534246
+                    name: 测试公司7ef63e03-6
+                  capital_account_info:
+                    id: 3115125003
+                    name: 资金账号551eb564-469b-46
+                    capital_name: 中国银行
+                    capital_bank: '8823923923'
+                    capital_account_address: 深圳某银行
+                    capital_account_remark: 备注说明下
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 回款登记
+      x-apifox-status: released
+      operationId: get_v1_invoices_receiptregistration_info
+      x-local-source-path: sources/pages/api-3484727.md
+      x-source-id: api-3484727
+      x-source-title: 回款登记详情
+      x-source-module: 回款登记
+  /v1/invoices/receiptRegistration/fields:
+    get:
+      summary: 回款登记字段
+      deprecated: false
+      description: '# 字段类型有哪些
+
+        | field_type |  |
+
+        | --- | --- |
+
+        | 1 | 单行文本 |
+
+        | 2 | 多行文本 |
+
+        | 3 | 单选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |
+
+        | 4 | 日期，YYYY-MM-DD |
+
+        | 5 | 数字 |
+
+        | 6 | 图片 |
+
+        | 7 | 多选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |
+
+        | 8 | 附件 |
+
+        | 9 | 关联字段 |
+
+        | 10 | 日期时间，YYYY-MM-DD HH:mm:ss |
+
+        | 11 | 公式 |
+
+        | 12 | 汇总 |
+
+        | 13 | 布尔 |
+
+        | 17 | 状态 |
+
+        | 18 | 阶段 |
+
+        | 21 | 时间范围 |
+
+        | 22 | 富文本 |
+
+        | 23 | 引用 |
+
+
+        若发现没有的字段类型可以咨询对接群，或者提客户工单。
+
+        '
+      tags:
+      - 回款登记
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: 字段ID
+                        name:
+                          type: string
+                          description: 字段名称
+                        base:
+                          type: integer
+                          description: 是否系统字段，1=系统字段，0=自定义字段
+                        field_type:
+                          type: integer
+                          description: 字段类型
+                        ext_info:
+                          type: array
+                          items:
+                            type: string
+                          description: 选字段额外信息，比如选项等枚举值
+                          nullable: true
+                        require:
+                          type: integer
+                          description: 是否必填，1=必填，0=非必填
+                        default:
+                          type: string
+                          description: 默认值
+                        disable_flag:
+                          type: integer
+                        is_list:
+                          type: integer
+                          description: 是否明细字段
+                      required:
+                      - id
+                      - name
+                      - base
+                      - field_type
+                      - ext_info
+                      - require
+                      - default
+                      - disable_flag
+                      - is_list
+                      x-apifox-orders:
+                      - id
+                      - name
+                      - base
+                      - field_type
+                      - ext_info
+                      - require
+                      - default
+                      - disable_flag
+                      - is_list
+                      x-apifox-ignore-properties: []
+                x-apifox-orders:
+                - 01JNQZ9HHPN0YCA08EEDMQ9HCF
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-refs:
+                  01JNQZ9HHPN0YCA08EEDMQ9HCF:
+                    $ref: '#/components/schemas/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E5%93%8D%E5%BA%94'
+                x-apifox-ignore-properties:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 回款登记
+      x-apifox-status: released
+      operationId: get_v1_invoices_receiptregistration_fields
+      x-local-source-path: sources/pages/api-3478292.md
+      x-source-id: api-3478292
+      x-source-title: 回款登记字段
+      x-source-module: 回款登记
+  /v1/invoices/receiptRegistration/push:
+    post:
+      summary: 回款登记新建/编辑
+      deprecated: false
+      description: ''
+      tags:
+      - 回款登记
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cash_collection_invoice_id:
+                  description: 回款登记ID，编辑时可传入
+                  type: integer
+                  x-apifox-mock: 3179534607
+                cash_collection_invoice_no:
+                  description: 回款登记编号，编辑时可以传入
+                  type: string
+                  x-apifox-mock: HKDJ118
+                collection_date:
+                  description: 回款日期
+                  type: string
+                  format: date
+                  x-apifox-mock: '2023-01-12'
+                type:
+                  description: 回款方式，值为 /v1/invoices/receipt/types 接口返回列表中的值
+                  type: string
+                  x-apifox-mock: T/T
+                trade_no:
+                  description: 交易号/票据号
+                  type: string
+                  x-apifox-mock: No.1001
+                account_name:
+                  description: 来款方
+                  type: string
+                  x-apifox-mock: Test Account
+                bank_name:
+                  description: 来款银行
+                  type: string
+                  x-apifox-mock: Test Bank
+                bank_account:
+                  description: 来款账户
+                  type: string
+                  x-apifox-mock: TB16511351123
+                remark:
+                  description: 备注
+                  type: string
+                  x-apifox-mock: Invoice remark
+                currency:
+                  description: 币种
+                  type: string
+                  x-apifox-mock: USD
+                exchange_rate:
+                  description: 汇率，100单位单据币种（兑CNY）
+                  type: number
+                  x-apifox-mock: 676.72
+                exchange_rate_usd:
+                  description: 汇率，100单位单据币种汇率（兑USD）
+                  type: number
+                  x-apifox-mock: 100
+                amount:
+                  description: 回款金额/客户打款金额（单据币种）
+                  type: number
+                  x-apifox-mock: 21
+                real_amount:
+                  description: 实到账金额（单据币种）
+                  type: number
+                  x-apifox-mock: 1447.68
+                company_id:
+                  description: 关联客户ID
+                  type: integer
+                  x-apifox-mock: 3115125003
+                capital_account_id:
+                  description: 资金账户ID，值参考/v1/capitalAccount/list接口的资金账户ID
+                  type: integer
+                  x-apifox-mock: 3179534607
+                handler:
+                  description: 认领业务员，新建时传入业务认领人和关联客户后，回款登记的状态为待核销，否则是待核销或者草稿，调试时请注意传入后的状态是否符合业务需求，注意有启用的回款登记的审批规则不符合上述。
+                  type: array
+                  x-apifox-mock:
+                  - 3267567129
+                  - 3267567130
+                  items:
+                    type: object
+                    properties:
+                      ? ''
+                      : description: 用户ID
+                        type: integer
+                        x-apifox-mock: '249518496'
+                    x-apifox-orders:
+                    - ''
+                create_user:
+                  type: integer
+                  description: 创建人
+                record_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      cash_collection_comment:
+                        type: string
+                        description: 回款单备注
+                      refer_id:
+                        type: integer
+                        description: 关联回款源单ID，可能是订单或者商机ID
+                      refer_type:
+                        type: integer
+                        description: 关联源单类型，1订单，2商机
+                      cash_collection_amount:
+                        type: number
+                        description: 回款金额
+                      cash_collection_invoice_amount:
+                        type: number
+                        description: 分配登记金额
+                    x-apifox-orders:
+                    - cash_collection_comment
+                    - refer_id
+                    - refer_type
+                    - cash_collection_amount
+                    - cash_collection_invoice_amount
+                    required:
+                    - refer_id
+                    - refer_type
+                  description: 暂时还不支持新建核销明细，还在开发中
+              x-apifox-orders:
+              - cash_collection_invoice_id
+              - cash_collection_invoice_no
+              - collection_date
+              - type
+              - trade_no
+              - account_name
+              - bank_name
+              - bank_account
+              - remark
+              - currency
+              - exchange_rate
+              - exchange_rate_usd
+              - amount
+              - real_amount
+              - company_id
+              - capital_account_id
+              - handler
+              - create_user
+              - record_list
+              required:
+              - amount
+              - currency
+            example:
+              cash_collection_invoice_no: CXK9527
+              collection_date: '2023-01-12'
+              type: T/T
+              trade_no: No.1001
+              account_name: Test Account
+              bank_name: Test Bank
+              bank_account: TB16511351123
+              remark: Invoice remark
+              currency: USD
+              exchange_rate: 676.72
+              exchange_rate_usd: 100
+              amount: 20
+              real_amount: 20
+              company_id: 10142656515495
+              capital_account_id: 3179534607
+              handler:
+              - 3267567129
+              - 3267567130
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      cash_collection_invoice_id:
+                        description: 回款登记ID
+                        type: integer
+                        x-apifox-mock: 3179534607
+                      cash_collection_invoice_no:
+                        description: 回款登记编号
+                        type: string
+                        x-apifox-mock: HKDJ118
+                    x-apifox-orders:
+                    - cash_collection_invoice_id
+                    - cash_collection_invoice_no
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 回款登记
+      x-apifox-status: released
+      operationId: post_v1_invoices_receiptregistration_push
+      x-local-source-path: sources/pages/api-3478293.md
+      x-source-id: api-3478293
+      x-source-title: 回款登记新建/编辑
+      x-source-module: 回款登记
+  /v1/invoices/receiptRegistration/list:
+    get:
+      summary: 回款登记列表
+      deprecated: false
+      description: ''
+      tags:
+      - 回款登记
+      parameters:
+      - name: start_time
+        in: query
+        description: 创建/更新开始时间
+        required: false
+        example: '2023-10-10 11:55:17'
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: 创建/更新截止时间
+        required: false
+        example: '2023-10-20 11:55:17'
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: 每页数量
+        required: false
+        example: 10
+        schema:
+          type: integer
+      - name: start_index
+        in: query
+        description: 页码
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: removed
+        in: query
+        description: 设置=1时查询已删除的数据列表
+        required: false
+        example: 0
+        schema:
+          type: integer
+      - name: time_type
+        in: query
+        description: 默认值1， 1更新时间，2创建时间
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      count:
+                        description: 符合筛选条件的记录总数
+                        type: integer
+                        x-apifox-mock: 50
+                      list:
+                        description: 符合筛选条件的记录
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            cash_collection_invoice_id:
+                              description: 回款登记ID
+                              type: integer
+                              x-apifox-mock: 3179534607
+                            cash_collection_invoice_no:
+                              description: 回款登记编号
+                              type: string
+                              x-apifox-mock: HKDJ118
+                            status:
+                              description: 回款登记状态：1-草稿, 2-待认领, 3-未核销, 4-部分核销, 5-已核销
+                              type: integer
+                              x-apifox-mock: 1
+                            collection_date:
+                              description: 回款日期
+                              type: string
+                              format: date
+                              x-apifox-mock: '2023-01-12'
+                            type:
+                              description: 回款方式，参考/v1/invoices/receipt/types 接口返回列表中的值
+                              type: integer
+                              x-apifox-mock: Credit
+                            trade_no:
+                              description: 交易号/票据号
+                              type: string
+                              x-apifox-mock: No.1001
+                            account_name:
+                              description: 来款方
+                              type: string
+                              x-apifox-mock: Test Account
+                            bank_name:
+                              description: 来款银行
+                              type: string
+                              x-apifox-mock: Test Bank
+                            bank_account:
+                              description: 来款账户
+                              type: string
+                              x-apifox-mock: TB16511351123
+                            remark:
+                              description: 备注
+                              type: string
+                              x-apifox-mock: Invoice remark
+                            create_time:
+                              description: 创建时间
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-01-11 11:53:03'
+                            update_time:
+                              description: 更新时间
+                              type: string
+                              format: date-time
+                              x-apifox-mock: '2023-01-11 11:53:03'
+                            create_type:
+                              description: 创建方式，1手动创建，2导入生成
+                              type: integer
+                              x-apifox-mock: 1
+                            enable_flag:
+                              description: 删除标记：0-已删除，1-正常
+                              type: integer
+                              x-apifox-mock: 1
+                            currency:
+                              type: string
+                              description: 币种
+                            exchange_rate:
+                              description: 汇率，100单位单据币种（兑CNY）
+                              type: number
+                              x-apifox-mock: 676.72
+                            exchange_rate_usd:
+                              description: 汇率，100单位单据币种汇率（兑USD）
+                              type: number
+                              x-apifox-mock: 100
+                            amount:
+                              description: 回款金额（打款金额）
+                              type: number
+                              x-apifox-mock: 21
+                            amount_rmb:
+                              description: 回款金额（打款金额）（CNY）
+                              type: number
+                              x-apifox-mock: 142.11
+                            amount_usd:
+                              description: 回款金额（打款金额）（USD）
+                              type: number
+                              x-apifox-mock: 21
+                            real_amount:
+                              description: 实到账金额（单据币种）
+                              type: number
+                              x-apifox-mock: 1447.68
+                            real_amount_rmb:
+                              description: 实到账金额（CNY）
+                              type: number
+                              x-apifox-mock: 135.34
+                            real_amount_usd:
+                              description: 实到账金额（USD）
+                              type: number
+                              x-apifox-mock: 20
+                            bank_charge:
+                              description: 回款手续费（单据币种）
+                              type: number
+                              x-apifox-mock: 1
+                            bank_charge_rmb:
+                              description: 回款手续费（CNY）
+                              type: number
+                              x-apifox-mock: 6.77
+                            bank_charge_usd:
+                              description: 回款手续费（USD）
+                              type: number
+                              x-apifox-mock: 1
+                            handler_info:
+                              description: 认领业务员信息
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  user_id:
+                                    description: 认领业务员ID
+                                    type: integer
+                                    x-apifox-mock: '249518496'
+                                  nickname:
+                                    description: 认领业务员名称
+                                    type: string
+                                    x-apifox-mock: test
+                                  email:
+                                    description: 认领业务员邮箱
+                                    type: string
+                                    x-apifox-mock: account@test.test
+                                  avatar:
+                                    description: 认领业务员头像链接
+                                    type: string
+                                    x-apifox-mock: ''
+                                x-apifox-orders:
+                                - user_id
+                                - nickname
+                                - email
+                                - avatar
+                            create_user_info:
+                              description: 创建人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 创建人ID
+                                  type: integer
+                                  x-apifox-mock: '249518496'
+                                nickname:
+                                  description: 创建人名称
+                                  type: string
+                                  x-apifox-mock: test
+                                email:
+                                  description: 创建人邮箱
+                                  type: string
+                                  x-apifox-mock: account@test.test
+                                avatar:
+                                  description: 创建人头像链接
+                                  type: string
+                                  x-apifox-mock: ''
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                              - email
+                              - avatar
+                            company_info:
+                              description: 回款客户信息
+                              type: object
+                              properties:
+                                id:
+                                  description: 客户ID
+                                  type: integer
+                                  x-apifox-mock: 3179534246
+                                name:
+                                  description: 客户名称
+                                  type: string
+                                  x-apifox-mock: 测试公司7ef63e03-6
+                              x-apifox-orders:
+                              - id
+                              - name
+                            capital_account_info:
+                              description: 资金账户信息
+                              type: object
+                              properties:
+                                id:
+                                  description: 资金账户ID
+                                  type: integer
+                                  x-apifox-mock: 3115125003
+                                name:
+                                  description: 资金账户名称
+                                  type: string
+                                  x-apifox-mock: 资金账号551eb564-469b-46
+                                capital_name:
+                                  type: string
+                                  description: 开户名
+                                capital_bank:
+                                  type: string
+                                  description: 开户行
+                                bank_account:
+                                  type: string
+                                  description: 银行账号
+                                capital_account_address:
+                                  type: string
+                                  description: 开户行地址
+                                capital_account_remark:
+                                  type: string
+                                  description: 备注(更多信息)
+                              x-apifox-orders:
+                              - id
+                              - name
+                              - capital_name
+                              - capital_bank
+                              - bank_account
+                              - capital_account_address
+                              - capital_account_remark
+                          x-apifox-orders:
+                          - cash_collection_invoice_id
+                          - cash_collection_invoice_no
+                          - status
+                          - collection_date
+                          - type
+                          - trade_no
+                          - account_name
+                          - bank_name
+                          - bank_account
+                          - remark
+                          - create_time
+                          - update_time
+                          - create_type
+                          - enable_flag
+                          - currency
+                          - exchange_rate
+                          - exchange_rate_usd
+                          - amount
+                          - amount_rmb
+                          - amount_usd
+                          - real_amount
+                          - real_amount_rmb
+                          - real_amount_usd
+                          - bank_charge
+                          - bank_charge_rmb
+                          - bank_charge_usd
+                          - handler_info
+                          - create_user_info
+                          - company_info
+                          - capital_account_info
+                    x-apifox-orders:
+                    - count
+                    - list
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 回款登记
+      x-apifox-status: released
+      operationId: get_v1_invoices_receiptregistration_list
+      x-local-source-path: sources/pages/api-3478294.md
+      x-source-id: api-3478294
+      x-source-title: 回款登记列表
+      x-source-module: 回款登记
+  /v1/invoices/receiptRegistration/allocate:
+    post:
+      summary: 回款登记核销
+      deprecated: false
+      description: ''
+      tags:
+      - 回款登记
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cash_collection_invoice_id:
+                  type: integer
+                  description: ID或编号选传一个。
+                  title: 回款登记ID
+                record_list:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      refer_id:
+                        type: integer
+                        description: 源单ID：即需要核销的销售订单 order_id / 商机 opportunity_id
+                      refer_type:
+                        type: integer
+                        description: 源单类型：1-销售订单，2-商机
+                      cash_collection_amount:
+                        type: number
+                        description: 回款金额（源单币种），不能大于回款登记当前待回款金额
+                      cash_collection_invoice_amount:
+                        type: number
+                        description: 核销金额（回款登记币种）
+                      cash_collection_comment:
+                        type: string
+                        description: 核销备注，即核销生成的回款单备注
+                    x-apifox-orders:
+                    - refer_id
+                    - refer_type
+                    - cash_collection_amount
+                    - cash_collection_invoice_amount
+                    - cash_collection_comment
+                    required:
+                    - refer_id
+                    - refer_type
+                    - cash_collection_amount
+                    - cash_collection_invoice_amount
+                  description: 核销明细，只能新增核销，不支持编辑已有核销。如需编辑，请删除明细内的对应回款单后再进行核销
+              required:
+              - record_list
+              x-apifox-orders:
+              - cash_collection_invoice_id
+              - record_list
+            example:
+              cash_collection_invoice_id: 19732908350293
+              record_list:
+              - refer_id: 19733434680417
+                refer_type: 1
+                cash_collection_amount: 1
+                cash_collection_invoice_amount: 1
+                cash_collection_comment: 备注文本
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 200
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      cash_collection_invoice_id:
+                        description: 回款登记ID
+                        type: integer
+                        x-apifox-mock: 3179534607
+                      cash_collection_invoice_no:
+                        description: 回款登记编号
+                        type: string
+                        x-apifox-mock: HKDJ118
+                      record_list:
+                        description: 核销明细
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            cash_collection_id:
+                              description: 回款单ID
+                              type: integer
+                              x-apifox-mock: 3402138809
+                            cash_collection_no:
+                              description: 回款单编号
+                              type: string
+                              x-apifox-mock: '65'
+                            cash_collection_currency:
+                              description: 回款单币种
+                              type: string
+                              x-apifox-mock: USD
+                            cash_collection_exchange_rate:
+                              description: 100单位单据币种汇率（兑CNY）
+                              type: number
+                              x-apifox-mock: '722.29000'
+                            cash_collection_exchange_rate_usd:
+                              description: 100单位单据币种汇率（兑USD）
+                              type: number
+                              x-apifox-mock: '100.00000'
+                            cash_collection_amount:
+                              description: 回款单金额
+                              type: number
+                              x-apifox-mock: '10.00'
+                            cash_collection_bank_charge:
+                              description: 回款单手续费
+                              type: number
+                              x-apifox-mock: '0.47'
+                            cash_collection_invoice_amount:
+                              description: 核销金额
+                              type: number
+                              x-apifox-mock: '10.00'
+                            cash_collection_invoice_bank_charge:
+                              description: 核销手续费
+                              type: number
+                              x-apifox-mock: '0.47'
+                            cash_collection_comment:
+                              description: 回款单备注
+                              type: string
+                              x-apifox-mock: ''
+                            refer_id:
+                              description: 源单ID：销售订单 order_id / 商机 opportunity_id
+                              type: integer
+                              x-apifox-mock: 3400548662
+                            refer_type:
+                              description: 源单类型：1-销售订单，2-商机
+                              type: integer
+                              x-apifox-mock: 1
+                            refer_no:
+                              description: 源单编号
+                              type: string
+                              x-apifox-mock: TD20230701
+                            refer_amount:
+                              description: 源单金额
+                              type: number
+                              x-apifox-mock: 22
+                            cash_collection_collect_amount:
+                              description: 已回款金额
+                              type: number
+                              x-apifox-mock: 10
+                            cash_collection_not_collect_amount:
+                              description: 待回款金额
+                              type: number
+                              x-apifox-mock: 12
+                            exchange_loss_amount:
+                              description: 汇兑损益（CNY）
+                              type: number
+                              x-apifox-mock: -4.56
+                            exchange_loss_amount_usd:
+                              description: 汇兑损益（USD）
+                              type: number
+                              x-apifox-mock: 0
+                          x-apifox-orders:
+                          - cash_collection_id
+                          - cash_collection_no
+                          - cash_collection_currency
+                          - cash_collection_exchange_rate
+                          - cash_collection_exchange_rate_usd
+                          - cash_collection_amount
+                          - cash_collection_bank_charge
+                          - cash_collection_invoice_amount
+                          - cash_collection_invoice_bank_charge
+                          - cash_collection_comment
+                          - refer_id
+                          - refer_type
+                          - refer_no
+                          - refer_amount
+                          - cash_collection_collect_amount
+                          - cash_collection_not_collect_amount
+                          - exchange_loss_amount
+                          - exchange_loss_amount_usd
+                    x-apifox-orders:
+                    - cash_collection_invoice_id
+                    - cash_collection_invoice_no
+                    - record_list
+                x-apifox-orders:
+                - code
+                - now
+                - message
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 回款登记
+      x-apifox-status: released
+      operationId: post_v1_invoices_receiptregistration_allocate
+      x-local-source-path: sources/pages/api-3478295.md
+      x-source-id: api-3478295
+      x-source-title: 回款登记核销
+      x-source-module: 回款登记
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

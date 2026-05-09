@@ -1,0 +1,256 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Xiaoman OpenAPI - WhatsApp (unofficial)",
+    "version": "2026-05-09",
+    "description": "Unofficial module spec generated from public Xiaoman Open API documentation: WhatsApp."
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.xiaoman.cn",
+      "description": "official documented server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "WhatsApp",
+      "x-module-slug": "whatsapp"
+    }
+  ],
+  "paths": {
+    "/v1/whatsapp/edw/getProfileByPlanId": {
+      "post": {
+        "summary": "whatsapp代发对外接口",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "WhatsApp"
+        ],
+        "parameters": [
+          {
+            "name": "plan_id",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 29305,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "biai-whatsapp-REDACTED",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          },
+          "x-200:请求成功": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg"
+                  ]
+                },
+                "example": {
+                  "msg": "success",
+                  "code": 0
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "请求成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "",
+        "x-apifox-status": "released",
+        "operationId": "post_v1_whatsapp_edw_getprofilebyplanid",
+        "x-local-source-path": "sources/pages/api-3498523.md",
+        "x-source-id": "api-3498523",
+        "x-source-title": "whatsapp代发对外接口",
+        "x-source-module": "WhatsApp"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "新增客户联系人": {
+        "type": "object",
+        "properties": {
+          "company_id": {
+            "type": "integer",
+            "x-apifox-mock": "1",
+            "description": "客户ID"
+          },
+          "serial_id": {
+            "type": "string",
+            "description": "客户编号",
+            "x-apifox-mock": "1"
+          },
+          "name": {
+            "type": "string",
+            "description": "联系人名称"
+          },
+          "tel_area_code": {
+            "type": "string",
+            "description": "联系人电话区号"
+          },
+          "tel": {
+            "type": "string",
+            "description": "联系人电话号码"
+          }
+        },
+        "x-apifox-orders": [
+          "company_id",
+          "serial_id",
+          "name",
+          "tel_area_code",
+          "tel"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "数据字典响应": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "now": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "字段ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "字段名称"
+                },
+                "base": {
+                  "type": "integer",
+                  "description": "是否系统字段，1=系统字段，0=自定义字段"
+                },
+                "field_type": {
+                  "type": "integer",
+                  "description": "字段类型"
+                },
+                "ext_info": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "选字段额外信息，比如选项等枚举值",
+                  "nullable": true
+                },
+                "require": {
+                  "type": "integer",
+                  "description": "是否必填，1=必填，0=非必填"
+                },
+                "default": {
+                  "type": "string",
+                  "description": "默认值"
+                },
+                "disable_flag": {
+                  "type": "integer"
+                },
+                "is_list": {
+                  "type": "integer",
+                  "description": "是否明细字段"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-orders": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-ignore-properties": []
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-orders": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header parameter."
+      }
+    }
+  },
+  "x-generated-at": "2026-05-09T04:02:32+00:00",
+  "x-source": {
+    "catalog": "sources/catalog.json",
+    "snapshot": "sources/pages"
+  }
+}

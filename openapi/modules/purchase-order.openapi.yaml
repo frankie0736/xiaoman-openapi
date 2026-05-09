@@ -1,0 +1,2656 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 采购订单 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 采购订单.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 采购订单
+  x-module-slug: purchase-order
+paths:
+  /v1/purchaseOrder/list:
+    get:
+      summary: 采购订单列表
+      deprecated: false
+      description: ''
+      tags:
+      - 采购订单
+      parameters:
+      - name: start_time
+        in: query
+        description: 创建/更新开始时间
+        required: false
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: 创建/更新截止时间
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: 每页数量，默认20
+        required: false
+        schema:
+          type: integer
+      - name: start_index
+        in: query
+        description: 页码，默认1
+        required: false
+        schema:
+          type: integer
+      - name: removed
+        in: query
+        description: '默认值: 0，设置=1时查询已删除的数据列表'
+        required: false
+        schema:
+          type: integer
+      - name: time_type
+        in: query
+        description: 默认值1， 1更新时间，2创建时间
+        required: false
+        schema:
+          type: integer
+      - name: status
+        in: query
+        description: 采购订单状态，值为/v1/purchaseOrder/fields/selector接口的状态ID
+        required: false
+        schema:
+          type: integer
+      - name: status_name
+        in: query
+        description: 采购订单状态名称
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: access_token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 0
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      count:
+                        description: 采购订单列表总数
+                        type: integer
+                      list:
+                        description: 采购订单列表数据
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            purchase_order_id:
+                              description: 采购订单ID
+                              type: integer
+                            purchase_order_no:
+                              description: 采购订单编号
+                              type: string
+                            status_info:
+                              description: 采购状态
+                              type: object
+                              properties:
+                                id:
+                                  description: 状态ID
+                                  type: integer
+                                name:
+                                  description: 状态名称
+                                  type: string
+                              x-apifox-orders:
+                              - id
+                              - name
+                            inbound_status_info:
+                              description: 入库状态
+                              type: object
+                              properties:
+                                id:
+                                  description: 状态ID
+                                  type: integer
+                                name:
+                                  description: 状态名称
+                                  type: string
+                              x-apifox-orders:
+                              - id
+                              - name
+                            handler_info:
+                              description: 当前处理人信息
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  user_id:
+                                    description: 处理人ID
+                                    type: integer
+                                  nickname:
+                                    description: 处理人昵称
+                                    type: string
+                                x-apifox-orders:
+                                - user_id
+                                - nickname
+                            supplier_info:
+                              description: 供应商信息
+                              type: object
+                              properties:
+                                supplier_id:
+                                  description: 供应商ID
+                                  type: integer
+                                name:
+                                  description: 供应商名称
+                                  type: string
+                              x-apifox-orders:
+                              - supplier_id
+                              - name
+                            purchase_date:
+                              description: 采购日期
+                              type: string
+                            delivery_date:
+                              description: 交货日期
+                              type: string
+                            remark:
+                              description: 备注
+                              type: string
+                            payment_status_info:
+                              description: 付款状态
+                              type: object
+                              properties:
+                                id:
+                                  description: 状态ID
+                                  type: integer
+                                name:
+                                  description: 状态名称
+                                  type: string
+                              x-apifox-orders:
+                              - id
+                              - name
+                            create_time:
+                              description: 创建时间
+                              type: string
+                            create_user_info:
+                              description: 创建人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 创建人id
+                                  type: integer
+                                nickname:
+                                  description: 创建人昵称
+                                  type: string
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                            update_user_info:
+                              description: 更新人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 更新人id
+                                  type: integer
+                                nickname:
+                                  description: 更新人昵称
+                                  type: string
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                            update_time:
+                              description: 更新时间
+                              type: string
+                            addition_cost_amount:
+                              type: number
+                              description: 附加费用总金额
+                            amount:
+                              type: number
+                              description: 采购订单金额
+                            amount_rmb:
+                              type: number
+                              description: 采购订单金额(CNY)人民币
+                            amount_usd:
+                              type: number
+                              description: 采购订单金额(USD)美元
+                            exchange_rate:
+                              type: number
+                              description: 汇率(兑CNY人民币)
+                            exchange_rate_usd:
+                              type: number
+                              description: 汇率(兑USD美元)
+                            payment_amount:
+                              type: number
+                              description: 已付款金额
+                            payment_amount_rmb:
+                              type: number
+                              description: 已付款金额(CNY)
+                            payment_amount_usd:
+                              type: number
+                              description: 已付款金额(USD)
+                            product_total_amount:
+                              type: number
+                              description: 产品总金额
+                            product_total_amount_rmb:
+                              type: number
+                              description: 产品总金额(CNY)
+                            product_total_amount_usd:
+                              type: number
+                              description: 产品总金额(USD)
+                            product_total_count:
+                              type: number
+                              description: 产品总数量
+                            product_total_count_no_parts:
+                              type: number
+                              description: 产品总数量（不含配件）
+                            parts_total_count:
+                              type: number
+                              description: 配件产品总数量
+                          x-apifox-orders:
+                          - purchase_order_id
+                          - purchase_order_no
+                          - status_info
+                          - inbound_status_info
+                          - handler_info
+                          - supplier_info
+                          - purchase_date
+                          - delivery_date
+                          - remark
+                          - payment_status_info
+                          - create_time
+                          - create_user_info
+                          - update_user_info
+                          - update_time
+                          - addition_cost_amount
+                          - amount
+                          - amount_rmb
+                          - amount_usd
+                          - exchange_rate
+                          - exchange_rate_usd
+                          - payment_amount
+                          - payment_amount_rmb
+                          - payment_amount_usd
+                          - product_total_amount
+                          - product_total_amount_rmb
+                          - product_total_amount_usd
+                          - product_total_count
+                          - product_total_count_no_parts
+                          - parts_total_count
+                    x-apifox-orders:
+                    - count
+                    - list
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2024-05-24 15:40:57'
+                data:
+                  list:
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3534068137
+                    purchase_order_no: qiao20240510CGDD1747
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-01-31 08:00:00'
+                    delivery_date: '2024-01-31 08:00:00'
+                    remark: test
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 15:58:25'
+                    update_time: '2024-05-15 15:57:09'
+                    create_type: 1
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858714'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858714/e8225f9f7b1bd63221e7970ef4bdfcdb2c949b6dd784acd6d159239cea57743b.jpg
+                      name: qiao3
+                      nickname: qiao3
+                    addition_cost_amount: 10
+                    amount: 450
+                    amount_rmb: 3246.03
+                    amount_usd: 450
+                    exchange_rate: 721.34
+                    exchange_rate_usd: 100
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 440
+                    product_total_amount_rmb: 3173.9
+                    product_total_amount_usd: 440
+                    product_total_count: 10
+                    product_total_count_no_parts: 10
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3533320557
+                    purchase_order_no: qiao20240510CGDD1746
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-05-10 15:41:29'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 15:41:29'
+                    update_time: '2024-05-10 15:41:29'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8631
+                    parts_total_count: 9
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 9
+                    product_total_count_no_parts: 0
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3532323619
+                    purchase_order_no: qiao20240510CGDD1745
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-05-10 15:13:50'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 15:13:50'
+                    update_time: '2024-05-10 15:13:50'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8631
+                    parts_total_count: 6
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 6
+                    product_total_count_no_parts: 0
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3532074959
+                    purchase_order_no: qiao20240510CGDD1744
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-05-10 15:06:43'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 15:06:43'
+                    update_time: '2024-05-10 15:06:43'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8631
+                    parts_total_count: 6
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 6
+                    product_total_count_no_parts: 0
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3531928727
+                    purchase_order_no: qiao20240510CGDD1743
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-05-10 15:04:19'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 15:04:19'
+                    update_time: '2024-05-10 15:04:19'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8631
+                    parts_total_count: 6
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 6
+                    product_total_count_no_parts: 0
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3531884786
+                    purchase_order_no: qiao20240510CGDD1742
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-05-10 15:03:20'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 15:03:20'
+                    update_time: '2024-05-10 15:03:20'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8631
+                    parts_total_count: 6
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 6
+                    product_total_count_no_parts: 0
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3531679954
+                    purchase_order_no: qiao20240510CGDD1739
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-05-10 14:57:00'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 14:57:00'
+                    update_time: '2024-05-10 14:57:00'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8621
+                    parts_total_count: 6
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 6
+                    product_total_count_no_parts: 0
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3531328598
+                    purchase_order_no: qiao20240510CGDD1738
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-05-10 14:47:28'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 14:47:28'
+                    update_time: '2024-05-10 14:47:28'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8621
+                    parts_total_count: 6
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 6
+                    product_total_count_no_parts: 0
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3530678467
+                    purchase_order_no: qiao20240510CGDD1737
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 河北欧荣起重机械制造有限公司
+                      supplier_id: 3522261951
+                      rate_id: 0
+                      supplier_no: SU0622
+                      rate: null
+                    purchase_date: '2024-05-10 14:30:56'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 14:30:56'
+                    update_time: '2024-05-10 14:30:56'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8621
+                    parts_total_count: 6
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 6
+                    product_total_count_no_parts: 0
+                  - '3449625770': 1170
+                    '3515304364': null
+                    purchase_order_id: 3530326364
+                    purchase_order_no: qiao20240510CGDD1736
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 自动化供应商1713781338040
+                      supplier_id: 3514222847
+                      rate_id: 0
+                      supplier_no: SU0620
+                      rate: null
+                    purchase_date: '2024-05-10 14:21:31'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 14:21:31'
+                    update_time: '2024-05-10 14:21:31'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 270
+                    amount_rmb: 270
+                    amount_usd: 37.43
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8621
+                    parts_total_count: 6
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 270
+                    product_total_amount_rmb: 270
+                    product_total_amount_usd: 37.43
+                    product_total_count: 6
+                    product_total_count_no_parts: 0
+                  - '3449625770': 111
+                    '3515304364': null
+                    purchase_order_id: 3516619176
+                    purchase_order_no: 大乔20240510CGDD1735
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    supplier_info:
+                      name: woxiede1
+                      supplier_id: 3511724641
+                      rate_id: 0
+                      supplier_no: woxiede
+                      rate: null
+                    purchase_date: '2024-05-10 11:57:52'
+                    delivery_date: '2024-02-28 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-10 11:57:52'
+                    update_time: '2024-05-10 11:57:52'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    update_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    addition_cost_amount: 0
+                    amount: 7
+                    amount_rmb: 7
+                    amount_usd: 0.97
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8621
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 7
+                    product_total_amount_rmb: 7
+                    product_total_amount_usd: 0.97
+                    product_total_count: 7
+                    product_total_count_no_parts: 7
+                  - '3449625770': 20700
+                    '3515304364': null
+                    purchase_order_id: 3515199269
+                    purchase_order_no: 大乔20240507CGDD1734
+                    status_info:
+                      id: '1118074439'
+                      name: 采购协商中
+                    inbound_status_info:
+                      id: 2
+                      name: 部分入库
+                    handler_info:
+                    - user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    supplier_info:
+                      name: 阿沛供货商
+                      supplier_id: 3515072113
+                      rate_id: 3160527570
+                      supplier_no: SU0621
+                      rate: ssvip
+                    purchase_date: '2024-04-10 00:00:00'
+                    delivery_date: '2024-04-10 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-07 17:08:49'
+                    update_time: '2024-05-09 15:25:35'
+                    create_type: 1
+                    create_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 1132
+                    amount_rmb: 1132
+                    amount_usd: 157.14
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8814
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 1132
+                    product_total_amount_rmb: 1132
+                    product_total_amount_usd: 157.14
+                    product_total_count: 124
+                    product_total_count_no_parts: 124
+                  - '3449625770': 20700
+                    '3515304364': null
+                    purchase_order_id: 3515190872
+                    purchase_order_no: 大乔20240507CGDD1733
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    supplier_info:
+                      name: 自动化供应商1713781338040
+                      supplier_id: 3514222847
+                      rate_id: 0
+                      supplier_no: SU0620
+                      rate: null
+                    purchase_date: '2024-04-10 08:00:00'
+                    delivery_date: '2024-04-10 08:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-07 16:28:08'
+                    update_time: '2024-05-07 16:28:08'
+                    create_type: 1
+                    create_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    update_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    addition_cost_amount: 0
+                    amount: 8900
+                    amount_rmb: 8900
+                    amount_usd: 1235.52
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8823
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 8900
+                    product_total_amount_rmb: 8900
+                    product_total_amount_usd: 1235.52
+                    product_total_count: 100
+                    product_total_count_no_parts: 100
+                  - '3449625770': 3400
+                    '3515304364': null
+                    purchase_order_id: 3515026555
+                    purchase_order_no: qiao20240506CGDD1732
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 自动化供应商1713781338040
+                      supplier_id: 3514222847
+                      rate_id: 0
+                      supplier_no: SU0620
+                      rate: null
+                    purchase_date: '2024-05-06 16:20:03'
+                    delivery_date: '2024-05-31 16:20:23'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-05-06 16:21:14'
+                    update_time: '2024-05-06 16:21:14'
+                    create_type: 1
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8814
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 10
+                    product_total_count_no_parts: 10
+                  - '3449625770': 9990
+                    '3515304364': null
+                    purchase_order_id: 3514761325
+                    purchase_order_no: qiao20240428CGDD1731
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    supplier_info:
+                      name: 自动化供应商1713781338040
+                      supplier_id: 3514222847
+                      rate_id: 0
+                      supplier_no: SU0620
+                      rate: null
+                    purchase_date: '2024-04-28 11:27:47'
+                    delivery_date: '1970-01-01 08:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-04-28 11:28:09'
+                    update_time: '2024-05-06 16:12:58'
+                    create_type: 1
+                    create_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 230
+                    amount: 8583
+                    amount_rmb: 8583
+                    amount_usd: 1185.68
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8143
+                    parts_total_count: 110
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 8353
+                    product_total_amount_rmb: 8353
+                    product_total_amount_usd: 1153.91
+                    product_total_count: 232
+                    product_total_count_no_parts: 122
+                  - '3449625770': null
+                    '3515304364': null
+                    purchase_order_id: 3514579151
+                    purchase_order_no: 大乔20240425CGDD1730
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    supplier_info:
+                      name: 自动化供应商1704850561042
+                      supplier_id: 3471460043
+                      rate_id: 0
+                      supplier_no: SU0229
+                      rate: null
+                    purchase_date: '2024-04-25 14:19:41'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-04-25 14:19:41'
+                    update_time: '2024-04-26 17:50:35'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    update_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    addition_cost_amount: 0
+                    amount: 17
+                    amount_rmb: 17
+                    amount_usd: 2.35
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8181
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 17
+                    product_total_amount_rmb: 17
+                    product_total_amount_usd: 2.35
+                    product_total_count: 7
+                    product_total_count_no_parts: 7
+                  - '3449625770': 108.17
+                    '3515304364': null
+                    purchase_order_id: 3514579121
+                    purchase_order_no: 大乔20240425CGDD1729
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    supplier_info:
+                      name: QWERTY
+                      supplier_id: 3485842500
+                      rate_id: 0
+                      supplier_no: SU0380
+                      rate: null
+                    purchase_date: '2024-04-25 14:19:40'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-04-25 14:19:40'
+                    update_time: '2024-04-26 15:57:10'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    update_user_info:
+                      user_id: '11858712'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg
+                      name: qiao
+                      nickname: qiao
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8181
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 128
+                    product_total_count_no_parts: 128
+                  - '3449625770': 108.17
+                    '3515304364': null
+                    purchase_order_id: 3514579080
+                    purchase_order_no: 大乔20240425CGDD1728
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    supplier_info:
+                      name: 自动化供应商1704850561042
+                      supplier_id: 3471460043
+                      rate_id: 0
+                      supplier_no: SU0229
+                      rate: null
+                    purchase_date: '2024-04-25 14:19:36'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-04-25 14:19:36'
+                    update_time: '2024-04-25 14:19:36'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    update_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8181
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 72
+                    product_total_count_no_parts: 72
+                  - '3449625770': 108.17
+                    '3515304364': null
+                    purchase_order_id: 3514579074
+                    purchase_order_no: 大乔20240425CGDD1727
+                    status_info:
+                      id: '1118074438'
+                      name: 草稿
+                    inbound_status_info:
+                      id: 1
+                      name: 待入库
+                    handler_info:
+                    - user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    supplier_info:
+                      name: QWERTY
+                      supplier_id: 3485842500
+                      rate_id: 0
+                      supplier_no: SU0380
+                      rate: null
+                    purchase_date: '2024-04-25 14:19:35'
+                    delivery_date: '2024-01-31 00:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-04-25 14:19:35'
+                    update_time: '2024-04-25 14:19:35'
+                    create_type: 3
+                    create_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    update_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8181
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 128
+                    product_total_count_no_parts: 128
+                  - '3449625770': null
+                    '3515304364': null
+                    purchase_order_id: 3514405220
+                    purchase_order_no: 大乔20240424CGDD1726
+                    status_info:
+                      id: '1118074439'
+                      name: 采购协商中
+                    inbound_status_info:
+                      id: 2
+                      name: 部分入库
+                    handler_info:
+                    - user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    supplier_info:
+                      name: 自动化供应商1713781338040
+                      supplier_id: 3514222847
+                      rate_id: 0
+                      supplier_no: SU0620
+                      rate: null
+                    purchase_date: '2024-04-24 11:44:31'
+                    delivery_date: '1970-01-01 08:00:00'
+                    remark: ''
+                    payment_status_info:
+                      id: 1
+                      name: 待付款
+                    create_time: '2024-04-24 11:45:13'
+                    update_time: '2024-04-24 11:45:20'
+                    create_type: 1
+                    create_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    update_user_info:
+                      user_id: '11858713'
+                      avatar: https://v4client.oss-cn-hangzhou.aliyuncs.com/product-file/img/11858713/a7ae39416ece4b2261b3b0ece9258aa227cbda4445d162a21953217cda4c8258.jpeg
+                      name: 大乔
+                      nickname: 大乔
+                    addition_cost_amount: 0
+                    amount: 0
+                    amount_rmb: 0
+                    amount_usd: 0
+                    exchange_rate: 100
+                    exchange_rate_usd: 13.8248
+                    parts_total_count: 0
+                    payment_amount: 0
+                    payment_amount_rmb: 0
+                    payment_amount_usd: 0
+                    product_total_amount: 0
+                    product_total_amount_rmb: 0
+                    product_total_amount_usd: 0
+                    product_total_count: 2
+                    product_total_count_no_parts: 2
+                  count: 164
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 采购订单
+      x-apifox-status: released
+      operationId: get_v1_purchaseorder_list
+      x-local-source-path: sources/pages/api-3478331.md
+      x-source-id: api-3478331
+      x-source-title: 采购订单列表
+      x-source-module: 采购订单
+  /v1/purchaseOrder/fields:
+    get:
+      summary: 采购订单字段
+      deprecated: false
+      description: '# 字段类型有哪些
+
+        | field_type |  |
+
+        | --- | --- |
+
+        | 1 | 单行文本 |
+
+        | 2 | 多行文本 |
+
+        | 3 | 单选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |
+
+        | 4 | 日期，YYYY-MM-DD |
+
+        | 5 | 数字 |
+
+        | 6 | 图片 |
+
+        | 7 | 多选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |
+
+        | 8 | 附件 |
+
+        | 9 | 关联字段 |
+
+        | 10 | 日期时间，YYYY-MM-DD HH:mm:ss |
+
+        | 11 | 公式 |
+
+        | 12 | 汇总 |
+
+        | 13 | 布尔 |
+
+        | 17 | 状态 |
+
+        | 18 | 阶段 |
+
+        | 21 | 时间范围 |
+
+        | 22 | 富文本 |
+
+        | 23 | 引用 |
+
+
+        若发现没有的字段类型可以咨询对接群，或者提客户工单。
+
+        '
+      tags:
+      - 采购订单
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: access_token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E5%93%8D%E5%BA%94'
+              example:
+                code: 200
+                message: success
+                now: '2025-03-11 14:42:10'
+                data:
+                - id: have_return_count
+                  name: 已退货数量
+                  base: 1
+                  field_type: 5
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 1
+                - id: '12343453544'
+                  name: 自定义多选字段
+                  base: 0
+                  field_type: 7
+                  ext_info:
+                  - 多选值1
+                  - 多选值2
+                  require: 0
+                  default: ''
+                  disable_flag: 0
+                  is_list: 0
+                  group_id: 1
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+                x-apifox-ignore-properties: []
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 采购订单
+      x-apifox-status: released
+      operationId: get_v1_purchaseorder_fields
+      x-local-source-path: sources/pages/api-3484725.md
+      x-source-id: api-3484725
+      x-source-title: 采购订单字段
+      x-source-module: 采购订单
+  /v1/purchaseOrder/fields/selector:
+    get:
+      summary: 采购订单状态
+      deprecated: false
+      description: ''
+      tags:
+      - 采购订单
+      parameters:
+      - name: field
+        in: query
+        description: ''
+        required: false
+        example: status
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: access_token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 0
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      id:
+                        description: 状态ID
+                        type: integer
+                      name:
+                        description: 状态名称
+                        type: integer
+                      remark:
+                        description: 备注
+                        type: integer
+                      rank:
+                        description: 升序排列
+                        type: integer
+                      create_time:
+                        description: 创建时间
+                        type: integer
+                      update_time:
+                        description: 修改时间
+                        type: integer
+                      is_beginning:
+                        description: 是否启始状态：0-否，1-是
+                        type: integer
+                      is_ending:
+                        description: 是否结束状态：0-否，1-是
+                        type: integer
+                      is_purchase:
+                        description: 供应商ID
+                        type: integer
+                      into_performance:
+                        description: 是否计入业绩：0-否，1-是
+                        type: integer
+                      need_review:
+                        description: 是否需要审批：0-否，1-是
+                        type: integer
+                      change_review:
+                        description: 是否允许改变审核状态：0-否，1-是
+                        type: integer
+                      change_ending:
+                        description: 是否允许改变结束状态：0-否，1-是
+                        type: integer
+                      can_delete:
+                        description: 是否可以删除：0-否，1-是
+                        type: integer
+                      next_status:
+                        description: 流转状态ID
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              description: 状态ID
+                              type: integer
+                          x-apifox-orders:
+                          - id
+                    x-apifox-orders:
+                    - id
+                    - name
+                    - remark
+                    - rank
+                    - create_time
+                    - update_time
+                    - is_beginning
+                    - is_ending
+                    - is_purchase
+                    - into_performance
+                    - need_review
+                    - change_review
+                    - change_ending
+                    - can_delete
+                    - next_status
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2023-06-26 16:00:13'
+                data:
+                - is_purchase: 0
+                  is_beginning: 1
+                  is_ending: 0
+                  into_performance: 0
+                  need_review: 0
+                  change_ending: 1
+                  change_review: 0
+                  can_delete: 0
+                  next_status:
+                  - '3114752673'
+                  - '3114752674'
+                  - '3114752675'
+                  client_id: '14817'
+                  id: '3114752672'
+                  name: 草稿
+                  remark: ''
+                  rank: '0'
+                  create_time: '2022-06-13 17:39:22'
+                  update_time: '2023-04-14 16:41:57'
+                - is_purchase: 0
+                  is_beginning: 0
+                  is_ending: 0
+                  into_performance: 0
+                  need_review: 1
+                  change_ending: 1
+                  change_review: 1
+                  can_delete: 1
+                  next_status:
+                  - '3114752672'
+                  - '3114752674'
+                  - '3114752675'
+                  client_id: '14817'
+                  id: '3114752673'
+                  name: 采购协商中
+                  remark: ''
+                  rank: '1'
+                  create_time: '2022-06-13 17:39:22'
+                  update_time: '2023-04-14 16:41:57'
+                - is_purchase: 0
+                  is_beginning: 0
+                  is_ending: 0
+                  into_performance: 0
+                  need_review: 0
+                  change_ending: 1
+                  change_review: 1
+                  can_delete: 1
+                  next_status:
+                  - '3114752672'
+                  - '3114752673'
+                  - '3114752675'
+                  client_id: '14817'
+                  id: '3114752674'
+                  name: 采购中
+                  remark: ''
+                  rank: '2'
+                  create_time: '2022-06-13 17:39:22'
+                  update_time: '2023-04-14 16:41:57'
+                - is_purchase: 0
+                  is_beginning: 0
+                  is_ending: 1
+                  into_performance: 1
+                  need_review: 1
+                  change_ending: 1
+                  change_review: 1
+                  can_delete: 1
+                  next_status: []
+                  client_id: '14817'
+                  id: '3114752675'
+                  name: 已完成
+                  remark: ''
+                  rank: '3'
+                  create_time: '2022-06-13 17:39:22'
+                  update_time: '2023-04-14 16:41:57'
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 采购订单
+      x-apifox-status: released
+      operationId: get_v1_purchaseorder_fields_selector
+      x-local-source-path: sources/pages/api-3484726.md
+      x-source-id: api-3484726
+      x-source-title: 采购订单状态
+      x-source-module: 采购订单
+  /v1/purchaseOrder/push:
+    post:
+      summary: 采购订单新增/编辑
+      deprecated: false
+      description: ''
+      tags:
+      - 采购订单
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: access_token
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                '3137211747':
+                  description: 采购订单自定义字段。字段名称为/v1/purchaseOrder/fields 获取到的自定义字段ID
+                  type: string
+                purchase_order_id:
+                  description: 采购订单ID，编辑时必填
+                  type: integer
+                purchase_order_no:
+                  description: 采购订单编号
+                  type: string
+                supplier_id:
+                  description: 供应商ID，新建时必填，来自供应商模块的.supplier_id
+                  type: integer
+                supplier_contact:
+                  description: 供应商联系人ID，选填，来自供应商模块contact_list.supplier_contact_id
+                  type: integer
+                currency:
+                  description: 币种，新建是必填，传入值可以参考订单的/v1/invoices/order/orderEnums字段里面的currency_list.code
+                  type: string
+                exchange_rate:
+                  description: 汇率(兑CNY人民币)
+                  type: number
+                  format: float
+                exchange_rate_usd:
+                  type: number
+                  format: float
+                  description: 汇率(兑USD美元)
+                purchase_date:
+                  description: 采购日期，非必填，缺省值为当前日期，例如2024-04-29
+                  type: string
+                  format: date
+                delivery_date:
+                  description: 交货日期，非必填
+                  type: string
+                  format: date
+                remark:
+                  description: 备注，非必填，例如2024-04-29
+                  type: string
+                refer_order_id:
+                  description: 关联的销售订单ID，来自销售订单模块的order_id
+                  type: integer
+                creator:
+                  description: 采购订单创建人，默认为请求接口的当前用户，传入值来自/v1/user/list中的user_id
+                  type: integer
+                handler:
+                  description: 采购订单处理人
+                  type: array
+                  items:
+                    type: integer
+                status:
+                  description: 采购订单状态ID，值为/v1/purchaseOrder/fields/selector接口的状态ID
+                  type: integer
+                amount:
+                  type: number
+                  description: 采购订单金额，新建时必填
+                product_total_amount:
+                  type: number
+                  description: 采购订单产品总金额
+                cost_list:
+                  description: 费用列表
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      cost_name:
+                        description: 费用名称
+                        type: string
+                      percent_type:
+                        description: 计算规则0（加（+）绝对值、1加（+）占产品总金额百分比、2减（-）绝对值、3减（-）占产品总金额百分比）
+                        type: integer
+                      percent_amount:
+                        type: number
+                        description: 计算金额值，比如1%，那就是产品金额*1%
+                      cost:
+                        type: number
+                        description: 金额，根据计算金额计算出来后的费用
+                    x-apifox-orders:
+                    - cost_name
+                    - percent_type
+                    - percent_amount
+                    - cost
+                    required:
+                    - percent_type
+                    - percent_amount
+                    - cost
+                    - cost_name
+                product_list:
+                  description: 采购订单产品明细列表
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      '134355323':
+                        type: string
+                        description: 产品自定义字段
+                      purchase_order_product_id:
+                        description: 采购订单产品唯一ID，新增产品时可不传；编辑时必填
+                        type: integer
+                      order_id:
+                        description: 关联的销售订单ID
+                        type: integer
+                      invoice_product_id:
+                        description: 关联的销售订单产品unique_id
+                        type: integer
+                      product_id:
+                        description: 产品ID，必填。
+                        type: integer
+                      sku_id:
+                        description: 产品SKU ID，必填
+                        type: integer
+                      count:
+                        type: number
+                        description: 采购数量
+                      unit_price:
+                        description: 采购单价
+                        type: number
+                        format: float
+                      product_remark:
+                        description: 产品备注
+                        type: string
+                      cost_amount:
+                        description: 金额小计
+                        type: number
+                        format: float
+                      product_no:
+                        type: string
+                        description: 产品编号
+                      product_name:
+                        type: string
+                        description: 产品名称
+                      product_cn_name:
+                        type: string
+                        description: 中文产品名称
+                      sku_info:
+                        type: object
+                        properties:
+                          sku_id:
+                            type: integer
+                            description: SKU ID
+                          product_type:
+                            type: integer
+                            description: 产品类型：1-无规格，2-多规格
+                          attributes_info:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                item_id:
+                                  type: integer
+                                  description: 产品规格ID
+                                item_name:
+                                  type: string
+                                  description: 产品规则名称
+                                value:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      item_id:
+                                        type: integer
+                                        description: 产品规格属性ID
+                                      item_name:
+                                        type: string
+                                        description: 产品规格属性名称
+                                      value:
+                                        type: string
+                                        description: 产品规格属性值
+                                    x-apifox-orders:
+                                    - item_id
+                                    - item_name
+                                    - value
+                                    required:
+                                    - item_id
+                                    - item_name
+                                    - value
+                                  description: 产品规格属性
+                              x-apifox-orders:
+                              - item_id
+                              - item_name
+                              - value
+                              required:
+                              - item_id
+                              - item_name
+                              - value
+                            description: 产品规格信息
+                        x-apifox-orders:
+                        - sku_id
+                        - product_type
+                        - attributes_info
+                        description: 产品信息，非必要请忽略
+                        required:
+                        - sku_id
+                        - product_type
+                        - attributes_info
+                    x-apifox-orders:
+                    - purchase_order_product_id
+                    - order_id
+                    - invoice_product_id
+                    - product_no
+                    - product_id
+                    - sku_id
+                    - unit_price
+                    - count
+                    - product_remark
+                    - cost_amount
+                    - product_name
+                    - product_cn_name
+                    - '134355323'
+                    - sku_info
+                    required:
+                    - product_id
+                    - sku_id
+                    - count
+                    - unit_price
+                attachments:
+                  type: array
+                  items:
+                    type: string
+                  description: 附件，可访问的文件url
+              x-apifox-orders:
+              - purchase_order_id
+              - purchase_order_no
+              - supplier_id
+              - supplier_contact
+              - currency
+              - exchange_rate
+              - exchange_rate_usd
+              - purchase_date
+              - delivery_date
+              - remark
+              - refer_order_id
+              - creator
+              - handler
+              - status
+              - amount
+              - product_total_amount
+              - cost_list
+              - product_list
+              - '3137211747'
+              - attachments
+            example:
+              purchase_order_no: PO202300001
+              handler:
+              - 55281444
+              purchase_date: '2023-06-11'
+              delivery_date: '2023-06-13 15:53:30'
+              product_total_count: 2
+              supplier_id: 6108435309018
+              supplier_contact: 3159969917
+              currency: USD
+              exchange_rate: 680
+              exchange_rate_usd: 100
+              amount: 1
+              remark: remark
+              refer_order_id: 8532894576203
+              product_list:
+              - purchase_order_product_id: ''
+                product_id: '3107787846051'
+                sku_id: '3107787846057'
+                unit: Box
+                order_id: 8532894576203
+                count: 1
+                unit_price: 1
+                cost_amount: 1
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 0
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      purchase_order_id:
+                        description: 采购订单ID
+                        type: integer
+                    x-apifox-orders:
+                    - purchase_order_id
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 采购订单
+      x-apifox-status: released
+      operationId: post_v1_purchaseorder_push
+      x-local-source-path: sources/pages/api-3478249.md
+      x-source-id: api-3478249
+      x-source-title: 采购订单新增/编辑
+      x-source-module: 采购订单
+  /v1/purchaseOrder/info:
+    get:
+      summary: 采购订单详情
+      deprecated: false
+      description: ''
+      tags:
+      - 采购订单
+      parameters:
+      - name: purchase_order_id
+        in: query
+        description: 采购订单ID
+        required: false
+        schema:
+          type: integer
+      - name: purchase_order_no
+        in: query
+        description: 采购订单编码，可与采购订单ID二选一
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: access_token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 0
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  data:
+                    description: 采购订单信息
+                    type: object
+                    properties:
+                      purchase_order_id:
+                        description: 采购订单ID
+                        type: integer
+                      purchase_order_no:
+                        description: 采购订单编号
+                        type: string
+                      status_info:
+                        description: 采购状态
+                        type: object
+                        properties:
+                          id:
+                            description: 状态ID
+                            type: integer
+                          name:
+                            description: 状态名称
+                            type: string
+                        x-apifox-orders:
+                        - id
+                        - name
+                      inbound_status_info:
+                        description: 入库状态
+                        type: object
+                        properties:
+                          id:
+                            description: 状态ID
+                            type: integer
+                          name:
+                            description: 状态名称
+                            type: string
+                        x-apifox-orders:
+                        - id
+                        - name
+                      handler_info:
+                        description: 当前处理人
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            user_id:
+                              description: 处理人ID
+                              type: integer
+                            nickname:
+                              description: 处理人昵称
+                              type: string
+                          x-apifox-orders:
+                          - user_id
+                          - nickname
+                      supplier_info:
+                        description: 供应商信息
+                        type: object
+                        properties:
+                          supplier_id:
+                            description: 供应商ID
+                            type: integer
+                          name:
+                            description: 供应商名称
+                            type: string
+                        x-apifox-orders:
+                        - supplier_id
+                        - name
+                      supplier_contact_info:
+                        description: 供应商联系人信息
+                        type: object
+                        properties:
+                          supplier_contact_id:
+                            description: 联系人ID
+                            type: integer
+                          contact_name:
+                            description: 联系人名称
+                            type: string
+                          phone:
+                            description: 联系人电话
+                            type: string
+                          email:
+                            description: 联系人邮箱
+                            type: string
+                        x-apifox-orders:
+                        - supplier_contact_id
+                        - contact_name
+                        - phone
+                        - email
+                      purchase_date:
+                        description: 采购日期
+                        type: string
+                      delivery_date:
+                        description: 交货日期
+                        type: string
+                      remark:
+                        description: 备注
+                        type: string
+                      payment_status_info:
+                        description: 付款状态
+                        type: object
+                        properties:
+                          id:
+                            description: 状态ID
+                            type: integer
+                          name:
+                            description: 状态名称
+                            type: string
+                        x-apifox-orders:
+                        - id
+                        - name
+                      create_time:
+                        description: 创建时间
+                        type: string
+                      create_user_info:
+                        description: 创建人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 创建人id
+                            type: integer
+                          nickname:
+                            description: 创建人昵称
+                            type: string
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                      update_user_info:
+                        description: 更新人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 更新人id
+                            type: integer
+                          nickname:
+                            description: 更新人昵称
+                            type: string
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                      update_time:
+                        description: 更新时间
+                        type: string
+                      currency:
+                        description: 币种
+                        type: string
+                      exchange_rate:
+                        description: 汇率(兑CNY人民币)
+                        type: number
+                      exchange_rate_usd:
+                        description: 汇率(兑USD美元)
+                        type: number
+                      amount:
+                        description: 采购订单金额
+                        type: number
+                      product_total_amount:
+                        description: 产品总金额
+                        type: number
+                      product_total_count:
+                        description: 产品总数量
+                        type: number
+                      addition_cost_amount:
+                        description: 附加费用总金额
+                        type: number
+                      payment_amount:
+                        description: 已付金额
+                        type: number
+                      payment_wait_amount:
+                        description: 待付金额
+                        type: number
+                      cost_list:
+                        description: 费用列表
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            cost_name:
+                              description: 费用名称
+                              type: integer
+                            percent_type:
+                              description: 计算规则0（加（+）绝对值、1加（+）占产品总金额百分比、2减（-）绝对值、3减（-）占产品总金额百分比）
+                              type: integer
+                            percent_amount:
+                              description: 计算金额值，比如1%，那就是产品金额*1%
+                              type: number
+                            cost:
+                              description: 金额，根据计算金额计算出来后的费用
+                              type: number
+                            cost_remark:
+                              description: 费用备注
+                              type: string
+                          x-apifox-orders:
+                          - cost_name
+                          - percent_type
+                          - percent_amount
+                          - cost
+                          - cost_remark
+                      product_list:
+                        description: 采购产品列表
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            '123311':
+                              description: 自定义字段x
+                              type: string
+                            product_id:
+                              description: 产品ID
+                              type: integer
+                            product_no:
+                              description: 产品编码
+                              type: integer
+                            product_name:
+                              description: 产品名称
+                              type: string
+                            product_cn_name:
+                              description: 产品中文名称
+                              type: string
+                            sku_id:
+                              description: SKU ID
+                              type: integer
+                            sku_code:
+                              description: SKU编码
+                              type: integer
+                            count:
+                              description: 采购数量
+                              type: number
+                            unit_price:
+                              description: 采购单价
+                              type: number
+                            cost_amount:
+                              description: 金额小计
+                              type: number
+                            product_model:
+                              description: 产品型号
+                              type: string
+                            unit:
+                              description: 计量单位
+                              type: string
+                            supplier_product_no:
+                              description: 供应商产品编号
+                              type: string
+                            supplier_product_name:
+                              description: 供应商产品名称
+                              type: string
+                            product_remark:
+                              description: 产品备注
+                              type: string
+                            order_no:
+                              description: 销售订单编号
+                              type: string
+                            transfer_invoice_serial_id:
+                              description: 关联采购任务编号
+                              type: string
+                            task_inbound_count:
+                              description: 已安排入库数量
+                              type: number
+                            to_inbound_count:
+                              description: 待安排入库数量
+                              type: number
+                            product_image:
+                              description: 产品图片信息
+                              type: object
+                              properties:
+                                file_name:
+                                  description: 名称
+                                  type: string
+                                file_path:
+                                  description: 路径
+                                  type: string
+                              x-apifox-orders:
+                              - file_name
+                              - file_path
+                          x-apifox-orders:
+                          - product_id
+                          - product_no
+                          - product_name
+                          - product_cn_name
+                          - sku_id
+                          - sku_code
+                          - count
+                          - unit_price
+                          - cost_amount
+                          - product_model
+                          - unit
+                          - supplier_product_no
+                          - supplier_product_name
+                          - product_remark
+                          - order_no
+                          - transfer_invoice_serial_id
+                          - task_inbound_count
+                          - to_inbound_count
+                          - product_image
+                          - '123311'
+                      amount_rmb:
+                        type: number
+                        description: 采购订单金额人民币
+                      amount_usd:
+                        type: number
+                        description: 采购订单金额美元
+                      parts_total_count:
+                        type: number
+                        description: 配件产品总数量
+                      product_total_count_no_parts:
+                        type: number
+                        description: 产品总数量（不含配件）
+                      payment_amount_rmb:
+                        type: number
+                        description: 已付金额人民币
+                      payment_amount_usd:
+                        type: number
+                        description: 已付金额美元
+                      product_total_amount_rmb:
+                        type: string
+                        description: 产品总金额人民币
+                      product_total_amount_usd:
+                        type: string
+                        description: 产品总金额美元
+                    x-apifox-orders:
+                    - purchase_order_id
+                    - purchase_order_no
+                    - status_info
+                    - inbound_status_info
+                    - handler_info
+                    - supplier_info
+                    - supplier_contact_info
+                    - purchase_date
+                    - delivery_date
+                    - remark
+                    - payment_status_info
+                    - create_time
+                    - create_user_info
+                    - update_user_info
+                    - update_time
+                    - currency
+                    - exchange_rate
+                    - exchange_rate_usd
+                    - amount
+                    - amount_rmb
+                    - amount_usd
+                    - product_total_amount
+                    - product_total_amount_rmb
+                    - product_total_amount_usd
+                    - product_total_count
+                    - product_total_count_no_parts
+                    - parts_total_count
+                    - addition_cost_amount
+                    - payment_amount
+                    - payment_amount_rmb
+                    - payment_amount_usd
+                    - payment_wait_amount
+                    - cost_list
+                    - product_list
+                    required:
+                    - product_total_amount_usd
+                    - product_total_amount_rmb
+                  attachments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        file_id:
+                          type: integer
+                          description: 附件ID
+                        file_name:
+                          type: string
+                          description: 附件名称
+                        file_url:
+                          type: string
+                          description: 附件url
+                      x-apifox-orders:
+                      - file_id
+                      - file_name
+                      - file_url
+                      required:
+                      - file_url
+                      - file_name
+                      - file_id
+                    description: 附件信息
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+                - attachments
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 采购订单
+      x-apifox-status: released
+      operationId: get_v1_purchaseorder_info
+      x-local-source-path: sources/pages/api-3478250.md
+      x-source-id: api-3478250
+      x-source-title: 采购订单详情
+      x-source-module: 采购订单
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

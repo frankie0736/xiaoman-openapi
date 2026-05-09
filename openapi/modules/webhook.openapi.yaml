@@ -1,0 +1,922 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 消息推送 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 消息推送.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 消息推送
+  x-module-slug: webhook
+paths:
+  /v1/webhook:
+    post:
+      summary: 创建回调配置
+      deprecated: false
+      description: '## 回调说明
+
+        1. 消息推送后需要响应：{"data" : {"message_id" : xxxxx}}
+
+        2. 消息重试时间为 10s 30s 60s 三次重试失败则会丢弃消息'
+      tags:
+      - 消息推送
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            example:
+              callback_url: https://test.xiaoman.cn/api/callback
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      security_method:
+                        type: string
+                      security_config:
+                        type: string
+                    required:
+                    - security_method
+                    - security_config
+                required:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: post_v1_webhook
+      x-local-source-path: sources/pages/api-3497011.md
+      x-source-id: api-3497011
+      x-source-title: 创建回调配置
+      x-source-module: 消息推送
+    put:
+      summary: 修改回调配置
+      deprecated: false
+      description: ''
+      tags:
+      - 消息推送
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                callback_url:
+                  type: string
+              required:
+              - callback_url
+              x-apifox-orders:
+              - callback_url
+            example:
+              callback_url: https://test.xiaoman.cn/api/callback
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      security_method:
+                        type: string
+                      callback_url:
+                        type: string
+                    required:
+                    - security_method
+                    - callback_url
+                    x-apifox-orders:
+                    - security_method
+                    - callback_url
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 11:32:47'
+                data:
+                  security_method: AES-256-GCM
+                  callback_url: https://test.xiaoman.cn/api/callback
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: put_v1_webhook
+      x-local-source-path: sources/pages/api-3497056.md
+      x-source-id: api-3497056
+      x-source-title: 修改回调配置
+      x-source-module: 消息推送
+    get:
+      summary: 获取回调配置
+      deprecated: false
+      description: ''
+      tags:
+      - 消息推送
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      callback_url:
+                        type: string
+                      callback_verify:
+                        type: string
+                      security_method:
+                        type: string
+                    required:
+                    - callback_url
+                    - callback_verify
+                    - security_method
+                    x-apifox-orders:
+                    - callback_url
+                    - callback_verify
+                    - security_method
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 11:51:02'
+                data:
+                  callback_url: https://test.xiaoman.cn/api/callback
+                  callback_verify: '0'
+                  security_method: AES-256-GCM
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: get_v1_webhook
+      x-local-source-path: sources/pages/api-3497057.md
+      x-source-id: api-3497057
+      x-source-title: 获取回调配置
+      x-source-module: 消息推送
+    delete:
+      summary: 删除回调配置
+      deprecated: false
+      description: ''
+      tags:
+      - 消息推送
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                required:
+                - code
+                - message
+                - now
+                x-apifox-orders:
+                - code
+                - message
+                - now
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 11:33:18'
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: delete_v1_webhook
+      x-local-source-path: sources/pages/api-3497058.md
+      x-source-id: api-3497058
+      x-source-title: 删除回调配置
+      x-source-module: 消息推送
+  /v1/webhook/test:
+    post:
+      summary: 测试回调接口
+      deprecated: false
+      description: "## 回调接口说明\n1. 调用该接口会向 回调配置中 添加的 callback_url 发送一个请求\n1.1 Header 包含一个 X-Signature 校验头， X-Timestamp 时间戳\n\
+        1.2 Body格式： {\"message_id\":\"msg_xxx\",\"data\":\"加密内容\"}\n1.3 用户可根据自身需要对 消息内容进行校验，加密方式：HMAC-SHA256 通过Header中X-Timestamp的内容+Body中的data数据，以及创建回调配置时返回的\
+        \ 加密串 security_config 进行解密校验\n2. 该接口需要一个正确的响应\n2.1 响应内容需要包含 message_id 这个与后续消息推送的响应一致\n2.2 测试接口需要额外返回biz_data 进行校验\n\
+        2.2.1 解密逻辑通过 AES-256-GCM 方式进行解密，最终得到 {\"biz\":[{\"biz_type\":\"xiaoman.open.callback.test\",\"biz_data\":\"xxx\"}]}\
+        \ 的数据结构\n2.3 响应体结构 ： {\"code\":200,\"data\":{\"message_id\":\"msg_xxx\",\"data\":\"xxx\"}}\n\nJS 签名校验示例\n```\nconst\
+        \ crypto = require('crypto');\n\n// 生成 HMAC-SHA256 签名\nfunction generateHMAC(message, secretKey) {\n    return crypto\n\
+        \        .createHmac('sha256', secretKey)\n        .update(message)\n        .digest('hex');\n}\n\n// 验证 HMAC-SHA256\
+        \ 签名\nfunction verifyHMAC(message, signature, secretKey) {\n    const generatedSignature = generateHMAC(message, secretKey);\n\
+        \    return crypto.timingSafeEqual(\n        Buffer.from(generatedSignature, 'hex'),\n        Buffer.from(signature,\
+        \ 'hex')\n    );\n}\n\n// 使用示例\nconst message = '{\"message_id\":\"msg_68d6527b8e41f8.33205216\",\"data\":\"REDACTED_ENCRYPTED_DATA\"\
+        }'; // 接口返回的响应内容\nconst secretKey = 'REDACTED_SECURITY_CONFIG'; // 创建webhook 返回的 security_config\nconst signature\
+        \ = 'REDACTED_SIGNATURE'; // 响应Header 上的 X-Signature\nconst timestamp = '1758876283'; // 响应 Header 上的 X-Timestamp\n\
+        \nconsole.log(timestamp+message);\n// 验证签名\nconst isValid = verifyHMAC(timestamp+message, signature, secretKey);\n\
+        console.log('Signature valid:', isValid);\n```\n\nJS 解密示例\n```\nconst crypto = require('crypto');\n\nfunction decryptWithAES256GCM(data,\
+        \ key) {\n    try {\n        console.log('=== 解密调试信息 ===');\n        console.log('输入data类型:', typeof data);\n    \
+        \    console.log('输入key类型:', typeof key);\n        \n        // 确保输入数据正确\n        let dataBuffer;\n        if (typeof\
+        \ data === 'string') {\n            dataBuffer = Buffer.from(data, 'base64');\n        } else {\n            dataBuffer\
+        \ = Buffer.isBuffer(data) ? data : Buffer.from(data);\n        }\n        \n        console.log('dataBuffer长度:', dataBuffer.length);\n\
+        \        console.log('dataBuffer内容(HEX):', dataBuffer.toString('hex'));\n        \n        // 确保密钥正确处理\n        let\
+        \ keyBuffer;\n        if (typeof key === 'string') {\n            keyBuffer = Buffer.from(key, 'base64');\n      \
+        \  } else {\n            keyBuffer = Buffer.isBuffer(key) ? key : Buffer.from(key);\n        }\n        \n       \
+        \ console.log('keyBuffer长度:', keyBuffer.length);\n        console.log('keyBuffer内容(HEX):', keyBuffer.toString('hex'));\n\
+        \        \n        // 验证密钥长度\n        if (keyBuffer.length !== 32) {\n            throw new Error(`密钥长度不正确: ${keyBuffer.length}\
+        \ 字节，应为32字节`);\n        }\n        \n        // 检查数据长度\n        if (dataBuffer.length < 28) {\n            throw new\
+        \ Error('加密数据太短');\n        }\n        \n        // 提取IV、标签和加密内容\n        const iv = dataBuffer.subarray(0, 12);\n\
+        \        const tag = dataBuffer.subarray(12, 28);\n        const encrypted = dataBuffer.subarray(28);\n        \n\
+        \        console.log('IV length:', iv.length);\n        console.log('Tag length:', tag.length);\n        console.log('Encrypted\
+        \ data length:', encrypted.length);\n        console.log('IV (hex):', iv.toString('hex'));\n        console.log('Tag\
+        \ (hex):', tag.toString('hex'));\n        console.log('Encrypted (hex):', encrypted.toString('hex'));\n        \n\
+        \        // 验证提取的数据完整性\n        if (iv.length !== 12 || tag.length !== 16) {\n            throw new Error('加密数据格式不正确');\n\
+        \        }\n        \n        // 创建解密器\n        const decipher = crypto.createDecipheriv('aes-256-gcm', keyBuffer,\
+        \ iv);\n        \n        // 设置认证标签\n        decipher.setAuthTag(tag);\n        \n        // 解密数据\n        let decrypted\
+        \ = decipher.update(encrypted, null, 'utf8');\n        console.log('update阶段解密成功');\n        decrypted += decipher.final('utf8');\n\
+        \        console.log('final阶段解密成功');\n        \n        return decrypted;\n    } catch (error) {\n        console.error('解密失败详细信息:',\
+        \ {\n            message: error.message,\n            stack: error.stack,\n            dataLength: data ? (typeof\
+        \ data === 'string' ? Buffer.from(data, 'base64').length : data.length) : 0\n        });\n        throw new Error(`解密失败:\
+        \ ${error.message}`);\n    }\n}\n\n// 测试数据\nconst message = '{\"message_id\":\"msg_68d6527b8e41f8.33205216\",\"data\"\
+        :\"REDACTED_ENCRYPTED_DATA\"}';\nconst secretKey = 'REDACTED_SECURITY_CONFIG';\n\nconsole.log('原始消息:', message);\n\
+        console.log('密钥:', secretKey);\n\n// 解析消息\nconst messageJson = JSON.parse(message);\nconst messageData = messageJson.data;\n\
+        \nconsole.log('要解密的data字段:', messageData);\n\ntry {\n    const decryptedData = decryptWithAES256GCM(messageData, secretKey);\n\
+        \    console.log('解密成功:', decryptedData);\n    \n    // 尝试解析解密后的JSON\n    try {\n        const parsedData = JSON.parse(decryptedData);\n\
+        \        console.log('解析后的JSON:', JSON.stringify(parsedData, null, 2));\n    } catch (parseError) {\n        console.log('解密数据不是有效的JSON格式');\n\
+        \        console.log('解密数据内容:', decryptedData);\n    }\n} catch (error) {\n    console.error('解密失败:', error.message);\n\
+        \    \n    // 额外的调试信息\n    console.log('\\n=== 额外调试信息 ===');\n    console.log('Base64解码后的数据长度:', Buffer.from(messageData,\
+        \ 'base64').length);\n    console.log('Base64数据是否有效:', /^[A-Za-z0-9+/]*={0,2}$/.test(messageData));\n}\n```"
+      tags:
+      - 消息推送
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                required:
+                - code
+                - message
+                - now
+                x-apifox-orders:
+                - code
+                - message
+                - now
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 12:36:59'
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: post_v1_webhook_test
+      x-local-source-path: sources/pages/api-3497013.md
+      x-source-id: api-3497013
+      x-source-title: 测试回调接口
+      x-source-module: 消息推送
+  /v1/webhook/regenerate-secret:
+    post:
+      summary: 重新生成加密密钥
+      deprecated: false
+      description: ''
+      tags:
+      - 消息推送
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      webhook_secret:
+                        type: string
+                    required:
+                    - webhook_secret
+                    x-apifox-orders:
+                    - webhook_secret
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 12:58:53'
+                data:
+                  webhook_secret: uIcbPs9tMNw9dY97DRUVKsyyGdc0f4vCXyAcex7GT+8=
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: post_v1_webhook_regenerate_secret
+      x-local-source-path: sources/pages/api-3497059.md
+      x-source-id: api-3497059
+      x-source-title: 重新生成加密密钥
+      x-source-module: 消息推送
+  /v1/subscribe:
+    post:
+      summary: 创建订阅配置
+      deprecated: false
+      description: '## 请求参数说明
+
+        1. subscribe_type ：订阅的模块
+
+        2. subscribe_configs ：订阅的配置
+
+        3. biz_type：订阅的事件
+
+        特殊说明： 一次只能订阅一个模块，但可以同时订阅一个模块下的多个事件
+
+        ## 支持的订阅类型
+
+        | 模块 | 创建事件 | 更新事件 | 删除事件 |返回字段|
+
+        |----------------|-----------------|-----------------|-----------------|---------------------|
+
+        | crm.order | xiaoman.crm.order.create | xiaoman.crm.order.update | xiaoman.crm.order.delete | order_id, order_no
+        |
+
+        | crm.company | xiaoman.crm.company.create | xiaoman.crm.company.update | xiaoman.crm.company.delete | company_id,
+        serial_id |
+
+        | crm.dynamic_trail | xiaoman.crm.dynamic_trail.create | xiaoman.crm.dynamic_trail.update | xiaoman.crm.dynamic_trail.delete
+        | trail_id |
+
+        | crm.purchase_order | xiaoman.crm.purchase_order.create | xiaoman.crm.purchase_order.update | xiaoman.crm.purchase_order.delete
+        | purchase_order_id, purchase_order_no |
+
+        | crm.product | xiaoman.crm.product.create | xiaoman.crm.product.update | xiaoman.crm.product.delete | product_id,
+        product_no |
+
+        | crm.cash_collection_invoice | xiaoman.crm.cash_collection_invoice.create | xiaoman.crm.cash_collection_invoice.update
+        | xiaoman.crm.cash_collection_invoice.delete | cash_collection_invoice_id, cash_collection_invoice_no |
+
+        | crm.cash_collection | xiaoman.crm.cash_collection.create | xiaoman.crm.cash_collection.update | xiaoman.crm.cash_collection.delete
+        | cash_collection_id |
+
+        | crm.payment_invoice | xiaoman.crm.payment_invoice.create | xiaoman.crm.payment_invoice.update | xiaoman.crm.payment_invoice.delete
+        | payment_invoice_id, payment_invoice_no |
+
+        | crm.cost_invoice | xiaoman.crm.cost_invoice.create | xiaoman.crm.cost_invoice.update | xiaoman.crm.cost_invoice.delete
+        | cost_invoice_id, cost_invoice_no |
+
+        | crm.quotation | xiaoman.crm.quotation.create | xiaoman.crm.quotation.update | xiaoman.crm.quotation.delete | quotation_id,
+        quotation_no |
+
+        | crm.supplier | xiaoman.crm.supplier.create | xiaoman.crm.supplier.update | xiaoman.crm.supplier.delete | supplier_id,
+        supplier_no |
+
+        | crm.opportunity | xiaoman.crm.opportunity.create | xiaoman.crm.opportunity.update | xiaoman.crm.opportunity.delete
+        | opportunity_id, serial_id |
+
+        | crm.warehouse | xiaoman.crm.warehouse.create | xiaoman.crm.warehouse.update | xiaoman.crm.warehouse.delete | warehouse_id,
+        warehouse_no |
+
+        | crm.lead | xiaoman.crm.lead.create | xiaoman.crm.lead.update | xiaoman.crm.lead.delete | lead_id, serial_id |
+
+        | crm.outbound_invoice | xiaoman.crm.outbound_invoice.create | xiaoman.crm.outbound_invoice.update | xiaoman.crm.outbound_invoice.delete
+        | outbound_invoice_id, serial_id |
+
+        | crm.inbound_invoice | xiaoman.crm.inbound_invoice.create | xiaoman.crm.inbound_invoice.update | xiaoman.crm.inbound_invoice.delete
+        | inbound_invoice_id, serial_id |
+
+        | crm.warehouse_return_invoice | xiaoman.crm.warehouse_return_invoice.create | xiaoman.crm.warehouse_return_invoice.update
+        | xiaoman.crm.warehouse_return_invoice.delete | warehouse_return_invoice_id, serial_id |
+
+
+        '
+      tags:
+      - 消息推送
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            example:
+              subscribe_type: crm.order
+              subscribe_configs:
+              - biz_type: xiaoman.crm.order.create
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 12:59:21'
+                data: []
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: post_v1_subscribe
+      x-local-source-path: sources/pages/api-3497012.md
+      x-source-id: api-3497012
+      x-source-title: 创建订阅配置
+      x-source-module: 消息推送
+    get:
+      summary: 获取订阅配置列表
+      deprecated: false
+      description: ''
+      tags:
+      - 消息推送
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        subscribe_type:
+                          type: string
+                        subscribe_config:
+                          type: array
+                          items:
+                            type: string
+                      x-apifox-orders:
+                      - subscribe_type
+                      - subscribe_config
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 13:07:41'
+                data:
+                - subscribe_type: crm.order
+                  subscribe_config:
+                  - xiaoman.crm.order.create
+                  - xiaoman.crm.order.update
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: get_v1_subscribe
+      x-local-source-path: sources/pages/api-3497061.md
+      x-source-id: api-3497061
+      x-source-title: 获取订阅配置列表
+      x-source-module: 消息推送
+  /v1/subscribe/{subscribe_type}:
+    put:
+      summary: 修改订阅配置
+      deprecated: false
+      description: ''
+      tags:
+      - 消息推送
+      parameters:
+      - name: subscribe_type
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                subscribe_type:
+                  type: string
+                subscribe_configs:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      biz_type:
+                        type: string
+                    required:
+                    - biz_type
+                    x-apifox-orders:
+                    - biz_type
+              required:
+              - subscribe_type
+              - subscribe_configs
+              x-apifox-orders:
+              - subscribe_type
+              - subscribe_configs
+            example:
+              subscribe_type: crm.order
+              subscribe_configs:
+              - biz_type: xiaoman.crm.order.create
+              - biz_type: xiaoman.crm.order.update
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 13:01:20'
+                data: []
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: put_v1_subscribe_by_subscribe_type
+      x-local-source-path: sources/pages/api-3497054.md
+      x-source-id: api-3497054
+      x-source-title: 修改订阅配置
+      x-source-module: 消息推送
+    delete:
+      summary: 删除订阅配置
+      deprecated: false
+      description: ''
+      tags:
+      - 消息推送
+      parameters:
+      - name: subscribe_type
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 13:46:56'
+                data: []
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: delete_v1_subscribe_by_subscribe_type
+      x-local-source-path: sources/pages/api-3497055.md
+      x-source-id: api-3497055
+      x-source-title: 删除订阅配置
+      x-source-module: 消息推送
+    get:
+      summary: 获取订阅配置详情
+      deprecated: false
+      description: ''
+      tags:
+      - 消息推送
+      parameters:
+      - name: subscribe_type
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      subscribe_type:
+                        type: string
+                      subscribe_config:
+                        type: array
+                        items:
+                          type: string
+                    required:
+                    - subscribe_type
+                    - subscribe_config
+                    x-apifox-orders:
+                    - subscribe_type
+                    - subscribe_config
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-09-25 13:09:01'
+                data:
+                  subscribe_type: crm.order
+                  subscribe_config:
+                  - xiaoman.crm.order.create
+                  - xiaoman.crm.order.update
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 消息推送
+      x-apifox-status: released
+      operationId: get_v1_subscribe_by_subscribe_type
+      x-local-source-path: sources/pages/api-3497060.md
+      x-source-id: api-3497060
+      x-source-title: 获取订阅配置详情
+      x-source-module: 消息推送
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

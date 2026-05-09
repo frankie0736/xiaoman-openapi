@@ -1,0 +1,1835 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Xiaoman OpenAPI - 付款单 (unofficial)",
+    "version": "2026-05-09",
+    "description": "Unofficial module spec generated from public Xiaoman Open API documentation: 付款单."
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.xiaoman.cn",
+      "description": "official documented server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "付款单",
+      "x-module-slug": "payment"
+    }
+  ],
+  "paths": {
+    "/v1/paymentInvoice/info": {
+      "get": {
+        "summary": "付款单详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "付款单"
+        ],
+        "parameters": [
+          {
+            "name": "payment_invoice_id",
+            "in": "query",
+            "description": "付款单ID ID或编号必须传其中一项",
+            "required": false,
+            "example": 4242551903,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "payment_invoice_no",
+            "in": "query",
+            "description": "付款单编号",
+            "required": false,
+            "example": "A0345",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "错误码",
+                      "type": "integer",
+                      "x-apifox-mock": 200
+                    },
+                    "now": {
+                      "description": "当前时间",
+                      "type": "string",
+                      "x-apifox-mock": "2022-01-01 00:00:00"
+                    },
+                    "message": {
+                      "description": "错误信息",
+                      "type": "string",
+                      "x-apifox-mock": "success"
+                    },
+                    "data": {
+                      "description": "响应数据",
+                      "type": "object",
+                      "properties": {
+                        "payment_invoice_id": {
+                          "description": "付款单ID",
+                          "type": "integer",
+                          "x-apifox-mock": 3179534607
+                        },
+                        "payment_invoice_no": {
+                          "description": "付款单编号",
+                          "type": "string",
+                          "x-apifox-mock": "HKD118"
+                        },
+                        "status": {
+                          "description": "付款单状态:1-待审核、2-待付款、3-已付款、4-已作废",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "expect_time": {
+                          "description": "预计付款日期",
+                          "type": "string",
+                          "format": "date-time",
+                          "x-apifox-mock": "2023-01-11 11:53:03"
+                        },
+                        "receive_refer_info": {
+                          "description": "收款方",
+                          "type": "object",
+                          "properties": {
+                            "receive_refer_type": {
+                              "description": "收款方类型 23-供应商 58-货代 4-客户",
+                              "type": "integer",
+                              "x-apifox-mock": 58
+                            },
+                            "receive_refer_id": {
+                              "description": "收款方ID",
+                              "type": "string",
+                              "x-apifox-mock": "测试公司7ef63e03-6"
+                            },
+                            "receive_refer_name": {
+                              "description": "名称",
+                              "type": "string",
+                              "x-apifox-mock": "XX收款公司"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "receive_refer_type",
+                            "receive_refer_id",
+                            "receive_refer_name"
+                          ]
+                        },
+                        "exchange_rate": {
+                          "description": "汇率，100单位单据币种（兑CNY）",
+                          "type": "number",
+                          "x-apifox-mock": 676.72
+                        },
+                        "exchange_rate_usd": {
+                          "description": "汇率，100单位单据币种汇率（兑USD）",
+                          "type": "number",
+                          "x-apifox-mock": 100
+                        },
+                        "currency": {
+                          "description": "币种",
+                          "type": "integer",
+                          "x-apifox-mock": "USD"
+                        },
+                        "amount": {
+                          "description": "付款金额",
+                          "type": "number",
+                          "x-apifox-mock": 666
+                        },
+                        "name": {
+                          "description": "付款账户",
+                          "type": "string",
+                          "x-apifox-mock": "test账户A"
+                        },
+                        "capital_bank": {
+                          "description": "付款银行",
+                          "type": "string",
+                          "x-apifox-mock": "中国银行支行"
+                        },
+                        "payment_time": {
+                          "description": "付款日期",
+                          "type": "string",
+                          "format": "date-time",
+                          "x-apifox-mock": "2023-01-11 11:53:03"
+                        },
+                        "trade_no": {
+                          "description": "交易号/票据号",
+                          "type": "string",
+                          "x-apifox-mock": "XXX"
+                        },
+                        "remark": {
+                          "description": "备注",
+                          "type": "string",
+                          "x-apifox-mock": "Invoice remark"
+                        },
+                        "create_time": {
+                          "description": "创建时间",
+                          "type": "string",
+                          "format": "date-time",
+                          "x-apifox-mock": "2023-01-11 11:53:03"
+                        },
+                        "update_time": {
+                          "description": "更新时间",
+                          "type": "string",
+                          "format": "date-time",
+                          "x-apifox-mock": "2023-01-11 11:53:03"
+                        },
+                        "attachment": {
+                          "description": "附件",
+                          "type": "object",
+                          "properties": {
+                            "file_name": {
+                              "description": "文件名称",
+                              "type": "string",
+                              "x-apifox-mock": "测试文件"
+                            },
+                            "file_url": {
+                              "description": "文件url",
+                              "type": "string",
+                              "x-apifox-mock": "https:/xxx/249521384/a7916.xlsx"
+                            },
+                            "file_size": {
+                              "description": "文件大小",
+                              "type": "integer",
+                              "x-apifox-mock": 116061
+                            },
+                            "create_time": {
+                              "description": "创建时间",
+                              "type": "string",
+                              "format": "date-time",
+                              "x-apifox-mock": "2024-12-09 09:02:20"
+                            },
+                            "user_id": {
+                              "description": "创建人ID",
+                              "type": "integer"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "file_name",
+                            "file_url",
+                            "file_size",
+                            "create_time",
+                            "user_id"
+                          ]
+                        },
+                        "partner_account_info": {
+                          "description": "收款信息",
+                          "type": "object",
+                          "properties": {
+                            "partner_account_id": {
+                              "description": "收款账户id",
+                              "type": "integer",
+                              "x-apifox-mock": 1
+                            },
+                            "partner_account_name": {
+                              "description": " 收款账户名",
+                              "type": "string",
+                              "x-apifox-mock": "XX供应商"
+                            },
+                            "bank_account": {
+                              "description": "收款账户",
+                              "type": "string",
+                              "x-apifox-mock": "XX收款公司"
+                            },
+                            "bank_name": {
+                              "description": "收款银行",
+                              "type": "string",
+                              "x-apifox-mock": "XX银行"
+                            },
+                            "account_name": {
+                              "description": "收款户名",
+                              "type": "string",
+                              "x-apifox-mock": "李四"
+                            },
+                            "account_image": {
+                              "description": "账户图片头像链接",
+                              "type": "string",
+                              "x-apifox-mock": ""
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "partner_account_id",
+                            "partner_account_name",
+                            "bank_account",
+                            "bank_name",
+                            "account_name",
+                            "account_image"
+                          ]
+                        },
+                        "record_list": {
+                          "description": "付款明细",
+                          "type": "object",
+                          "properties": {
+                            "refer_id": {
+                              "description": "源单id",
+                              "type": "integer",
+                              "x-apifox-mock": 1
+                            },
+                            "refer_no": {
+                              "description": " 源单编号",
+                              "type": "string",
+                              "x-apifox-mock": "XX56"
+                            },
+                            "refer_type": {
+                              "description": "源单类型 47-费用单 22-采购订单",
+                              "type": "integer",
+                              "x-apifox-mock": 22
+                            },
+                            "refer_exchange_rate": {
+                              "description": "源单汇率(CNY)",
+                              "type": "number",
+                              "x-apifox-mock": 705.32
+                            },
+                            "refer_exchange_rate_usd": {
+                              "description": "源单汇率(USD)",
+                              "type": "number",
+                              "x-apifox-mock": 100
+                            },
+                            "refer_currency": {
+                              "description": "源单币种",
+                              "type": "string",
+                              "x-apifox-mock": "USD"
+                            },
+                            "refer_amount": {
+                              "description": "源单金额",
+                              "type": "string",
+                              "x-apifox-mock": "李四"
+                            },
+                            "payment_amount_percent": {
+                              "description": "本次付款比例",
+                              "type": "string",
+                              "x-apifox-mock": ""
+                            },
+                            "payment_bank_charge": {
+                              "description": "本次付款手续费",
+                              "type": "number",
+                              "x-apifox-mock": 10
+                            },
+                            "payment_real_amount": {
+                              "description": "本次实际付款金额",
+                              "type": "number",
+                              "x-apifox-mock": 100
+                            },
+                            "payment_amount": {
+                              "description": "本次付款金额",
+                              "type": "number",
+                              "x-apifox-mock": 110
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "refer_id",
+                            "refer_no",
+                            "refer_type",
+                            "refer_exchange_rate",
+                            "refer_exchange_rate_usd",
+                            "refer_currency",
+                            "refer_amount",
+                            "payment_amount_percent",
+                            "payment_bank_charge",
+                            "payment_real_amount",
+                            "payment_amount"
+                          ]
+                        },
+                        "create_user_info": {
+                          "description": "创建人信息",
+                          "type": "object",
+                          "properties": {
+                            "user_id": {
+                              "description": "创建人ID",
+                              "type": "integer",
+                              "x-apifox-mock": 3179534246
+                            },
+                            "nickname": {
+                              "description": "创建人名称",
+                              "type": "string",
+                              "x-apifox-mock": "张三"
+                            },
+                            "avatar": {
+                              "description": "创建人头像",
+                              "type": "integer",
+                              "x-apifox-mock": 100
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "user_id",
+                            "nickname",
+                            "avatar"
+                          ]
+                        },
+                        "update_info": {
+                          "description": "更新人信息",
+                          "type": "object",
+                          "properties": {
+                            "user_id": {
+                              "description": "更新人ID",
+                              "type": "integer",
+                              "x-apifox-mock": 3179534246
+                            },
+                            "nickname": {
+                              "description": "更新人名称",
+                              "type": "string",
+                              "x-apifox-mock": "张三"
+                            },
+                            "avatar": {
+                              "description": "更新人头像",
+                              "type": "integer",
+                              "x-apifox-mock": 100
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "user_id",
+                            "nickname",
+                            "avatar"
+                          ]
+                        },
+                        "handler_info": {
+                          "description": "认领业务员信息",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "user_id": {
+                                "description": "认领业务员ID",
+                                "type": "integer",
+                                "x-apifox-mock": "249518496"
+                              },
+                              "nickname": {
+                                "description": "认领业务员名称",
+                                "type": "string",
+                                "x-apifox-mock": "test"
+                              },
+                              "email": {
+                                "description": "认领业务员邮箱",
+                                "type": "string",
+                                "x-apifox-mock": "account@test.test"
+                              },
+                              "avatar": {
+                                "description": "认领业务员头像链接",
+                                "type": "string",
+                                "x-apifox-mock": ""
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "user_id",
+                              "nickname",
+                              "email",
+                              "avatar"
+                            ]
+                          }
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "payment_invoice_id",
+                        "payment_invoice_no",
+                        "status",
+                        "expect_time",
+                        "receive_refer_info",
+                        "exchange_rate",
+                        "exchange_rate_usd",
+                        "currency",
+                        "amount",
+                        "name",
+                        "capital_bank",
+                        "payment_time",
+                        "trade_no",
+                        "remark",
+                        "create_time",
+                        "update_time",
+                        "attachment",
+                        "partner_account_info",
+                        "record_list",
+                        "create_user_info",
+                        "update_info",
+                        "handler_info"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "now",
+                    "message",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2024-12-05 17:56:49",
+                  "data": {
+                    "3601109549": "",
+                    "payment_invoice_id": 4242551903,
+                    "payment_invoice_no": "FK0004",
+                    "status": 3,
+                    "bank_account": "",
+                    "expect_time": "2024-10-15 13:59:22",
+                    "payment_time": "2024-10-15 00:00:00",
+                    "currency": "CNY",
+                    "amount": "1.00",
+                    "exchange_rate": "100.00000",
+                    "exchange_rate_usd": "13.94890",
+                    "trade_no": "",
+                    "create_time": "2024-10-15 13:59:29",
+                    "update_time": "2024-10-15 14:04:05",
+                    "remark": "",
+                    "receive_refer_type": 23,
+                    "receive_refer_id": 3566478544,
+                    "partner_account_info": {
+                      "bank_name": "",
+                      "account_name": "",
+                      "bank_account": "",
+                      "account_image": [],
+                      "partner_account_id": 3569820931,
+                      "partner_account_name": "aa"
+                    },
+                    "create_user_info": {
+                      "user_id": "249521384",
+                      "email": "roberthuang@xiaomancrm.com",
+                      "nickname": "roberthuang",
+                      "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg"
+                    },
+                    "update_info": {
+                      "user_id": "249521384",
+                      "email": "roberthuang@xiaomancrm.com",
+                      "nickname": "roberthuang",
+                      "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg"
+                    },
+                    "handler_info": [
+                      {
+                        "user_id": "249521384",
+                        "email": "roberthuang@xiaomancrm.com",
+                        "nickname": "roberthuang",
+                        "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg"
+                      }
+                    ],
+                    "capital_bank": "",
+                    "refer_info_list": [
+                      {
+                        "refer_id": 3610773698,
+                        "refer_type": 22,
+                        "payment_amount": 1,
+                        "refer_no": "CGDD2408120190",
+                        "refer_currency": "CNY",
+                        "refer_amount": 1,
+                        "payment_amount_percent": 100,
+                        "payment_real_amount": 1,
+                        "payment_bank_charge": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "付款单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_paymentinvoice_info",
+        "x-local-source-path": "sources/pages/api-3483962.md",
+        "x-source-id": "api-3483962",
+        "x-source-title": "付款单详情",
+        "x-source-module": "付款单"
+      }
+    },
+    "/v1/paymentInvoice/fields": {
+      "get": {
+        "summary": "付款单字段",
+        "deprecated": false,
+        "description": "# 字段类型有哪些\n| field_type |  |\n| --- | --- |\n| 1 | 单行文本 |\n| 2 | 多行文本 |\n| 3 | 单选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |\n| 4 | 日期，YYYY-MM-DD |\n| 5 | 数字 |\n| 6 | 图片 |\n| 7 | 多选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |\n| 8 | 附件 |\n| 9 | 关联字段 |\n| 10 | 日期时间，YYYY-MM-DD HH:mm:ss |\n| 11 | 公式 |\n| 12 | 汇总 |\n| 13 | 布尔 |\n| 17 | 状态 |\n| 18 | 阶段 |\n| 21 | 时间范围 |\n| 22 | 富文本 |\n| 23 | 引用 |\n\n若发现没有的字段类型可以咨询对接群，或者提客户工单。\n",
+        "tags": [
+          "付款单"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "字段ID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "字段名称"
+                          },
+                          "base": {
+                            "type": "integer",
+                            "description": "是否系统字段，1=系统字段，0=自定义字段"
+                          },
+                          "field_type": {
+                            "type": "integer",
+                            "description": "字段类型"
+                          },
+                          "ext_info": {
+                            "type": "null",
+                            "description": "选字段额外信息，比如选项等枚举值"
+                          },
+                          "require": {
+                            "type": "integer",
+                            "description": "是否必填，1=必填，0=非必填"
+                          },
+                          "default": {
+                            "type": "string",
+                            "description": "默认值"
+                          },
+                          "disable_flag": {
+                            "type": "integer"
+                          },
+                          "is_list": {
+                            "type": "integer",
+                            "description": "是否明细字段"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "base",
+                          "field_type",
+                          "ext_info",
+                          "require",
+                          "default",
+                          "disable_flag",
+                          "is_list"
+                        ],
+                        "x-apifox-orders": [
+                          "id",
+                          "name",
+                          "base",
+                          "field_type",
+                          "ext_info",
+                          "require",
+                          "default",
+                          "disable_flag",
+                          "is_list"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2024-12-05 17:57:21",
+                  "data": [
+                    {
+                      "id": "receive_refer_id",
+                      "name": "收款方",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "attachment",
+                      "name": "附件",
+                      "base": 1,
+                      "field_type": 8,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "remark",
+                      "name": "付款备注",
+                      "base": 1,
+                      "field_type": 2,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "trade_no",
+                      "name": "交易号/票据号",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "payment_time",
+                      "name": "付款日期",
+                      "base": 1,
+                      "field_type": 4,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "capital_account_id",
+                      "name": "付款账户",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "real_amount",
+                      "name": "实际付款金额",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "0",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "bank_charge",
+                      "name": "付款手续费",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "0",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "amount",
+                      "name": "付款金额",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "exchange_rate_usd",
+                      "name": "汇率(USD)",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "exchange_rate",
+                      "name": "汇率(CNY)",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "currency",
+                      "name": "币种",
+                      "base": 1,
+                      "field_type": 3,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "expect_time",
+                      "name": "预计付款时间",
+                      "base": 1,
+                      "field_type": 4,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "status",
+                      "name": "状态",
+                      "base": 1,
+                      "field_type": 3,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "handler",
+                      "name": "处理人",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "payment_invoice_no",
+                      "name": "付款单编号",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "receive_refer_type",
+                      "name": "收款方类型",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 1,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "refer_exchange_rate_usd",
+                      "name": "源单汇率（兑USD）",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 1,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "payable_invoice_id",
+                      "name": "应付款单id",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 1,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "payment_real_amount",
+                      "name": "本次实际付款金额",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "0",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "payment_bank_charge",
+                      "name": "本次付款手续费",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "0",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "payment_amount_percent",
+                      "name": "本次付款比例",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "refer_id",
+                      "name": "源单id",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 1,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "payment_amount",
+                      "name": "本次付款金额",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "refer_wait_payment_amount",
+                      "name": "源单未付款金额",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "refer_payment_amount",
+                      "name": "源单已付款金额",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "refer_amount",
+                      "name": "源单金额",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "refer_exchange_rate",
+                      "name": "源单汇率",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "refer_currency",
+                      "name": "源单币种",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "refer_type",
+                      "name": "源单类型",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 1,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "refer_no",
+                      "name": "源单编号",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 1
+                    },
+                    {
+                      "id": "update_time",
+                      "name": "修改时间",
+                      "base": 1,
+                      "field_type": 10,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "update_user",
+                      "name": "修改人",
+                      "base": 1,
+                      "field_type": 0,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "create_time",
+                      "name": "创建时间",
+                      "base": 1,
+                      "field_type": 10,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "create_user",
+                      "name": "创建人",
+                      "base": 1,
+                      "field_type": 0,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "account_image",
+                      "name": "账户图片",
+                      "base": 1,
+                      "field_type": 6,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "bank_name",
+                      "name": "收款银行",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "account_name",
+                      "name": "收款户名",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "bank_account",
+                      "name": "收款账号",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "partner_account_name",
+                      "name": "收款账户名",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "partner_account_id",
+                      "name": "收款账户id",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "supplier_id",
+                      "name": "供应商",
+                      "base": 1,
+                      "field_type": 5,
+                      "ext_info": null,
+                      "require": 1,
+                      "default": "",
+                      "disable_flag": 1,
+                      "is_list": 0
+                    },
+                    {
+                      "id": "refer_no_info",
+                      "name": "源单编号",
+                      "base": 1,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    },
+                    {
+                      "id": 3601109549,
+                      "name": "付款单自定义",
+                      "base": 0,
+                      "field_type": 1,
+                      "ext_info": null,
+                      "require": 0,
+                      "default": "",
+                      "disable_flag": 0,
+                      "is_list": 0
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "付款单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_paymentinvoice_fields",
+        "x-local-source-path": "sources/pages/api-3483963.md",
+        "x-source-id": "api-3483963",
+        "x-source-title": "付款单字段",
+        "x-source-module": "付款单"
+      }
+    },
+    "/v1/paymentInvoice/list": {
+      "get": {
+        "summary": "付款单列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "付款单"
+        ],
+        "parameters": [
+          {
+            "name": "time_type",
+            "in": "query",
+            "description": "时间筛选 1-按更新时间，2-按创建时间",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "start_time",
+            "in": "query",
+            "description": "开始时间",
+            "required": false,
+            "example": "2022-09-21",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "description": "截止时间",
+            "required": false,
+            "example": "2022-09-22",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start_index",
+            "in": "query",
+            "description": "页码",
+            "required": false,
+            "example": 0,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "每页数量",
+            "required": false,
+            "example": 0,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "removed",
+            "in": "query",
+            "description": "默认值: 0，设置=1时查询已删除的数据列表",
+            "required": false,
+            "example": 0,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "用单状态:1-草稿、2-待付款、3-已付款、4-已作废",
+            "required": false,
+            "example": 0,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "错误码",
+                      "type": "integer",
+                      "x-apifox-mock": 200
+                    },
+                    "now": {
+                      "description": "当前时间",
+                      "type": "string",
+                      "x-apifox-mock": "2022-01-01 00:00:00"
+                    },
+                    "message": {
+                      "description": "错误信息",
+                      "type": "string",
+                      "x-apifox-mock": "success"
+                    },
+                    "data": {
+                      "description": "响应数据",
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "description": "符合筛选条件的记录总数",
+                          "type": "integer",
+                          "x-apifox-mock": 50
+                        },
+                        "list": {
+                          "description": "符合筛选条件的记录",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "payment_invoice_id": {
+                                "description": "付款单ID",
+                                "type": "integer",
+                                "x-apifox-mock": 3179534607
+                              },
+                              "payment_invoice_no": {
+                                "description": "付款单编号",
+                                "type": "string",
+                                "x-apifox-mock": "HKD118"
+                              },
+                              "status": {
+                                "description": "付款单状态:1-待审核、2-待付款、3-已付款、4-已作废",
+                                "type": "integer",
+                                "x-apifox-mock": 1
+                              },
+                              "expect_time": {
+                                "description": "预计付款日期",
+                                "type": "string",
+                                "format": "date-time",
+                                "x-apifox-mock": "2023-01-11 11:53:03"
+                              },
+                              "receive_refer_info": {
+                                "description": "收款方",
+                                "type": "object",
+                                "properties": {
+                                  "receive_refer_type": {
+                                    "description": "收款方类型 23-供应商 58-货代 4-客户",
+                                    "type": "integer",
+                                    "x-apifox-mock": 58
+                                  },
+                                  "receive_refer_id": {
+                                    "description": "收款方ID",
+                                    "type": "string",
+                                    "x-apifox-mock": "测试公司7ef63e03-6"
+                                  },
+                                  "receive_refer_name": {
+                                    "description": "收款方名称",
+                                    "type": "string",
+                                    "x-apifox-mock": "XX收款公司"
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "receive_refer_type",
+                                  "receive_refer_id",
+                                  "receive_refer_name"
+                                ]
+                              },
+                              "exchange_rate": {
+                                "description": "汇率，100单位单据币种（兑CNY）",
+                                "type": "number",
+                                "x-apifox-mock": 676.72
+                              },
+                              "exchange_rate_usd": {
+                                "description": "汇率，100单位单据币种汇率（兑USD）",
+                                "type": "number",
+                                "x-apifox-mock": 100
+                              },
+                              "currency": {
+                                "description": "币种",
+                                "type": "integer",
+                                "x-apifox-mock": "USD"
+                              },
+                              "amount": {
+                                "description": "付款金额",
+                                "type": "number",
+                                "x-apifox-mock": 666
+                              },
+                              "name": {
+                                "description": "付款账户",
+                                "type": "string",
+                                "x-apifox-mock": "test账户A"
+                              },
+                              "capital_bank": {
+                                "description": "付款银行",
+                                "type": "string",
+                                "x-apifox-mock": "中国银行支行"
+                              },
+                              "payment_time": {
+                                "description": "付款日期",
+                                "type": "string",
+                                "format": "date-time",
+                                "x-apifox-mock": "2023-01-11 11:53:03"
+                              },
+                              "trade_no": {
+                                "description": "交易号/票据号",
+                                "type": "string",
+                                "x-apifox-mock": "XXX"
+                              },
+                              "remark": {
+                                "description": "备注",
+                                "type": "string",
+                                "x-apifox-mock": "Invoice remark"
+                              },
+                              "create_time": {
+                                "description": "创建时间",
+                                "type": "string",
+                                "format": "date-time",
+                                "x-apifox-mock": "2023-01-11 11:53:03"
+                              },
+                              "update_time": {
+                                "description": "更新时间",
+                                "type": "string",
+                                "format": "date-time",
+                                "x-apifox-mock": "2023-01-11 11:53:03"
+                              },
+                              "partner_account_info": {
+                                "description": "收款信息",
+                                "type": "object",
+                                "properties": {
+                                  "partner_account_id": {
+                                    "description": "收款账户id",
+                                    "type": "integer",
+                                    "x-apifox-mock": 1
+                                  },
+                                  "partner_account_name": {
+                                    "description": " 收款账户名",
+                                    "type": "string",
+                                    "x-apifox-mock": "XX供应商"
+                                  },
+                                  "bank_account": {
+                                    "description": "收款账户",
+                                    "type": "string",
+                                    "x-apifox-mock": "XX收款公司"
+                                  },
+                                  "bank_name": {
+                                    "description": "收款银行",
+                                    "type": "string",
+                                    "x-apifox-mock": "XX银行"
+                                  },
+                                  "account_name": {
+                                    "description": "收款户名",
+                                    "type": "string",
+                                    "x-apifox-mock": "李四"
+                                  },
+                                  "account_image": {
+                                    "description": "账户图片头像链接",
+                                    "type": "string",
+                                    "x-apifox-mock": ""
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "partner_account_id",
+                                  "partner_account_name",
+                                  "bank_account",
+                                  "bank_name",
+                                  "account_name",
+                                  "account_image"
+                                ]
+                              },
+                              "create_user_info": {
+                                "description": "创建人信息",
+                                "type": "object",
+                                "properties": {
+                                  "user_id": {
+                                    "description": "创建人ID",
+                                    "type": "integer",
+                                    "x-apifox-mock": 3179534246
+                                  },
+                                  "nickname": {
+                                    "description": "创建人名称",
+                                    "type": "string",
+                                    "x-apifox-mock": "张三"
+                                  },
+                                  "avatar": {
+                                    "description": "创建人头像",
+                                    "type": "integer",
+                                    "x-apifox-mock": 100
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "user_id",
+                                  "nickname",
+                                  "avatar"
+                                ]
+                              },
+                              "update_info": {
+                                "description": "更新人信息",
+                                "type": "object",
+                                "properties": {
+                                  "user_id": {
+                                    "description": "更新人ID",
+                                    "type": "integer",
+                                    "x-apifox-mock": 3179534246
+                                  },
+                                  "nickname": {
+                                    "description": "更新人名称",
+                                    "type": "string",
+                                    "x-apifox-mock": "张三"
+                                  },
+                                  "avatar": {
+                                    "description": "更新人头像",
+                                    "type": "integer",
+                                    "x-apifox-mock": 100
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "user_id",
+                                  "nickname",
+                                  "avatar"
+                                ]
+                              },
+                              "handler_info": {
+                                "description": "认领业务员信息",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "user_id": {
+                                      "description": "认领业务员ID",
+                                      "type": "integer",
+                                      "x-apifox-mock": "249518496"
+                                    },
+                                    "nickname": {
+                                      "description": "认领业务员名称",
+                                      "type": "string",
+                                      "x-apifox-mock": "test"
+                                    },
+                                    "email": {
+                                      "description": "认领业务员邮箱",
+                                      "type": "string",
+                                      "x-apifox-mock": "account@test.test"
+                                    },
+                                    "avatar": {
+                                      "description": "认领业务员头像链接",
+                                      "type": "string",
+                                      "x-apifox-mock": ""
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "user_id",
+                                    "nickname",
+                                    "email",
+                                    "avatar"
+                                  ]
+                                }
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "payment_invoice_id",
+                              "payment_invoice_no",
+                              "status",
+                              "expect_time",
+                              "receive_refer_info",
+                              "exchange_rate",
+                              "exchange_rate_usd",
+                              "currency",
+                              "amount",
+                              "name",
+                              "capital_bank",
+                              "payment_time",
+                              "trade_no",
+                              "remark",
+                              "create_time",
+                              "update_time",
+                              "partner_account_info",
+                              "create_user_info",
+                              "update_info",
+                              "handler_info"
+                            ]
+                          }
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "count",
+                        "list"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "now",
+                    "message",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "now": "2022-01-01 00:00:00",
+                  "message": "success",
+                  "data": {
+                    "count": 50,
+                    "list": [
+                      {
+                        "payment_invoice_id": 3179534607,
+                        "payment_invoice_no": "HKD118",
+                        "status": 1,
+                        "expect_time": "2023-01-11 11:53:03",
+                        "receive_refer_info": {
+                          "receive_refer_type": 58,
+                          "receive_refer_id": "测试公司7ef63e03-6",
+                          "receive_refer_name": "XX收款公司"
+                        },
+                        "exchange_rate": 676.72,
+                        "exchange_rate_usd": 100,
+                        "currency": "USD",
+                        "amount": 666,
+                        "name": "test账户A",
+                        "capital_bank": "中国银行支行",
+                        "payment_time": "2023-01-11 11:53:03",
+                        "trade_no": "XXX",
+                        "remark": "Invoice remark",
+                        "create_time": "2023-01-11 11:53:03",
+                        "update_time": "2023-01-11 11:53:03",
+                        "partner_account_info": {
+                          "partner_account_id": 1,
+                          "partner_account_name": "XX供应商",
+                          "bank_account": "XX收款公司",
+                          "bank_name": "XX银行",
+                          "account_name": "李四",
+                          "account_image": ""
+                        },
+                        "create_user_info": {
+                          "user_id": 3179534246,
+                          "nickname": "张三",
+                          "avatar": 100
+                        },
+                        "update_info": {
+                          "user_id": 3179534246,
+                          "nickname": "张三",
+                          "avatar": 100
+                        },
+                        "handler_info": [
+                          {
+                            "user_id": "249518496",
+                            "nickname": "test",
+                            "email": "account@test.test",
+                            "avatar": ""
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          },
+          "x-200:请求成功": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg"
+                  ]
+                },
+                "example": {
+                  "msg": "success",
+                  "code": 0
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "请求成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "付款单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_paymentinvoice_list",
+        "x-local-source-path": "sources/pages/api-3484721.md",
+        "x-source-id": "api-3484721",
+        "x-source-title": "付款单列表",
+        "x-source-module": "付款单"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "新增客户联系人": {
+        "type": "object",
+        "properties": {
+          "company_id": {
+            "type": "integer",
+            "x-apifox-mock": "1",
+            "description": "客户ID"
+          },
+          "serial_id": {
+            "type": "string",
+            "description": "客户编号",
+            "x-apifox-mock": "1"
+          },
+          "name": {
+            "type": "string",
+            "description": "联系人名称"
+          },
+          "tel_area_code": {
+            "type": "string",
+            "description": "联系人电话区号"
+          },
+          "tel": {
+            "type": "string",
+            "description": "联系人电话号码"
+          }
+        },
+        "x-apifox-orders": [
+          "company_id",
+          "serial_id",
+          "name",
+          "tel_area_code",
+          "tel"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "数据字典响应": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "now": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "字段ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "字段名称"
+                },
+                "base": {
+                  "type": "integer",
+                  "description": "是否系统字段，1=系统字段，0=自定义字段"
+                },
+                "field_type": {
+                  "type": "integer",
+                  "description": "字段类型"
+                },
+                "ext_info": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "选字段额外信息，比如选项等枚举值",
+                  "nullable": true
+                },
+                "require": {
+                  "type": "integer",
+                  "description": "是否必填，1=必填，0=非必填"
+                },
+                "default": {
+                  "type": "string",
+                  "description": "默认值"
+                },
+                "disable_flag": {
+                  "type": "integer"
+                },
+                "is_list": {
+                  "type": "integer",
+                  "description": "是否明细字段"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-orders": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-ignore-properties": []
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-orders": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header parameter."
+      }
+    }
+  },
+  "x-generated-at": "2026-05-09T04:02:32+00:00",
+  "x-source": {
+    "catalog": "sources/catalog.json",
+    "snapshot": "sources/pages"
+  }
+}

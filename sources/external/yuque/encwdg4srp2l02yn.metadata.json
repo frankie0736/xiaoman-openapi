@@ -1,0 +1,113 @@
+{
+  "url": "https://www.yuque.com/help.xiaoman/irikgd/encwdg4srp2l02yn",
+  "html_snapshot": "sources/external/yuque/encwdg4srp2l02yn.html",
+  "meta": {
+    "description": "本文介绍开发者在小满开放平台账号身份获取流程。仅针对账...",
+    "og:title": "身份获取说明 · 语雀",
+    "og:description": "本文介绍开发者在小满开放平台账号身份获取流程。仅针对账...",
+    "title": "身份获取说明 · 语雀"
+  },
+  "doc": {
+    "id": 226905822,
+    "title": "身份获取说明",
+    "slug": "encwdg4srp2l02yn",
+    "description": "本文介绍开发者在小满开放平台账号身份获取流程。仅针对账号身份。一、账号身份简介小满平台有两种账号身份：主账号、子账号。账号身份说明：主账号：具备所有业务模块的开发、运营及管理权限。子账号：作为某业务模块的子账号，具备某业务模块的开发、运营及管理权限。注：API 权限范围即为业务模块权限范围。二...",
+    "word_count": 405,
+    "created_at": "2025-07-07T02:19:58.000Z",
+    "updated_at": "2026-04-02T01:40:16.000Z",
+    "published_at": "2025-07-07T02:33:06.000Z",
+    "content_updated_at": "2025-07-07T02:33:06.000Z"
+  },
+  "book": {
+    "id": 25901336,
+    "name": "OKKI CRM 各版本资料下载",
+    "slug": "irikgd",
+    "toc_updated_at": "2025-11-24T02:23:30.000Z"
+  },
+  "api_toc": [
+    {
+      "type": "TITLE",
+      "title": "API服务指引",
+      "url": "",
+      "level": 0
+    },
+    {
+      "type": "DOC",
+      "title": "多系统对接指引",
+      "url": "nl97i50gpoc4dbeg",
+      "level": 1
+    },
+    {
+      "type": "DOC",
+      "title": "基本概念",
+      "url": "eq1s6ut8oztf8gxz",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "身份获取说明",
+      "url": "encwdg4srp2l02yn",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "API 激活流程",
+      "url": "ybevn6es0rpqx06r",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "自主对接",
+      "url": "piop6ecyiq5rgdbg",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "其他第三方服务商对接",
+      "url": "uhtot0x8tol9soao",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "实施服务商对接",
+      "url": "uzw227d10hc2foo9",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "实施服务商对接——已提前预对接ERP系统",
+      "url": "da5p3xpkkvhhxz3a",
+      "level": 3
+    },
+    {
+      "type": "DOC",
+      "title": "金蝶云星辰授权流程",
+      "url": "ygbegvxwrx6wn8xb",
+      "level": 4
+    },
+    {
+      "type": "DOC",
+      "title": "畅捷通授权流程",
+      "url": "pzzq1q0cvbcavx8g",
+      "level": 4
+    },
+    {
+      "type": "DOC",
+      "title": "金蝶云星空授权流程",
+      "url": "vektkvxrlg3uvgxz",
+      "level": 4
+    },
+    {
+      "type": "DOC",
+      "title": "实施服务商对接——非预先对接的ERP系统",
+      "url": "vluupruar4bodq46",
+      "level": 3
+    },
+    {
+      "type": "DOC",
+      "title": "FAQ",
+      "url": "mwnvlommqa5q5u9y",
+      "level": 2
+    }
+  ]
+}

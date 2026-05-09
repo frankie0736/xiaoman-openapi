@@ -1,0 +1,2321 @@
+{
+  "categories": {
+    "example-data": {
+      "count": 755,
+      "examples": [
+        {
+          "file": "openapi/modules/company.openapi.json",
+          "line": 5730,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/55280038/1f3b52af445546c48341c6800afb32e08241d332bad3e0a6623c72e1f32f8cc2.jpeg"
+        },
+        {
+          "file": "openapi/modules/company.openapi.yaml",
+          "line": 4388,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/55280038/1f3b52af445546c48341c6800afb32e08241d332bad3e0a6623c72e1f32f8cc2.jpeg"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.json",
+          "line": 525,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.json",
+          "line": 532,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.json",
+          "line": 554,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/5d233560acb9f4e0418068fb66204bce6b4c907d3fec918b42a720fc1be2df43.jpg"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.yaml",
+          "line": 418,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.yaml",
+          "line": 423,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.yaml",
+          "line": 439,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/5d233560acb9f4e0418068fb66204bce6b4c907d3fec918b42a720fc1be2df43.jpg"
+        },
+        {
+          "file": "openapi/modules/lead.openapi.json",
+          "line": 900,
+          "url": "https://example.com"
+        },
+        {
+          "file": "openapi/modules/lead.openapi.json",
+          "line": 1185,
+          "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/uploader/63147bc3abbea9fd3a922ab52900823dd10f2ca2/3923-portraitpng"
+        },
+        {
+          "file": "openapi/modules/lead.openapi.yaml",
+          "line": 689,
+          "url": "https://example.com"
+        },
+        {
+          "file": "openapi/modules/lead.openapi.yaml",
+          "line": 924,
+          "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/uploader/63147bc3abbea9fd3a922ab52900823dd10f2ca2/3923-portraitpng"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1250,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1273,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1304,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1319,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/11858711/f05891a46ca17ff2c0f56c9ad198bba207ac47610ae2f51a84ba09317c38a1c5.jpeg"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1373,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1655,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1686,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1749,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg"
+        }
+      ]
+    },
+    "official-upstream-metadata": {
+      "count": 437,
+      "examples": [
+        {
+          "file": "README.md",
+          "line": 115,
+          "url": "https://open.xiaoman.cn/llms.txt"
+        },
+        {
+          "file": "README.md",
+          "line": 116,
+          "url": "https://open.xiaoman.cn"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 6,
+          "url": "https://open.xiaoman.cn/doc-338269.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 17,
+          "url": "https://open.xiaoman.cn/folder-349137.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 28,
+          "url": "https://open.xiaoman.cn/doc-338276.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 39,
+          "url": "https://open.xiaoman.cn/doc-338291.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 50,
+          "url": "https://open.xiaoman.cn/doc-338281.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 61,
+          "url": "https://open.xiaoman.cn/doc-338283.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 72,
+          "url": "https://open.xiaoman.cn/doc-338292.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 83,
+          "url": "https://open.xiaoman.cn/doc-338286.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 94,
+          "url": "https://open.xiaoman.cn/doc-338284.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 105,
+          "url": "https://open.xiaoman.cn/doc-338288.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 116,
+          "url": "https://open.xiaoman.cn/doc-338289.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 127,
+          "url": "https://open.xiaoman.cn/doc-338293.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 138,
+          "url": "https://open.xiaoman.cn/doc-338290.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 149,
+          "url": "https://open.xiaoman.cn/doc-338294.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 160,
+          "url": "https://open.xiaoman.cn/doc-338295.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 171,
+          "url": "https://open.xiaoman.cn/doc-338296.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 182,
+          "url": "https://open.xiaoman.cn/doc-338298.md"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 193,
+          "url": "https://open.xiaoman.cn/doc-338297.md"
+        }
+      ]
+    },
+    "archived-html-asset": {
+      "count": 351,
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/da5p3xpkkvhhxz3a"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/56951931/1751339268512-2f8b9ead-fa57-4461-b80e-acc789e1e7e5.png"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 29,
+          "url": "https://gw.alipayobjects.com"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 35,
+          "url": "https://g.yuque.com"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 40,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/deps.49d14cd0.css"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 41,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/larkui.c14af959.css"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 44,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/pc.0a82ad58.css"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 245,
+          "url": "https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*lACSTZ9k73wAAAAAAAAAAAAAARQnAQ"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 246,
+          "url": "https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*gVB8RJQlsQsAAAAAAAAAAAAAARQnAQ"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 255,
+          "url": "https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*au01Tr2-h8oAAAAAAAAAAAAAARQnAQ"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 437,
+          "url": "https://gw.alipayobjects.com/render/p/yuyan_npm/@alipay_yuyan-monitor-web/4.1.14/dist/index.umd.min.js"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 457,
+          "url": "https://gw.alipayobjects.com/os/skylark/v3/polyfill.min.js"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 458,
+          "url": "https://gw.alipayobjects.com/os/lib/??react/16.13.1/umd/react.production.min.js,react-dom/16.13.1/umd/react-dom.production.min.js,react-dom/16.13.1/umd/react-dom-server.browser.production.min.js,moment/2.24.0/min/moment.min.js"
+        }
+      ]
+    },
+    "runtime-server": {
+      "count": 199,
+      "examples": [
+        {
+          "file": "docs/agent/endpoints.jsonl",
+          "line": 55,
+          "url": "https://api-sandbox.xiaoman.cn/v1/product/push-sku-attribute"
+        },
+        {
+          "file": "docs/agent/endpoints.jsonl",
+          "line": 55,
+          "url": "https://api-sandbox.xiaoman.cn/v1/product/sku-attribute-list"
+        },
+        {
+          "file": "docs/guides/doc-338269.md",
+          "line": 20,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "docs/guides/schema-350328.md",
+          "line": 51,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "docs/guides/schema-350329.md",
+          "line": 296,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "docs/guides/schema-350333.md",
+          "line": 98,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "docs/guides/schema-350334.md",
+          "line": 49,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/analytics.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/analytics.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/auth.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/auth.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/capital-account.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/capital-account.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/company.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/company.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/devops.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/devops.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn"
+        },
+        {
+          "file": "openapi/modules/example-do-not-use.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn"
+        }
+      ]
+    },
+    "example-callback": {
+      "count": 20,
+      "examples": [
+        {
+          "file": "openapi/modules/webhook.openapi.json",
+          "line": 38,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.json",
+          "line": 124,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.json",
+          "line": 185,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.json",
+          "line": 271,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.yaml",
+          "line": 32,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.yaml",
+          "line": 92,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.yaml",
+          "line": 136,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.yaml",
+          "line": 200,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 61965,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 62051,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 62112,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 62198,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 49857,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 49917,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 49961,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 50025,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "sources/pages/api-3497011.md",
+          "line": 30,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "sources/pages/api-3497056.md",
+          "line": 33,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "sources/pages/api-3497056.md",
+          "line": 77,
+          "url": "https://test.xiaoman.cn/api/callback"
+        },
+        {
+          "file": "sources/pages/api-3497057.md",
+          "line": 66,
+          "url": "https://test.xiaoman.cn/api/callback"
+        }
+      ]
+    },
+    "mirrored-external-guide-metadata": {
+      "count": 13,
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/da5p3xpkkvhhxz3a"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/encwdg4srp2l02yn"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/eq1s6ut8oztf8gxz"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/mwnvlommqa5q5u9y"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/nl97i50gpoc4dbeg"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/piop6ecyiq5rgdbg"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/pzzq1q0cvbcavx8g"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/uhtot0x8tol9soao"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/uzw227d10hc2foo9"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/vektkvxrlg3uvgxz"
+        },
+        {
+          "file": "sources/external/yuque/vluupruar4bodq46.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/vluupruar4bodq46"
+        },
+        {
+          "file": "sources/external/yuque/ybevn6es0rpqx06r.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/ybevn6es0rpqx06r"
+        },
+        {
+          "file": "sources/external/yuque/ygbegvxwrx6wn8xb.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/ygbegvxwrx6wn8xb"
+        }
+      ]
+    },
+    "repository-usage": {
+      "count": 2,
+      "examples": [
+        {
+          "file": "README.md",
+          "line": 43,
+          "url": "https://raw.githubusercontent.com/frankie0736/xiaoman-openapi/main/llms.txt"
+        },
+        {
+          "file": "README.md",
+          "line": 53,
+          "url": "https://github.com/frankie0736/xiaoman-openapi"
+        }
+      ]
+    }
+  },
+  "hosts": {
+    "v4client.oss-cn-hangzhou.aliyuncs.com": {
+      "count": 735,
+      "categories": {
+        "example-data": 735
+      },
+      "examples": [
+        {
+          "file": "openapi/modules/company.openapi.json",
+          "line": 5730,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/55280038/1f3b52af445546c48341c6800afb32e08241d332bad3e0a6623c72e1f32f8cc2.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/company.openapi.yaml",
+          "line": 4388,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/55280038/1f3b52af445546c48341c6800afb32e08241d332bad3e0a6623c72e1f32f8cc2.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.json",
+          "line": 525,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.json",
+          "line": 532,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.json",
+          "line": 554,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/5d233560acb9f4e0418068fb66204bce6b4c907d3fec918b42a720fc1be2df43.jpg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.yaml",
+          "line": 418,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.yaml",
+          "line": 423,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/59039bd7f1ecfe0aacf009b615503661c9eb00706304a4ae2430da0df3015fc4.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.yaml",
+          "line": 439,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249521384/5d233560acb9f4e0418068fb66204bce6b4c907d3fec918b42a720fc1be2df43.jpg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1250,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1273,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1304,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1319,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/11858711/f05891a46ca17ff2c0f56c9ad198bba207ac47610ae2f51a84ba09317c38a1c5.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1373,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1655,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1686,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 1749,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 2012,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 2043,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 2104,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/opportunity.openapi.json",
+          "line": 2391,
+          "url": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+          "category": "example-data"
+        }
+      ]
+    },
+    "open.xiaoman.cn": {
+      "count": 437,
+      "categories": {
+        "official-upstream-metadata": 437
+      },
+      "examples": [
+        {
+          "file": "README.md",
+          "line": 115,
+          "url": "https://open.xiaoman.cn/llms.txt",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "README.md",
+          "line": 116,
+          "url": "https://open.xiaoman.cn",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 6,
+          "url": "https://open.xiaoman.cn/doc-338269.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 17,
+          "url": "https://open.xiaoman.cn/folder-349137.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 28,
+          "url": "https://open.xiaoman.cn/doc-338276.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 39,
+          "url": "https://open.xiaoman.cn/doc-338291.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 50,
+          "url": "https://open.xiaoman.cn/doc-338281.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 61,
+          "url": "https://open.xiaoman.cn/doc-338283.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 72,
+          "url": "https://open.xiaoman.cn/doc-338292.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 83,
+          "url": "https://open.xiaoman.cn/doc-338286.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 94,
+          "url": "https://open.xiaoman.cn/doc-338284.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 105,
+          "url": "https://open.xiaoman.cn/doc-338288.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 116,
+          "url": "https://open.xiaoman.cn/doc-338289.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 127,
+          "url": "https://open.xiaoman.cn/doc-338293.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 138,
+          "url": "https://open.xiaoman.cn/doc-338290.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 149,
+          "url": "https://open.xiaoman.cn/doc-338294.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 160,
+          "url": "https://open.xiaoman.cn/doc-338295.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 171,
+          "url": "https://open.xiaoman.cn/doc-338296.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 182,
+          "url": "https://open.xiaoman.cn/doc-338298.md",
+          "category": "official-upstream-metadata"
+        },
+        {
+          "file": "sources/catalog.json",
+          "line": 193,
+          "url": "https://open.xiaoman.cn/doc-338297.md",
+          "category": "official-upstream-metadata"
+        }
+      ]
+    },
+    "gw.alipayobjects.com": {
+      "count": 208,
+      "categories": {
+        "archived-html-asset": 208
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 29,
+          "url": "https://gw.alipayobjects.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 40,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/deps.49d14cd0.css",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 41,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/larkui.c14af959.css",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 44,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/pc.0a82ad58.css",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 245,
+          "url": "https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*lACSTZ9k73wAAAAAAAAAAAAAARQnAQ",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 246,
+          "url": "https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*gVB8RJQlsQsAAAAAAAAAAAAAARQnAQ",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 255,
+          "url": "https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*au01Tr2-h8oAAAAAAAAAAAAAARQnAQ",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 437,
+          "url": "https://gw.alipayobjects.com/render/p/yuyan_npm/@alipay_yuyan-monitor-web/4.1.14/dist/index.umd.min.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 457,
+          "url": "https://gw.alipayobjects.com/os/skylark/v3/polyfill.min.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 458,
+          "url": "https://gw.alipayobjects.com/os/lib/??react/16.13.1/umd/react.production.min.js,react-dom/16.13.1/umd/react-dom.production.min.js,react-dom/16.13.1/umd/react-dom-server.browser.production.min.js,moment/2.24.0/min/moment.min.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 547,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/prefetch.4c5dabe6.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 556,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 562,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/deps.5d5756ee.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 563,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/common.b2353508.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 564,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/larkui.9c780393.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 568,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/pc.0906edb5.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 29,
+          "url": "https://gw.alipayobjects.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 40,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/deps.49d14cd0.css",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 41,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/larkui.c14af959.css",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 44,
+          "url": "https://gw.alipayobjects.com/os/chair-script/skylark/pc.0a82ad58.css",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "api-sandbox.xiaoman.cn": {
+      "count": 199,
+      "categories": {
+        "runtime-server": 199
+      },
+      "examples": [
+        {
+          "file": "docs/agent/endpoints.jsonl",
+          "line": 55,
+          "url": "https://api-sandbox.xiaoman.cn/v1/product/push-sku-attribute",
+          "category": "runtime-server"
+        },
+        {
+          "file": "docs/agent/endpoints.jsonl",
+          "line": 55,
+          "url": "https://api-sandbox.xiaoman.cn/v1/product/sku-attribute-list",
+          "category": "runtime-server"
+        },
+        {
+          "file": "docs/guides/doc-338269.md",
+          "line": 20,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "docs/guides/schema-350328.md",
+          "line": 51,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "docs/guides/schema-350329.md",
+          "line": 296,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "docs/guides/schema-350333.md",
+          "line": 98,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "docs/guides/schema-350334.md",
+          "line": 49,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/analytics.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/analytics.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/auth.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/auth.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/capital-account.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/capital-account.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/company.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/company.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/cost-invoice.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/devops.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/devops.openapi.yaml",
+          "line": 7,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        },
+        {
+          "file": "openapi/modules/example-do-not-use.openapi.json",
+          "line": 10,
+          "url": "https://api-sandbox.xiaoman.cn",
+          "category": "runtime-server"
+        }
+      ]
+    },
+    "cdn.nlark.com": {
+      "count": 26,
+      "categories": {
+        "archived-html-asset": 26
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/56951931/1751339268512-2f8b9ead-fa57-4461-b80e-acc789e1e7e5.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/56951931/1749607834853-4b500ee5-6fcb-4b3a-a51f-77d5ecaaf44c.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/56951931/1750304446696-7d5df624-3fb4-4226-bc47-d3e704e1b461.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_2476%2Ch_1388",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/56951931/1749696269378-6c7d4610-4b14-4ec5-b6e1-357e4067ef7b.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2023/png/25459066/1684134120137-0f872a89-a6a5-4563-b364-463011f44311.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/56951931/1751336048245-bac42841-500f-4e17-bd52-38f538ab939d.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/331386/1751856230726-549c1b97-0345-4fb5-a4be-e281171c5ddd.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/56951931/1751336009040-96de58b4-6eb9-43ae-9ebb-4793dab8c38d.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/56951931/1751336604537-249b4de5-4054-41c7-94a2-2093124b1887.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 19,
+          "url": "https://cdn.nlark.com/yuque/0/2025/png/331386/1751856092501-8081fa73-80e1-42bb-850b-f37726f3ed91.png",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 31,
+          "url": "https://cdn.nlark.com",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "mdn.alipayobjects.com": {
+      "count": 26,
+      "categories": {
+        "archived-html-asset": 26
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 8,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 23,
+          "url": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "www.yuque.com": {
+      "count": 26,
+      "categories": {
+        "archived-html-asset": 13,
+        "mirrored-external-guide-metadata": 13
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/da5p3xpkkvhhxz3a",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/da5p3xpkkvhhxz3a",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/encwdg4srp2l02yn",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/encwdg4srp2l02yn",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/eq1s6ut8oztf8gxz",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/eq1s6ut8oztf8gxz",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/mwnvlommqa5q5u9y",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/mwnvlommqa5q5u9y",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/nl97i50gpoc4dbeg",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/nl97i50gpoc4dbeg",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/piop6ecyiq5rgdbg",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/piop6ecyiq5rgdbg",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/pzzq1q0cvbcavx8g",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/pzzq1q0cvbcavx8g",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/uhtot0x8tol9soao",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/uhtot0x8tol9soao",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/uzw227d10hc2foo9",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/uzw227d10hc2foo9",
+          "category": "mirrored-external-guide-metadata"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 17,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/vektkvxrlg3uvgxz",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.metadata.json",
+          "line": 2,
+          "url": "https://www.yuque.com/help.xiaoman/irikgd/vektkvxrlg3uvgxz",
+          "category": "mirrored-external-guide-metadata"
+        }
+      ]
+    },
+    "test.xiaoman.cn": {
+      "count": 20,
+      "categories": {
+        "example-callback": 20
+      },
+      "examples": [
+        {
+          "file": "openapi/modules/webhook.openapi.json",
+          "line": 38,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.json",
+          "line": 124,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.json",
+          "line": 185,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.json",
+          "line": 271,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.yaml",
+          "line": 32,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.yaml",
+          "line": 92,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.yaml",
+          "line": 136,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/modules/webhook.openapi.yaml",
+          "line": 200,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 61965,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 62051,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 62112,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 62198,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 49857,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 49917,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 49961,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 50025,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "sources/pages/api-3497011.md",
+          "line": 30,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "sources/pages/api-3497056.md",
+          "line": 33,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "sources/pages/api-3497056.md",
+          "line": 77,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        },
+        {
+          "file": "sources/pages/api-3497057.md",
+          "line": 66,
+          "url": "https://test.xiaoman.cn/api/callback",
+          "category": "example-callback"
+        }
+      ]
+    },
+    "example.com": {
+      "count": 15,
+      "categories": {
+        "example-data": 15
+      },
+      "examples": [
+        {
+          "file": "openapi/modules/lead.openapi.json",
+          "line": 900,
+          "url": "https://example.com",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/lead.openapi.yaml",
+          "line": 689,
+          "url": "https://example.com",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/sales-order.openapi.json",
+          "line": 4446,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/sales-order.openapi.json",
+          "line": 4493,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/sales-order.openapi.yaml",
+          "line": 3005,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/sales-order.openapi.yaml",
+          "line": 3039,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 11151,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 11198,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 53074,
+          "url": "https://example.com",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 8475,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 8509,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 42647,
+          "url": "https://example.com",
+          "category": "example-data"
+        },
+        {
+          "file": "sources/pages/api-3478251.md",
+          "line": 552,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "sources/pages/api-3478251.md",
+          "line": 586,
+          "url": "http://example.com/example.pdf",
+          "category": "example-data"
+        },
+        {
+          "file": "sources/pages/api-3484689.md",
+          "line": 134,
+          "url": "https://example.com",
+          "category": "example-data"
+        }
+      ]
+    },
+    "cdn-pri.nlark.com": {
+      "count": 13,
+      "categories": {
+        "archived-html-asset": 13
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vluupruar4bodq46.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ybevn6es0rpqx06r.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ygbegvxwrx6wn8xb.html",
+          "line": 34,
+          "url": "https://cdn-pri.nlark.com",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "cdn.yuque.com": {
+      "count": 13,
+      "categories": {
+        "archived-html-asset": 13
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vluupruar4bodq46.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ybevn6es0rpqx06r.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ygbegvxwrx6wn8xb.html",
+          "line": 32,
+          "url": "https://cdn.yuque.com",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "g.yuque.com": {
+      "count": 13,
+      "categories": {
+        "archived-html-asset": 13
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vluupruar4bodq46.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ybevn6es0rpqx06r.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ygbegvxwrx6wn8xb.html",
+          "line": 35,
+          "url": "https://g.yuque.com",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "kcart.alipay.com": {
+      "count": 13,
+      "categories": {
+        "archived-html-asset": 13
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vluupruar4bodq46.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ybevn6es0rpqx06r.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ygbegvxwrx6wn8xb.html",
+          "line": 33,
+          "url": "https://kcart.alipay.com",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "mdap.alipay.com": {
+      "count": 13,
+      "categories": {
+        "archived-html-asset": 13
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vluupruar4bodq46.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ybevn6es0rpqx06r.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ygbegvxwrx6wn8xb.html",
+          "line": 30,
+          "url": "https://mdap.alipay.com",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "ur.alipay.com": {
+      "count": 13,
+      "categories": {
+        "archived-html-asset": 13
+      },
+      "examples": [
+        {
+          "file": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/encwdg4srp2l02yn.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uhtot0x8tol9soao.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/uzw227d10hc2foo9.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/vluupruar4bodq46.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ybevn6es0rpqx06r.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        },
+        {
+          "file": "sources/external/yuque/ygbegvxwrx6wn8xb.html",
+          "line": 581,
+          "url": "https://ur.alipay.com/tracert_a385.js",
+          "category": "archived-html-asset"
+        }
+      ]
+    },
+    "jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com": {
+      "count": 5,
+      "categories": {
+        "example-data": 5
+      },
+      "examples": [
+        {
+          "file": "openapi/modules/lead.openapi.json",
+          "line": 1185,
+          "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/uploader/63147bc3abbea9fd3a922ab52900823dd10f2ca2/3923-portraitpng",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/modules/lead.openapi.yaml",
+          "line": 924,
+          "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/uploader/63147bc3abbea9fd3a922ab52900823dd10f2ca2/3923-portraitpng",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.json",
+          "line": 53359,
+          "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/uploader/63147bc3abbea9fd3a922ab52900823dd10f2ca2/3923-portraitpng",
+          "category": "example-data"
+        },
+        {
+          "file": "openapi/xiaoman.openapi.yaml",
+          "line": 42882,
+          "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/uploader/63147bc3abbea9fd3a922ab52900823dd10f2ca2/3923-portraitpng",
+          "category": "example-data"
+        },
+        {
+          "file": "sources/pages/api-3484689.md",
+          "line": 370,
+          "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/uploader/63147bc3abbea9fd3a922ab52900823dd10f2ca2/3923-portraitpng",
+          "category": "example-data"
+        }
+      ]
+    },
+    "github.com": {
+      "count": 1,
+      "categories": {
+        "repository-usage": 1
+      },
+      "examples": [
+        {
+          "file": "README.md",
+          "line": 53,
+          "url": "https://github.com/frankie0736/xiaoman-openapi",
+          "category": "repository-usage"
+        }
+      ]
+    },
+    "raw.githubusercontent.com": {
+      "count": 1,
+      "categories": {
+        "repository-usage": 1
+      },
+      "examples": [
+        {
+          "file": "README.md",
+          "line": 43,
+          "url": "https://raw.githubusercontent.com/frankie0736/xiaoman-openapi/main/llms.txt",
+          "category": "repository-usage"
+        }
+      ]
+    }
+  }
+}

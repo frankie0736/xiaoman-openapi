@@ -1,0 +1,1256 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Xiaoman OpenAPI - 用户 (unofficial)",
+    "version": "2026-05-09",
+    "description": "Unofficial module spec generated from public Xiaoman Open API documentation: 用户."
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.xiaoman.cn",
+      "description": "official documented server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "用户",
+      "x-module-slug": "user"
+    }
+  ],
+  "paths": {
+    "/v1/user/departmentList": {
+      "get": {
+        "summary": "用户部门列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "title": "部门ID"
+                              },
+                              "layer": {
+                                "type": "integer",
+                                "title": "层级"
+                              },
+                              "name": {
+                                "type": "string",
+                                "title": "部门名称"
+                              },
+                              "parent_id": {
+                                "type": "string",
+                                "title": "上级部门ID"
+                              },
+                              "parent_name": {
+                                "type": "string",
+                                "title": "上级部门名字"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "id",
+                              "layer",
+                              "name",
+                              "parent_id",
+                              "parent_name"
+                            ]
+                          }
+                        },
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "count"
+                      ],
+                      "x-apifox-orders": [
+                        "list",
+                        "count"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-04-10 19:34:05",
+                  "data": {
+                    "list": [
+                      {
+                        "id": "0",
+                        "layer": 0,
+                        "name": "部门1",
+                        "parent_id": "",
+                        "parent_name": ""
+                      }
+                    ],
+                    "count": 1
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          },
+          "x-200:请求成功": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg"
+                  ]
+                },
+                "example": {
+                  "msg": "success",
+                  "code": 0
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "请求成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "用户",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_user_departmentlist",
+        "x-local-source-path": "sources/pages/api-3478460.md",
+        "x-source-id": "api-3478460",
+        "x-source-title": "用户部门列表",
+        "x-source-module": "用户"
+      }
+    },
+    "/v1/user/departmentInfo": {
+      "get": {
+        "summary": "用户部门详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户"
+        ],
+        "parameters": [
+          {
+            "name": "department_id",
+            "in": "query",
+            "description": "需要查询部门id",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "department_name",
+            "in": "query",
+            "description": "需要查询部门名称",
+            "required": false,
+            "example": "xxx",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "错误码",
+                      "type": "integer",
+                      "x-apifox-mock": 0
+                    },
+                    "message": {
+                      "description": "错误信息",
+                      "type": "string",
+                      "x-apifox-mock": "success"
+                    },
+                    "now": {
+                      "description": "当前时间",
+                      "type": "string",
+                      "x-apifox-mock": "2022-01-01 00:00:00"
+                    },
+                    "data": {
+                      "description": "响应数据",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "部门ID",
+                          "type": "integer"
+                        },
+                        "layer": {
+                          "description": "层级",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "部门名称",
+                          "type": "string"
+                        },
+                        "parent_id": {
+                          "description": "上级部门ID",
+                          "type": "string"
+                        },
+                        "parent_name": {
+                          "description": "上级部门名称",
+                          "type": "string"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "id",
+                        "layer",
+                        "name",
+                        "parent_id",
+                        "parent_name"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          },
+          "x-200:请求成功": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg"
+                  ]
+                },
+                "example": {
+                  "msg": "success",
+                  "code": 0
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "请求成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "用户",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_user_departmentinfo",
+        "x-local-source-path": "sources/pages/api-3478461.md",
+        "x-source-id": "api-3478461",
+        "x-source-title": "用户部门详情",
+        "x-source-module": "用户"
+      }
+    },
+    "/v1/user/list": {
+      "get": {
+        "summary": "用户列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户"
+        ],
+        "parameters": [
+          {
+            "name": "enable_flag",
+            "in": "query",
+            "description": "默认1，0冻结，1正常，2已删除",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "错误码",
+                      "type": "integer",
+                      "x-apifox-mock": 0
+                    },
+                    "message": {
+                      "description": "错误信息",
+                      "type": "string",
+                      "x-apifox-mock": "success"
+                    },
+                    "now": {
+                      "description": "当前时间",
+                      "type": "string",
+                      "x-apifox-mock": "2022-01-01 00:00:00"
+                    },
+                    "data": {
+                      "description": "响应数据",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "user_id": {
+                            "description": "用户ID",
+                            "type": "string"
+                          },
+                          "email": {
+                            "description": "邮箱",
+                            "type": "string"
+                          },
+                          "nickname": {
+                            "description": "昵称",
+                            "type": "string"
+                          },
+                          "department_id": {
+                            "description": "部门id",
+                            "type": "string"
+                          },
+                          "department_name": {
+                            "description": "部门名称",
+                            "type": "string"
+                          },
+                          "enable_flag": {
+                            "description": "状态， 0冻结，1正常，2已删除",
+                            "type": "string"
+                          },
+                          "gender": {
+                            "description": "性别，1男，2女，0未知",
+                            "type": "string"
+                          },
+                          "user_mobile": {
+                            "description": "用户手机",
+                            "type": "string"
+                          },
+                          "employee_no": {
+                            "description": "员工编号",
+                            "type": "string"
+                          },
+                          "departments": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "department_id": {
+                                  "type": "integer",
+                                  "description": "部门ID"
+                                },
+                                "department_name": {
+                                  "type": "string",
+                                  "description": "部门名称"
+                                }
+                              },
+                              "x-apifox-orders": [
+                                "department_id",
+                                "department_name"
+                              ]
+                            },
+                            "description": "所在部门列表"
+                          },
+                          "position": {
+                            "type": "string",
+                            "description": "职位"
+                          },
+                          "full_name": {
+                            "type": "string",
+                            "description": "姓名"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "user_id",
+                          "email",
+                          "nickname",
+                          "department_id",
+                          "department_name",
+                          "enable_flag",
+                          "gender",
+                          "user_mobile",
+                          "employee_no",
+                          "departments",
+                          "position",
+                          "full_name"
+                        ]
+                      }
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2024-06-11 15:46:58",
+                  "data": [
+                    {
+                      "user_id": "11858711",
+                      "email": "xpro@xiaomancrm.com",
+                      "nickname": "xpro",
+                      "family_name": "xpro",
+                      "second_name": "阿香",
+                      "gender": "1",
+                      "position": "董事长",
+                      "enable_flag": "1",
+                      "user_mobile": "18025341870",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": 0,
+                          "department_name": "我的企业"
+                        }
+                      ],
+                      "full_name": "xpro阿香",
+                      "department_name": "我的企业",
+                      "department_id": 0,
+                      "external_email": "jkhjhjkhjk",
+                      "external_mobile": "18923887054",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": "。\n。\n。\n。\n。\n。。\n。\n。\n。\n"
+                    },
+                    {
+                      "user_id": "11858712",
+                      "email": "qiao@xiaomancrm.com",
+                      "nickname": "qiao",
+                      "family_name": "乔一",
+                      "second_name": "赵",
+                      "gender": "2",
+                      "position": "风投总监|研发总监",
+                      "enable_flag": "1",
+                      "user_mobile": "14610000001",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "148",
+                          "department_name": "外贸部跟单组"
+                        },
+                        {
+                          "department_id": "149",
+                          "department_name": "总监订单群"
+                        },
+                        {
+                          "department_id": "8538",
+                          "department_name": "财务部门-edit"
+                        }
+                      ],
+                      "full_name": "乔一赵",
+                      "department_name": "外贸部跟单组",
+                      "department_id": 148,
+                      "external_email": "qiao@xiaomancrm.com",
+                      "external_mobile": "18890009878",
+                      "external_fax": "400-2349-2134",
+                      "external_address": "深圳市南山区粤海街道9678号",
+                      "external_other": "哈哈哈"
+                    },
+                    {
+                      "user_id": "11858713",
+                      "email": "qiao2@xiaomancrm.com",
+                      "nickname": "大乔",
+                      "family_name": "乔二",
+                      "second_name": "赵",
+                      "gender": "1",
+                      "position": "主管",
+                      "enable_flag": "1",
+                      "user_mobile": "",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "144",
+                          "department_name": "A组"
+                        }
+                      ],
+                      "full_name": "乔二赵",
+                      "department_name": "A组",
+                      "department_id": 144,
+                      "external_email": "qiao2@xiaomancrm.com",
+                      "external_mobile": "146100000002",
+                      "external_fax": "99887788",
+                      "external_address": "阿尔卑斯山",
+                      "external_other": "其他信息"
+                    },
+                    {
+                      "user_id": "11858714",
+                      "email": "qiao3@xiaomancrm.com",
+                      "nickname": "qiao3",
+                      "family_name": "赵",
+                      "second_name": "乔三",
+                      "gender": "1",
+                      "position": "CTO",
+                      "enable_flag": "1",
+                      "user_mobile": "14610000003",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "145",
+                          "department_name": "B组"
+                        },
+                        {
+                          "department_id": "8537",
+                          "department_name": "研发部门"
+                        }
+                      ],
+                      "full_name": "赵乔三",
+                      "department_name": "B组",
+                      "department_id": 145,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "11858715",
+                      "email": "qiao4@xiaomancrm.com",
+                      "nickname": "qiao4",
+                      "family_name": "赵",
+                      "second_name": "乔四",
+                      "gender": "1",
+                      "position": "CFO",
+                      "enable_flag": "1",
+                      "user_mobile": "14610000004",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "148",
+                          "department_name": "外贸部跟单组"
+                        }
+                      ],
+                      "full_name": "赵乔四",
+                      "department_name": "外贸部跟单组",
+                      "department_id": 148,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "11858716",
+                      "email": "qiao5@xiaomancrm.com",
+                      "nickname": "乔五",
+                      "family_name": "赵",
+                      "second_name": "乔五",
+                      "gender": "2",
+                      "position": "法务部总监",
+                      "enable_flag": "1",
+                      "user_mobile": "14610000005",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "8539",
+                          "department_name": "法律部门"
+                        }
+                      ],
+                      "full_name": "赵乔五",
+                      "department_name": "法律部门",
+                      "department_id": 8539,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "11858841",
+                      "email": "shanghai@xiaomancrm.com",
+                      "nickname": "上海",
+                      "family_name": "上",
+                      "second_name": "海",
+                      "gender": "1",
+                      "position": "上海办事处主任",
+                      "enable_flag": "1",
+                      "user_mobile": "17700010005",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "8586",
+                          "department_name": "一部上海办事处"
+                        }
+                      ],
+                      "full_name": "上海",
+                      "department_name": "一部上海办事处",
+                      "department_id": 8586,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "249519497",
+                      "email": "xzyxzy999@qq.com",
+                      "nickname": "xzy999",
+                      "family_name": "肖",
+                      "second_name": "九",
+                      "gender": "0",
+                      "position": "测试工程师",
+                      "enable_flag": "1",
+                      "user_mobile": "18823346852",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "8537",
+                          "department_name": "研发部门"
+                        },
+                        {
+                          "department_id": "1008791",
+                          "department_name": "测试中心"
+                        }
+                      ],
+                      "full_name": "肖九",
+                      "department_name": "研发部门",
+                      "department_id": 8537,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "249519838",
+                      "email": "bope@xiaoman.com",
+                      "nickname": "泊沛",
+                      "family_name": "张",
+                      "second_name": "泊沛",
+                      "gender": "1",
+                      "position": "CTO|",
+                      "enable_flag": "1",
+                      "user_mobile": "13308433655",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "148",
+                          "department_name": "外贸部跟单组"
+                        },
+                        {
+                          "department_id": "8537",
+                          "department_name": "研发部门"
+                        }
+                      ],
+                      "full_name": "张泊沛",
+                      "department_name": "外贸部跟单组",
+                      "department_id": 148,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "249519905",
+                      "email": "summer@xiaomancrm.com",
+                      "nickname": "summer",
+                      "family_name": "夏",
+                      "second_name": "天",
+                      "gender": "1",
+                      "position": "风控经理",
+                      "enable_flag": "1",
+                      "user_mobile": "19123049211",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "1008789",
+                          "department_name": "风控中心"
+                        }
+                      ],
+                      "full_name": "夏天",
+                      "department_name": "风控中心",
+                      "department_id": 1008789,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "249520537",
+                      "email": "sharon@coco.com",
+                      "nickname": "sharon",
+                      "family_name": "shaw",
+                      "second_name": "sharon",
+                      "gender": "2",
+                      "position": "创意大师",
+                      "enable_flag": "1",
+                      "user_mobile": "",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": "3000074",
+                          "department_name": "创意中心"
+                        }
+                      ],
+                      "full_name": "shawsharon",
+                      "department_name": "创意中心",
+                      "department_id": 3000074,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "249521389",
+                      "email": "qiao6@xiaomancrm.com",
+                      "nickname": "qiao6",
+                      "family_name": "",
+                      "second_name": "",
+                      "gender": "0",
+                      "position": "",
+                      "enable_flag": "1",
+                      "user_mobile": "14610000006",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": 0,
+                          "department_name": "我的企业"
+                        }
+                      ],
+                      "full_name": "",
+                      "department_name": "我的企业",
+                      "department_id": 0,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "249521390",
+                      "email": "qiao7@xiaomancrm.com",
+                      "nickname": "qiao7",
+                      "family_name": "",
+                      "second_name": "",
+                      "gender": "0",
+                      "position": "",
+                      "enable_flag": "1",
+                      "user_mobile": "14610000017",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": 0,
+                          "department_name": "我的企业"
+                        }
+                      ],
+                      "full_name": "",
+                      "department_name": "我的企业",
+                      "department_id": 0,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    },
+                    {
+                      "user_id": "249521391",
+                      "email": "qiao8@xiaomancrm.com",
+                      "nickname": "qiao8",
+                      "family_name": "",
+                      "second_name": "",
+                      "gender": "0",
+                      "position": "",
+                      "enable_flag": "1",
+                      "user_mobile": "14610000018",
+                      "ames_email": "",
+                      "employee_no": "",
+                      "departments": [
+                        {
+                          "department_id": 0,
+                          "department_name": "我的企业"
+                        }
+                      ],
+                      "full_name": "",
+                      "department_name": "我的企业",
+                      "department_id": 0,
+                      "external_email": "",
+                      "external_mobile": "",
+                      "external_fax": "",
+                      "external_address": "",
+                      "external_other": ""
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "用户",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_user_list",
+        "x-local-source-path": "sources/pages/api-3478290.md",
+        "x-source-id": "api-3478290",
+        "x-source-title": "用户列表",
+        "x-source-module": "用户"
+      }
+    },
+    "/v1/user/info": {
+      "get": {
+        "summary": "用户详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "需要查询用户ID",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "需要查询用户邮箱",
+            "required": false,
+            "example": "xxx@xx.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nickname",
+            "in": "query",
+            "description": "用户昵称",
+            "required": false,
+            "example": "小张",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "full_name",
+            "in": "query",
+            "description": "用户姓名",
+            "required": false,
+            "example": "小王",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "错误码",
+                      "type": "integer",
+                      "x-apifox-mock": 0
+                    },
+                    "message": {
+                      "description": "错误信息",
+                      "type": "string",
+                      "x-apifox-mock": "success"
+                    },
+                    "now": {
+                      "description": "当前时间",
+                      "type": "string",
+                      "x-apifox-mock": "2022-01-01 00:00:00"
+                    },
+                    "data": {
+                      "description": "响应数据",
+                      "type": "object",
+                      "properties": {
+                        "user_id": {
+                          "description": "用户ID",
+                          "type": "string"
+                        },
+                        "email": {
+                          "description": "邮箱",
+                          "type": "string"
+                        },
+                        "nickname": {
+                          "description": "昵称",
+                          "type": "string"
+                        },
+                        "department_id": {
+                          "description": "部门id",
+                          "type": "string"
+                        },
+                        "department_name": {
+                          "description": "部门名称",
+                          "type": "string"
+                        },
+                        "enable_flag": {
+                          "description": "状态， 0冻结，1正常，2已删除",
+                          "type": "string"
+                        },
+                        "gender": {
+                          "description": "性别，1男，2女，0未知",
+                          "type": "string"
+                        },
+                        "user_mobile": {
+                          "description": "用户手机",
+                          "type": "string"
+                        },
+                        "is_admin": {
+                          "description": "是否主账号， true是，false否",
+                          "type": "boolean"
+                        },
+                        "wx_nickname": {
+                          "description": "微信昵称",
+                          "type": "string"
+                        },
+                        "employee_no": {
+                          "description": "员工编号",
+                          "type": "string"
+                        },
+                        "departments": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "department_id": {
+                                "type": "integer",
+                                "description": "部门ID"
+                              },
+                              "department_name": {
+                                "type": "string",
+                                "description": "部门名称"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "department_id",
+                              "department_name"
+                            ]
+                          },
+                          "description": "所在部门列表"
+                        },
+                        "full_name": {
+                          "type": "string",
+                          "description": "姓名"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "user_id",
+                        "email",
+                        "nickname",
+                        "department_id",
+                        "department_name",
+                        "enable_flag",
+                        "gender",
+                        "user_mobile",
+                        "is_admin",
+                        "wx_nickname",
+                        "employee_no",
+                        "departments",
+                        "full_name"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "用户",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_user_info",
+        "x-local-source-path": "sources/pages/api-3478291.md",
+        "x-source-id": "api-3478291",
+        "x-source-title": "用户详情",
+        "x-source-module": "用户"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "新增客户联系人": {
+        "type": "object",
+        "properties": {
+          "company_id": {
+            "type": "integer",
+            "x-apifox-mock": "1",
+            "description": "客户ID"
+          },
+          "serial_id": {
+            "type": "string",
+            "description": "客户编号",
+            "x-apifox-mock": "1"
+          },
+          "name": {
+            "type": "string",
+            "description": "联系人名称"
+          },
+          "tel_area_code": {
+            "type": "string",
+            "description": "联系人电话区号"
+          },
+          "tel": {
+            "type": "string",
+            "description": "联系人电话号码"
+          }
+        },
+        "x-apifox-orders": [
+          "company_id",
+          "serial_id",
+          "name",
+          "tel_area_code",
+          "tel"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "数据字典响应": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "now": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "字段ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "字段名称"
+                },
+                "base": {
+                  "type": "integer",
+                  "description": "是否系统字段，1=系统字段，0=自定义字段"
+                },
+                "field_type": {
+                  "type": "integer",
+                  "description": "字段类型"
+                },
+                "ext_info": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "选字段额外信息，比如选项等枚举值",
+                  "nullable": true
+                },
+                "require": {
+                  "type": "integer",
+                  "description": "是否必填，1=必填，0=非必填"
+                },
+                "default": {
+                  "type": "string",
+                  "description": "默认值"
+                },
+                "disable_flag": {
+                  "type": "integer"
+                },
+                "is_list": {
+                  "type": "integer",
+                  "description": "是否明细字段"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-orders": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-ignore-properties": []
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-orders": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header parameter."
+      }
+    }
+  },
+  "x-generated-at": "2026-05-09T04:02:32+00:00",
+  "x-source": {
+    "catalog": "sources/catalog.json",
+    "snapshot": "sources/pages"
+  }
+}

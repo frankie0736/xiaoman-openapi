@@ -1,0 +1,105 @@
+{
+  "missing_openapi": [],
+  "path_conflicts": [],
+  "component_conflicts": [],
+  "generated_at": "2026-05-09T04:02:32+00:00",
+  "catalog_entries": 154,
+  "api_pages": 127,
+  "extracted_operations": 127,
+  "offline": {
+    "mirrored_images": [
+      {
+        "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/other/img/55760752/d7acef768b8c585b60aedc7a56da7a191e7c4c5d18302db04667030feff7c911.png",
+        "local_path": "assets/images/9e9ffe8cec0cf18a.png",
+        "content_type": "image/png",
+        "bytes": 328438
+      },
+      {
+        "url": "https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/other/img/55760752/a6b170c45244e878e0a0c8d0b6b787e2e264a4145805bf615d558b6b65853ec7.png",
+        "local_path": "assets/images/840e6fb17c1d385a.png",
+        "content_type": "image/png",
+        "bytes": 512066
+      }
+    ],
+    "mirrored_external_pages": [
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/nl97i50gpoc4dbeg",
+        "local_html": "sources/external/yuque/nl97i50gpoc4dbeg.html",
+        "local_metadata": "sources/external/yuque/nl97i50gpoc4dbeg.metadata.json",
+        "local_summary": "docs/external/yuque/nl97i50gpoc4dbeg.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/mwnvlommqa5q5u9y",
+        "local_html": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+        "local_metadata": "sources/external/yuque/mwnvlommqa5q5u9y.metadata.json",
+        "local_summary": "docs/external/yuque/mwnvlommqa5q5u9y.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/eq1s6ut8oztf8gxz",
+        "local_html": "sources/external/yuque/eq1s6ut8oztf8gxz.html",
+        "local_metadata": "sources/external/yuque/eq1s6ut8oztf8gxz.metadata.json",
+        "local_summary": "docs/external/yuque/eq1s6ut8oztf8gxz.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/encwdg4srp2l02yn",
+        "local_html": "sources/external/yuque/encwdg4srp2l02yn.html",
+        "local_metadata": "sources/external/yuque/encwdg4srp2l02yn.metadata.json",
+        "local_summary": "docs/external/yuque/encwdg4srp2l02yn.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/ybevn6es0rpqx06r",
+        "local_html": "sources/external/yuque/ybevn6es0rpqx06r.html",
+        "local_metadata": "sources/external/yuque/ybevn6es0rpqx06r.metadata.json",
+        "local_summary": "docs/external/yuque/ybevn6es0rpqx06r.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/piop6ecyiq5rgdbg",
+        "local_html": "sources/external/yuque/piop6ecyiq5rgdbg.html",
+        "local_metadata": "sources/external/yuque/piop6ecyiq5rgdbg.metadata.json",
+        "local_summary": "docs/external/yuque/piop6ecyiq5rgdbg.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/uhtot0x8tol9soao",
+        "local_html": "sources/external/yuque/uhtot0x8tol9soao.html",
+        "local_metadata": "sources/external/yuque/uhtot0x8tol9soao.metadata.json",
+        "local_summary": "docs/external/yuque/uhtot0x8tol9soao.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/uzw227d10hc2foo9",
+        "local_html": "sources/external/yuque/uzw227d10hc2foo9.html",
+        "local_metadata": "sources/external/yuque/uzw227d10hc2foo9.metadata.json",
+        "local_summary": "docs/external/yuque/uzw227d10hc2foo9.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/da5p3xpkkvhhxz3a",
+        "local_html": "sources/external/yuque/da5p3xpkkvhhxz3a.html",
+        "local_metadata": "sources/external/yuque/da5p3xpkkvhhxz3a.metadata.json",
+        "local_summary": "docs/external/yuque/da5p3xpkkvhhxz3a.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/ygbegvxwrx6wn8xb",
+        "local_html": "sources/external/yuque/ygbegvxwrx6wn8xb.html",
+        "local_metadata": "sources/external/yuque/ygbegvxwrx6wn8xb.metadata.json",
+        "local_summary": "docs/external/yuque/ygbegvxwrx6wn8xb.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/pzzq1q0cvbcavx8g",
+        "local_html": "sources/external/yuque/pzzq1q0cvbcavx8g.html",
+        "local_metadata": "sources/external/yuque/pzzq1q0cvbcavx8g.metadata.json",
+        "local_summary": "docs/external/yuque/pzzq1q0cvbcavx8g.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/vektkvxrlg3uvgxz",
+        "local_html": "sources/external/yuque/vektkvxrlg3uvgxz.html",
+        "local_metadata": "sources/external/yuque/vektkvxrlg3uvgxz.metadata.json",
+        "local_summary": "docs/external/yuque/vektkvxrlg3uvgxz.md"
+      },
+      {
+        "url": "https://www.yuque.com/help.xiaoman/irikgd/vluupruar4bodq46",
+        "local_html": "sources/external/yuque/vluupruar4bodq46.html",
+        "local_metadata": "sources/external/yuque/vluupruar4bodq46.metadata.json",
+        "local_summary": "docs/external/yuque/vluupruar4bodq46.md"
+      }
+    ]
+  }
+}

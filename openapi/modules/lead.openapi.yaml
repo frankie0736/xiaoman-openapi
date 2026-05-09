@@ -1,0 +1,1386 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 线索 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 线索.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 线索
+  x-module-slug: lead
+paths:
+  /v1/lead/fields:
+    get:
+      summary: 线索|联系人的数据字典
+      deprecated: false
+      description: ''
+      tags:
+      - 线索
+      - s7.1
+      parameters:
+      - name: type
+        in: query
+        description: 'lead=线索数据字典，customer=联系人数据字典 默认值: lead'
+        required: false
+        example: lead
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: 字段ID
+                        name:
+                          type: string
+                          description: 字段名称
+                        base:
+                          type: integer
+                          description: 是否系统字段，1=系统字段，0=自定义字段
+                        field_type:
+                          type: integer
+                          description: "\t\n字段类型，0=特殊，1=短文本，2=长文本，3=下拉单选，4=日期，5=数字，6=图片，7=下拉多选，8=附件，9=引用字段，10=日期时间"
+                        ext_info:
+                          type: array
+                          items:
+                            type: string
+                          description: 选项类型字段的值列表
+                          nullable: true
+                        require:
+                          type: integer
+                          description: 是否必填，1=必填，0=非必填
+                        default:
+                          type: string
+                          description: 默认值
+                        disable_flag:
+                          type: integer
+                        is_list:
+                          type: integer
+                      required:
+                      - id
+                      - name
+                      - base
+                      - field_type
+                      - ext_info
+                      - require
+                      - default
+                      - disable_flag
+                      - is_list
+                      x-apifox-orders:
+                      - id
+                      - name
+                      - base
+                      - field_type
+                      - ext_info
+                      - require
+                      - default
+                      - disable_flag
+                      - is_list
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2020-08-12 10:17:45'
+                data:
+                - id: fax
+                  name: 传真
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: origin
+                  name: 来源
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: country
+                  name: 国家
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: province
+                  name: 省份
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: city
+                  name: 城市
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: address
+                  name: 联系地址
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: ad_keyword
+                  name: 搜索关键字
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: homepage
+                  name: 主页
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: image_list
+                  name: 图片
+                  base: 1
+                  field_type: 6
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: serial_id
+                  name: 线索编号
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: remark
+                  name: 线索备注
+                  base: 1
+                  field_type: 2
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: group_id
+                  name: 分组
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: short_name
+                  name: 简称
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: scale_id
+                  name: 规模
+                  base: 1
+                  field_type: 3
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: category_ids
+                  name: 主营产品
+                  base: 1
+                  field_type: 7
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: company_name
+                  name: 公司名称
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: name
+                  name: 线索名称
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 1
+                  default: ''
+                  is_list: 0
+                - id: tag
+                  name: 标签
+                  base: 1
+                  field_type: 7
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: lonlat
+                  name: 经维度坐标
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+                - id: tel
+                  name: 座机
+                  base: 1
+                  field_type: 1
+                  ext_info: null
+                  require: 0
+                  default: ''
+                  is_list: 0
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 线索
+      x-apifox-status: released
+      operationId: get_v1_lead_fields
+      x-local-source-path: sources/pages/api-3484687.md
+      x-source-id: api-3484687
+      x-source-title: 线索|联系人的数据字典
+      x-source-module: 线索
+  /v1/lead/list:
+    get:
+      summary: 线索列表
+      deprecated: false
+      description: ''
+      tags:
+      - 线索
+      - s7.1
+      parameters:
+      - name: start_index
+        in: query
+        description: 第几页，默认 = 1
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: 每页记录数，默认 = 10
+        required: false
+        example: 10
+        schema:
+          type: integer
+      - name: start_time
+        in: query
+        description: 时间查询范围：开始日期
+        required: false
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: 时间查询范围：结束日期
+        required: false
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: 联系人邮箱
+        required: false
+        example: ''
+        schema:
+          type: string
+      - name: origin
+        in: query
+        description: 线索来源 值来源于接口/v1/company/fields/selector
+        required: false
+        schema:
+          type: integer
+      - name: sort_field
+        in: query
+        description: 排序与搜索字段  update_time  默认值 order_time最近联系时间 edit_time 最近编辑时间
+        required: false
+        example: update_time
+        schema:
+          type: string
+      - name: archive
+        in: query
+        description: 归档状态 1:已归档 2:已转化
+        required: false
+        example: 0
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: 错误码
+                    x-apifox-mock: 0
+                  message:
+                    type: string
+                    description: 错误信息
+                    x-apifox-mock: success
+                  now:
+                    type: string
+                    description: 当前时间
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  data:
+                    type: object
+                    properties:
+                      lead_id:
+                        type: number
+                        description: 线索ID
+                        x-apifox-mock: 123
+                      name:
+                        type: string
+                        description: 线索名称
+                        x-apifox-mock: 示例线索名称
+                      short_name:
+                        type: string
+                        description: 线索简称
+                        x-apifox-mock: 示例简称
+                      serial_id:
+                        type: string
+                        description: 线索编号
+                        x-apifox-mock: SL001
+                      order_time:
+                        type: string
+                        description: 最近更新时间
+                        x-apifox-mock: '2023-10-05 14:20:00'
+                      create_time:
+                        type: string
+                        description: 线索创建时间
+                        x-apifox-mock: '2023-10-01 09:00:00'
+                    required:
+                    - lead_id
+                    - name
+                    - short_name
+                    - serial_id
+                    - order_time
+                    - create_time
+                    x-apifox-orders:
+                    - lead_id
+                    - name
+                    - short_name
+                    - serial_id
+                    - order_time
+                    - create_time
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-03-07 13:52:49'
+                data:
+                  list:
+                  - lead_id: 5175992278
+                    name: 浙江顺达进出口贸易有限公司
+                    short_name: ''
+                    serial_id: L113
+                    order_time: '2025-01-23 17:43:44'
+                    create_time: '2025-01-23 17:43:44'
+                    update_time: '2025-01-23 17:43:44'
+                    edit_time: '1970-01-01 00:00:00'
+                  - lead_id: 5175223591
+                    name: Harriet Hikatale
+                    short_name: ''
+                    serial_id: L107
+                    order_time: '2025-01-22 16:46:37'
+                    create_time: '2025-01-22 16:46:37'
+                    update_time: '2025-01-22 17:08:40'
+                    edit_time: '2025-01-22 17:08:40'
+                  - lead_id: 5175200857
+                    name: Harriet Hikatale
+                    short_name: ''
+                    serial_id: L105
+                    order_time: '2025-01-22 16:10:52'
+                    create_time: '2025-01-22 16:10:52'
+                    update_time: '2025-01-22 16:10:52'
+                    edit_time: '1970-01-01 00:00:00'
+                  - lead_id: 5175191976
+                    name: adorazair.estey
+                    short_name: ''
+                    serial_id: L101
+                    order_time: '2025-01-22 15:12:02'
+                    create_time: '2025-01-22 15:10:40'
+                    update_time: '2025-01-22 15:10:43'
+                    edit_time: '1970-01-01 00:00:00'
+                  - lead_id: 5175190685
+                    name: adorazair.estey@gmail.com
+                    short_name: ''
+                    serial_id: L100
+                    order_time: '2025-01-22 15:01:08'
+                    create_time: '2025-01-22 15:01:06'
+                    update_time: '2025-01-22 15:01:06'
+                    edit_time: '1970-01-01 00:00:00'
+                  - lead_id: 5175190424
+                    name: eqwrgeth
+                    short_name: ''
+                    serial_id: L99
+                    order_time: '2025-01-22 14:57:10'
+                    create_time: '2025-01-22 14:52:14'
+                    update_time: '2025-01-22 14:52:18'
+                    edit_time: '1970-01-01 00:00:00'
+                  - lead_id: 5175145624
+                    name: darianglobalsourcing1@consultant.com
+                    short_name: ''
+                    serial_id: L98
+                    order_time: '2025-01-22 14:36:57'
+                    create_time: '2025-01-22 14:36:57'
+                    update_time: '2025-01-22 14:36:57'
+                    edit_time: '1970-01-01 00:00:00'
+                  - lead_id: 5175145442
+                    name: adorazair.estey@gmail.com
+                    short_name: ''
+                    serial_id: L97
+                    order_time: '2025-01-22 14:33:07'
+                    create_time: '2025-01-22 14:33:06'
+                    update_time: '2025-01-22 14:33:06'
+                    edit_time: '1970-01-01 00:00:00'
+                  - lead_id: 5175136677
+                    name: Harriet Hikatale
+                    short_name: ''
+                    serial_id: L94
+                    order_time: '2025-01-22 11:49:30'
+                    create_time: '2025-01-22 11:49:30'
+                    update_time: '2025-01-22 11:49:30'
+                    edit_time: '1970-01-01 00:00:00'
+                  - lead_id: 5175135526
+                    name: Harriet Hikatale
+                    short_name: ''
+                    serial_id: L91
+                    order_time: '2025-01-22 11:26:19'
+                    create_time: '2025-01-22 11:26:19'
+                    update_time: '2025-01-22 11:43:11'
+                    edit_time: '2025-01-22 11:43:11'
+                  totalItem: 127
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 线索
+      x-apifox-status: released
+      operationId: get_v1_lead_list
+      x-local-source-path: sources/pages/api-3484688.md
+      x-source-id: api-3484688
+      x-source-title: 线索列表
+      x-source-module: 线索
+  /v1/lead/info:
+    get:
+      summary: 线索数据查询
+      deprecated: false
+      description: ''
+      tags:
+      - 线索
+      - s7.1
+      parameters:
+      - name: lead_id
+        in: query
+        description: 线索ID 值来源于/v1/lead/list
+        required: false
+        example: 21343
+        schema:
+          type: integer
+      - name: serial_id
+        in: query
+        description: 线索编号
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: 错误码
+                    x-apifox-mock: 0
+                  message:
+                    type: string
+                    description: 错误信息
+                    x-apifox-mock: success
+                  now:
+                    type: string
+                    description: 当前时间
+                    x-apifox-mock: '2025-03-07 12:00:00'
+                  data:
+                    type: object
+                    properties:
+                      lead_id:
+                        type: number
+                        description: 线索ID
+                        x-apifox-mock: 1
+                      serial_id:
+                        type: string
+                        description: 线索编号
+                        x-apifox-mock: SL0001
+                      name:
+                        type: string
+                        description: 线索名称
+                        x-apifox-mock: 示例线索名称
+                      short_name:
+                        type: string
+                        description: 线索简称
+                        x-apifox-mock: 示例简称
+                      scale_id:
+                        type: string
+                        description: 规模
+                        x-apifox-mock: S
+                      user_id:
+                        type: number
+                        description: 创建人UserId
+                        x-apifox-mock: 1001
+                      owner:
+                        type: object
+                        description: 创建人信息
+                        properties:
+                          name:
+                            type: string
+                            description: 创建人姓名
+                            x-apifox-mock: 张三
+                          role:
+                            type: string
+                            description: 创建人角色
+                            x-apifox-mock: 销售
+                        required:
+                        - name
+                        - role
+                        x-apifox-orders:
+                        - name
+                        - role
+                      company_name:
+                        type: string
+                        description: 客户公司名称
+                        x-apifox-mock: 示例公司
+                      company_id:
+                        type: number
+                        description: 客户公司ID
+                        x-apifox-mock: 2001
+                      country:
+                        type: string
+                        description: 国家
+                        x-apifox-mock: 中国
+                      province:
+                        type: string
+                        description: 省份
+                        x-apifox-mock: 广东省
+                      city:
+                        type: string
+                        description: 城市
+                        x-apifox-mock: 深圳市
+                      address:
+                        type: string
+                        description: 联系地址
+                        x-apifox-mock: 示例地址
+                      homepage:
+                        type: string
+                        description: 主页
+                        x-apifox-mock: https://example.com
+                      fax:
+                        type: string
+                        description: 传真
+                        x-apifox-mock: 0755-12345678
+                      tel:
+                        type: string
+                        description: 座机
+                        x-apifox-mock: '12345678'
+                      tel_area_code:
+                        type: string
+                        description: 区号
+                        x-apifox-mock: '0755'
+                      tel_full:
+                        type: string
+                        description: 联系电话
+                        x-apifox-mock: 0755-12345678
+                      main_customer_email:
+                        type: string
+                        description: 主联系人邮箱
+                        x-apifox-mock: example@example.com
+                      star:
+                        type: number
+                        description: 等级
+                        x-apifox-mock: 3
+                      remark:
+                        type: string
+                        description: 备注
+                        x-apifox-mock: 这是一条备注信息
+                      archive_time:
+                        type: string
+                        description: 创建时间
+                        x-apifox-mock: '2025-01-01 10:00:00'
+                      order_time:
+                        type: string
+                        description: 最近更新时间
+                        x-apifox-mock: '2025-03-01 14:30:00'
+                      origin_name:
+                        type: string
+                        description: 来源
+                        x-apifox-mock: 网络推广
+                      group_name:
+                        type: string
+                        description: 分组
+                        x-apifox-mock: 重要线索组
+                      country_name:
+                        type: string
+                        description: 国家
+                        x-apifox-mock: 中国
+                      status_name:
+                        type: string
+                        description: 状态
+                        x-apifox-mock: 待跟进
+                      status:
+                        type: number
+                        description: 状态ID
+                        x-apifox-mock: 1
+                      customers:
+                        type: array
+                        description: 联系人列表
+                        items:
+                          type: object
+                          properties:
+                            customer_id:
+                              type: number
+                              description: 联系人ID
+                              x-apifox-mock: 3001
+                            lead_id:
+                              type: number
+                              description: 线索ID
+                              x-apifox-mock: 1
+                            name:
+                              type: string
+                              description: 联系人名称
+                              x-apifox-mock: 李四
+                            email:
+                              type: string
+                              description: 联系人邮箱
+                              x-apifox-mock: lisi@example.com
+                            tel_list:
+                              type: object
+                              description: 联系方式列表
+                              properties:
+                                mobile:
+                                  type: string
+                                  description: 手机号码
+                                  x-apifox-mock: '13800138000'
+                              required:
+                              - mobile
+                              x-apifox-orders:
+                              - mobile
+                            post:
+                              type: string
+                              description: 职位
+                              x-apifox-mock: 经理
+                            post_grade:
+                              type: string
+                              description: 职级
+                              x-apifox-mock: 高级
+                            birth:
+                              type: string
+                              description: 生日
+                              x-apifox-mock: '1990-01-01'
+                            gender:
+                              type: number
+                              description: 性别
+                              x-apifox-mock: 1
+                            contact:
+                              type: object
+                              description: 社交平台列表
+                              properties:
+                                wechat:
+                                  type: string
+                                  description: 微信号
+                                  x-apifox-mock: wechat123
+                              required:
+                              - wechat
+                              x-apifox-orders:
+                              - wechat
+                            remark:
+                              type: string
+                              description: 备注
+                              x-apifox-mock: 该联系人比较重要
+                            main_customer_flag:
+                              type: number
+                              description: 是否主联系人
+                              x-apifox-mock: 1
+                          required:
+                          - customer_id
+                          - lead_id
+                          - name
+                          - email
+                          - tel_list
+                          - post
+                          - post_grade
+                          - birth
+                          - gender
+                          - contact
+                          - remark
+                          - main_customer_flag
+                          x-apifox-orders:
+                          - customer_id
+                          - lead_id
+                          - name
+                          - email
+                          - tel_list
+                          - post
+                          - post_grade
+                          - birth
+                          - gender
+                          - contact
+                          - remark
+                          - main_customer_flag
+                    required:
+                    - lead_id
+                    - serial_id
+                    - name
+                    - short_name
+                    - scale_id
+                    - user_id
+                    - owner
+                    - company_name
+                    - company_id
+                    - country
+                    - province
+                    - city
+                    - address
+                    - homepage
+                    - fax
+                    - tel
+                    - tel_area_code
+                    - tel_full
+                    - main_customer_email
+                    - star
+                    - remark
+                    - archive_time
+                    - order_time
+                    - origin_name
+                    - group_name
+                    - country_name
+                    - status_name
+                    - status
+                    - customers
+                    x-apifox-orders:
+                    - lead_id
+                    - serial_id
+                    - name
+                    - short_name
+                    - scale_id
+                    - user_id
+                    - owner
+                    - company_name
+                    - company_id
+                    - country
+                    - province
+                    - city
+                    - address
+                    - homepage
+                    - fax
+                    - tel
+                    - tel_area_code
+                    - tel_full
+                    - main_customer_email
+                    - star
+                    - remark
+                    - archive_time
+                    - order_time
+                    - origin_name
+                    - group_name
+                    - country_name
+                    - status_name
+                    - status
+                    - customers
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2020-08-12 11:24:27'
+                data:
+                  lead_id: 1104353788
+                  serial_id: L86
+                  scale_id: 3
+                  user_id:
+                  - 11858713
+                  owner:
+                  - user_id: '11858713'
+                    avatar: https://jinyuncrmdevelop.oss-cn-hangzhou.aliyuncs.com/uploader/63147bc3abbea9fd3a922ab52900823dd10f2ca2/3923-portraitpng
+                    name: 大乔
+                    nickname: 大乔
+                  name: 葡萄干
+                  company_name: 葡萄干公司
+                  short_name: ''
+                  company_id: 0
+                  biz_type: ''
+                  country: AS
+                  province: ''
+                  city: ''
+                  address: 新疆人
+                  homepage: www.slwei.com
+                  fax: 400-230203
+                  tel: '32323'
+                  tel_area_code: '297'
+                  tel_full: '29732323'
+                  main_customer: 1104353787
+                  main_customer_email: 239@s.com
+                  star: 0
+                  remark: ''
+                  archive_time: '2020-06-04 15:46:43'
+                  order_time: '2020-06-04 15:46:43'
+                  origin_name: 熟人介绍
+                  group_name: ''
+                  country_name: 美属萨摩亚
+                  status_name: 待处理
+                  status: 1
+                  customers:
+                  - customer_id: 1104353787
+                    lead_id: 1104353788
+                    name: ''
+                    email: 239@s.com
+                    tel_list: []
+                    post: ''
+                    post_grade: 0
+                    birth: ''
+                    main_customer_flag: 1
+                    gender: 0
+                    contact: []
+                    remark: ''
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 线索
+      x-apifox-status: released
+      operationId: get_v1_lead_info
+      x-local-source-path: sources/pages/api-3484689.md
+      x-source-id: api-3484689
+      x-source-title: 线索数据查询
+      x-source-module: 线索
+  /v1/lead/push:
+    post:
+      summary: 线索（含联系人）创建/编辑接口
+      deprecated: false
+      description: '| 异常码 | 异常消息 |异常解决方案|
+
+        | 404 | Input data validate error origin_list must be array | 检查传入的origin_list是否是数组 |
+
+        | 404 | Not Found Resource | 检查传入的lead_id是否存在 |
+
+        | 400  | Invalid data json | 检查传入的数据是否是json格式 |
+
+        | 400  | Empty POST request body data | 检查传入的数据是否为空 |'
+      tags:
+      - 线索
+      - s7.1
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        example: REDACTED_JWT
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  title: 跟进人
+                  description: 不填则默认为创建人  值来自于/v1/user/list接口
+                name:
+                  type: string
+                  title: 线索名称
+                country:
+                  type: string
+                  title: 国家/地区
+                  description: 非必填,ISO两位码
+                province:
+                  type: string
+                  title: 省
+                  description: 对接需要询问对接协助开发获取省枚举
+                city:
+                  type: string
+                  title: 市
+                  description: 对接需要询问对接协助开发获取市枚举
+                tel:
+                  type: string
+                  title: 座机号码
+                fax:
+                  type: string
+                  title: 传真
+                biz_type:
+                  type: integer
+                  title: 客户类型
+                  description: 可选字段 /v1/company/companyEnums
+                address:
+                  type: string
+                  title: 地址
+                  description: 可选字段
+                remark:
+                  type: string
+                  title: 备注
+                  description: 可选字段
+                homepage:
+                  type: string
+                  title: 主页网址
+                  description: 可选字段
+                customers:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        title: 昵称
+                      email:
+                        type: string
+                        title: 联系人邮箱
+                        description: 如果线索存在该联系人邮箱，则是编辑操作
+                      tel:
+                        type: string
+                        title: 电话号码
+                      tel_area_code:
+                        type: string
+                        title: 电话号码区号
+                      post:
+                        type: string
+                        title: 职位
+                      qq:
+                        type: string
+                        title: QQ账号
+                      linkedin:
+                        type: string
+                        title: LinkedIn账号
+                      skype:
+                        type: string
+                        title: Skype账号
+                      whatsapp:
+                        type: string
+                        title: WhatsApp账号
+                      facebook:
+                        type: string
+                        title: Facebook账号
+                      wechat:
+                        type: string
+                        title: 微信账号
+                      twitter:
+                        type: string
+                        title: Twitter账号
+                      birth:
+                        type: string
+                        title: 生日
+                      remark:
+                        type: string
+                        title: 联系人备注
+                      main_customer_flag:
+                        type: integer
+                        title: 是否主要联系人
+                        description: 0=不是，1=是主要联系人
+                    x-apifox-orders:
+                    - name
+                    - email
+                    - tel
+                    - tel_area_code
+                    - post
+                    - qq
+                    - linkedin
+                    - skype
+                    - whatsapp
+                    - facebook
+                    - wechat
+                    - twitter
+                    - birth
+                    - remark
+                    - main_customer_flag
+                  title: 线索联系人列表
+                lead_id:
+                  type: integer
+                  title: 线索ID
+                  description: 编辑时需要设置  值来自于/v1/lead/list接口
+                origin_list:
+                  type: array
+                  items:
+                    type: integer
+                    description: 来源ID
+                  title: 线索来源
+                  description: 可选字段，从v1/company/fields/selector?field=origin选择
+                company_name:
+                  type: string
+                  title: 客户名称
+                short_name:
+                  type: string
+                  title: 简称
+                scale_id:
+                  type: integer
+                  title: 规模ID
+                  description: 值来自/v1/company/companyEnums 接口
+                group_id:
+                  type: integer
+                  title: 分组ID
+                  description: 从分组v1/company/fields/selector?field=group_id选择
+                status:
+                  type: integer
+                  title: 状态信息
+                  description: 可选字段：1=>待处理,2=>无效,3=>完善信息,4=>初步触达,5=>联系互动,7=>已转化
+              required:
+              - name
+              x-apifox-orders:
+              - lead_id
+              - user_id
+              - name
+              - company_name
+              - short_name
+              - scale_id
+              - group_id
+              - country
+              - province
+              - city
+              - tel
+              - fax
+              - origin_list
+              - biz_type
+              - address
+              - remark
+              - homepage
+              - customers
+              - status
+            example:
+              lead_id: 0
+              name: 线索B1
+              company_name: 小满科技
+              short_name: 简称
+              scale_id: 2
+              group_id: 1345
+              origin_list:
+              - 14
+              biz_type: 生产商
+              country: CN
+              province: 江西省
+              city: 赣州市
+              address: 章贡街道
+              homepage: zhanggong.com
+              remark: 备注
+              user_id: 11858713
+              fax: '234345'
+              tel: '345436'
+              customers:
+              - name: 线索联系人测试3
+                main_customer_flag: 1
+                email: sdfdsadf2d3f@163.com
+                birth: '1908-09-09'
+                post: 部门经理
+                remark: 联系人备注
+                tel: '345436'
+                tel_area_code: '86'
+                qq: '234345456'
+                linkedin: 23453456
+                skype: '34534676'
+                whatsapp: w54346436
+                facebook: facebook01
+                wechat: 234522qq1
+                twitter: 3453456
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      lead_id:
+                        type: integer
+                        title: 线索ID
+                    required:
+                    - lead_id
+                    x-apifox-orders:
+                    - lead_id
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-03-07 15:52:42'
+                data:
+                  lead_id: 5203689291
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 线索
+      x-apifox-status: released
+      operationId: post_v1_lead_push
+      x-local-source-path: sources/pages/api-3478299.md
+      x-source-id: api-3478299
+      x-source-title: 线索（含联系人）创建/编辑接口
+      x-source-module: 线索
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

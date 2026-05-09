@@ -1,0 +1,113 @@
+{
+  "url": "https://www.yuque.com/help.xiaoman/irikgd/mwnvlommqa5q5u9y",
+  "html_snapshot": "sources/external/yuque/mwnvlommqa5q5u9y.html",
+  "meta": {
+    "description": "1. 企业现用的系统能否对接小满？若使用ERP系统为用...",
+    "og:title": "FAQ · 语雀",
+    "og:description": "1. 企业现用的系统能否对接小满？若使用ERP系统为用...",
+    "title": "FAQ · 语雀"
+  },
+  "doc": {
+    "id": 226905378,
+    "title": "FAQ",
+    "slug": "mwnvlommqa5q5u9y",
+    "description": "1. 企业现用的系统能否对接小满？若使用ERP系统为用友畅捷通T+Cloud 16.0以上、金蝶云星辰、 金蝶云星空7.0以上，可以选择以下方式：通过OKKI 推荐服务商（轻亿云）进行实施服务商对接--已提前预对接ERP系统：实施服务商对接--已提前预对接ERP系统；企业自己委托第三方服务商进...",
+    "word_count": 5629,
+    "created_at": "2025-07-07T02:17:50.000Z",
+    "updated_at": "2026-04-02T01:40:16.000Z",
+    "published_at": "2025-08-05T09:57:35.000Z",
+    "content_updated_at": "2025-08-05T09:56:25.000Z"
+  },
+  "book": {
+    "id": 25901336,
+    "name": "OKKI CRM 各版本资料下载",
+    "slug": "irikgd",
+    "toc_updated_at": "2025-11-24T02:23:30.000Z"
+  },
+  "api_toc": [
+    {
+      "type": "TITLE",
+      "title": "API服务指引",
+      "url": "",
+      "level": 0
+    },
+    {
+      "type": "DOC",
+      "title": "多系统对接指引",
+      "url": "nl97i50gpoc4dbeg",
+      "level": 1
+    },
+    {
+      "type": "DOC",
+      "title": "基本概念",
+      "url": "eq1s6ut8oztf8gxz",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "身份获取说明",
+      "url": "encwdg4srp2l02yn",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "API 激活流程",
+      "url": "ybevn6es0rpqx06r",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "自主对接",
+      "url": "piop6ecyiq5rgdbg",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "其他第三方服务商对接",
+      "url": "uhtot0x8tol9soao",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "实施服务商对接",
+      "url": "uzw227d10hc2foo9",
+      "level": 2
+    },
+    {
+      "type": "DOC",
+      "title": "实施服务商对接——已提前预对接ERP系统",
+      "url": "da5p3xpkkvhhxz3a",
+      "level": 3
+    },
+    {
+      "type": "DOC",
+      "title": "金蝶云星辰授权流程",
+      "url": "ygbegvxwrx6wn8xb",
+      "level": 4
+    },
+    {
+      "type": "DOC",
+      "title": "畅捷通授权流程",
+      "url": "pzzq1q0cvbcavx8g",
+      "level": 4
+    },
+    {
+      "type": "DOC",
+      "title": "金蝶云星空授权流程",
+      "url": "vektkvxrlg3uvgxz",
+      "level": 4
+    },
+    {
+      "type": "DOC",
+      "title": "实施服务商对接——非预先对接的ERP系统",
+      "url": "vluupruar4bodq46",
+      "level": 3
+    },
+    {
+      "type": "DOC",
+      "title": "FAQ",
+      "url": "mwnvlommqa5q5u9y",
+      "level": 2
+    }
+  ]
+}

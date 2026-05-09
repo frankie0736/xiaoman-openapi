@@ -1,0 +1,1216 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 供应商 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 供应商.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 供应商
+  x-module-slug: supplier
+paths:
+  /v1/supplier/list:
+    get:
+      summary: 供应商列表
+      deprecated: false
+      description: ''
+      tags:
+      - 供应商
+      parameters:
+      - name: start_time
+        in: query
+        description: 更新开始时间
+        required: false
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: 更新截止时间
+        required: false
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: 每页数量
+        required: false
+        schema:
+          type: integer
+      - name: start_index
+        in: query
+        description: 页码
+        required: false
+        schema:
+          type: integer
+      - name: is_delete
+        in: query
+        description: '默认值: 0，设置=1时查询已删除的数据列表'
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: ''
+        required: true
+        example: 20
+        schema:
+          type: integer
+      - name: page_no
+        in: query
+        description: ''
+        required: true
+        example: 1
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 0
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  data:
+                    description: 响应数据
+                    type: object
+                    properties:
+                      count:
+                        description: 供应商总数
+                        type: integer
+                      list:
+                        description: 供应商列表
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            supplier_id:
+                              description: 供应商ID
+                              type: integer
+                            name:
+                              description: 供应商名称
+                              type: string
+                            rate_id:
+                              description: 供应商评级ID
+                              type: integer
+                            homepage:
+                              description: 公司网址
+                              type: string
+                            address:
+                              description: 供应商地址
+                              type: string
+                            delivery_date:
+                              description: 参考交期
+                              type: integer
+                            remark:
+                              description: 备注
+                              type: string
+                            attachments:
+                              type: array
+                              items:
+                                type: string
+                                description: 附件URL
+                              description: '附件列表, example: [''xxx'', ''xxx'']'
+                            external_field_data:
+                              description: 自定义字段
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    description: 字段ID
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                  name:
+                                    description: 字段名称
+                                    type: string
+                                  field_type:
+                                    description: 字段类型，0=特殊，1=短文本，2=长文本，3=下拉单选，4=日期，5=数字，6=图片，7=下拉多选，8=附件，9=引用字段，10=日期时间
+                                    type: integer
+                                x-apifox-orders:
+                                - id
+                                - value
+                                - name
+                                - field_type
+                            contact_list:
+                              description: 联系人列表
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  '3376778151':
+                                    description: 联系人自定义字段值
+                                    type: string
+                                  contact_name:
+                                    description: 联系人名称
+                                    type: string
+                                  main:
+                                    description: 主要联系人设置标志 ：0=不是，1=是主要联系人
+                                    type: integer
+                                  phone:
+                                    description: 手机号
+                                    type: string
+                                  email:
+                                    description: 邮箱
+                                    type: string
+                                  social_platform:
+                                    description: 社交平台QQ，微信列表
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        platform:
+                                          description: 社交平台类型，1QQ，2微信
+                                          type: integer
+                                        account:
+                                          description: 社交平台账号
+                                          type: string
+                                      x-apifox-orders:
+                                      - platform
+                                      - account
+                                  supplier_conact_id:
+                                    type: integer
+                                    description: 联系人ID
+                                x-apifox-orders:
+                                - supplier_conact_id
+                                - contact_name
+                                - main
+                                - phone
+                                - email
+                                - social_platform
+                                - '3376778151'
+                            user_list:
+                              description: 跟进人列表
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  user_id:
+                                    description: 跟进人id
+                                    type: integer
+                                  nickname:
+                                    description: 跟进人昵称
+                                    type: string
+                                x-apifox-orders:
+                                - user_id
+                                - nickname
+                            create_time:
+                              description: 创建时间
+                              type: string
+                            archive_user:
+                              description: 创建人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 创建人id
+                                  type: integer
+                                nickname:
+                                  description: 创建人昵称
+                                  type: string
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                            update_user:
+                              description: 更新人信息
+                              type: object
+                              properties:
+                                user_id:
+                                  description: 更新人id
+                                  type: integer
+                                nickname:
+                                  description: 更新人昵称
+                                  type: string
+                              x-apifox-orders:
+                              - user_id
+                              - nickname
+                            update_time:
+                              description: 更新时间
+                              type: string
+                            supplier_no:
+                              type: string
+                              description: 供应商编号
+                            partner_account:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  partner_account_id:
+                                    type: integer
+                                    description: 收款账号ID
+                                  partner_account_name:
+                                    type: string
+                                    description: 收款账户名
+                                  bank_name:
+                                    type: string
+                                    description: 收款银行
+                                  bank_account:
+                                    type: string
+                                    description: 收款账户
+                                  account_name:
+                                    type: string
+                                    description: 收款户名
+                                  is_main_flag:
+                                    type: integer
+                                    description: 主收款账户，1是，0否
+                                x-apifox-orders:
+                                - partner_account_id
+                                - partner_account_name
+                                - bank_name
+                                - bank_account
+                                - account_name
+                                - is_main_flag
+                              description: 供应商资金信息
+                          x-apifox-orders:
+                          - supplier_id
+                          - supplier_no
+                          - name
+                          - rate_id
+                          - homepage
+                          - address
+                          - delivery_date
+                          - remark
+                          - attachments
+                          - external_field_data
+                          - contact_list
+                          - user_list
+                          - create_time
+                          - archive_user
+                          - update_user
+                          - update_time
+                          - partner_account
+                    x-apifox-orders:
+                    - count
+                    - list
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 供应商
+      x-apifox-status: released
+      operationId: get_v1_supplier_list
+      x-local-source-path: sources/pages/api-3481691.md
+      x-source-id: api-3481691
+      x-source-title: 供应商列表
+      x-source-module: 供应商
+  /v1/supplier/fields:
+    get:
+      summary: 供应商字段
+      deprecated: false
+      description: ''
+      tags:
+      - 供应商
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: 字段ID
+                        name:
+                          type: string
+                          description: 字段名称
+                        base:
+                          type: integer
+                          description: 是否系统字段，1=系统字段，0=自定义字段
+                        field_type:
+                          type: integer
+                          description: 字段类型
+                        ext_info:
+                          type: array
+                          items:
+                            type: string
+                          description: 选字段额外信息，比如选项等枚举值
+                          nullable: true
+                        require:
+                          type: integer
+                          description: 是否必填，1=必填，0=非必填
+                        default:
+                          type: string
+                          description: 默认值
+                        disable_flag:
+                          type: integer
+                        is_list:
+                          type: integer
+                          description: 是否明细字段
+                      required:
+                      - id
+                      - name
+                      - base
+                      - field_type
+                      - ext_info
+                      - require
+                      - default
+                      - disable_flag
+                      - is_list
+                      x-apifox-orders:
+                      - id
+                      - name
+                      - base
+                      - field_type
+                      - ext_info
+                      - require
+                      - default
+                      - disable_flag
+                      - is_list
+                      x-apifox-ignore-properties: []
+                x-apifox-orders:
+                - 01JP4JFRH77DXH157C9WBDFRSC
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-refs:
+                  01JP4JFRH77DXH157C9WBDFRSC:
+                    $ref: '#/components/schemas/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E5%93%8D%E5%BA%94'
+                x-apifox-ignore-properties:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+                x-apifox-ignore-properties: []
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 供应商
+      x-apifox-status: released
+      operationId: get_v1_supplier_fields
+      x-local-source-path: sources/pages/api-3481699.md
+      x-source-id: api-3481699
+      x-source-title: 供应商字段
+      x-source-module: 供应商
+  /v1/supplier/remove:
+    post:
+      summary: 供应商删除
+      deprecated: false
+      description: ''
+      tags:
+      - 供应商
+      parameters:
+      - name: supplier_id
+        in: query
+        description: 供应商ID
+        required: true
+        example: 3137319521
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      supplier_id:
+                        type: string
+                        title: 供应商ID
+                    required:
+                    - supplier_id
+                    x-apifox-orders:
+                    - supplier_id
+                required:
+                - code
+                - msg
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - msg
+                - now
+                - data
+              example:
+                code: 0
+                msg: success
+                now: '2022-04-11 16:33:40'
+                data:
+                  supplier_id: '3137319521'
+          headers: {}
+          x-apifox-name: 成功
+        x-200:请求成功:
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  msg:
+                    type: string
+                x-apifox-orders:
+                - code
+                - msg
+              example:
+                msg: success
+                code: 0
+          headers: {}
+          x-apifox-name: 请求成功
+      security: []
+      x-apifox-folder: 供应商
+      x-apifox-status: released
+      operationId: post_v1_supplier_remove
+      x-local-source-path: sources/pages/api-3484731.md
+      x-source-id: api-3484731
+      x-source-title: 供应商删除
+      x-source-module: 供应商
+  /v1/supplierProduct/supplierProductRelationList:
+    get:
+      summary: 获取供应商产品列表
+      deprecated: false
+      description: ''
+      tags:
+      - 供应商
+      parameters:
+      - name: product_no
+        in: query
+        description: ''
+        required: false
+        example: '{{PSL_product_no}}'
+        schema:
+          type: string
+      - name: supplier_product_no
+        in: query
+        description: ''
+        required: false
+        example: '{{PSL_supplier_product_no}}'
+        schema:
+          type: string
+      - name: product_id
+        in: query
+        description: ''
+        required: false
+        example: '{{PSL_product_id}}'
+        schema:
+          type: string
+      - name: suku_id
+        in: query
+        description: ''
+        required: false
+        example: '{{PSL_sku_id}}'
+        schema:
+          type: string
+      - name: supplier_id
+        in: query
+        description: ''
+        required: false
+        example: '{{PSL_supplier_id}}'
+        schema:
+          type: string
+      - name: supplier_product_name
+        in: query
+        description: ''
+        required: false
+        example: '{{PSL_supplier_product_name}}'
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        product_id:
+                          type: integer
+                        sku_id:
+                          type: integer
+                        supplier_product_name:
+                          type: string
+                        supplier_product_no:
+                          type: string
+                        supplier_id:
+                          type: integer
+                        main_supplier:
+                          type: integer
+                        sku_info:
+                          type: object
+                          properties:
+                            product_no:
+                              type: string
+                            product_name:
+                              type: string
+                          required:
+                          - product_no
+                          - product_name
+                          items:
+                            type: string
+                        supplier_info:
+                          type: object
+                          properties:
+                            supplier_no:
+                              type: string
+                            name:
+                              type: string
+                            supplier_id:
+                              type: integer
+                          required:
+                          - supplier_no
+                          - name
+                          - supplier_id
+                      required:
+                      - product_id
+                      - sku_id
+                      - supplier_product_name
+                      - supplier_product_no
+                      - supplier_id
+                      - main_supplier
+                      - sku_info
+                      - supplier_info
+                required:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 供应商
+      x-apifox-status: released
+      operationId: get_v1_supplierproduct_supplierproductrelationlist
+      x-local-source-path: sources/pages/api-3498455.md
+      x-source-id: api-3498455
+      x-source-title: 获取供应商产品列表
+      x-source-module: 供应商
+  /v1/supplier/info:
+    get:
+      summary: 供应商详情
+      deprecated: false
+      description: ''
+      tags:
+      - 供应商
+      parameters:
+      - name: supplier_id
+        in: query
+        description: 供应商ID
+        required: true
+        schema:
+          type: integer
+      - name: supplier_name
+        in: query
+        description: 供应商名称
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: 错误码
+                    type: integer
+                    x-apifox-mock: 0
+                  message:
+                    description: 错误信息
+                    type: string
+                    x-apifox-mock: success
+                  now:
+                    description: 当前时间
+                    type: string
+                    x-apifox-mock: '2022-01-01 00:00:00'
+                  data:
+                    description: 供应商信息
+                    type: object
+                    properties:
+                      supplier_id:
+                        description: 供应商ID
+                        type: integer
+                      name:
+                        description: 供应商名称
+                        type: string
+                      rate_id:
+                        description: 供应商评级
+                        type: integer
+                      homepage:
+                        description: 公司网址
+                        type: string
+                      address:
+                        description: 供应商地址
+                        type: string
+                      delivery_date:
+                        description: 参考交期
+                        type: integer
+                      remark:
+                        description: 备注
+                        type: string
+                      attachments:
+                        description: '附件列表, example: [''xxx'', ''xxx'']'
+                        type: array
+                        items:
+                          type: string
+                          description: 附件URL
+                      external_field_data:
+                        description: 自定义字段
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              description: 字段ID
+                              type: string
+                            value:
+                              description: 字段值
+                              type: string
+                            name:
+                              description: 字段名称
+                              type: string
+                            field_type:
+                              description: 字段类型，0=特殊，1=短文本，2=长文本，3=下拉单选，4=日期，5=数字，6=图片，7=下拉多选，8=附件，9=引用字段，10=日期时间
+                              type: integer
+                          x-apifox-orders:
+                          - id
+                          - value
+                          - name
+                          - field_type
+                      contact_list:
+                        description: 联系人列表
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            '3376778151':
+                              description: 联系人自定义字段值
+                              type: string
+                            contact_name:
+                              description: 联系人名称
+                              type: string
+                            main:
+                              description: 主要联系人设置标志 ：0=不是，1=是主要联系人
+                              type: integer
+                            phone:
+                              description: 手机号
+                              type: string
+                            email:
+                              description: 邮箱
+                              type: string
+                            social_platform:
+                              description: 社交平台QQ，微信列表
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  platform:
+                                    description: 社交平台类型，1QQ，2微信
+                                    type: integer
+                                  account:
+                                    description: 社交平台账号
+                                    type: string
+                                x-apifox-orders:
+                                - platform
+                                - account
+                          x-apifox-orders:
+                          - contact_name
+                          - main
+                          - phone
+                          - email
+                          - social_platform
+                          - '3376778151'
+                      user_list:
+                        description: 跟进人列表
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            user_id:
+                              description: 跟进人id
+                              type: integer
+                            nickname:
+                              description: 跟进人昵称
+                              type: string
+                          x-apifox-orders:
+                          - user_id
+                          - nickname
+                      create_time:
+                        description: 创建时间
+                        type: string
+                      archive_user:
+                        description: 创建人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 创建人id
+                            type: integer
+                          nickname:
+                            description: 创建人昵称
+                            type: string
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                      update_user:
+                        description: 更新人信息
+                        type: object
+                        properties:
+                          user_id:
+                            description: 更新人id
+                            type: integer
+                          nickname:
+                            description: 更新人昵称
+                            type: string
+                        x-apifox-orders:
+                        - user_id
+                        - nickname
+                      update_time:
+                        description: 更新时间
+                        type: string
+                      partner_account:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            partner_account_id:
+                              type: integer
+                              description: 收款账号ID
+                            partner_account_name:
+                              type: string
+                              description: 收款账户名
+                            bank_name:
+                              type: string
+                              description: 收款银行
+                            bank_account:
+                              type: string
+                              description: 收款账户
+                            account_name:
+                              type: string
+                              description: 收款户名
+                            is_main_flag:
+                              type: integer
+                              description: 主收款账户，1是，0否
+                          x-apifox-orders:
+                          - partner_account_id
+                          - partner_account_name
+                          - bank_name
+                          - bank_account
+                          - account_name
+                          - is_main_flag
+                        description: 供应商资金信息
+                    x-apifox-orders:
+                    - supplier_id
+                    - name
+                    - rate_id
+                    - homepage
+                    - address
+                    - delivery_date
+                    - remark
+                    - attachments
+                    - external_field_data
+                    - contact_list
+                    - user_list
+                    - create_time
+                    - archive_user
+                    - update_user
+                    - update_time
+                    - partner_account
+                    required:
+                    - partner_account
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 供应商
+      x-apifox-status: released
+      operationId: get_v1_supplier_info
+      x-local-source-path: sources/pages/api-3478283.md
+      x-source-id: api-3478283
+      x-source-title: 供应商详情
+      x-source-module: 供应商
+  /v1/supplier/push:
+    post:
+      summary: 供应商新增/编辑
+      deprecated: false
+      description: ''
+      tags:
+      - 供应商
+      parameters:
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                '3137211747':
+                  description: 供应商自定义字段。字段名称为/v1/supplier/fields 获取到的自定义字段ID
+                  type: string
+                supplier_id:
+                  description: 供应商ID，编辑时传递
+                  type: integer
+                name:
+                  description: 供应商名称，必填
+                  type: string
+                archive_user:
+                  description: 创建人，不填默认为主账号
+                  type: integer
+                rate_id:
+                  description: 供应商评级，非必填，crm是枚举，接口补充中~~
+                  type: integer
+                homepage:
+                  description: 公司网址，非必填
+                  type: string
+                address:
+                  description: 供应商地址，非必填
+                  type: string
+                remark:
+                  description: 备注，非必填
+                  type: string
+                delivery_date:
+                  description: '参考交期，非必填，crm是枚举,1：1-2天；2: 3-5天；3：5-10天 4: 10-15天，5: > 15天'
+                  type: integer
+                contact_list:
+                  description: 联系人列表，没有则不传，或者空数组
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      '3376778151':
+                        description: 供应商联系人自定义字段。字段名称为/v1/supplier/fields 获取到的自定义字段ID
+                        type: string
+                      supplier_contact_id:
+                        description: 供应商联系人 ID， 编辑时需要
+                        type: integer
+                      contact_name:
+                        description: 联系人姓名（必填）
+                        type: string
+                      phone:
+                        description: 联系人手机，必填，没有值为空字符串
+                        type: string
+                      email:
+                        description: 联系人邮箱，必填，没有值为空字符串
+                        type: string
+                      main:
+                        description: 是否主联系人，1主联系人，0不是主联系人，不是传0
+                        type: integer
+                      social_platform:
+                        description: 社交方式，没有空数组
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            platform:
+                              description: QQ,微信,目前【只支持QQ、微信 这两个枚举值】，其他在我们系统可以写入，但无法识别显示
+                              type: integer
+                            account:
+                              description: QQ或微信号
+                              type: string
+                          x-apifox-orders:
+                          - platform
+                          - account
+                    x-apifox-orders:
+                    - supplier_contact_id
+                    - contact_name
+                    - phone
+                    - email
+                    - main
+                    - social_platform
+                    - '3376778151'
+                supplier_no:
+                  type: string
+                  description: 供应商编号
+              x-apifox-orders:
+              - supplier_id
+              - supplier_no
+              - name
+              - archive_user
+              - rate_id
+              - homepage
+              - address
+              - remark
+              - delivery_date
+              - contact_list
+              - '3137211747'
+              required:
+              - name
+            example:
+              name: 1111测试接口创建供应商1
+              contact_list:
+              - contact_name: gao
+                phone: '12345678901'
+                email: 123@q111q.com
+                main: '1'
+              external_field_data:
+              - '7788719587625': 测试
+              user_id: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                x-apifox-orders: []
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 供应商
+      x-apifox-status: released
+      operationId: post_v1_supplier_push
+      x-local-source-path: sources/pages/api-3478285.md
+      x-source-id: api-3478285
+      x-source-title: 供应商新增/编辑
+      x-source-module: 供应商
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

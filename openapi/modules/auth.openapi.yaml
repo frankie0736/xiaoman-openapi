@@ -1,0 +1,254 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 授权登录 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 授权登录.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 授权登录
+  x-module-slug: auth
+paths:
+  /v1/oauth2/access_token:
+    post:
+      summary: 鉴权接口
+      deprecated: false
+      description: "当使用client_credentials时可以参考下面传入，这种情况下不会有刷新token，可以在过期前重新再次请求一下即可，这种格式下请在请求body中写入如下JSON数据\n{\n    \"grant_type\"\
+        :\"client_credentials\",\n    \"client_id\": \"xxx\",\n    \"client_secret\": \"xxxx\",\n    \"scope\": \"invoices\
+        \ purchaseOrder\"\n}\n\n注意：\n1、不管是password 还是 client_credentials 返回的token都有有效期，一般为8小时，期间8小时内重新获取不会刷新token有效时间，区别于走client_credentials没有expires_in，refresh_token返回。\n\
+        2、其中参数scope理解为我们每个模块都有一个scope值，申请token时带入，比如客户模块为company，若只需要对接客户的模块的话，只需要在scope参数填入company即可，这时token只能访问客户模块的API，其他模块API不允许访问，否则会提示无权限比如no\
+        \ permission invoices scopes；但是若有其他模块需要，则需要在scope中增加对应模块的scope，比如订单和客户模块scope=company invoices 中间以空格隔开。每个模块的scope可以在下面参数说明中查到，也可以到模块下首个页面获得。"
+      tags:
+      - 授权登录
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  description: 授权模式 password 或 client_credentials
+                  example: password
+                  type: string
+                client_id:
+                  description: 登录主账号：OKKI CRM → 进入企业管理 → 外部对接 → API对接获取client_id
+                  example: efc1126d6
+                  type: string
+                client_secret:
+                  description: 登录主账号：OKKI CRM → 进入企业管理 → 外部对接 → API对接获取client_secret
+                  example: dcc2228f1
+                  type: string
+                username:
+                  description: 小满的登录邮箱，当client_credentials时不用传
+                  example: xxx@xiaoman.cn
+                  type: string
+                password:
+                  description: 密码需要使用SHA 256加密，当client_credentials是不用传
+                  example: password
+                  type: string
+                scope:
+                  description: '授权访问的业务API列表，中间加半角空格分割，目前开放 product(产品) company(公司客户) lead(线索) opportunity(商机) invoices(订单、报价单、回款单)
+                    user(用户列表) costInvoice(费用单) paymentInvoice(付款单) purchaseOrder(采购订单) warehouse(库存) capitalAccount(资金账户)
+                    等业务模块 '
+                  example: 'company product  invoices '
+                  type: string
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              - scope
+            examples: {}
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token_type:
+                    type: string
+                    description: Bearer
+                  expires_in:
+                    type: integer
+                    description: 有效时间 默认值：28800
+                  access_token:
+                    type: string
+                    description: 令牌Token
+                  refresh_token:
+                    type: string
+                    description: 刷新令牌
+                required:
+                - token_type
+                - expires_in
+                - access_token
+                - refresh_token
+                x-apifox-orders:
+                - token_type
+                - expires_in
+                - access_token
+                - refresh_token
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 授权登录
+      x-apifox-status: released
+      operationId: post_v1_oauth2_access_token
+      x-local-source-path: sources/pages/api-3473041.md
+      x-source-id: api-3473041
+      x-source-title: 鉴权接口
+      x-source-module: 授权登录
+  /v1/oauth2/refresh_token:
+    post:
+      summary: 刷新令牌接口
+      deprecated: false
+      description: ''
+      tags:
+      - 授权登录
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  description: '授权模式，默认值: refresh_token'
+                  example: refresh_token
+                  type: string
+                refresh_token:
+                  description: 刷新令牌，从鉴权接口中获取到的refresh_token
+                  example: ''
+                  type: string
+                client_id:
+                  description: 客户端身份标识（平台发放）
+                  example: ''
+                  type: string
+                client_secret:
+                  description: 客户端密钥（平台发放）
+                  example: ''
+                  type: string
+              required:
+              - grant_type
+              - refresh_token
+              - client_id
+              - client_secret
+            examples: {}
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token_type:
+                    type: string
+                    description: token类型，一般都是Bearer
+                  expires_in:
+                    type: integer
+                    description: token的有效时间，单位是秒，例如首次申请的token有效时间是28800=8小时
+                  access_token:
+                    type: string
+                    description: 访问令牌，访问数据API接口用
+                  refresh_token:
+                    type: string
+                    description: 刷新令牌，用来刷新申请新的access_token
+                required:
+                - token_type
+                - expires_in
+                - access_token
+                - refresh_token
+                x-apifox-orders:
+                - token_type
+                - expires_in
+                - access_token
+                - refresh_token
+              example:
+                token_type: Bearer
+                expires_in: 28800
+                access_token: REDACTED_JWT
+                refresh_token: def50200f526794f844c41561de7b1ecb0aea2ba635539fbee51928e1b10b831d6fe7d53acfeceec8447f22fc1c485185f3026defe8983dc040e0a3c48aaa8e8beea1262ac7f40a431c7bd5acecac577d40dfb0be083422602a6a66787ccb2d2ce66e491dd95fe7594ac54dec54b6fde01538b96e352d0ad01470a9e6c2dd949101c7e7ed78504e9b47954438f47363cf19c8c4068c54c905ff4cc6327742aa535f3a30366d4ef95abd74df9a064fba542b79da31685c14287ec22c59088f18b03a362acb556066139264868e3be048f35c918fd71ddb896750dd6b700ed40b999182ddcf3b05394d9fd8ab4b7bea5569ba75b265fddb16c0d5c1fbe413a3c967ade57c84ac78fc277be5a61297a7d3ac3264b2214d76aad42558b1792aecdbea54aa3b0ea8a62c1afb3ceaa556006eaa9e6b940d4fe0e9024f4073e610e0a897c03c175b195dae704f2dac41b417cac8b5a503c907b3be933d28c563b05dff9d7d32a3d8e1af0e7c49ee180cb2816ebe35955f9fd18322ddd4bb6b6ff71adf51ebe128d1301cb081d6b60757569df1025c8b77172eb5d804c815202a73a46ec7573c9153bf5ed998dca9d08a1b9b21d5e94c3f519d56dbf1afdd7aad4353be946
+          headers: {}
+          x-apifox-name: 成功
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  error_description:
+                    type: string
+                  message:
+                    type: string
+                required:
+                - error
+                - error_description
+                - message
+                x-apifox-orders:
+                - error
+                - error_description
+                - message
+              example:
+                error: invalid_client
+                error_description: Client authentication failed
+                message: Client authentication failed
+          headers: {}
+          x-apifox-name: 无效密钥
+        x-400:刷新令牌无效:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  error_description:
+                    type: string
+                  hint:
+                    type: string
+                  message:
+                    type: string
+                required:
+                - error
+                - error_description
+                - hint
+                - message
+                x-apifox-orders:
+                - error
+                - error_description
+                - hint
+                - message
+              example:
+                error: invalid_request
+                error_description: The refresh token is invalid.
+                hint: Token has been revoked
+                message: The refresh token is invalid.
+          headers: {}
+          x-apifox-name: 刷新令牌无效
+      security: []
+      x-apifox-folder: 授权登录
+      x-apifox-status: released
+      operationId: post_v1_oauth2_refresh_token
+      x-local-source-path: sources/pages/api-3483803.md
+      x-source-id: api-3483803
+      x-source-title: 刷新令牌接口
+      x-source-module: 授权登录
+components:
+  schemas: {}
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

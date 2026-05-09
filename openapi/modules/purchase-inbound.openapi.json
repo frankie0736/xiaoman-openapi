@@ -1,0 +1,3333 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Xiaoman OpenAPI - 采购入库单 (unofficial)",
+    "version": "2026-05-09",
+    "description": "Unofficial module spec generated from public Xiaoman Open API documentation: 采购入库单."
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.xiaoman.cn",
+      "description": "official documented server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "采购入库单",
+      "x-module-slug": "purchase-inbound"
+    }
+  ],
+  "paths": {
+    "/v1/invoices/purchaseInbound/list": {
+      "get": {
+        "summary": "采购入库单-列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "采购入库单",
+          "s7.1"
+        ],
+        "parameters": [
+          {
+            "name": "start_time",
+            "in": "query",
+            "description": "开始时间",
+            "required": false,
+            "example": "2025-01-13 11:13:27",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "description": "结束时间",
+            "required": false,
+            "example": "2025-01-13 11:13:27",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start_index",
+            "in": "query",
+            "description": "页码",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "页面数量",
+            "required": false,
+            "example": 10,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "removed",
+            "in": "query",
+            "description": "默认0，1表示查询已删除的数据列表",
+            "required": false,
+            "example": 0,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "对应的状态值1是",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "time_type",
+            "in": "query",
+            "description": "时间查询参数，默认为1，1是更新时间排序，2是创建时间排序",
+            "required": false,
+            "example": 2,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "serial_id",
+            "in": "query",
+            "description": "采购入库单号",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "3113188679": {
+                                "type": "string",
+                                "description": "数字类型的是自定义字段"
+                              },
+                              "inbound_invoice_id": {
+                                "type": "integer",
+                                "title": "入库单ID"
+                              },
+                              "type": {
+                                "type": "integer",
+                                "description": " 28 采购入库  29其他入库",
+                                "title": "入库单类型"
+                              },
+                              "serial_id": {
+                                "type": "string",
+                                "title": "入库单编号",
+                                "description": "采购入库单编号"
+                              },
+                              "warehouse_invoice_time": {
+                                "type": "string",
+                                "title": "入库时间"
+                              },
+                              "refer_id": {
+                                "type": "integer",
+                                "title": "关联对象id"
+                              },
+                              "refer_type": {
+                                "type": "integer",
+                                "title": "关联对象类型"
+                              },
+                              "status": {
+                                "type": "integer",
+                                "title": "入库状态"
+                              },
+                              "handler": {
+                                "type": "array",
+                                "items": {
+                                  "type": "integer"
+                                },
+                                "title": "处理人ID列表"
+                              },
+                              "create_time": {
+                                "type": "string",
+                                "title": "创建时间"
+                              },
+                              "create_user": {
+                                "type": "integer",
+                                "title": "创建人"
+                              },
+                              "update_time": {
+                                "type": "string",
+                                "title": "更新时间"
+                              },
+                              "update_user": {
+                                "type": "integer",
+                                "title": "更新人"
+                              },
+                              "external_field_data": {
+                                "type": "object",
+                                "properties": {
+                                  "3113188679": {
+                                    "type": "string"
+                                  },
+                                  "3113188692": {
+                                    "type": "string"
+                                  },
+                                  "3113188701": {
+                                    "type": "string"
+                                  },
+                                  "3115323657": {
+                                    "type": "string"
+                                  },
+                                  "3159957727": {
+                                    "type": "string"
+                                  },
+                                  "3159957729": {
+                                    "type": "string"
+                                  },
+                                  "3159957737": {
+                                    "type": "string"
+                                  },
+                                  "3159957740": {
+                                    "type": "string"
+                                  },
+                                  "3159957790": {
+                                    "type": "string"
+                                  },
+                                  "3159957795": {
+                                    "type": "integer"
+                                  },
+                                  "3159957797": {
+                                    "type": "number"
+                                  },
+                                  "3159957803": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "3159957807": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "3377313431": {
+                                    "type": "string"
+                                  },
+                                  "3468988008": {
+                                    "type": "null"
+                                  },
+                                  "3510397183": {
+                                    "type": "string"
+                                  },
+                                  "3580648718": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "3113188679",
+                                  "3113188692",
+                                  "3113188701",
+                                  "3115323657",
+                                  "3159957727",
+                                  "3159957729",
+                                  "3159957737",
+                                  "3159957740",
+                                  "3159957790",
+                                  "3159957795",
+                                  "3159957797",
+                                  "3159957803",
+                                  "3159957807",
+                                  "3377313431",
+                                  "3468988008",
+                                  "3510397183",
+                                  "3580648718"
+                                ],
+                                "x-apifox-orders": [
+                                  "3113188679",
+                                  "3113188692",
+                                  "3113188701",
+                                  "3115323657",
+                                  "3159957727",
+                                  "3159957729",
+                                  "3159957737",
+                                  "3159957740",
+                                  "3159957790",
+                                  "3159957795",
+                                  "3159957797",
+                                  "3159957803",
+                                  "3159957807",
+                                  "3377313431",
+                                  "3468988008",
+                                  "3510397183",
+                                  "3580648718"
+                                ],
+                                "title": "自定义字段"
+                              },
+                              "delete_flag": {
+                                "type": "integer"
+                              },
+                              "cause_id": {
+                                "type": "integer",
+                                "title": "入库原因id"
+                              },
+                              "remark": {
+                                "type": "string",
+                                "title": "备注"
+                              },
+                              "discount": {
+                                "type": "integer",
+                                "title": "整单折扣额"
+                              },
+                              "discount_rate": {
+                                "type": "integer",
+                                "title": "整单折扣率"
+                              },
+                              "product_total_amount": {
+                                "type": "integer",
+                                "title": "产品总金额(兑CNY)"
+                              },
+                              "invoice_warehouse_id": {
+                                "type": "integer",
+                                "title": "仓库id"
+                              },
+                              "currency": {
+                                "type": "string",
+                                "title": "币种"
+                              },
+                              "exchange_rate": {
+                                "type": "integer",
+                                "title": "汇率"
+                              },
+                              "exchange_rate_usd": {
+                                "type": "string",
+                                "title": "汇率USD"
+                              },
+                              "product_total_amount_rmb": {
+                                "type": "string",
+                                "title": "产品总金额(兑CNY)"
+                              },
+                              "product_total_amount_usd": {
+                                "type": "string",
+                                "title": "产品总金额(兑USD)"
+                              },
+                              "create_user_info": {
+                                "type": "object",
+                                "properties": {
+                                  "user_id": {
+                                    "type": "string",
+                                    "title": "创建人ID"
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "title": "创建人邮箱"
+                                  },
+                                  "nickname": {
+                                    "type": "string",
+                                    "title": "创建人昵称"
+                                  },
+                                  "avatar": {
+                                    "type": "string",
+                                    "title": "创建人头像"
+                                  }
+                                },
+                                "required": [
+                                  "user_id",
+                                  "email",
+                                  "nickname",
+                                  "avatar"
+                                ],
+                                "x-apifox-orders": [
+                                  "user_id",
+                                  "email",
+                                  "nickname",
+                                  "avatar"
+                                ],
+                                "title": "创建人信息"
+                              },
+                              "update_info": {
+                                "type": "object",
+                                "properties": {
+                                  "user_id": {
+                                    "type": "string",
+                                    "title": "更新人ID"
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "title": "更新人邮箱"
+                                  },
+                                  "nickname": {
+                                    "type": "string",
+                                    "title": "更新人昵称"
+                                  },
+                                  "avatar": {
+                                    "type": "string",
+                                    "title": "更新人头像"
+                                  }
+                                },
+                                "required": [
+                                  "user_id",
+                                  "email",
+                                  "nickname",
+                                  "avatar"
+                                ],
+                                "x-apifox-orders": [
+                                  "user_id",
+                                  "email",
+                                  "nickname",
+                                  "avatar"
+                                ],
+                                "title": "更新人信息"
+                              },
+                              "handler_info": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "处理人信息"
+                              },
+                              "invoice_warehouse_info": {
+                                "type": "object",
+                                "properties": {
+                                  "warehouse_id": {
+                                    "type": "integer",
+                                    "title": "仓库ID"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "title": "仓库名称"
+                                  },
+                                  "status": {
+                                    "type": "integer",
+                                    "title": "仓库状态状态：1-启用，2-停用"
+                                  },
+                                  "enable_flag": {
+                                    "type": "integer",
+                                    "title": "仓库是否删除，1未删除，0已删除"
+                                  },
+                                  "warehouse_no": {
+                                    "type": "string",
+                                    "title": "仓库编号"
+                                  }
+                                },
+                                "required": [
+                                  "warehouse_id",
+                                  "name",
+                                  "status",
+                                  "enable_flag",
+                                  "warehouse_no"
+                                ],
+                                "x-apifox-orders": [
+                                  "warehouse_id",
+                                  "name",
+                                  "status",
+                                  "enable_flag",
+                                  "warehouse_no"
+                                ],
+                                "title": "仓库信息"
+                              },
+                              "cause_info": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "入库原因信息"
+                              },
+                              "relation_object_info": {
+                                "type": "object",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "properties": {
+                                  "supplier_info": {
+                                    "type": "object",
+                                    "properties": {
+                                      "supplier_id": {
+                                        "type": "integer"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "supplier_no": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "supplier_id",
+                                      "name",
+                                      "supplier_no"
+                                    ],
+                                    "x-apifox-orders": [
+                                      "supplier_id",
+                                      "name",
+                                      "supplier_no"
+                                    ]
+                                  },
+                                  "supplier_id": {
+                                    "type": "integer"
+                                  }
+                                },
+                                "required": [
+                                  "supplier_info",
+                                  "supplier_id"
+                                ],
+                                "x-apifox-orders": [
+                                  "supplier_info",
+                                  "supplier_id"
+                                ],
+                                "title": "关联对象信息"
+                              },
+                              "supplier_info": {
+                                "type": "object",
+                                "properties": {
+                                  "supplier_id": {
+                                    "type": "integer",
+                                    "title": "供应商ID"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "title": "供应商名称"
+                                  },
+                                  "supplier_no": {
+                                    "type": "string",
+                                    "title": "供应商编号"
+                                  }
+                                },
+                                "required": [
+                                  "supplier_id",
+                                  "name",
+                                  "supplier_no"
+                                ],
+                                "x-apifox-orders": [
+                                  "supplier_id",
+                                  "name",
+                                  "supplier_no"
+                                ],
+                                "title": "供应商信息"
+                              },
+                              "supplier_id": {
+                                "type": "integer",
+                                "title": "供应商ID"
+                              }
+                            },
+                            "required": [
+                              "3113188679",
+                              "inbound_invoice_id",
+                              "type",
+                              "serial_id",
+                              "warehouse_invoice_time",
+                              "refer_id",
+                              "refer_type",
+                              "status",
+                              "handler",
+                              "create_time",
+                              "create_user",
+                              "update_time",
+                              "update_user",
+                              "external_field_data",
+                              "delete_flag",
+                              "cause_id",
+                              "remark",
+                              "discount",
+                              "discount_rate",
+                              "product_total_amount",
+                              "invoice_warehouse_id",
+                              "currency",
+                              "exchange_rate",
+                              "exchange_rate_usd",
+                              "product_total_amount_rmb",
+                              "product_total_amount_usd",
+                              "create_user_info",
+                              "update_info",
+                              "handler_info",
+                              "invoice_warehouse_info",
+                              "cause_info",
+                              "relation_object_info",
+                              "supplier_info",
+                              "supplier_id"
+                            ],
+                            "x-apifox-orders": [
+                              "inbound_invoice_id",
+                              "type",
+                              "serial_id",
+                              "warehouse_invoice_time",
+                              "refer_id",
+                              "refer_type",
+                              "status",
+                              "handler",
+                              "create_time",
+                              "create_user",
+                              "update_time",
+                              "update_user",
+                              "3113188679",
+                              "external_field_data",
+                              "delete_flag",
+                              "cause_id",
+                              "remark",
+                              "discount",
+                              "discount_rate",
+                              "product_total_amount",
+                              "invoice_warehouse_id",
+                              "currency",
+                              "exchange_rate",
+                              "exchange_rate_usd",
+                              "product_total_amount_rmb",
+                              "product_total_amount_usd",
+                              "create_user_info",
+                              "update_info",
+                              "handler_info",
+                              "invoice_warehouse_info",
+                              "cause_info",
+                              "relation_object_info",
+                              "supplier_info",
+                              "supplier_id"
+                            ]
+                          }
+                        },
+                        "count": {
+                          "type": "integer",
+                          "title": "列表总数"
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "count"
+                      ],
+                      "x-apifox-orders": [
+                        "list",
+                        "count"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-03-14 14:10:24",
+                  "data": {
+                    "list": [
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5139500084,
+                        "type": 28,
+                        "serial_id": "CGRK2412240013",
+                        "warehouse_invoice_time": "2024-12-24 00:00:00",
+                        "refer_id": 0,
+                        "refer_type": 23,
+                        "status": 1,
+                        "handler": [
+                          11858841
+                        ],
+                        "create_time": "2024-12-24 18:38:08",
+                        "create_user": 11858841,
+                        "update_time": "2024-12-24 18:38:08",
+                        "update_user": 11858841,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 1910,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "CNY",
+                        "exchange_rate": 100,
+                        "exchange_rate_usd": "14.28570",
+                        "product_total_amount_rmb": "1910.0000",
+                        "product_total_amount_usd": "272.8600",
+                        "create_user_info": {
+                          "user_id": "11858841",
+                          "email": "shanghai@xiaomancrm.com",
+                          "nickname": "上海",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858841/eb7dff9c6a7db9c20e5d24b2e54c99ce84e60118ea5611e75b9f1bbf2b995174.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858841",
+                          "email": "shanghai@xiaomancrm.com",
+                          "nickname": "上海",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858841/eb7dff9c6a7db9c20e5d24b2e54c99ce84e60118ea5611e75b9f1bbf2b995174.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": []
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5138062155,
+                        "type": 28,
+                        "serial_id": "CGRK2412240012",
+                        "warehouse_invoice_time": "2024-12-24 00:00:00",
+                        "refer_id": 5129667737,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858841
+                        ],
+                        "create_time": "2024-12-24 15:31:10",
+                        "create_user": 11858841,
+                        "update_time": "2024-12-24 15:31:11",
+                        "update_user": 11858841,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 420,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "NOK",
+                        "exchange_rate": 63.91,
+                        "exchange_rate_usd": "8.77150",
+                        "product_total_amount_rmb": "268.4200",
+                        "product_total_amount_usd": "36.8400",
+                        "create_user_info": {
+                          "user_id": "11858841",
+                          "email": "shanghai@xiaomancrm.com",
+                          "nickname": "上海",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858841/eb7dff9c6a7db9c20e5d24b2e54c99ce84e60118ea5611e75b9f1bbf2b995174.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858841",
+                          "email": "shanghai@xiaomancrm.com",
+                          "nickname": "上海",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858841/eb7dff9c6a7db9c20e5d24b2e54c99ce84e60118ea5611e75b9f1bbf2b995174.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": {
+                          "supplier_info": {
+                            "supplier_id": 5129667737,
+                            "name": "草莓的供应商",
+                            "supplier_no": "SU0002"
+                          },
+                          "supplier_id": 5129667737
+                        },
+                        "supplier_info": {
+                          "supplier_id": 5129667737,
+                          "name": "草莓的供应商",
+                          "supplier_no": "SU0002"
+                        },
+                        "supplier_id": 5129667737
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5138061843,
+                        "type": 28,
+                        "serial_id": "CGRK2412240011",
+                        "warehouse_invoice_time": "2024-12-24 00:00:00",
+                        "refer_id": 5137516616,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858841
+                        ],
+                        "create_time": "2024-12-24 15:28:58",
+                        "create_user": 11858841,
+                        "update_time": "2024-12-24 15:28:59",
+                        "update_user": 11858841,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 5400,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "NOK",
+                        "exchange_rate": 63.91,
+                        "exchange_rate_usd": "8.77150",
+                        "product_total_amount_rmb": "3451.1400",
+                        "product_total_amount_usd": "473.6600",
+                        "create_user_info": {
+                          "user_id": "11858841",
+                          "email": "shanghai@xiaomancrm.com",
+                          "nickname": "上海",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858841/eb7dff9c6a7db9c20e5d24b2e54c99ce84e60118ea5611e75b9f1bbf2b995174.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858841",
+                          "email": "shanghai@xiaomancrm.com",
+                          "nickname": "上海",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858841/eb7dff9c6a7db9c20e5d24b2e54c99ce84e60118ea5611e75b9f1bbf2b995174.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": {
+                          "supplier_info": {
+                            "supplier_id": 5137516616,
+                            "name": "配件供应商",
+                            "supplier_no": "SU0003"
+                          },
+                          "supplier_id": 5137516616
+                        },
+                        "supplier_info": {
+                          "supplier_id": 5137516616,
+                          "name": "配件供应商",
+                          "supplier_no": "SU0003"
+                        },
+                        "supplier_id": 5137516616
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5138008588,
+                        "type": 28,
+                        "serial_id": "CGRK2412240010",
+                        "warehouse_invoice_time": "2024-12-24 00:00:00",
+                        "refer_id": 4311819360,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858841
+                        ],
+                        "create_time": "2024-12-24 14:48:58",
+                        "create_user": 11858841,
+                        "update_time": "2024-12-24 14:48:59",
+                        "update_user": 11858841,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 1666665,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "NOK",
+                        "exchange_rate": 63.91,
+                        "exchange_rate_usd": "8.77150",
+                        "product_total_amount_rmb": "1065165.6000",
+                        "product_total_amount_usd": "146191.5200",
+                        "create_user_info": {
+                          "user_id": "11858841",
+                          "email": "shanghai@xiaomancrm.com",
+                          "nickname": "上海",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858841/eb7dff9c6a7db9c20e5d24b2e54c99ce84e60118ea5611e75b9f1bbf2b995174.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858841",
+                          "email": "shanghai@xiaomancrm.com",
+                          "nickname": "上海",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858841/eb7dff9c6a7db9c20e5d24b2e54c99ce84e60118ea5611e75b9f1bbf2b995174.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": {
+                          "supplier_info": {
+                            "supplier_id": 4311819360,
+                            "name": "供应商新建",
+                            "supplier_no": "SU0014"
+                          },
+                          "supplier_id": 4311819360
+                        },
+                        "supplier_info": {
+                          "supplier_id": 4311819360,
+                          "name": "供应商新建",
+                          "supplier_no": "SU0014"
+                        },
+                        "supplier_id": 4311819360
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5136481771,
+                        "type": 28,
+                        "serial_id": "CGRK2412230009",
+                        "warehouse_invoice_time": "2024-12-23 00:00:00",
+                        "refer_id": 5129667737,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858712
+                        ],
+                        "create_time": "2024-12-23 18:08:54",
+                        "create_user": 11858712,
+                        "update_time": "2024-12-23 18:09:01",
+                        "update_user": 11858712,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 9505.56,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "CNY",
+                        "exchange_rate": 100,
+                        "exchange_rate_usd": "14.28570",
+                        "product_total_amount_rmb": "9505.5600",
+                        "product_total_amount_usd": "1357.9400",
+                        "create_user_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": {
+                          "supplier_info": {
+                            "supplier_id": 5129667737,
+                            "name": "草莓的供应商",
+                            "supplier_no": "SU0002"
+                          },
+                          "supplier_id": 5129667737
+                        },
+                        "supplier_info": {
+                          "supplier_id": 5129667737,
+                          "name": "草莓的供应商",
+                          "supplier_no": "SU0002"
+                        },
+                        "supplier_id": 5129667737
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5133739153,
+                        "type": 28,
+                        "serial_id": "CGRK2412230008",
+                        "warehouse_invoice_time": "2024-12-23 00:00:00",
+                        "refer_id": 4242327283,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858712
+                        ],
+                        "create_time": "2024-12-23 11:00:00",
+                        "create_user": 11858712,
+                        "update_time": "2024-12-23 11:00:02",
+                        "update_user": 11858712,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 22113.35,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "CNY",
+                        "exchange_rate": 100,
+                        "exchange_rate_usd": "14.28570",
+                        "product_total_amount_rmb": "22113.3500",
+                        "product_total_amount_usd": "3159.0500",
+                        "create_user_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": {
+                          "supplier_info": {
+                            "supplier_id": 4242327283,
+                            "name": "供应商新建测试",
+                            "supplier_no": "SU0011"
+                          },
+                          "supplier_id": 4242327283
+                        },
+                        "supplier_info": {
+                          "supplier_id": 4242327283,
+                          "name": "供应商新建测试",
+                          "supplier_no": "SU0011"
+                        },
+                        "supplier_id": 4242327283
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5130779385,
+                        "type": 28,
+                        "serial_id": "CGRK2412200007",
+                        "warehouse_invoice_time": "2024-12-20 00:00:00",
+                        "refer_id": 3652768931,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858712
+                        ],
+                        "create_time": "2024-12-20 14:23:48",
+                        "create_user": 11858712,
+                        "update_time": "2024-12-20 14:23:49",
+                        "update_user": 11858712,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 110000,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "CNY",
+                        "exchange_rate": 100,
+                        "exchange_rate_usd": "14.28570",
+                        "product_total_amount_rmb": "110000.0000",
+                        "product_total_amount_usd": "15714.2700",
+                        "create_user_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": {
+                          "supplier_info": {
+                            "supplier_id": 3652768931,
+                            "name": "mincw",
+                            "supplier_no": "SU0799"
+                          },
+                          "supplier_id": 3652768931
+                        },
+                        "supplier_info": {
+                          "supplier_id": 3652768931,
+                          "name": "mincw",
+                          "supplier_no": "SU0799"
+                        },
+                        "supplier_id": 3652768931
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5130763686,
+                        "type": 28,
+                        "serial_id": "CGRK2412200006",
+                        "warehouse_invoice_time": "2024-12-20 00:00:00",
+                        "refer_id": 0,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858712
+                        ],
+                        "create_time": "2024-12-20 13:55:18",
+                        "create_user": 11858712,
+                        "update_time": "2024-12-20 13:55:19",
+                        "update_user": 11858712,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 2192.8884,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "CNY",
+                        "exchange_rate": 100,
+                        "exchange_rate_usd": "14.28570",
+                        "product_total_amount_rmb": "2192.8900",
+                        "product_total_amount_usd": "313.2700",
+                        "create_user_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": []
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5130763557,
+                        "type": 28,
+                        "serial_id": "CGRK2412200005",
+                        "warehouse_invoice_time": "2024-12-20 00:00:00",
+                        "refer_id": 5129667737,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858712
+                        ],
+                        "create_time": "2024-12-20 13:52:40",
+                        "create_user": 11858712,
+                        "update_time": "2024-12-20 13:52:45",
+                        "update_user": 11858712,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 2408,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "CNY",
+                        "exchange_rate": 100,
+                        "exchange_rate_usd": "14.28570",
+                        "product_total_amount_rmb": "2408.0000",
+                        "product_total_amount_usd": "344.0000",
+                        "create_user_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": {
+                          "supplier_info": {
+                            "supplier_id": 5129667737,
+                            "name": "草莓的供应商",
+                            "supplier_no": "SU0002"
+                          },
+                          "supplier_id": 5129667737
+                        },
+                        "supplier_info": {
+                          "supplier_id": 5129667737,
+                          "name": "草莓的供应商",
+                          "supplier_no": "SU0002"
+                        },
+                        "supplier_id": 5129667737
+                      },
+                      {
+                        "3113188679": "",
+                        "3113188692": "",
+                        "3113188701": "",
+                        "3115323657": "",
+                        "3159957727": "123",
+                        "3159957729": "苹果",
+                        "3159957737": "",
+                        "3159957740": "123",
+                        "3159957790": "2023-09-12",
+                        "3159957795": 11111,
+                        "3159957797": 1.11,
+                        "3159957803": [],
+                        "3159957807": [],
+                        "3377313431": "",
+                        "3468988008": null,
+                        "3510397183": "",
+                        "3580648718": [],
+                        "inbound_invoice_id": 5130763486,
+                        "type": 28,
+                        "serial_id": "CGRK2412200004",
+                        "warehouse_invoice_time": "2024-12-20 00:00:00",
+                        "refer_id": 3448556444,
+                        "refer_type": 23,
+                        "status": 2,
+                        "handler": [
+                          11858712
+                        ],
+                        "create_time": "2024-12-20 13:48:02",
+                        "create_user": 11858712,
+                        "update_time": "2024-12-20 13:48:03",
+                        "update_user": 11858712,
+                        "external_field_data": {
+                          "3113188679": "",
+                          "3113188692": "",
+                          "3113188701": "",
+                          "3115323657": "",
+                          "3159957727": "123",
+                          "3159957729": "苹果",
+                          "3159957737": "",
+                          "3159957740": "123",
+                          "3159957790": "2023-09-12",
+                          "3159957795": 11111,
+                          "3159957797": 1.11,
+                          "3159957803": [],
+                          "3159957807": [],
+                          "3377313431": "",
+                          "3468988008": null,
+                          "3510397183": "",
+                          "3580648718": []
+                        },
+                        "delete_flag": 0,
+                        "cause_id": 0,
+                        "remark": "",
+                        "discount": 0,
+                        "discount_rate": 0,
+                        "product_total_amount": 7712,
+                        "invoice_warehouse_id": 1131355530,
+                        "currency": "CNY",
+                        "exchange_rate": 100,
+                        "exchange_rate_usd": "14.28570",
+                        "product_total_amount_rmb": "7712.0000",
+                        "product_total_amount_usd": "1101.7100",
+                        "create_user_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "update_info": {
+                          "user_id": "11858712",
+                          "email": "qiao@xiaomancrm.com",
+                          "nickname": "qiao",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/other/img/11858712/80167ab6225a9784013a3f1ce07049081bbe77dd280e66879305401a24d3a103.jpeg",
+                          "ames_email": ""
+                        },
+                        "handler_info": [],
+                        "invoice_warehouse_info": {
+                          "warehouse_id": 1131355530,
+                          "name": "默认仓库edit",
+                          "status": 1,
+                          "enable_flag": 1,
+                          "warehouse_no": "WH001"
+                        },
+                        "cause_info": [],
+                        "relation_object_info": {
+                          "supplier_info": {
+                            "supplier_id": 3448556444,
+                            "name": "薯片供应商",
+                            "supplier_no": "SU0114"
+                          },
+                          "supplier_id": 3448556444
+                        },
+                        "supplier_info": {
+                          "supplier_id": 3448556444,
+                          "name": "薯片供应商",
+                          "supplier_no": "SU0114"
+                        },
+                        "supplier_id": 3448556444
+                      }
+                    ],
+                    "count": 269
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          },
+          "x-200:请求成功": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg"
+                  ]
+                },
+                "example": {
+                  "msg": "success",
+                  "code": 0
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "请求成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "采购入库单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_purchaseinbound_list",
+        "x-local-source-path": "sources/pages/api-3484297.md",
+        "x-source-id": "api-3484297",
+        "x-source-title": "采购入库单-列表",
+        "x-source-module": "采购入库单"
+      }
+    },
+    "/v1/invoices/purchaseInbound/info": {
+      "get": {
+        "summary": "采购入库单-详情",
+        "deprecated": false,
+        "description": "| 异常码 | 异常消息 |异常解决方案|\n| --- | --- | --- |\n| 400 | Invalid query | 是否inbound_invoice_id 与  serial_id 同时为空|",
+        "tags": [
+          "采购入库单",
+          "s7.1"
+        ],
+        "parameters": [
+          {
+            "name": "inbound_invoice_id",
+            "in": "query",
+            "description": "采购入库单id",
+            "required": false,
+            "example": 5159083481,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "serial_id",
+            "in": "query",
+            "description": "采购入库单编号",
+            "required": false,
+            "example": "CGRK2501130025",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "inbound_invoice_id": {
+                          "type": "integer",
+                          "title": "采购入库单id"
+                        },
+                        "client_id": {
+                          "type": "integer",
+                          "title": "企业id"
+                        },
+                        "type": {
+                          "type": "integer",
+                          "description": " 28 采购入库  29其他入库'",
+                          "title": "入库单类型"
+                        },
+                        "serial_id": {
+                          "type": "string",
+                          "title": "采购入库单编号"
+                        },
+                        "warehouse_invoice_time": {
+                          "type": "string",
+                          "title": "入库日期"
+                        },
+                        "refer_id": {
+                          "type": "integer",
+                          "title": "关联对象id"
+                        },
+                        "refer_type": {
+                          "type": "integer",
+                          "title": "关联对象类型",
+                          "description": "refer_type=23为供应商"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "title": "入库状态"
+                        },
+                        "handler": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          },
+                          "title": "处理人",
+                          "description": "返回处理人的user_id"
+                        },
+                        "attachment": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "file_id": {
+                                "type": "integer",
+                                "title": "文件ID"
+                              },
+                              "file_name": {
+                                "type": "string",
+                                "title": "文件名称"
+                              },
+                              "file_size": {
+                                "type": "integer",
+                                "title": "文件大小"
+                              },
+                              "file_url": {
+                                "type": "string",
+                                "title": "文件URL"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "file_id",
+                              "file_name",
+                              "file_size",
+                              "file_url"
+                            ]
+                          },
+                          "title": "附件列表"
+                        },
+                        "create_time": {
+                          "type": "string",
+                          "title": "创建时间"
+                        },
+                        "create_user": {
+                          "type": "integer",
+                          "title": "创建人",
+                          "description": "创建人的user_id"
+                        },
+                        "update_time": {
+                          "type": "string",
+                          "title": "更新时间"
+                        },
+                        "update_user": {
+                          "type": "integer",
+                          "title": "更新人",
+                          "description": "更新人的user_id"
+                        },
+                        "external_field_data": {
+                          "type": "object",
+                          "properties": {},
+                          "x-apifox-orders": [],
+                          "title": "自定义字段",
+                          "description": "自定义字段的字段名称请通过采购入库单数据字典接口获取"
+                        },
+                        "delete_flag": {
+                          "type": "integer",
+                          "title": "是否删除的标志"
+                        },
+                        "cause_id": {
+                          "type": "integer",
+                          "title": "入库原因id"
+                        },
+                        "remark": {
+                          "type": "string",
+                          "title": "入库备注"
+                        },
+                        "discount": {
+                          "type": "integer",
+                          "title": "整单折扣额"
+                        },
+                        "discount_rate": {
+                          "type": "integer",
+                          "title": "整单折扣率"
+                        },
+                        "product_total_amount": {
+                          "type": "integer",
+                          "title": "产品总金额"
+                        },
+                        "product_total_count": {
+                          "type": "integer",
+                          "title": "产品总数量"
+                        },
+                        "invoice_warehouse_id": {
+                          "type": "integer",
+                          "title": "仓库id"
+                        },
+                        "currency": {
+                          "type": "string",
+                          "title": "币种"
+                        },
+                        "exchange_rate": {
+                          "type": "number",
+                          "title": "汇率",
+                          "description": "当前币种兑换人民币的汇率"
+                        },
+                        "exchange_rate_usd": {
+                          "type": "string",
+                          "title": "汇率USD",
+                          "description": "当前币种兑换美元的汇率"
+                        },
+                        "product_total_amount_rmb": {
+                          "type": "string",
+                          "title": "产品总金额(兑CNY)"
+                        },
+                        "product_total_amount_usd": {
+                          "type": "string",
+                          "title": "产品总金额(兑USD)"
+                        },
+                        "product_total_count_no_parts": {
+                          "type": "string",
+                          "title": "产品总数量（不含配件）"
+                        },
+                        "parts_total_count": {
+                          "type": "string",
+                          "title": "配件总数量"
+                        },
+                        "create_user_info": {
+                          "type": "object",
+                          "properties": {
+                            "user_id": {
+                              "type": "string",
+                              "title": "创建人id"
+                            },
+                            "email": {
+                              "type": "string",
+                              "title": "创建人邮件"
+                            },
+                            "nickname": {
+                              "type": "string",
+                              "title": "创建人昵称"
+                            },
+                            "avatar": {
+                              "type": "string",
+                              "title": "创建人头像"
+                            }
+                          },
+                          "required": [
+                            "user_id",
+                            "email",
+                            "nickname",
+                            "avatar"
+                          ],
+                          "x-apifox-orders": [
+                            "user_id",
+                            "email",
+                            "nickname",
+                            "avatar"
+                          ],
+                          "title": "创建人详细信息"
+                        },
+                        "update_info": {
+                          "type": "object",
+                          "properties": {
+                            "user_id": {
+                              "type": "string",
+                              "title": "更新人id"
+                            },
+                            "email": {
+                              "type": "string",
+                              "title": "更新人邮箱"
+                            },
+                            "nickname": {
+                              "type": "string",
+                              "title": "更新人昵称"
+                            },
+                            "avatar": {
+                              "type": "string",
+                              "title": "更新人头像"
+                            }
+                          },
+                          "required": [
+                            "user_id",
+                            "email",
+                            "nickname",
+                            "avatar"
+                          ],
+                          "x-apifox-orders": [
+                            "user_id",
+                            "email",
+                            "nickname",
+                            "avatar"
+                          ],
+                          "title": "更新人信息"
+                        },
+                        "handler_info": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "user_id": {
+                                "type": "string",
+                                "title": "处理人id"
+                              },
+                              "email": {
+                                "type": "string",
+                                "title": "处理人邮箱"
+                              },
+                              "nickname": {
+                                "type": "string",
+                                "title": "处理人昵称"
+                              },
+                              "avatar": {
+                                "type": "string",
+                                "title": "处理人头像"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "user_id",
+                              "email",
+                              "nickname",
+                              "avatar"
+                            ]
+                          },
+                          "title": "处理人信息"
+                        },
+                        "invoice_warehouse_info": {
+                          "type": "object",
+                          "properties": {
+                            "warehouse_id": {
+                              "type": "integer",
+                              "title": "仓库id"
+                            },
+                            "name": {
+                              "type": "string",
+                              "title": "仓库名称"
+                            },
+                            "status": {
+                              "type": "integer",
+                              "title": "仓库状态：1-启用，2-停用"
+                            },
+                            "enable_flag": {
+                              "type": "integer",
+                              "title": "仓库是否删除，1为删除，0已删除"
+                            },
+                            "warehouse_no": {
+                              "type": "string",
+                              "title": "仓库编号"
+                            }
+                          },
+                          "required": [
+                            "warehouse_id",
+                            "name",
+                            "status",
+                            "enable_flag",
+                            "warehouse_no"
+                          ],
+                          "x-apifox-orders": [
+                            "warehouse_id",
+                            "name",
+                            "status",
+                            "enable_flag",
+                            "warehouse_no"
+                          ],
+                          "title": "仓库信息"
+                        },
+                        "cause_info": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "record_list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "inbound_record_id": {
+                                "type": "integer",
+                                "title": "入库明细id"
+                              },
+                              "inbound_invoice_id": {
+                                "type": "integer",
+                                "title": "入库单id"
+                              },
+                              "client_id": {
+                                "type": "integer",
+                                "title": "企业id"
+                              },
+                              "type": {
+                                "type": "integer",
+                                "title": "入库单类型",
+                                "description": " 28 采购入库  29其他入库'"
+                              },
+                              "sku_id": {
+                                "type": "integer",
+                                "title": "产品sku_id"
+                              },
+                              "product_id": {
+                                "type": "integer",
+                                "title": "产品id"
+                              },
+                              "inbound_count": {
+                                "type": "integer",
+                                "title": "入库数量"
+                              },
+                              "enable_count": {
+                                "type": "integer",
+                                "title": "可用数量"
+                              },
+                              "warehouse_invoice_time": {
+                                "type": "string",
+                                "title": "入库时间"
+                              },
+                              "status": {
+                                "type": "integer",
+                                "title": "入库单状态"
+                              },
+                              "external_field_data": {
+                                "type": "object",
+                                "properties": {
+                                  "3118099694": {
+                                    "type": "string"
+                                  },
+                                  "3118099703": {
+                                    "type": "string"
+                                  },
+                                  "3118099708": {
+                                    "type": "string"
+                                  },
+                                  "3118099712": {
+                                    "type": "string"
+                                  },
+                                  "3118099714": {
+                                    "type": "string"
+                                  },
+                                  "3118099719": {
+                                    "type": "null"
+                                  },
+                                  "3118099721": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "3250408868": {
+                                    "type": "string"
+                                  },
+                                  "3468850711": {
+                                    "type": "number"
+                                  },
+                                  "3468988205": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "3118099694",
+                                  "3118099703",
+                                  "3118099708",
+                                  "3118099712",
+                                  "3118099714",
+                                  "3118099719",
+                                  "3118099721",
+                                  "3250408868",
+                                  "3468850711",
+                                  "3468988205"
+                                ],
+                                "x-apifox-orders": [
+                                  "3118099694",
+                                  "3118099703",
+                                  "3118099708",
+                                  "3118099712",
+                                  "3118099714",
+                                  "3118099719",
+                                  "3118099721",
+                                  "3250408868",
+                                  "3468850711",
+                                  "3468988205"
+                                ],
+                                "title": "自定义字段"
+                              },
+                              "delete_flag": {
+                                "type": "integer",
+                                "title": "是否已删除"
+                              },
+                              "warehouse_id": {
+                                "type": "integer",
+                                "title": "仓库id"
+                              },
+                              "purchase_price": {
+                                "type": "integer",
+                                "title": "入库单价"
+                              },
+                              "product_amount": {
+                                "type": "integer",
+                                "title": "产品金额"
+                              },
+                              "refer_type": {
+                                "type": "integer",
+                                "title": "关联类型"
+                              },
+                              "sub_refer_id": {
+                                "type": "integer"
+                              },
+                              "refer_id": {
+                                "type": "integer"
+                              },
+                              "is_master_product": {
+                                "type": "integer",
+                                "title": "是否主产品"
+                              },
+                              "master_id": {
+                                "type": "integer",
+                                "title": "归属主产品id（明细的id）"
+                              },
+                              "product_image": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "file_id": {
+                                      "type": "string"
+                                    },
+                                    "file_name": {
+                                      "type": "string"
+                                    },
+                                    "file_size": {
+                                      "type": "string"
+                                    },
+                                    "mime_type": {
+                                      "type": "string"
+                                    },
+                                    "file_key": {
+                                      "type": "string"
+                                    },
+                                    "file_path": {
+                                      "type": "string"
+                                    },
+                                    "file_preview_url": {
+                                      "type": "string"
+                                    },
+                                    "create_user": {
+                                      "type": "string"
+                                    },
+                                    "create_time": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "file_id",
+                                    "file_name",
+                                    "file_size",
+                                    "mime_type",
+                                    "file_key",
+                                    "file_path",
+                                    "file_preview_url",
+                                    "create_user",
+                                    "create_time"
+                                  ]
+                                },
+                                "title": "产品图片"
+                              },
+                              "product_name": {
+                                "type": "string",
+                                "title": "产品名称"
+                              },
+                              "product_cn_name": {
+                                "type": "string",
+                                "title": "中文产品名称"
+                              },
+                              "product_model": {
+                                "type": "string",
+                                "title": "产品型号"
+                              },
+                              "product_unit": {
+                                "type": "string",
+                                "title": "单位"
+                              },
+                              "product_transfer": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "transfer_invoice_serial_id": {
+                                "type": "string"
+                              },
+                              "transfer_invoice_id": {
+                                "type": "string"
+                              },
+                              "transfer_invoice_record_id": {
+                                "type": "string"
+                              },
+                              "master_product_info": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "warehouse_info": {
+                                "type": "object",
+                                "properties": {
+                                  "warehouse_id": {
+                                    "type": "integer",
+                                    "title": "仓库id"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "title": "仓库名称"
+                                  },
+                                  "status": {
+                                    "type": "integer",
+                                    "title": "状态"
+                                  },
+                                  "enable_flag": {
+                                    "type": "integer"
+                                  },
+                                  "warehouse_no": {
+                                    "type": "string",
+                                    "title": "仓库编号"
+                                  }
+                                },
+                                "required": [
+                                  "warehouse_id",
+                                  "name",
+                                  "status",
+                                  "enable_flag",
+                                  "warehouse_no"
+                                ],
+                                "x-apifox-orders": [
+                                  "warehouse_id",
+                                  "name",
+                                  "status",
+                                  "enable_flag",
+                                  "warehouse_no"
+                                ],
+                                "title": "仓库信息"
+                              },
+                              "relation_object_info": {
+                                "type": "object",
+                                "properties": {
+                                  "purchase_order_id": {
+                                    "type": "integer"
+                                  },
+                                  "purchase_order_no": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "purchase_order_id",
+                                  "purchase_order_no"
+                                ],
+                                "x-apifox-orders": [
+                                  "purchase_order_id",
+                                  "purchase_order_no"
+                                ]
+                              },
+                              "purchase_order_id": {
+                                "type": "integer",
+                                "title": "关联采购订单id"
+                              },
+                              "purchase_order_no": {
+                                "type": "string",
+                                "title": "关联采购订单编号"
+                              },
+                              "sub_relation_object_info": {
+                                "type": "object",
+                                "properties": {
+                                  "purchase_order_product_id": {
+                                    "type": "integer"
+                                  },
+                                  "purchase_count": {
+                                    "type": "integer"
+                                  }
+                                },
+                                "required": [
+                                  "purchase_order_product_id",
+                                  "purchase_count"
+                                ],
+                                "x-apifox-orders": [
+                                  "purchase_order_product_id",
+                                  "purchase_count"
+                                ]
+                              },
+                              "purchase_order_product_id": {
+                                "type": "integer"
+                              },
+                              "purchase_count": {
+                                "type": "integer",
+                                "title": "采购数量"
+                              },
+                              "sku_enable_flag": {
+                                "type": "integer"
+                              },
+                              "sku_disable_flag": {
+                                "type": "integer"
+                              },
+                              "product_no": {
+                                "type": "string",
+                                "title": "产品编号"
+                              },
+                              "sku_attributes": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "sku_code": {
+                                "type": "string",
+                                "title": "sku编码"
+                              },
+                              "product_type": {
+                                "type": "integer"
+                              },
+                              "product_disable_flag": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "inbound_record_id",
+                              "inbound_invoice_id",
+                              "client_id",
+                              "type",
+                              "sku_id",
+                              "product_id",
+                              "inbound_count",
+                              "enable_count",
+                              "warehouse_invoice_time",
+                              "status",
+                              "external_field_data",
+                              "delete_flag",
+                              "warehouse_id",
+                              "purchase_price",
+                              "product_amount",
+                              "refer_type",
+                              "sub_refer_id",
+                              "refer_id",
+                              "is_master_product",
+                              "master_id",
+                              "product_image",
+                              "product_name",
+                              "product_cn_name",
+                              "product_model",
+                              "product_unit",
+                              "product_transfer",
+                              "transfer_invoice_serial_id",
+                              "transfer_invoice_id",
+                              "transfer_invoice_record_id",
+                              "master_product_info",
+                              "warehouse_info",
+                              "relation_object_info",
+                              "purchase_order_id",
+                              "purchase_order_no",
+                              "sub_relation_object_info",
+                              "purchase_order_product_id",
+                              "purchase_count",
+                              "sku_enable_flag",
+                              "sku_disable_flag",
+                              "product_no",
+                              "sku_attributes",
+                              "sku_code",
+                              "product_type",
+                              "product_disable_flag"
+                            ],
+                            "x-apifox-orders": [
+                              "inbound_record_id",
+                              "inbound_invoice_id",
+                              "client_id",
+                              "type",
+                              "sku_id",
+                              "product_id",
+                              "inbound_count",
+                              "enable_count",
+                              "warehouse_invoice_time",
+                              "status",
+                              "external_field_data",
+                              "delete_flag",
+                              "warehouse_id",
+                              "purchase_price",
+                              "product_amount",
+                              "refer_type",
+                              "sub_refer_id",
+                              "refer_id",
+                              "is_master_product",
+                              "master_id",
+                              "product_image",
+                              "product_name",
+                              "product_cn_name",
+                              "product_model",
+                              "product_no",
+                              "product_unit",
+                              "product_transfer",
+                              "transfer_invoice_serial_id",
+                              "transfer_invoice_id",
+                              "transfer_invoice_record_id",
+                              "master_product_info",
+                              "warehouse_info",
+                              "relation_object_info",
+                              "purchase_order_id",
+                              "purchase_order_no",
+                              "sub_relation_object_info",
+                              "purchase_order_product_id",
+                              "purchase_count",
+                              "sku_enable_flag",
+                              "sku_disable_flag",
+                              "sku_attributes",
+                              "sku_code",
+                              "product_type",
+                              "product_disable_flag"
+                            ]
+                          },
+                          "title": "入库明细"
+                        },
+                        "relation_object_info": {
+                          "type": "object",
+                          "properties": {
+                            "supplier_info": {
+                              "type": "object",
+                              "properties": {
+                                "supplier_id": {
+                                  "type": "integer",
+                                  "title": "供应商id"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "title": "供应商名称"
+                                },
+                                "supplier_no": {
+                                  "type": "string",
+                                  "title": "供应商编码"
+                                }
+                              },
+                              "required": [
+                                "supplier_id",
+                                "name",
+                                "supplier_no"
+                              ],
+                              "x-apifox-orders": [
+                                "supplier_id",
+                                "name",
+                                "supplier_no"
+                              ],
+                              "title": "供应商信息"
+                            },
+                            "supplier_id": {
+                              "type": "integer",
+                              "title": "供应商id"
+                            }
+                          },
+                          "required": [
+                            "supplier_info",
+                            "supplier_id"
+                          ],
+                          "x-apifox-orders": [
+                            "supplier_info",
+                            "supplier_id"
+                          ],
+                          "title": "关联对象信息"
+                        },
+                        "supplier_info": {
+                          "type": "object",
+                          "properties": {
+                            "supplier_id": {
+                              "type": "integer",
+                              "title": "供应商id"
+                            },
+                            "name": {
+                              "type": "string",
+                              "title": "供应商名称"
+                            },
+                            "supplier_no": {
+                              "type": "string",
+                              "title": "供应商编号"
+                            }
+                          },
+                          "required": [
+                            "supplier_id",
+                            "name",
+                            "supplier_no"
+                          ],
+                          "x-apifox-orders": [
+                            "supplier_id",
+                            "name",
+                            "supplier_no"
+                          ],
+                          "title": "供应商信息"
+                        },
+                        "supplier_id": {
+                          "type": "integer",
+                          "title": "供应商id"
+                        }
+                      },
+                      "required": [
+                        "inbound_invoice_id",
+                        "client_id",
+                        "type",
+                        "serial_id",
+                        "warehouse_invoice_time",
+                        "refer_id",
+                        "refer_type",
+                        "status",
+                        "handler",
+                        "attachment",
+                        "create_user",
+                        "update_time",
+                        "update_user",
+                        "external_field_data",
+                        "delete_flag",
+                        "cause_id",
+                        "remark",
+                        "discount",
+                        "discount_rate",
+                        "product_total_amount",
+                        "product_total_count",
+                        "invoice_warehouse_id",
+                        "currency",
+                        "exchange_rate",
+                        "exchange_rate_usd",
+                        "product_total_amount_rmb",
+                        "product_total_amount_usd",
+                        "product_total_count_no_parts",
+                        "parts_total_count",
+                        "create_user_info",
+                        "update_info",
+                        "handler_info",
+                        "invoice_warehouse_info",
+                        "cause_info",
+                        "record_list",
+                        "relation_object_info",
+                        "supplier_info",
+                        "supplier_id"
+                      ],
+                      "x-apifox-orders": [
+                        "inbound_invoice_id",
+                        "client_id",
+                        "type",
+                        "serial_id",
+                        "warehouse_invoice_time",
+                        "refer_id",
+                        "refer_type",
+                        "status",
+                        "handler",
+                        "attachment",
+                        "create_time",
+                        "create_user",
+                        "update_time",
+                        "update_user",
+                        "external_field_data",
+                        "delete_flag",
+                        "cause_id",
+                        "remark",
+                        "discount",
+                        "discount_rate",
+                        "product_total_amount",
+                        "product_total_count",
+                        "invoice_warehouse_id",
+                        "currency",
+                        "exchange_rate",
+                        "exchange_rate_usd",
+                        "product_total_amount_rmb",
+                        "product_total_amount_usd",
+                        "product_total_count_no_parts",
+                        "parts_total_count",
+                        "create_user_info",
+                        "update_info",
+                        "handler_info",
+                        "invoice_warehouse_info",
+                        "cause_info",
+                        "record_list",
+                        "relation_object_info",
+                        "supplier_info",
+                        "supplier_id"
+                      ]
+                    },
+                    "01JHFKZPZKBPNRGGA9ZG0YRVMD": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data",
+                    "01JHFKZPZKBPNRGGA9ZG0YRVMD"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data",
+                    "01JHFKZPZKBPNRGGA9ZG0YRVMD"
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "采购入库单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_purchaseinbound_info",
+        "x-local-source-path": "sources/pages/api-3484298.md",
+        "x-source-id": "api-3484298",
+        "x-source-title": "采购入库单-详情",
+        "x-source-module": "采购入库单"
+      }
+    },
+    "/v1/invoices/purchaseInbound/fields": {
+      "get": {
+        "summary": "采购入库单字段",
+        "deprecated": false,
+        "description": "# 字段类型有哪些\n| field_type |  |\n| --- | --- |\n| 1 | 单行文本 |\n| 2 | 多行文本 |\n| 3 | 单选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |\n| 4 | 日期，YYYY-MM-DD |\n| 5 | 数字 |\n| 6 | 图片 |\n| 7 | 多选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |\n| 8 | 附件 |\n| 9 | 关联字段 |\n| 10 | 日期时间，YYYY-MM-DD HH:mm:ss |\n| 11 | 公式 |\n| 12 | 汇总 |\n| 13 | 布尔 |\n| 17 | 状态 |\n| 18 | 阶段 |\n| 21 | 时间范围 |\n| 22 | 富文本 |\n| 23 | 引用 |\n\n若发现没有的字段类型可以咨询对接群，或者提客户工单。\n",
+        "tags": [
+          "采购入库单",
+          "s7.1"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E5%93%8D%E5%BA%94"
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "采购入库单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_purchaseinbound_fields",
+        "x-local-source-path": "sources/pages/api-3484299.md",
+        "x-source-id": "api-3484299",
+        "x-source-title": "采购入库单字段",
+        "x-source-module": "采购入库单"
+      }
+    },
+    "/v1/invoices/purchaseInbound/remove": {
+      "post": {
+        "summary": "采购入库单-删除",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "采购入库单"
+        ],
+        "parameters": [
+          {
+            "name": "inbound_invoice_id",
+            "in": "query",
+            "description": "采购入库单ID",
+            "required": false,
+            "example": 5138062155,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "serial_id",
+            "in": "query",
+            "description": "采购入库单编号",
+            "required": false,
+            "example": "CGRK2412240012",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "inbound_invoice_id": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "inbound_invoice_id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-03-14 14:41:52",
+                  "data": {
+                    "inbound_invoice_id": 5138062155
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "采购入库单",
+        "x-apifox-status": "released",
+        "operationId": "post_v1_invoices_purchaseinbound_remove",
+        "x-local-source-path": "sources/pages/api-3484312.md",
+        "x-source-id": "api-3484312",
+        "x-source-title": "采购入库单-删除",
+        "x-source-module": "采购入库单"
+      }
+    },
+    "/v1/invoices/purchaseInbound/push": {
+      "post": {
+        "summary": "采购入库单-新建/编辑",
+        "deprecated": false,
+        "description": "| 异常码 | 异常消息 |异常解决方案|\n| --- | --- | --- |\n| 404 | ‘xxx’ cannot be empty |  查看字段说明为“如果传入不能为空”，是否有字段传入了并且是空值|\n",
+        "tags": [
+          "采购入库单"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-msgpack": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "supplier_id": {
+                    "type": "integer",
+                    "title": "供应商id",
+                    "description": "值来自于/v1/supplier/list"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "title": "币种",
+                    "description": "如果传入不能为空"
+                  },
+                  "exchange_rate": {
+                    "type": "number",
+                    "title": "兑人民币汇率",
+                    "description": "如果传入不能为空"
+                  },
+                  "exchange_rate_usd": {
+                    "type": "number",
+                    "title": "兑美元汇率",
+                    "description": "如果传入不能为空"
+                  },
+                  "serial_id": {
+                    "type": "string",
+                    "title": "采购入库单编号",
+                    "description": "值来自于/v1/invoices/purchaseInbound/list"
+                  },
+                  "warehouse_invoice_time": {
+                    "type": "string",
+                    "title": "入库日期",
+                    "description": "如果传入不能为空"
+                  },
+                  "remark": {
+                    "type": "string",
+                    "title": "入库备注"
+                  },
+                  "discount_rate": {
+                    "type": "integer",
+                    "title": "整单折扣率"
+                  },
+                  "discount": {
+                    "type": "number",
+                    "title": "整单折扣额"
+                  },
+                  "handler": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "title": "处理人ID",
+                    "description": "传入处理人对应的user_id 值来自于/v1/user/list"
+                  },
+                  "record_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "transfer_invoice_id": {
+                          "type": "string",
+                          "title": "产品流转ID"
+                        },
+                        "transfer_invoice_record_id": {
+                          "type": "string",
+                          "title": "产品流转明细ID"
+                        },
+                        "purchase_price": {
+                          "type": "integer",
+                          "title": "采购单价"
+                        },
+                        "inbound_count": {
+                          "type": "integer",
+                          "title": "入库数量"
+                        },
+                        "purchase_order_id": {
+                          "type": "integer",
+                          "title": "关联采购单id",
+                          "description": "purchase_order_product_id和purchase_order_id两个要么都不传，要么都得传"
+                        },
+                        "product_id": {
+                          "type": "integer",
+                          "title": "产品id",
+                          "description": "值来自于/v1/product/list"
+                        },
+                        "sku_id": {
+                          "type": "integer",
+                          "title": "产品sku_id",
+                          "description": "值来自于/v1/product/list"
+                        },
+                        "purchase_order_product_id": {
+                          "type": "integer",
+                          "title": "采购订单明细id",
+                          "description": "值来自于/v1/purchaseOrder/list"
+                        },
+                        "combine_product_id": {
+                          "type": "integer",
+                          "title": "组合产品id"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "purchase_price",
+                        "inbound_count",
+                        "purchase_order_id",
+                        "product_id",
+                        "sku_id",
+                        "purchase_order_product_id",
+                        "transfer_invoice_id",
+                        "transfer_invoice_record_id",
+                        "combine_product_id"
+                      ],
+                      "required": [
+                        "product_id",
+                        "inbound_count",
+                        "sku_id",
+                        "purchase_price"
+                      ]
+                    },
+                    "title": "入库明细"
+                  },
+                  "invoice_warehouse_id": {
+                    "type": "integer",
+                    "title": "仓库id",
+                    "description": "值来自于/v1/warehouse/list"
+                  },
+                  "inbound_id": {
+                    "type": "integer",
+                    "title": "采购入库单ID",
+                    "description": "编辑时需要传入 值来自于/v1/invoices/purchaseInbound/list"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "description": "状态为1是草稿，2为已完成",
+                    "title": "状态"
+                  }
+                },
+                "required": [
+                  "supplier_id",
+                  "currency",
+                  "invoice_warehouse_id",
+                  "handler",
+                  "record_list",
+                  "status"
+                ],
+                "x-apifox-orders": [
+                  "inbound_id",
+                  "supplier_id",
+                  "currency",
+                  "exchange_rate",
+                  "exchange_rate_usd",
+                  "serial_id",
+                  "warehouse_invoice_time",
+                  "remark",
+                  "invoice_warehouse_id",
+                  "discount_rate",
+                  "discount",
+                  "status",
+                  "handler",
+                  "record_list"
+                ]
+              },
+              "example": {
+                "supplier_id": 5195647154,
+                "currency": "USD",
+                "attachment": [],
+                "exchange_rate": 725,
+                "exchange_rate_usd": 100,
+                "serial_id": "",
+                "supplier_no": "",
+                "warehouse_invoice_time": "2025-03-14",
+                "remark": "",
+                "invoice_warehouse_id": 1131355530,
+                "discount": "",
+                "discount_rate": "",
+                "product_total_amount": 64,
+                "handler": [
+                  11858713
+                ],
+                "record_list": [
+                  {
+                    "purchase_order_id": 5200481935,
+                    "product_id": 3515757805,
+                    "sku_id": 3515757806,
+                    "purchase_order_product_id": 5200481936,
+                    "warehouse_id": 1131355530,
+                    "sku_code": "2024050925313",
+                    "product_name": "a4123esky",
+                    "product_cn_name": "猜猜猜",
+                    "sku_attributes": [],
+                    "product_unit": "",
+                    "purchase_order_no": "大乔20250303CGDD0217",
+                    "transfer_invoice_serial_id": "",
+                    "transfer_invoice_id": "",
+                    "transfer_invoice_record_id": "",
+                    "purchase_price": 10,
+                    "wait_inbound_count": 0,
+                    "purchase_count": 100099,
+                    "inbound_count": 1,
+                    "product_amount": 10,
+                    "product_model": "aeop11",
+                    "product_disable_flag": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "inbound_invoice_id": {
+                          "type": "integer",
+                          "title": "采购入库单ID"
+                        },
+                        "serial_id": {
+                          "type": "string",
+                          "title": "采购入库单编号"
+                        }
+                      },
+                      "required": [
+                        "inbound_invoice_id",
+                        "serial_id"
+                      ],
+                      "x-apifox-orders": [
+                        "inbound_invoice_id",
+                        "serial_id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-03-14 15:03:22",
+                  "data": {
+                    "inbound_invoice_id": 5210028347,
+                    "serial_id": "CGRK2503140088"
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          },
+          "x-200:请求成功": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg"
+                  ]
+                },
+                "example": {
+                  "msg": "success",
+                  "code": 0
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "请求成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "采购入库单",
+        "x-apifox-status": "released",
+        "operationId": "post_v1_invoices_purchaseinbound_push",
+        "x-local-source-path": "sources/pages/api-3484333.md",
+        "x-source-id": "api-3484333",
+        "x-source-title": "采购入库单-新建/编辑",
+        "x-source-module": "采购入库单"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "新增客户联系人": {
+        "type": "object",
+        "properties": {
+          "company_id": {
+            "type": "integer",
+            "x-apifox-mock": "1",
+            "description": "客户ID"
+          },
+          "serial_id": {
+            "type": "string",
+            "description": "客户编号",
+            "x-apifox-mock": "1"
+          },
+          "name": {
+            "type": "string",
+            "description": "联系人名称"
+          },
+          "tel_area_code": {
+            "type": "string",
+            "description": "联系人电话区号"
+          },
+          "tel": {
+            "type": "string",
+            "description": "联系人电话号码"
+          }
+        },
+        "x-apifox-orders": [
+          "company_id",
+          "serial_id",
+          "name",
+          "tel_area_code",
+          "tel"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "数据字典响应": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "now": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "字段ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "字段名称"
+                },
+                "base": {
+                  "type": "integer",
+                  "description": "是否系统字段，1=系统字段，0=自定义字段"
+                },
+                "field_type": {
+                  "type": "integer",
+                  "description": "字段类型"
+                },
+                "ext_info": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "选字段额外信息，比如选项等枚举值",
+                  "nullable": true
+                },
+                "require": {
+                  "type": "integer",
+                  "description": "是否必填，1=必填，0=非必填"
+                },
+                "default": {
+                  "type": "string",
+                  "description": "默认值"
+                },
+                "disable_flag": {
+                  "type": "integer"
+                },
+                "is_list": {
+                  "type": "integer",
+                  "description": "是否明细字段"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-orders": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-ignore-properties": []
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-orders": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header parameter."
+      }
+    }
+  },
+  "x-generated-at": "2026-05-09T04:02:32+00:00",
+  "x-source": {
+    "catalog": "sources/catalog.json",
+    "snapshot": "sources/pages"
+  }
+}

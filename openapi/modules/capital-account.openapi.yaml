@@ -1,0 +1,264 @@
+openapi: 3.0.1
+info:
+  title: Xiaoman OpenAPI - 资金 (unofficial)
+  version: '2026-05-09'
+  description: 'Unofficial module spec generated from public Xiaoman Open API documentation: 资金.'
+servers:
+- url: https://api-sandbox.xiaoman.cn
+  description: official documented server
+tags:
+- name: 资金
+  x-module-slug: capital-account
+paths:
+  /v1/capitalAccount/list:
+    get:
+      summary: 资金账户列表
+      deprecated: false
+      description: ''
+      tags:
+      - 资金
+      parameters:
+      - name: count
+        in: query
+        description: 每页数量，默认值 10
+        required: false
+        example: '10'
+        schema:
+          type: string
+      - name: start_index
+        in: query
+        description: 页码
+        required: false
+        example: 1
+        schema:
+          type: integer
+      - name: status
+        in: query
+        description: 资金账户状态：1-启用，2-停用
+        required: false
+        example: 0
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 从/v1/oauth2/access_token获取到的access_token
+        required: true
+        example: '{{access_token}}'
+        schema:
+          type: string
+          default: '{{access_token}}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  now:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      list:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            capital_account_id:
+                              type: integer
+                              description: 资金账户ID
+                            name:
+                              type: string
+                              description: 资金账户名称
+                            capital_name:
+                              type: string
+                              description: 开户名
+                            capital_bank:
+                              type: string
+                              description: 开户行
+                            bank_account:
+                              type: string
+                              description: 银行账号
+                            address:
+                              type: string
+                              description: 开户行地址
+                            remark:
+                              type: string
+                              description: 备注(更多信息)
+                            status:
+                              type: integer
+                              description: 是否启用，1启用，2-停用
+                          x-apifox-orders:
+                          - capital_account_id
+                          - name
+                          - capital_name
+                          - capital_bank
+                          - bank_account
+                          - address
+                          - remark
+                          - status
+                      count:
+                        type: integer
+                        description: 列表总数
+                    required:
+                    - list
+                    - count
+                    x-apifox-orders:
+                    - list
+                    - count
+                required:
+                - code
+                - message
+                - now
+                - data
+                x-apifox-orders:
+                - code
+                - message
+                - now
+                - data
+              example:
+                code: 200
+                message: success
+                now: '2025-04-10 19:23:44'
+                data:
+                  list:
+                  - capital_account_id: 4242530949
+                    name: '1231111'
+                    capital_name: '123'
+                    capital_bank: ''
+                    bank_account: ''
+                    address: ''
+                    remark: ''
+                    status: 1
+                  count: 1
+          headers: {}
+          x-apifox-name: 成功
+      security: []
+      x-apifox-folder: 资金
+      x-apifox-status: released
+      operationId: get_v1_capitalaccount_list
+      x-local-source-path: sources/pages/api-3478248.md
+      x-source-id: api-3478248
+      x-source-title: 资金账户列表
+      x-source-module: 资金
+components:
+  schemas:
+    新增客户联系人:
+      type: object
+      properties:
+        company_id:
+          type: integer
+          x-apifox-mock: '1'
+          description: 客户ID
+        serial_id:
+          type: string
+          description: 客户编号
+          x-apifox-mock: '1'
+        name:
+          type: string
+          description: 联系人名称
+        tel_area_code:
+          type: string
+          description: 联系人电话区号
+        tel:
+          type: string
+          description: 联系人电话号码
+      x-apifox-orders:
+      - company_id
+      - serial_id
+      - name
+      - tel_area_code
+      - tel
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+    数据字典响应:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        now:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: 字段ID
+              name:
+                type: string
+                description: 字段名称
+              base:
+                type: integer
+                description: 是否系统字段，1=系统字段，0=自定义字段
+              field_type:
+                type: integer
+                description: 字段类型
+              ext_info:
+                type: array
+                items:
+                  type: string
+                description: 选字段额外信息，比如选项等枚举值
+                nullable: true
+              require:
+                type: integer
+                description: 是否必填，1=必填，0=非必填
+              default:
+                type: string
+                description: 默认值
+              disable_flag:
+                type: integer
+              is_list:
+                type: integer
+                description: 是否明细字段
+            required:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-orders:
+            - id
+            - name
+            - base
+            - field_type
+            - ext_info
+            - require
+            - default
+            - disable_flag
+            - is_list
+            x-apifox-ignore-properties: []
+      required:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-orders:
+      - code
+      - message
+      - now
+      - data
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ''
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header
+        parameter.
+x-generated-at: '2026-05-09T04:02:32+00:00'
+x-source:
+  catalog: sources/catalog.json
+  snapshot: sources/pages

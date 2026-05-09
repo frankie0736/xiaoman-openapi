@@ -1,0 +1,1847 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Xiaoman OpenAPI - 回款单 (unofficial)",
+    "version": "2026-05-09",
+    "description": "Unofficial module spec generated from public Xiaoman Open API documentation: 回款单."
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.xiaoman.cn",
+      "description": "official documented server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "回款单",
+      "x-module-slug": "receipt"
+    }
+  ],
+  "paths": {
+    "/v1/invoices/receipt/types": {
+      "get": {
+        "summary": "回款方式枚举",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "回款单"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "回款方式类型"
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-03-07 17:16:40",
+                  "data": [
+                    "L/C",
+                    "T/T",
+                    "D/P",
+                    "D/A",
+                    "Western Union",
+                    "PayPal",
+                    "M/T",
+                    "D/D",
+                    "Other",
+                    "Credit Card",
+                    "e-Checking",
+                    "Boleto",
+                    "T/T in advance",
+                    "Alipay",
+                    "Wechat",
+                    "O/A"
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          },
+          "x-200:请求成功": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg"
+                  ]
+                },
+                "example": {
+                  "msg": "success",
+                  "code": 0
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "请求成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "回款单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_receipt_types",
+        "x-local-source-path": "sources/pages/api-3485302.md",
+        "x-source-id": "api-3485302",
+        "x-source-title": "回款方式枚举",
+        "x-source-module": "回款单"
+      }
+    },
+    "/v1/invoices/receipt/list": {
+      "get": {
+        "summary": "回款单列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "回款单"
+        ],
+        "parameters": [
+          {
+            "name": "start_index",
+            "in": "query",
+            "description": "页码，默认1",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "每页条数，默认20",
+            "required": false,
+            "example": 20,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "start_time",
+            "in": "query",
+            "description": "更新时间开始日期",
+            "required": false,
+            "example": "2023-01-11 00:00:00",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "description": "更新时间结束日期",
+            "required": false,
+            "example": "2023-12-11 23:59:59",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "removed",
+            "in": "query",
+            "description": "是否返回删除的回款单",
+            "required": false,
+            "example": "0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "start_time": "2023-05-01",
+                "end_time": "2023-12-16",
+                "start_index": 1,
+                "count": 20,
+                "removed": 0
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "cash_collection_id": {
+                                "type": "integer",
+                                "description": "回款单ID"
+                              },
+                              "create_time": {
+                                "type": "string",
+                                "description": "创建时间"
+                              },
+                              "update_time": {
+                                "type": "string",
+                                "description": "更新时间"
+                              },
+                              "order_id": {
+                                "type": "integer",
+                                "description": "关联的销售订单ID"
+                              },
+                              "collection_date": {
+                                "type": "string",
+                                "description": "回款日期"
+                              },
+                              "amount": {
+                                "type": "string",
+                                "description": "回款金额(打款金额)"
+                              },
+                              "currency": {
+                                "type": "string",
+                                "description": "币种"
+                              },
+                              "exchange_rate": {
+                                "type": "string",
+                                "description": "汇率（兑人民CNY）"
+                              },
+                              "finance_verify": {
+                                "type": "object",
+                                "properties": {
+                                  "date": {
+                                    "type": "null"
+                                  },
+                                  "name": {
+                                    "type": "null"
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "date",
+                                  "name"
+                                ],
+                                "description": "财务确认人（废弃，请勿使用）"
+                              },
+                              "comment": {
+                                "type": "string",
+                                "description": "备注"
+                              },
+                              "file_list": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "file_id": {
+                                      "type": "integer",
+                                      "description": "文件ID"
+                                    },
+                                    "user_id": {
+                                      "type": "integer",
+                                      "description": "文件关联的用户ID"
+                                    },
+                                    "create_time": {
+                                      "type": "string",
+                                      "description": "文件创建时间"
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "file_id",
+                                    "user_id",
+                                    "create_time"
+                                  ]
+                                },
+                                "description": "回款单-附件（请使用回款单详情中的该字段获取图片链接）"
+                              },
+                              "department_id": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "部门ID"
+                              },
+                              "opportunity_id": {
+                                "type": "integer",
+                                "description": "关联商机ID"
+                              },
+                              "user_id": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "负责人ID(业绩归属)"
+                              },
+                              "client_id": {
+                                "type": "integer",
+                                "description": "企业ID"
+                              },
+                              "op_user_id": {
+                                "type": "integer",
+                                "description": "操作人ID"
+                              },
+                              "type": {
+                                "type": "integer",
+                                "description": "回款方式，枚举值可以参考/v1/invoices/receipt/types"
+                              },
+                              "cash_collection_no": {
+                                "type": "string",
+                                "description": "回款单编号"
+                              },
+                              "amount_rmb": {
+                                "type": "string",
+                                "description": "回款金额(人民币)(打款金额)"
+                              },
+                              "amount_usd": {
+                                "type": "string",
+                                "description": "回款金额(美元)(打款金额)"
+                              },
+                              "exchange_rate_usd": {
+                                "type": "string",
+                                "description": "汇率（兑美元USD）"
+                              },
+                              "company_id": {
+                                "type": "integer",
+                                "description": "关联客户ID"
+                              },
+                              "create_user_id": {
+                                "type": "integer",
+                                "description": "创建人ID"
+                              },
+                              "payee": {
+                                "type": "string",
+                                "description": "财务确认人"
+                              },
+                              "collect_status": {
+                                "type": "integer",
+                                "description": "回款单状态：0-未生效, 1-已生效"
+                              },
+                              "real_amount": {
+                                "type": "number",
+                                "description": "实到账金额（单据币种）"
+                              },
+                              "real_amount_rmb": {
+                                "type": "number",
+                                "description": "实到账金额（人民币）"
+                              },
+                              "real_amount_usd": {
+                                "type": "number",
+                                "description": "实到账金额（美元）"
+                              },
+                              "bank_charge": {
+                                "type": "number",
+                                "description": "手续费"
+                              },
+                              "bank_charge_rmb": {
+                                "type": "number",
+                                "description": "手续费（人民币）"
+                              },
+                              "bank_charge_usd": {
+                                "type": "number",
+                                "description": "手续费（美元）"
+                              },
+                              "trade_no": {
+                                "type": "string",
+                                "description": "交易号/票据号"
+                              },
+                              "external_field_data_info": {
+                                "type": "object",
+                                "properties": {
+                                  "3564970299": {
+                                    "type": "string",
+                                    "description": "自定义字段1"
+                                  },
+                                  "3564970303": {
+                                    "type": "number",
+                                    "description": "自定义字段2"
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "3564970299",
+                                  "3564970303"
+                                ],
+                                "description": "自定义字段"
+                              },
+                              "company_info": {
+                                "type": "object",
+                                "properties": {
+                                  "company_id": {
+                                    "type": "integer",
+                                    "description": "关联客户ID"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "关联客户名称"
+                                  },
+                                  "is_archive": {
+                                    "type": "integer",
+                                    "description": "关联客户是否删除，1否，0是"
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "company_id",
+                                  "name",
+                                  "is_archive"
+                                ],
+                                "description": "关联客户信息"
+                              },
+                              "user_info": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "user_id": {
+                                      "type": "string",
+                                      "description": "负责人ID"
+                                    },
+                                    "nickname": {
+                                      "type": "string",
+                                      "description": "负责人昵称"
+                                    },
+                                    "avatar": {
+                                      "type": "string",
+                                      "description": "负责人头像"
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "user_id",
+                                    "nickname",
+                                    "avatar"
+                                  ]
+                                },
+                                "description": "负责人信息"
+                              },
+                              "order_info": {
+                                "type": "object",
+                                "properties": {
+                                  "order_id": {
+                                    "type": "integer",
+                                    "description": "订单ID"
+                                  },
+                                  "order_no": {
+                                    "type": "string",
+                                    "description": "订单号"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "订单名称"
+                                  },
+                                  "exchange_rate": {
+                                    "type": "number",
+                                    "description": "订单币种兑换人民币汇率"
+                                  },
+                                  "currency": {
+                                    "type": "string",
+                                    "description": "订单币种"
+                                  },
+                                  "exchange_rate_usd": {
+                                    "type": "number",
+                                    "description": "订单币种兑换美元汇率"
+                                  },
+                                  "amount": {
+                                    "type": "number",
+                                    "description": "订单金额"
+                                  },
+                                  "service_fee_currency": {
+                                    "type": "string",
+                                    "description": "信保交易服务费币种"
+                                  },
+                                  "service_fee_amount": {
+                                    "type": "number",
+                                    "description": "信保交易服务费"
+                                  },
+                                  "service_fee_amount_rmb": {
+                                    "type": "number",
+                                    "description": "信保交易服务费(人民币)"
+                                  },
+                                  "service_fee_amount_usd": {
+                                    "type": "number",
+                                    "description": "信保交易服务费(美元)"
+                                  }
+                                },
+                                "description": "关联订单信息",
+                                "x-apifox-orders": [
+                                  "order_id",
+                                  "order_no",
+                                  "name",
+                                  "currency",
+                                  "exchange_rate",
+                                  "exchange_rate_usd",
+                                  "amount",
+                                  "service_fee_currency",
+                                  "service_fee_amount",
+                                  "service_fee_amount_rmb",
+                                  "service_fee_amount_usd"
+                                ]
+                              },
+                              "opportunity_info": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "opportunity_id": {
+                                      "type": "integer",
+                                      "description": "商机ID"
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "description": "商机名称"
+                                    },
+                                    "serial_id": {
+                                      "type": "string",
+                                      "description": "商机编号"
+                                    },
+                                    "currency": {
+                                      "type": "string",
+                                      "description": "币种"
+                                    },
+                                    "exchange_rate": {
+                                      "type": "number",
+                                      "description": "兑人民币汇率"
+                                    },
+                                    "exchange_rate_usd": {
+                                      "type": "number",
+                                      "description": "兑美元汇率"
+                                    },
+                                    "amount": {
+                                      "type": "number",
+                                      "description": "销售金额"
+                                    }
+                                  },
+                                  "x-apifox-orders": [
+                                    "opportunity_id",
+                                    "name",
+                                    "serial_id",
+                                    "currency",
+                                    "exchange_rate",
+                                    "exchange_rate_usd",
+                                    "amount"
+                                  ]
+                                },
+                                "description": "关联商机信息"
+                              },
+                              "create_user_info": {
+                                "type": "object",
+                                "properties": {
+                                  "user_id": {
+                                    "type": "string",
+                                    "description": "创建人ID"
+                                  },
+                                  "nickname": {
+                                    "type": "string",
+                                    "description": "创建人昵称"
+                                  },
+                                  "avatar": {
+                                    "type": "string",
+                                    "description": "创建人头像"
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "user_id",
+                                  "nickname",
+                                  "avatar"
+                                ]
+                              },
+                              "op_user_info": {
+                                "type": "object",
+                                "properties": {
+                                  "user_id": {
+                                    "type": "integer",
+                                    "description": "操作人ID"
+                                  },
+                                  "nickname": {
+                                    "type": "string",
+                                    "description": "操作人昵称"
+                                  },
+                                  "avatar": {
+                                    "type": "string",
+                                    "description": "操作人头像"
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "user_id",
+                                  "nickname",
+                                  "avatar"
+                                ]
+                              },
+                              "lock_flag": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "cash_collection_id",
+                              "create_time",
+                              "update_time",
+                              "order_id",
+                              "collection_date",
+                              "currency",
+                              "exchange_rate",
+                              "exchange_rate_usd",
+                              "finance_verify",
+                              "comment",
+                              "file_list",
+                              "department_id",
+                              "opportunity_id",
+                              "user_id",
+                              "client_id",
+                              "op_user_id",
+                              "type",
+                              "cash_collection_no",
+                              "amount",
+                              "amount_rmb",
+                              "amount_usd",
+                              "company_id",
+                              "create_user_id",
+                              "payee",
+                              "collect_status",
+                              "real_amount",
+                              "real_amount_rmb",
+                              "real_amount_usd",
+                              "bank_charge",
+                              "bank_charge_rmb",
+                              "bank_charge_usd",
+                              "trade_no",
+                              "external_field_data_info",
+                              "company_info",
+                              "user_info",
+                              "order_info",
+                              "opportunity_info",
+                              "create_user_info",
+                              "op_user_info",
+                              "lock_flag"
+                            ]
+                          }
+                        },
+                        "totalItem": {
+                          "type": "integer",
+                          "description": "列表总数"
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "totalItem"
+                      ],
+                      "x-apifox-orders": [
+                        "list",
+                        "totalItem"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2025-04-15 20:04:51",
+                  "data": {
+                    "list": [
+                      {
+                        "cash_collection_id": 5221565013,
+                        "constraint": "",
+                        "primary": "",
+                        "create_time": "2025-04-15 17:47:13",
+                        "update_time": "2025-04-15 17:47:13",
+                        "order_id": 0,
+                        "collection_date": "2025-04-16",
+                        "amount": "201.00",
+                        "currency": "CNY",
+                        "exchange_rate": "100.00000",
+                        "finance_verify": {
+                          "date": null,
+                          "name": null
+                        },
+                        "comment": "1",
+                        "file_list": [],
+                        "department_id": [],
+                        "opportunity_id": 0,
+                        "user_id": [],
+                        "client_id": 351383,
+                        "op_user_id": 249521383,
+                        "type": "T/T",
+                        "cash_collection_no": "HK202504150112",
+                        "amount_rmb": "201.00",
+                        "amount_usd": "27.59",
+                        "exchange_rate_usd": "13.72480",
+                        "company_id": 0,
+                        "create_user_id": 249521383,
+                        "payee": "阿红",
+                        "collect_status": 0,
+                        "real_amount": "200.00",
+                        "real_amount_rmb": "200.00",
+                        "real_amount_usd": "27.45",
+                        "bank_charge": "1.00",
+                        "bank_charge_rmb": "1.00",
+                        "bank_charge_usd": "0.14",
+                        "trade_no": "",
+                        "external_field_data_info": {
+                          "3564970299": "444",
+                          "3564970303": 3.5,
+                          "3574900796": [],
+                          "3581725246": [],
+                          "5208992912": "文本框",
+                          "5208993420": "",
+                          "5208993489": "",
+                          "5208993841": "",
+                          "5208993892": "",
+                          "5208994105": ""
+                        },
+                        "company_info": [],
+                        "user_info": [],
+                        "order_info": [],
+                        "opportunity_info": [],
+                        "create_user_info": {
+                          "user_id": "249521383",
+                          "nickname": "sky",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249520527/37a36aa206b71d6c7177f419e5e98a7f05830d2f9906c02d89f6166dc346c9d8.jpeg"
+                        },
+                        "op_user_info": {
+                          "user_id": "249521383",
+                          "nickname": "sky",
+                          "avatar": "https://v4client.oss-cn-hangzhou.aliyuncs.com/invoice-file/img/249520527/37a36aa206b71d6c7177f419e5e98a7f05830d2f9906c02d89f6166dc346c9d8.jpeg"
+                        },
+                        "lock_flag": "0"
+                      }
+                    ],
+                    "totalItem": 1
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "回款单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_receipt_list",
+        "x-local-source-path": "sources/pages/api-3478279.md",
+        "x-source-id": "api-3478279",
+        "x-source-title": "回款单列表",
+        "x-source-module": "回款单"
+      }
+    },
+    "/v1/invoices/receipt/fields": {
+      "get": {
+        "summary": "回款单字段",
+        "deprecated": false,
+        "description": "# 字段类型有哪些\n| field_type |  |\n| --- | --- |\n| 1 | 单行文本 |\n| 2 | 多行文本 |\n| 3 | 单选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |\n| 4 | 日期，YYYY-MM-DD |\n| 5 | 数字 |\n| 6 | 图片 |\n| 7 | 多选，在该字段选项枚举值在返回值中的ext_info里面，可用于单据新建、编辑该字段传值 |\n| 8 | 附件 |\n| 9 | 关联字段 |\n| 10 | 日期时间，YYYY-MM-DD HH:mm:ss |\n| 11 | 公式 |\n| 12 | 汇总 |\n| 13 | 布尔 |\n| 17 | 状态 |\n| 18 | 阶段 |\n| 21 | 时间范围 |\n| 22 | 富文本 |\n| 23 | 引用 |\n\n若发现没有的字段类型可以咨询对接群，或者提客户工单。\n",
+        "tags": [
+          "回款单"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "字段ID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "字段名称"
+                          },
+                          "base": {
+                            "type": "integer",
+                            "description": "是否系统字段，1=系统字段，0=自定义字段"
+                          },
+                          "field_type": {
+                            "type": "integer",
+                            "description": "字段类型"
+                          },
+                          "ext_info": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "选字段额外信息，比如选项等枚举值",
+                            "nullable": true
+                          },
+                          "require": {
+                            "type": "integer",
+                            "description": "是否必填，1=必填，0=非必填"
+                          },
+                          "default": {
+                            "type": "string",
+                            "description": "默认值"
+                          },
+                          "disable_flag": {
+                            "type": "integer"
+                          },
+                          "is_list": {
+                            "type": "integer",
+                            "description": "是否明细字段"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "base",
+                          "field_type",
+                          "ext_info",
+                          "require",
+                          "default",
+                          "disable_flag",
+                          "is_list"
+                        ],
+                        "x-apifox-orders": [
+                          "id",
+                          "name",
+                          "base",
+                          "field_type",
+                          "ext_info",
+                          "require",
+                          "default",
+                          "disable_flag",
+                          "is_list"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      }
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01JNQY60J4TDDWVJMKM1TME3X1"
+                  ],
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-refs": {
+                    "01JNQY60J4TDDWVJMKM1TME3X1": {
+                      "$ref": "#/components/schemas/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E5%93%8D%E5%BA%94"
+                    }
+                  },
+                  "x-apifox-ignore-properties": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "回款单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_receipt_fields",
+        "x-local-source-path": "sources/pages/api-3478276.md",
+        "x-source-id": "api-3478276",
+        "x-source-title": "回款单字段",
+        "x-source-module": "回款单"
+      }
+    },
+    "/v1/invoices/receipt/push": {
+      "post": {
+        "summary": "回款单新建/编辑",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "回款单"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "12345678": {
+                    "type": "string",
+                    "description": "自定义字段，若自定义单选字段，值来自/v1/invoices/order/fields中对应字段的ext_info中的一个或多个"
+                  },
+                  "order_id": {
+                    "description": "如果关联的是订单，则设置order_id,不要设置opportunity_id",
+                    "type": "integer"
+                  },
+                  "collection_date": {
+                    "description": "回款日期",
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "description": "回款金额(打款金额)"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "币种"
+                  },
+                  "exchange_rate": {
+                    "type": "number",
+                    "description": "当前币种换人民币汇率，不传取系统取系统设置的汇率，与exchange_rate_usd可以同时传，但必须有其中一个"
+                  },
+                  "finance_verify_date": {
+                    "description": "财务确认时间，可选字段(该字段废弃，请勿使用)",
+                    "type": "string"
+                  },
+                  "comment": {
+                    "description": "备注，可选字段",
+                    "type": "string"
+                  },
+                  "payee": {
+                    "description": "财务确认人，可选",
+                    "type": "string"
+                  },
+                  "collect_status": {
+                    "type": "integer",
+                    "description": "回款状态，值为 1 已生效，0 未生效，默认0"
+                  },
+                  "trade_no": {
+                    "type": "string",
+                    "description": "交易号/票据号"
+                  },
+                  "cash_collection_no": {
+                    "type": "string",
+                    "description": "回款单号"
+                  },
+                  "exchange_rate_usd": {
+                    "type": "number",
+                    "description": "当前币种换美元汇率，不传系统取系统配置的汇率，与exchange_rate可以同时传，但必须有其中一个"
+                  },
+                  "finance_verify_name": {
+                    "type": "string",
+                    "description": "财务确认人，可选字段(该字段废弃，请勿使用)"
+                  },
+                  "capital_account_id": {
+                    "type": "integer",
+                    "description": "资金账户，值传入资金账户ID，/v1/capitalAccount/list. capital_account_id"
+                  },
+                  "bank_charge": {
+                    "type": "number",
+                    "description": "回款手续费"
+                  },
+                  "file_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "回款单附件，传入可访问的文件url"
+                    }
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "x-apifox-orders": [
+                  "order_id",
+                  "collection_date",
+                  "amount",
+                  "currency",
+                  "exchange_rate",
+                  "exchange_rate_usd",
+                  "bank_charge",
+                  "finance_verify_name",
+                  "finance_verify_date",
+                  "comment",
+                  "payee",
+                  "collect_status",
+                  "trade_no",
+                  "cash_collection_no",
+                  "capital_account_id",
+                  "file_list",
+                  "12345678"
+                ]
+              },
+              "example": "{\n     \"order_id\":1100025081, // 如果关联的是订单，则设置order_id,不要设置opportunity_id\n     //\"opportunity_id\":3333333 // 如果关联是商机，则设置opportunity_id，不要设置order_id\n     \"collection_date\":\"2019-11-20\", // 回款日期\n     \"amount\":100,\"type\":\"L/C\", // /v1/invoices/receipt/types 接口返回的付款类型\n     \"currency\":\"CNY\", // 金额\n     \"exchange_rate\":15, // 汇率\n     \"finance_verify_name\" : \"李四\", // 财务确认人，可选字段\n     \"finance_verify_date\":\"2019-12-01\" // 财务确认时间，可选字段\n     \"comment\":\"这是18号货款\", // 备注，可选字段\n     \"payee\": \"张三\" // 收款人，可选字段\n     \"1101054282\":'已汇款' //自定义字段\n}"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "now": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "cash_collection_id": {
+                          "type": "integer",
+                          "title": "回款单ID"
+                        },
+                        "cash_collection_no": {
+                          "type": "string",
+                          "title": "回款单编号"
+                        }
+                      },
+                      "required": [
+                        "cash_collection_id",
+                        "cash_collection_no"
+                      ],
+                      "x-apifox-orders": [
+                        "cash_collection_id",
+                        "cash_collection_no"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 200,
+                  "message": "success",
+                  "now": "2024-05-20 18:01:15",
+                  "data": {
+                    "cash_collection_id": 3555544681,
+                    "cash_collection_no": "HKD2024052001568"
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "回款单",
+        "x-apifox-status": "released",
+        "operationId": "post_v1_invoices_receipt_push",
+        "x-local-source-path": "sources/pages/api-3478278.md",
+        "x-source-id": "api-3478278",
+        "x-source-title": "回款单新建/编辑",
+        "x-source-module": "回款单"
+      }
+    },
+    "/v1/invoices/receipt/info": {
+      "get": {
+        "summary": "回款单详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "回款单"
+        ],
+        "parameters": [
+          {
+            "name": "cash_collection_id",
+            "in": "query",
+            "description": "回款单ID",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "cash_collection_no",
+            "in": "query",
+            "description": "回款单编号，与回款单ID二选一",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "从/v1/oauth2/access_token获取到的access_token",
+            "required": true,
+            "example": "{{access_token}}",
+            "schema": {
+              "type": "string",
+              "default": "{{access_token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "错误码",
+                      "type": "integer",
+                      "x-apifox-mock": 200
+                    },
+                    "now": {
+                      "description": "当前时间",
+                      "type": "string",
+                      "x-apifox-mock": "2022-01-01 00:00:00"
+                    },
+                    "message": {
+                      "description": "错误信息",
+                      "type": "string",
+                      "x-apifox-mock": "success"
+                    },
+                    "data": {
+                      "description": "响应数据",
+                      "type": "object",
+                      "properties": {
+                        "3162362610": {
+                          "description": "回款单自定义字段。字段名为 /v1/invoices/receipt/fields 获取到的自定义字段ID",
+                          "type": "string",
+                          "x-apifox-mock": "test content"
+                        },
+                        "cash_collection_id": {
+                          "description": "回款单ID",
+                          "type": "integer",
+                          "x-apifox-mock": 3179534607
+                        },
+                        "cash_collection_no": {
+                          "description": "回款单编号",
+                          "type": "string",
+                          "x-apifox-mock": "HKD118"
+                        },
+                        "collect_status": {
+                          "description": "回款单状态：0-未生效, 1-已生效",
+                          "type": "integer",
+                          "x-apifox-mock": 1
+                        },
+                        "collection_date": {
+                          "description": "回款日期",
+                          "type": "string",
+                          "format": "date",
+                          "x-apifox-mock": "2023-01-12"
+                        },
+                        "type": {
+                          "description": "回款方式，枚举值可以参考/v1/invoices/receipt/types",
+                          "type": "integer",
+                          "x-apifox-mock": "Credit"
+                        },
+                        "create_type": {
+                          "description": "创建方式，1手动创建、2导入生成、3阿里巴巴同步、4ACP同步",
+                          "type": "integer",
+                          "x-apifox-mock": "1"
+                        },
+                        "trade_no": {
+                          "description": "交易号/票据号",
+                          "type": "string",
+                          "x-apifox-mock": "No.1001"
+                        },
+                        "payee": {
+                          "description": "财务确认人",
+                          "type": "string",
+                          "x-apifox-mock": "小王"
+                        },
+                        "finance_verify_date": {
+                          "description": "财务确认时间（废弃，请勿使用）",
+                          "type": "string",
+                          "format": "date-time",
+                          "x-apifox-mock": "2023-01-11 11:53:03"
+                        },
+                        "create_time": {
+                          "description": "创建时间",
+                          "type": "string",
+                          "format": "date-time",
+                          "x-apifox-mock": "2023-01-11 11:53:03"
+                        },
+                        "update_time": {
+                          "description": "更新时间",
+                          "type": "string",
+                          "format": "date-time",
+                          "x-apifox-mock": "2023-01-11 11:53:03"
+                        },
+                        "currency": {
+                          "description": "币种",
+                          "type": "integer",
+                          "x-apifox-mock": "USD"
+                        },
+                        "comment": {
+                          "description": "备注",
+                          "type": "string",
+                          "x-apifox-mock": "Invoice remark"
+                        },
+                        "exchange_rate": {
+                          "description": "汇率（兑人民币CNY）",
+                          "type": "number",
+                          "x-apifox-mock": 676.72
+                        },
+                        "exchange_rate_usd": {
+                          "description": "汇率（兑美元USD）",
+                          "type": "number",
+                          "x-apifox-mock": 100
+                        },
+                        "amount": {
+                          "description": "回款金额（打款金额）",
+                          "type": "number",
+                          "x-apifox-mock": 21
+                        },
+                        "amount_rmb": {
+                          "description": "回款金额（打款金额）（人民币）",
+                          "type": "number",
+                          "x-apifox-mock": 142.11
+                        },
+                        "amount_usd": {
+                          "description": "回款金额（打款金额）（美元）",
+                          "type": "number",
+                          "x-apifox-mock": 21
+                        },
+                        "real_amount": {
+                          "description": "实到账金额（单据币种）",
+                          "type": "number",
+                          "x-apifox-mock": 1447.68
+                        },
+                        "real_amount_rmb": {
+                          "description": "实到账金额（人民币）",
+                          "type": "number",
+                          "x-apifox-mock": 135.34
+                        },
+                        "real_amount_usd": {
+                          "description": "实到账金额（美元）",
+                          "type": "number",
+                          "x-apifox-mock": 20
+                        },
+                        "bank_charge": {
+                          "description": "回款手续费（单据币种）",
+                          "type": "number",
+                          "x-apifox-mock": 1
+                        },
+                        "bank_charge_rmb": {
+                          "description": "回款手续费（CNY）",
+                          "type": "number",
+                          "x-apifox-mock": 6.77
+                        },
+                        "bank_charge_usd": {
+                          "description": "回款手续费（USD）",
+                          "type": "number",
+                          "x-apifox-mock": 1
+                        },
+                        "order_id": {
+                          "description": "关联销售订单ID",
+                          "type": "integer",
+                          "x-apifox-mock": 3400548662
+                        },
+                        "order_info": {
+                          "description": "销售订单信息",
+                          "type": "object",
+                          "properties": {
+                            "order_id": {
+                              "description": "销售订单ID",
+                              "type": "integer",
+                              "x-apifox-mock": 3179534246
+                            },
+                            "name": {
+                              "description": "销售订单名称",
+                              "type": "string",
+                              "x-apifox-mock": "xxx公司订单"
+                            },
+                            "order_no": {
+                              "description": "销售订单编号",
+                              "type": "string",
+                              "x-apifox-mock": "Order20240101-01"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "order_id",
+                            "name",
+                            "order_no"
+                          ]
+                        },
+                        "company_id": {
+                          "description": "关联客户ID",
+                          "type": "integer",
+                          "x-apifox-mock": 3400548662
+                        },
+                        "company_info": {
+                          "description": "关联客户信息",
+                          "type": "object",
+                          "properties": {
+                            "company_id": {
+                              "description": "关联客户ID",
+                              "type": "integer",
+                              "x-apifox-mock": 3179534246
+                            },
+                            "name": {
+                              "description": "关联客户名称",
+                              "type": "string",
+                              "x-apifox-mock": "测试公司7ef63e03-6"
+                            },
+                            "is_archive": {
+                              "description": "是否删除：1-是，0-否",
+                              "type": "integer",
+                              "x-apifox-mock": 1
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "company_id",
+                            "name",
+                            "is_archive"
+                          ]
+                        },
+                        "cash_collection_invoice_info": {
+                          "description": "回款登记信息",
+                          "type": "object",
+                          "properties": {
+                            "cash_collection_invoice_no": {
+                              "description": "回款登记编号",
+                              "type": "string",
+                              "x-apifox-mock": "HK1123456"
+                            },
+                            "currency": {
+                              "description": "回款登记币种",
+                              "type": "string",
+                              "x-apifox-mock": "CNY"
+                            },
+                            "exchange_rate": {
+                              "description": "回款登记兑换人民币汇率",
+                              "type": "number",
+                              "x-apifox-mock": 100
+                            },
+                            "exchange_rate_usd": {
+                              "description": "回款登记兑换美元汇率",
+                              "type": "number",
+                              "x-apifox-mock": 100
+                            },
+                            "allocated_amount": {
+                              "description": "分配登记金额",
+                              "type": "number",
+                              "x-apifox-mock": 10
+                            },
+                            "allocated_bank_charge": {
+                              "description": "分配登记手续费",
+                              "type": "number",
+                              "x-apifox-mock": 0.18
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "cash_collection_invoice_no",
+                            "currency",
+                            "exchange_rate",
+                            "exchange_rate_usd",
+                            "allocated_amount",
+                            "allocated_bank_charge"
+                          ]
+                        },
+                        "opportunity_id": {
+                          "description": "关联商机ID",
+                          "type": "integer",
+                          "x-apifox-mock": 3400548662
+                        },
+                        "capital_account_id": {
+                          "description": "资金账户ID",
+                          "type": "integer",
+                          "x-apifox-mock": 3400548662
+                        },
+                        "capital_account_info": {
+                          "description": "资金账户信息",
+                          "type": "object",
+                          "properties": {
+                            "capital_account_id": {
+                              "description": "资金账户ID",
+                              "type": "integer",
+                              "x-apifox-mock": 3115125003
+                            },
+                            "capital_account_name": {
+                              "description": "资金账户名称",
+                              "type": "string",
+                              "x-apifox-mock": "资金账号551eb564-469b-46"
+                            },
+                            "capital_name": {
+                              "description": "开户名",
+                              "type": "string",
+                              "x-apifox-mock": "开户名1673433018804"
+                            },
+                            "capital_bank": {
+                              "description": "开户行",
+                              "type": "string",
+                              "x-apifox-mock": "开户行1673433018804"
+                            },
+                            "bank_account": {
+                              "description": "银行账号",
+                              "type": "string",
+                              "x-apifox-mock": "银行账号1673433018804"
+                            },
+                            "capital_account_address": {
+                              "description": "开户行地址",
+                              "type": "string",
+                              "x-apifox-mock": "开户行地址1673433018804"
+                            },
+                            "capital_account_remark": {
+                              "description": "更多信息",
+                              "type": "string",
+                              "x-apifox-mock": "更多信息"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "capital_account_id",
+                            "capital_account_name",
+                            "capital_name",
+                            "capital_bank",
+                            "bank_account",
+                            "capital_account_address",
+                            "capital_account_remark"
+                          ]
+                        },
+                        "user_id": {
+                          "description": "负责人ID(业绩归属人)",
+                          "type": "array",
+                          "x-apifox-mock": [
+                            3267567129
+                          ],
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "": {
+                                "description": "用户ID",
+                                "type": "integer",
+                                "x-apifox-mock": 249518496
+                              }
+                            },
+                            "x-apifox-orders": [
+                              ""
+                            ]
+                          }
+                        },
+                        "department_id": {
+                          "description": "归属部门ID",
+                          "type": "array",
+                          "x-apifox-mock": [
+                            3267567129
+                          ],
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "": {
+                                "description": "部门ID",
+                                "type": "integer",
+                                "x-apifox-mock": 249518496
+                              }
+                            },
+                            "x-apifox-orders": [
+                              ""
+                            ]
+                          }
+                        },
+                        "users": {
+                          "description": "业绩归属人",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "user_id": {
+                                "description": "业绩归属人ID",
+                                "type": "integer",
+                                "x-apifox-mock": 3179534246
+                              },
+                              "nickname": {
+                                "description": "业绩归属人名称",
+                                "type": "string",
+                                "x-apifox-mock": "张三"
+                              },
+                              "rate": {
+                                "description": "业绩比例",
+                                "type": "integer",
+                                "x-apifox-mock": 100
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "user_id",
+                              "nickname",
+                              "rate"
+                            ]
+                          }
+                        },
+                        "departments": {
+                          "description": "业绩归属部门",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "department_id": {
+                                "description": "部门ID",
+                                "type": "integer",
+                                "x-apifox-mock": 3179534246
+                              },
+                              "name": {
+                                "description": "部门名称",
+                                "type": "string",
+                                "x-apifox-mock": "财务部"
+                              },
+                              "rate": {
+                                "description": "业绩比例",
+                                "type": "integer",
+                                "x-apifox-mock": 100
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "department_id",
+                              "name",
+                              "rate"
+                            ]
+                          }
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "cash_collection_id",
+                        "cash_collection_no",
+                        "collect_status",
+                        "collection_date",
+                        "type",
+                        "create_type",
+                        "trade_no",
+                        "payee",
+                        "finance_verify_date",
+                        "create_time",
+                        "update_time",
+                        "currency",
+                        "comment",
+                        "exchange_rate",
+                        "exchange_rate_usd",
+                        "amount",
+                        "amount_rmb",
+                        "amount_usd",
+                        "real_amount",
+                        "real_amount_rmb",
+                        "real_amount_usd",
+                        "bank_charge",
+                        "bank_charge_rmb",
+                        "bank_charge_usd",
+                        "order_id",
+                        "order_info",
+                        "company_id",
+                        "company_info",
+                        "cash_collection_invoice_info",
+                        "opportunity_id",
+                        "capital_account_id",
+                        "capital_account_info",
+                        "user_id",
+                        "department_id",
+                        "users",
+                        "departments",
+                        "3162362610"
+                      ]
+                    },
+                    "enable_flag": {
+                      "type": "integer",
+                      "description": "是否已经删除，1为未删除，0为已删除, 3为草稿态，不可用"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "now",
+                    "message",
+                    "data",
+                    "enable_flag"
+                  ]
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "回款单",
+        "x-apifox-status": "released",
+        "operationId": "get_v1_invoices_receipt_info",
+        "x-local-source-path": "sources/pages/api-3478277.md",
+        "x-source-id": "api-3478277",
+        "x-source-title": "回款单详情",
+        "x-source-module": "回款单"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "新增客户联系人": {
+        "type": "object",
+        "properties": {
+          "company_id": {
+            "type": "integer",
+            "x-apifox-mock": "1",
+            "description": "客户ID"
+          },
+          "serial_id": {
+            "type": "string",
+            "description": "客户编号",
+            "x-apifox-mock": "1"
+          },
+          "name": {
+            "type": "string",
+            "description": "联系人名称"
+          },
+          "tel_area_code": {
+            "type": "string",
+            "description": "联系人电话区号"
+          },
+          "tel": {
+            "type": "string",
+            "description": "联系人电话号码"
+          }
+        },
+        "x-apifox-orders": [
+          "company_id",
+          "serial_id",
+          "name",
+          "tel_area_code",
+          "tel"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "数据字典响应": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "now": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "字段ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "字段名称"
+                },
+                "base": {
+                  "type": "integer",
+                  "description": "是否系统字段，1=系统字段，0=自定义字段"
+                },
+                "field_type": {
+                  "type": "integer",
+                  "description": "字段类型"
+                },
+                "ext_info": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "选字段额外信息，比如选项等枚举值",
+                  "nullable": true
+                },
+                "require": {
+                  "type": "integer",
+                  "description": "是否必填，1=必填，0=非必填"
+                },
+                "default": {
+                  "type": "string",
+                  "description": "默认值"
+                },
+                "disable_flag": {
+                  "type": "integer"
+                },
+                "is_list": {
+                  "type": "integer",
+                  "description": "是否明细字段"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-orders": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-ignore-properties": []
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-orders": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header parameter."
+      }
+    }
+  },
+  "x-generated-at": "2026-05-09T04:02:32+00:00",
+  "x-source": {
+    "catalog": "sources/catalog.json",
+    "snapshot": "sources/pages"
+  }
+}

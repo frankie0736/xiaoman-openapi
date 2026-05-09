@@ -1,0 +1,589 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Xiaoman OpenAPI - 示例接口（勿用） (unofficial)",
+    "version": "2026-05-09",
+    "description": "Unofficial module spec generated from public Xiaoman Open API documentation: 示例接口（勿用）."
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.xiaoman.cn",
+      "description": "official documented server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "示例接口（勿用）",
+      "x-module-slug": "example-do-not-use"
+    }
+  ],
+  "paths": {
+    "/api": {
+      "post": {
+        "summary": "例子列表",
+        "deprecated": false,
+        "description": "## 错误码解释\n| 异常码 | 异常消息 |异常解决方案|\n| --- | --- | --- |\n| 2000 | 未知异常 | 请联系对接群，并提供相关请求参数与请求时间 |\n\n\n\n",
+        "tags": [
+          "示例接口（勿用）"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "query",
+            "description": "版本",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "method",
+            "in": "query",
+            "description": "请求的接口",
+            "required": true,
+            "example": "xiaoman.crm.order.create",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sign",
+            "in": "query",
+            "description": "参数签名",
+            "required": true,
+            "example": "xxx",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "query",
+            "description": "请求时间戳",
+            "required": true,
+            "example": 1234567891,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "description": "应该ID",
+            "required": true,
+            "example": "xxx1wwew",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "带入有效的access_token",
+            "required": true,
+            "example": "xxxx",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "page": {
+                    "type": "integer",
+                    "examples": [
+                      1
+                    ],
+                    "title": "页码",
+                    "description": "页码，默认1"
+                  },
+                  "page_size": {
+                    "type": "integer",
+                    "title": "每页数量",
+                    "description": "每页数量，默认10"
+                  },
+                  "status": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "examples": [
+                        1
+                      ]
+                    },
+                    "title": "状态",
+                    "description": "查询的状态，枚举中可以从/example/fields接口传入type=status，使用返回值中的id"
+                  }
+                },
+                "x-apifox-orders": [
+                  "page",
+                  "page_size",
+                  "status"
+                ]
+              },
+              "example": {
+                "page": 1,
+                "page_size": 20
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "examples": [
+                        200
+                      ],
+                      "title": "返回码",
+                      "description": "成功200，其他为异常吗"
+                    },
+                    "message": {
+                      "type": "string",
+                      "default": "2024-07-31 09:30:56",
+                      "title": "文本消息",
+                      "description": "文本消息"
+                    },
+                    "now": {
+                      "type": "string",
+                      "title": "响应时间",
+                      "description": "响应时间"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "example_id": {
+                            "type": "integer",
+                            "title": "例子ID",
+                            "description": "与web字段名称保存一致，例子唯一ID"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "example_id"
+                        ],
+                        "required": [
+                          "example_id"
+                        ]
+                      },
+                      "title": "响应数据",
+                      "description": "响应数据"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "",
+                      "data": [
+                        {
+                          "example_id": 1
+                        }
+                      ],
+                      "now": "2025-03-26 14:12:12"
+                    }
+                  },
+                  "2": {
+                    "summary": "异常示例",
+                    "value": {
+                      "code": 200001,
+                      "message": "Ut Duis et",
+                      "now": "irure dolor adipisicing",
+                      "data": {}
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "示例接口（勿用）",
+        "x-apifox-status": "developing",
+        "operationId": "post_api",
+        "x-local-source-path": "sources/pages/api-3486416.md",
+        "x-source-id": "api-3486416",
+        "x-source-title": "例子列表",
+        "x-source-module": "示例接口（勿用）"
+      }
+    },
+    "/api1": {
+      "post": {
+        "summary": "例子枚举值查询",
+        "deprecated": false,
+        "description": "## 参数说明\n\n| 参数名称 | 参数值 | 参数值说明 |\n| --- | --- |---|\n| type | status| 返回订单状态枚举 |\n| type | currency| 返回订单币种枚举 |\n\n## 错误码解释\n| 异常码 | 异常消息 |异常解决方案|\n| --- | --- | --- |\n| 2000 | 未知异常 | 请联系对接群，并提供相关请求参数与请求时间 |",
+        "tags": [
+          "示例接口（勿用）"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "query",
+            "description": "版本",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "method",
+            "in": "query",
+            "description": "请求的接口",
+            "required": true,
+            "example": "xiaoman.crm.order.fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sign",
+            "in": "query",
+            "description": "参数签名",
+            "required": true,
+            "example": "xxx",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "query",
+            "description": "请求时间戳",
+            "required": true,
+            "example": 1234567891,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "description": "应该ID",
+            "required": true,
+            "example": "xxx1wwew",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "带入有效的access_token",
+            "required": true,
+            "example": "xxxx",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "title": "查询的枚举值"
+                  }
+                },
+                "x-apifox-orders": [
+                  "type"
+                ]
+              },
+              "example": {
+                "type": "status"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "examples": [
+                        200
+                      ],
+                      "title": "返回码",
+                      "description": "成功200，其他为异常吗"
+                    },
+                    "message": {
+                      "type": "string",
+                      "default": "2024-07-31 09:30:56",
+                      "title": "文本消息",
+                      "description": "文本消息"
+                    },
+                    "now": {
+                      "type": "string",
+                      "title": "响应时间",
+                      "description": "响应时间"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "title": "状态ID",
+                            "description": "可以用于单据新建编辑查询等传入"
+                          },
+                          "name": {
+                            "type": "string",
+                            "title": "状态名称",
+                            "description": "中文名称"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "id",
+                          "name"
+                        ],
+                        "required": [
+                          "id",
+                          "name"
+                        ]
+                      },
+                      "title": "响应数据",
+                      "description": "响应数据"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ],
+                  "required": [
+                    "code",
+                    "message",
+                    "now",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "",
+                      "data": [
+                        {
+                          "id": 1,
+                          "name": "草稿"
+                        }
+                      ],
+                      "now": "2025-03-26 14:12:12"
+                    }
+                  },
+                  "2": {
+                    "summary": "异常示例",
+                    "value": {
+                      "code": 200001,
+                      "message": "Ut Duis et",
+                      "now": "irure dolor adipisicing",
+                      "data": {}
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {},
+            "x-apifox-name": "成功"
+          }
+        },
+        "security": [],
+        "x-apifox-folder": "示例接口（勿用）",
+        "x-apifox-status": "developing",
+        "operationId": "post_api1",
+        "x-local-source-path": "sources/pages/api-3486417.md",
+        "x-source-id": "api-3486417",
+        "x-source-title": "例子枚举值查询",
+        "x-source-module": "示例接口（勿用）"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "新增客户联系人": {
+        "type": "object",
+        "properties": {
+          "company_id": {
+            "type": "integer",
+            "x-apifox-mock": "1",
+            "description": "客户ID"
+          },
+          "serial_id": {
+            "type": "string",
+            "description": "客户编号",
+            "x-apifox-mock": "1"
+          },
+          "name": {
+            "type": "string",
+            "description": "联系人名称"
+          },
+          "tel_area_code": {
+            "type": "string",
+            "description": "联系人电话区号"
+          },
+          "tel": {
+            "type": "string",
+            "description": "联系人电话号码"
+          }
+        },
+        "x-apifox-orders": [
+          "company_id",
+          "serial_id",
+          "name",
+          "tel_area_code",
+          "tel"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "数据字典响应": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "now": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "字段ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "字段名称"
+                },
+                "base": {
+                  "type": "integer",
+                  "description": "是否系统字段，1=系统字段，0=自定义字段"
+                },
+                "field_type": {
+                  "type": "integer",
+                  "description": "字段类型"
+                },
+                "ext_info": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "选字段额外信息，比如选项等枚举值",
+                  "nullable": true
+                },
+                "require": {
+                  "type": "integer",
+                  "description": "是否必填，1=必填，0=非必填"
+                },
+                "default": {
+                  "type": "string",
+                  "description": "默认值"
+                },
+                "disable_flag": {
+                  "type": "integer"
+                },
+                "is_list": {
+                  "type": "integer",
+                  "description": "是否明细字段"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-orders": [
+                "id",
+                "name",
+                "base",
+                "field_type",
+                "ext_info",
+                "require",
+                "default",
+                "disable_flag",
+                "is_list"
+              ],
+              "x-apifox-ignore-properties": []
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-orders": [
+          "code",
+          "message",
+          "now",
+          "data"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Token returned by POST /v1/oauth2/access_token. Official docs usually expose it as an Authorization header parameter."
+      }
+    }
+  },
+  "x-generated-at": "2026-05-09T04:02:32+00:00",
+  "x-source": {
+    "catalog": "sources/catalog.json",
+    "snapshot": "sources/pages"
+  }
+}
